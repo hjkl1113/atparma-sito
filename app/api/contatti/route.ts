@@ -31,7 +31,7 @@ export async function POST(request: Request) {
         "api-key": apiKey,
       },
       body: JSON.stringify({
-        sender: { name: "Sito ATParma", email: "segreteria@atparma.com" },
+        sender: { name: "A.T. Consulting Parma", email: "segreteria@atparma.com" },
         to: [{ email: emailTo, name: "A.T. Consulting Parma" }],
         replyTo: { email, name: nome },
         subject: `Nuova richiesta: ${servizio} — ${nome}`,
