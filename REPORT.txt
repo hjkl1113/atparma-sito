@@ -1,0 +1,75 @@
+============================================================
+  SITO WEB A.T. CONSULTING PARMA - REPORT PROGETTO
+  Ultimo aggiornamento: 2026-04-04 23:45
+  Versione: 0.1
+============================================================
+
+PANORAMICA
+----------
+Sito pubblico professionale per lo studio A.T. Consulting
+Parma S.R.L.S. Sostituisce il vecchio WordPress/WooCommerce.
+Design top-tier per professionisti italiani.
+
+Dominio target: www.atparma.com
+Repository: https://github.com/hjkl1113/atparma-sito
+Cartella: /Users/alessandrosicuri/Desktop/studio at/sito/
+
+STACK TECNOLOGICO
+-----------------
+- Framework:    Next.js 16 + TypeScript
+- UI:           Tailwind CSS v4 + shadcn/ui
+- Design:       Pencil (.pen files)
+- Pagamenti:    Stripe
+- Hosting:      Vercel
+
+COLLEGAMENTO CON PORTALE CLIENTI
+--------------------------------
+- Portale: https://at-parma.vercel.app
+- Repo:    https://github.com/hjkl1113/studio-atparma
+- Flusso:  Stripe checkout > webhook > crea account portale > email
+
+DATI STUDIO
+------------
+- A.T. Consulting Parma S.R.L.S.
+- P.IVA / CF: 02794450342
+- Borgo Riccio da Parma 5, 43121 Parma (PR)
+- PEC: atconsultingparma@pec.it
+- Email: segreteria@atparma.com
+- Tel: 0521 247721
+
+STATO AVANZAMENTO
+-----------------
+
+FASE 0 - SETUP
+[X] 0.1  Init Next.js + TypeScript + Tailwind
+[X] 0.2  Repository GitHub
+[X] 0.3  CLAUDE.md + REPORT
+[ ] 0.4  Deploy Vercel
+[ ] 0.5  Design con Pencil
+
+FASE 1 - SITO PUBBLICO
+[ ] 1.1  Landing page (hero, servizi, team, contatti)
+[ ] 1.2  Pagina servizi dettaglio
+[ ] 1.3  Form richiesta preventivo/consulenza
+[ ] 1.4  Link "Area Clienti" > portale
+[ ] 1.5  SEO + meta tags + sitemap
+
+FASE 2 - PAGAMENTI STRIPE
+[ ] 2.1  Integrazione Stripe checkout
+[ ] 2.2  Webhook Stripe > crea account portale
+[ ] 2.3  Pagina conferma ordine
+
+FASE 3 - BLOG/NEWS (opzionale)
+[ ] 3.1  Sistema articoli/news fiscali
+
+PROSSIMI PASSI
+--------------
+1. Design con Pencil (layout, colori, tipografia)
+2. Sviluppo landing page
+3. Deploy su Vercel
+4. Integrazione Stripe
+5. Switchover dominio da WordPress a Vercel
+
+============================================================
+  Repository: https://github.com/hjkl1113/atparma-sito
+============================================================
