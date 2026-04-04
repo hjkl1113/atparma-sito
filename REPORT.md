@@ -1,7 +1,7 @@
 # Sito Web A.T. Consulting Parma — Report Progetto
 
-**Ultimo aggiornamento:** 2026-04-04 16:27
-**Versione:** 0.2
+**Ultimo aggiornamento:** 2026-04-04 20:00
+**Versione:** 0.3
 
 ---
 
@@ -12,7 +12,8 @@
 | Sito target | www.atparma.com |
 | Hosting | Vercel (da configurare) |
 | Repository | https://github.com/hjkl1113/atparma-sito |
-| Cartella locale | /Users/alessandrosicuri/Desktop/studio at/sito/ |
+| Cartella locale (Mac) | /Users/alessandrosicuri/Desktop/studio at/sito/ |
+| Cartella locale (Win) | C:\Users\hp\projects\atparma-sito\ |
 
 ---
 
@@ -86,11 +87,11 @@
 ### Fase 1 — Sito Pubblico
 | Step | Descrizione | Stato |
 |---|---|---|
-| 1.1 | Sviluppo landing page da design v2 | DA FARE |
+| 1.1 | Sviluppo landing page da design v2 | COMPLETATO |
 | 1.2 | Pagina servizi dettaglio | DA FARE |
 | 1.3 | Form richiesta preventivo/consulenza | DA FARE |
-| 1.4 | Link "Area Clienti" > portale | DA FARE |
-| 1.5 | SEO + meta tags + sitemap | DA FARE |
+| 1.4 | Link "Area Clienti" > portale | COMPLETATO |
+| 1.5 | SEO + meta tags + sitemap | PARZIALE (meta ok, sitemap da fare) |
 | 1.6 | Blog / sistema articoli fiscali | DA FARE |
 
 ### Fase 2 — Pagamenti Stripe
@@ -111,8 +112,8 @@
 
 ## Prossimi Passi
 
-1. Sviluppo landing page da design Pencil v2
-2. Deploy su Vercel
+1. Deploy su Vercel
+2. Form richiesta preventivo/consulenza
 3. Integrazione Stripe con pricing dinamico
 4. Pannello admin per gestione prezzi
 5. Blog con articoli fiscali
