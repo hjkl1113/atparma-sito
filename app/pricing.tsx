@@ -1,35 +1,130 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const prezzi = [
   {
     id: "730",
     title: "Dichiarazione 730",
     price: "79",
+    priceNum: 79,
     desc: "Compilazione e invio della dichiarazione dei redditi modello 730.",
-    cta: "Acquista online",
   },
   {
     id: "piva",
     title: "Apertura Partita IVA",
     price: "149",
+    priceNum: 149,
     desc: "Apertura e configurazione della Partita IVA per la tua attivita.",
-    cta: "Acquista online",
   },
   {
     id: "consulenza",
     title: "Consulenza su misura",
     price: null,
+    priceNum: 0,
     desc: "Analisi personalizzata e piano d'azione per la tua situazione specifica.",
-    cta: "Richiedi preventivo",
   },
 ];
+
+function PayPalButton({ servizio, price }: { servizio: string; price: number }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "success" | "error">("idle");
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const existing = document.querySelector('script[src*="paypal.com/sdk"]');
+    if (existing) {
+      renderButton();
+      return;
+    }
+
+    setStatus("loading");
+    const script = document.createElement("script");
+    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "sb";
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=EUR&intent=capture`;
+    script.setAttribute("data-namespace", "paypal_sdk");
+    script.onload = () => renderButton();
+    script.onerror = () => setStatus("error");
+    document.head.appendChild(script);
+
+    function renderButton() {
+      if (!containerRef.current) return;
+      containerRef.current.innerHTML = "";
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const paypal = (window as any).paypal_sdk || (window as any).paypal;
+      if (!paypal) {
+        setStatus("error");
+        return;
+      }
+
+      paypal.Buttons({
+        style: {
+          layout: "horizontal",
+          color: "gold",
+          shape: "rect",
+          label: "pay",
+          height: 40,
+          tagline: false,
+        },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        createOrder: (_data: any, actions: any) => {
+          return actions.order.create({
+            purchase_units: [{
+              description: servizio,
+              amount: { value: price.toFixed(2), currency_code: "EUR" },
+            }],
+          });
+        },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onApprove: async (_data: any, actions: any) => {
+          await actions.order.capture();
+          setStatus("success");
+          // Notifica via email
+          fetch("/api/contatti", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              nome: "Pagamento PayPal",
+              email: "noreply@paypal.com",
+              servizio: servizio,
+              messaggio: `Nuovo pagamento PayPal ricevuto per ${servizio} — EUR ${price}. Verificare su PayPal.`,
+            }),
+          });
+        },
+        onError: () => setStatus("error"),
+      }).render(containerRef.current);
+
+      setStatus("ready");
+    }
+  }, [servizio, price]);
+
+  if (status === "success") {
+    return (
+      <div className="text-center py-3 text-green-600 font-medium text-sm">
+        Pagamento completato!
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div ref={containerRef} className="min-h-[40px]" />
+      {status === "loading" && (
+        <p className="text-xs text-zinc-400 text-center mt-1">Caricamento PayPal...</p>
+      )}
+      {status === "error" && (
+        <p className="text-xs text-red-500 text-center mt-1">Errore PayPal. Ricarica la pagina.</p>
+      )}
+    </div>
+  );
+}
 
 export function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
 
-  async function handleCheckout(servizioId: string) {
+  async function handleStripeCheckout(servizioId: string) {
     setLoading(servizioId);
     try {
       const res = await fetch("/api/checkout", {
@@ -81,19 +176,22 @@ export function Pricing() {
                 )}
               </div>
               {p.price ? (
-                <button
-                  onClick={() => handleCheckout(p.id)}
-                  disabled={loading === p.id}
-                  className="block w-full text-center py-3 rounded-lg font-medium text-sm transition-colors bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loading === p.id ? "Caricamento..." : p.cta}
-                </button>
+                <div className="space-y-3">
+                  <PayPalButton servizio={p.title} price={p.priceNum} />
+                  <button
+                    onClick={() => handleStripeCheckout(p.id)}
+                    disabled={loading === p.id}
+                    className="block w-full text-center py-3 rounded-lg font-medium text-sm transition-colors border border-zinc-200 text-zinc-700 hover:bg-zinc-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading === p.id ? "Caricamento..." : "Paga con carta"}
+                  </button>
+                </div>
               ) : (
                 <a
                   href="/contatti"
                   className="block text-center py-3 rounded-lg font-medium text-sm transition-colors bg-zinc-900 text-white hover:bg-zinc-800"
                 >
-                  {p.cta}
+                  Richiedi preventivo
                 </a>
               )}
             </div>
