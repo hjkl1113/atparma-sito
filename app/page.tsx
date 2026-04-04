@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Pricing } from "./pricing";
 
 function Header() {
   return (
@@ -224,77 +225,7 @@ function Servizi() {
   );
 }
 
-const prezzi = [
-  {
-    title: "Dichiarazione 730",
-    price: "79",
-    desc: "Compilazione e invio della dichiarazione dei redditi modello 730.",
-    cta: "Acquista online",
-  },
-  {
-    title: "Apertura Partita IVA",
-    price: "149",
-    desc: "Apertura e configurazione della Partita IVA per la tua attivita.",
-    cta: "Acquista online",
-  },
-  {
-    title: "Consulenza su misura",
-    price: null,
-    desc: "Analisi personalizzata e piano d'azione per la tua situazione specifica.",
-    cta: "Richiedi preventivo",
-  },
-];
-
-function Pricing() {
-  return (
-    <section className="py-24 bg-[var(--color-surface)]">
-      <div className="max-w-6xl mx-auto px-6">
-        <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3 text-center">
-          Servizi online
-        </p>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-16 font-[family-name:var(--font-heading)]">
-          Inizia subito
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {prezzi.map((p) => (
-            <div
-              key={p.title}
-              className="bg-white rounded-2xl p-8 border border-zinc-100 flex flex-col"
-            >
-              <h3 className="text-lg font-semibold mb-2 font-[family-name:var(--font-heading)]">
-                {p.title}
-              </h3>
-              <p className="text-zinc-600 text-sm mb-6 leading-relaxed flex-1">
-                {p.desc}
-              </p>
-              <div className="mb-6">
-                {p.price ? (
-                  <span className="text-3xl font-bold font-[family-name:var(--font-heading)]">
-                    &euro;{p.price}
-                  </span>
-                ) : (
-                  <span className="text-lg font-medium text-zinc-500">
-                    A preventivo
-                  </span>
-                )}
-              </div>
-              <a
-                href={p.price ? "#" : "#contatti"}
-                className={`block text-center py-3 rounded-lg font-medium text-sm transition-colors ${
-                  p.price
-                    ? "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]"
-                    : "bg-zinc-900 text-white hover:bg-zinc-800"
-                }`}
-              >
-                {p.cta}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// Pricing component imported from ./pricing.tsx (client component for Stripe checkout)
 
 function ChiSiamo() {
   return (
