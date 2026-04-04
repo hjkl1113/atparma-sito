@@ -1,7 +1,7 @@
 # Sito Web A.T. Consulting Parma — Report Progetto
 
-**Ultimo aggiornamento:** 2026-04-04 20:00
-**Versione:** 0.3
+**Ultimo aggiornamento:** 2026-04-05 01:00
+**Versione:** 0.4
 
 ---
 
@@ -82,14 +82,14 @@
 | 0.4 | Contenuti approvati (contenuti.md) | COMPLETATO |
 | 0.5 | Design homepage v1 (Monumental Editorial) | SCARTATO |
 | 0.6 | Design homepage v2 (Aerial Gravitas) | COMPLETATO |
-| 0.7 | Deploy Vercel | DA FARE |
+| 0.7 | Deploy Vercel | COMPLETATO (atparma-sito.vercel.app) |
 
 ### Fase 1 — Sito Pubblico
 | Step | Descrizione | Stato |
 |---|---|---|
 | 1.1 | Sviluppo landing page da design v2 | COMPLETATO |
 | 1.2 | Pagina servizi dettaglio | DA FARE |
-| 1.3 | Form richiesta preventivo/consulenza | DA FARE |
+| 1.3 | Form richiesta preventivo/consulenza | COMPLETATO (Brevo email) |
 | 1.4 | Link "Area Clienti" > portale | COMPLETATO |
 | 1.5 | SEO + meta tags + sitemap | PARZIALE (meta ok, sitemap da fare) |
 | 1.6 | Blog / sistema articoli fiscali | DA FARE |
@@ -97,9 +97,9 @@
 ### Fase 2 — Pagamenti Stripe
 | Step | Descrizione | Stato |
 |---|---|---|
-| 2.1 | Integrazione Stripe checkout | DA FARE |
+| 2.1 | Integrazione Stripe checkout | COMPLETATO (manca STRIPE_SECRET_KEY) |
 | 2.2 | Webhook Stripe > crea account portale | DA FARE |
-| 2.3 | Pagina conferma ordine | DA FARE |
+| 2.3 | Pagina conferma ordine + annullamento | COMPLETATO |
 | 2.4 | Pannello gestione prezzi (admin) | DA FARE |
 
 ### Fase 3 — Go-Live
@@ -112,8 +112,8 @@
 
 ## Prossimi Passi
 
-1. Deploy su Vercel
-2. Form richiesta preventivo/consulenza
+1. Aggiungere STRIPE_SECRET_KEY su Vercel
+2. Webhook Stripe > crea account portale
 3. Integrazione Stripe con pricing dinamico
 4. Pannello admin per gestione prezzi
 5. Blog con articoli fiscali
