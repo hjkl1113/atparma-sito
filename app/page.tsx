@@ -19,7 +19,7 @@ function Header() {
           <a href="#chi-siamo" className="hover:text-zinc-900 transition-colors">
             Chi siamo
           </a>
-          <a href="#contatti" className="hover:text-zinc-900 transition-colors">
+          <a href="/contatti" className="hover:text-zinc-900 transition-colors">
             Contatti
           </a>
           <a
@@ -58,7 +58,7 @@ function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="#contatti"
+            href="/contatti"
             className="px-8 py-4 bg-[var(--color-accent)] text-white font-medium rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-base"
           >
             Richiedi una consulenza
@@ -324,7 +324,7 @@ function ChiSiamo() {
               e finanziarie per offrire soluzioni concrete e personalizzate.
             </p>
             <a
-              href="#contatti"
+              href="/contatti"
               className="inline-flex items-center gap-2 text-[var(--color-accent)] font-medium hover:underline"
             >
               Conosci il team
