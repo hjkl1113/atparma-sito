@@ -1,7 +1,7 @@
 ============================================================
   SITO WEB A.T. CONSULTING PARMA - REPORT PROGETTO
-  Ultimo aggiornamento: 2026-04-04 20:00
-  Versione: 0.3
+  Ultimo aggiornamento: 2026-04-05 01:00
+  Versione: 0.4
 ============================================================
 
 PANORAMICA
@@ -73,20 +73,20 @@ FASE 0 - SETUP
 [X] 0.4  Contenuti approvati (contenuti.md)
 [X] 0.5  Design homepage v1 (Monumental Editorial - scartato)
 [X] 0.6  Design homepage v2 (Aerial Gravitas - approvato)
-[ ] 0.7  Deploy Vercel
+[X] 0.7  Deploy Vercel (atparma-sito.vercel.app)
 
 FASE 1 - SITO PUBBLICO
 [X] 1.1  Sviluppo landing page da design v2
 [ ] 1.2  Pagina servizi dettaglio
-[ ] 1.3  Form richiesta preventivo/consulenza
+[X] 1.3  Form richiesta preventivo/consulenza (Brevo email)
 [X] 1.4  Link "Area Clienti" > portale
 [~] 1.5  SEO + meta tags (fatto) / sitemap (da fare)
 [ ] 1.6  Blog / sistema articoli fiscali
 
 FASE 2 - PAGAMENTI STRIPE
-[ ] 2.1  Integrazione Stripe checkout
+[X] 2.1  Integrazione Stripe checkout (manca solo STRIPE_SECRET_KEY)
 [ ] 2.2  Webhook Stripe > crea account portale
-[ ] 2.3  Pagina conferma ordine
+[X] 2.3  Pagina conferma ordine + pagina annullamento
 [ ] 2.4  Pannello gestione prezzi (admin)
 
 FASE 3 - GO-LIVE
@@ -95,13 +95,12 @@ FASE 3 - GO-LIVE
 
 PROSSIMI PASSI
 --------------
-1. Deploy su Vercel
-2. Form richiesta preventivo/consulenza
-3. Integrazione Stripe con pricing dinamico
-4. Pannello admin per gestione prezzi
-5. Blog con articoli fiscali
-6. Sitemap + SEO avanzato
-7. Switchover dominio
+1. Aggiungere STRIPE_SECRET_KEY su Vercel (da dashboard.stripe.com/apikeys)
+2. Webhook Stripe > crea account portale clienti
+3. Pagina servizi dettaglio
+4. Blog con articoli fiscali
+5. Sitemap + SEO avanzato
+6. Switchover dominio atparma.com da WordPress a Vercel
 
 NOTE
 ----
