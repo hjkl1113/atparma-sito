@@ -1,0 +1,4264 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "type": "frame",
+      "id": "CXOAN",
+      "x": -694,
+      "y": -456,
+      "name": "AT Parma - Homepage",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "BXGcC",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "height": 900,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1775311824086.png",
+            "mode": "fill"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "Oke9T",
+              "x": 0,
+              "y": 0,
+              "name": "overlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0F141900",
+                    "position": 0
+                  },
+                  {
+                    "color": "#0F1419CC",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#0F1419F0",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1440,
+              "height": 900
+            },
+            {
+              "type": "frame",
+              "id": "Kywn0",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Nav",
+              "width": 1440,
+              "padding": [
+                32,
+                120
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SIbp5",
+                  "fill": "#FFFFFF",
+                  "content": "A.T. CONSULTING PARMA",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 16,
+                  "fontWeight": "700",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "frame",
+                  "id": "VERO5",
+                  "name": "navR",
+                  "gap": 36,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PTxoh",
+                      "fill": "#FFFFFFCC",
+                      "content": "Servizi",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "0cUAB",
+                      "fill": "#FFFFFFCC",
+                      "content": "Chi siamo",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "GABPn",
+                      "fill": "#FFFFFFCC",
+                      "content": "Contatti",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "f13nN",
+              "layoutPosition": "absolute",
+              "x": 120,
+              "y": 320,
+              "name": "Hero Content",
+              "width": 800,
+              "layout": "vertical",
+              "gap": 32,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "O5WGd",
+                  "name": "label",
+                  "fill": "#C8A96E",
+                  "content": "Studio Professionale · Parma · Tutta Italia",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "PGEfZ",
+                  "name": "headline",
+                  "fill": "#FFFFFF",
+                  "content": "Consulenza\nfiscale e finanziaria\nper imprese",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 64,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "XQ1hq",
+                  "name": "subtitle",
+                  "fill": "#FFFFFFBB",
+                  "content": "Supportiamo imprese e professionisti nella gestione fiscale,\nnella crisi di impresa e nelle operazioni straordinarie.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 18
+                },
+                {
+                  "type": "frame",
+                  "id": "glpPC",
+                  "name": "btns",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "01ATK",
+                      "name": "ctaPrimary",
+                      "fill": "#C8A96E",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        32
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "2YIlY",
+                          "fill": "#FFFFFF",
+                          "content": "Richiedi una consulenza",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "266FB",
+                      "name": "ctaPhone",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "#FFFFFF44"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        32
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yYx1w",
+                          "fill": "#FFFFFF",
+                          "content": "+39 0521 247721",
+                          "fontFamily": "Inter",
+                          "fontSize": 14
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JwvEO",
+              "layoutPosition": "absolute",
+              "x": 1060,
+              "y": 500,
+              "name": "Stats",
+              "layout": "vertical",
+              "gap": 40,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AN0dr",
+                  "name": "s1",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "l34YG",
+                      "fill": "#C8A96E",
+                      "content": "20+",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RbfGK",
+                      "fill": "#FFFFFF99",
+                      "content": "Anni di esperienza",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GUHzD",
+                  "name": "s2",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "z9bde",
+                      "fill": "#C8A96E",
+                      "content": "200+",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WNZZs",
+                      "fill": "#FFFFFF99",
+                      "content": "Aziende assistite",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wlmHn",
+                  "name": "s3",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TxSYv",
+                      "fill": "#C8A96E",
+                      "content": "3",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SLS9I",
+                      "fill": "#FFFFFF99",
+                      "content": "Aree di specializzazione",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pFmbH",
+              "layoutPosition": "absolute",
+              "x": 1100,
+              "y": 32,
+              "name": "areaClienti",
+              "stroke": {
+                "thickness": 1,
+                "fill": "#C8A96E66"
+              },
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eqgQQ",
+                  "fill": "#C8A96E",
+                  "content": "Area Clienti",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "LS9ti",
+                  "fill": "#C8A96E",
+                  "content": "→",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "eejp7",
+          "name": "Intro Section",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            100,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Fk40g",
+              "fill": "#C8A96E",
+              "content": "Dal 2005 — Radicati a Parma, attivi in tutta Italia",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "BG8CX",
+              "fill": "#1A1A1A",
+              "content": "Un team di professionisti qualificati al tuo fianco,\ndalla pianificazione fiscale fino alle operazioni\npiu complesse.",
+              "lineHeight": 1.4,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 36
+            },
+            {
+              "type": "rectangle",
+              "id": "wBZn5",
+              "name": "divider",
+              "fill": "#C8A96E",
+              "width": 60,
+              "height": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XfYxo",
+          "name": "Services Section",
+          "width": "fill_container",
+          "fill": "#0F1419",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            120
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "bPZBo",
+              "name": "servHeader",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rEj9K",
+                  "fill": "#C8A96E",
+                  "content": "COSA FACCIAMO",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "q59lK",
+                  "fill": "#FFFFFF",
+                  "content": "Le nostre aree di specializzazione",
+                  "lineHeight": 1.2,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Xuzfs",
+              "name": "servGrid",
+              "width": "fill_container",
+              "gap": 40,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JFh2z",
+                  "name": "s1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF15"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": [
+                    40,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yaagn",
+                      "fill": "#C8A96E33",
+                      "content": "01",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "46vJp",
+                      "fill": "#FFFFFF",
+                      "content": "Consulenza fiscale",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9zviJ",
+                      "fill": "#FFFFFF99",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Dichiarazioni, pianificazione fiscale, IVA, imposte dirette e indirette. Assistenza nelle verifiche e nei contenziosi tributari.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7QOM2",
+                  "name": "s2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF15"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": [
+                    40,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6dR0i",
+                      "fill": "#C8A96E33",
+                      "content": "02",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CDz2A",
+                      "fill": "#FFFFFF",
+                      "content": "Crisi di impresa",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jAGS4",
+                      "fill": "#FFFFFF99",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Gestione delle procedure concorsuali, piani di risanamento, composizione negoziata della crisi e assistenza nelle ristrutturazioni.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aiD1H",
+                  "name": "s3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF15"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": [
+                    40,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wrOMX",
+                      "fill": "#C8A96E33",
+                      "content": "03",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TSK8T",
+                      "fill": "#FFFFFF",
+                      "content": "Consulenza finanziaria",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KhDiF",
+                      "fill": "#FFFFFF99",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Accesso al credito, finanza agevolata, business plan, valutazione d'azienda e supporto nelle operazioni di M&A.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kG3hE",
+          "name": "Digital Area",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "gap": 80,
+          "padding": [
+            100,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "wEHSG",
+              "name": "digLeft",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "M8eoR",
+                  "fill": "#C8A96E",
+                  "content": "STUDIO DIGITALE E AREA CLIENTI RISERVATA",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "fCRWQ",
+                  "fill": "#1A1A1A",
+                  "content": "Il tuo spazio\nprofessionale online",
+                  "lineHeight": 1.2,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Z8UVa",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Documenti, comunicazioni e gestione della pratica in un unico spazio sicuro e riservato.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "CHW3D",
+                  "name": "digCta",
+                  "fill": "#1A1A1A",
+                  "gap": 8,
+                  "padding": [
+                    14,
+                    28
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2A0gH",
+                      "fill": "#FFFFFF",
+                      "content": "Accedi all'area clienti",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M6eKZ",
+                      "fill": "#C8A96E",
+                      "content": "→",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "93Zul",
+              "name": "digRight",
+              "width": "fill_container",
+              "height": 400,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1775311900516.png",
+                "mode": "fill"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dHkr2",
+          "name": "Testimonials",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            120
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "b0rkG",
+              "name": "testHead",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qoLbt",
+                  "fill": "#C8A96E",
+                  "content": "I NOSTRI CLIENTI",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "D7vDm",
+                  "fill": "#1A1A1A",
+                  "content": "Cosa dicono di noi",
+                  "textAlign": "center",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EUizy",
+              "name": "testGrid",
+              "width": "fill_container",
+              "gap": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UkwD0",
+                  "name": "t1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Id3oN",
+                      "fill": "#C8A96E",
+                      "content": "★★★★★",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "TTH87",
+                      "fill": "#4A4A4A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Professionali, puntuali e sempre disponibili. Ci hanno guidato in una procedura di ristrutturazione complessa con grande competenza.\"",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rGONe",
+                      "name": "t1info",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Kge14",
+                          "fill": "#1A1A1A",
+                          "content": "Marco B.",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NTWIQ",
+                          "fill": "#4A4A4A",
+                          "content": "CEO, PMI manifatturiera",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qezUl",
+                  "name": "t2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GObiF",
+                      "fill": "#C8A96E",
+                      "content": "★★★★★",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "Lejvo",
+                      "fill": "#4A4A4A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Finalmente uno studio che capisce le esigenze reali di un'impresa. Rispondono entro 24 ore e sanno anticipare i problemi.\"",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "8mjge",
+                      "name": "t2info",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FyldA",
+                          "fill": "#1A1A1A",
+                          "content": "Laura M.",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Mpot5",
+                          "fill": "#4A4A4A",
+                          "content": "Titolare, studio associato",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5XdSL",
+                  "name": "t3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jCAS5",
+                      "fill": "#C8A96E",
+                      "content": "★★★★★",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "UvJuO",
+                      "fill": "#4A4A4A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Grazie al loro supporto abbiamo ottenuto un finanziamento agevolato che non sapevamo nemmeno esistesse. Risultati concreti.\"",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vpdca",
+                      "name": "t3info",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "9VMnS",
+                          "fill": "#1A1A1A",
+                          "content": "Roberto S.",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ymofR",
+                          "fill": "#4A4A4A",
+                          "content": "Imprenditore, settore food",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UmtqX",
+          "name": "Why Us",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "gap": 80,
+          "padding": [
+            100,
+            120
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "FAZLk",
+              "name": "whyLeft",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "6egls",
+                  "fill": "#C8A96E",
+                  "content": "PERCHE SCEGLIERCI",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "vCPl7",
+                  "fill": "#1A1A1A",
+                  "content": "Un approccio\nintegrato ai\nproblemi complessi",
+                  "lineHeight": 1.2,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "AgdCF",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A.T. Consulting Parma nasce dall'esperienza pluriennale nel supporto a imprese e professionisti. Il nostro team e composto da dottori commercialisti e revisori legali iscritti ai rispettivi albi professionali.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Ke27O",
+              "name": "whyRight",
+              "width": "fill_container",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EJnuA",
+                  "name": "r1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cAD4F",
+                      "fill": "#C8A96E",
+                      "content": "✓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CzcbJ",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Risposta entro 24 ore per tutte le richieste urgenti",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dGXZ4",
+                  "name": "r2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wNRHs",
+                      "fill": "#C8A96E",
+                      "content": "✓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "H4VJc",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Team multidisciplinare: fisco, finanza e diritto societario",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EvK9M",
+                  "name": "r3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "t39OS",
+                      "fill": "#C8A96E",
+                      "content": "✓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OXFno",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Esperienza specifica nella crisi di impresa e nelle ristrutturazioni",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "j17xS",
+                  "name": "r4",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PGxr0",
+                      "fill": "#C8A96E",
+                      "content": "✓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kaCHf",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Presenza costante: non solo a scadenza, ma tutto l'anno",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "T1Hrp",
+                  "name": "r5",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#1A1A1A15"
+                  },
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "W92nk",
+                      "fill": "#C8A96E",
+                      "content": "✓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GDclg",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Strumenti digitali per la gestione documentale e le scadenze",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NllK4",
+                  "name": "r6",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "padding": [
+                    20,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "f0YJ7",
+                      "fill": "#C8A96E",
+                      "content": "✓",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "U1JNB",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "20 anni di esperienza al servizio di imprese in tutta Italia",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ONZUZ",
+          "name": "CTA Section",
+          "width": "fill_container",
+          "fill": "#0F1419",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            100,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "pLT2A",
+              "fill": "#FFFFFF",
+              "content": "Hai una questione urgente?",
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "Kmmua",
+              "fill": "#FFFFFF99",
+              "content": "Il nostro team e disponibile per rispondere entro 24 ore\nda lunedi a venerdi.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "j0VBJ",
+              "name": "ctaBtns",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ehZCf",
+                  "name": "ctaB1",
+                  "fill": "#C8A96E",
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KIKu3",
+                      "fill": "#FFFFFF",
+                      "content": "Richiedi una consulenza",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UMRbI",
+                  "name": "ctaB2",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#FFFFFF44"
+                  },
+                  "padding": [
+                    16,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dv5jl",
+                      "fill": "#FFFFFF",
+                      "content": "+39 0521 247721",
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cZQdl",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "#0A0D11",
+          "padding": [
+            48,
+            120
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fs53n",
+              "name": "fLeft",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5yCXX",
+                  "fill": "#FFFFFF",
+                  "content": "A.T. CONSULTING PARMA S.R.L.S.",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 14,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "zjg2E",
+                  "fill": "#FFFFFF66",
+                  "content": "Borgo Riccio da Parma 5, 43121 Parma (PR)\nP.IVA 02794450342\nPEC: atconsultingparma@pec.it",
+                  "lineHeight": 1.8,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PcuB2",
+              "name": "fRight",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sYRLu",
+                  "fill": "#FFFFFF66",
+                  "content": "segreteria@atparma.com",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "vAPfH",
+                  "fill": "#FFFFFF66",
+                  "content": "+39 0521 247721",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "iZgNU",
+                  "fill": "#FFFFFF44",
+                  "content": "© 2026 A.T. Consulting Parma",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "hT3Pj",
+      "x": 946,
+      "y": -456,
+      "name": "AT Parma - Homepage v2",
+      "width": 1440,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "TAiHx",
+          "name": "Hero Section",
+          "clip": true,
+          "width": "fill_container",
+          "height": 900,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1775312220383.png",
+            "mode": "fill"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "BRqSP",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "heroOverlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 0,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0A0A0AE6",
+                    "position": 0
+                  },
+                  {
+                    "color": "#0A0A0A99",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#0A0A0A40",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1440,
+              "height": 900
+            },
+            {
+              "type": "frame",
+              "id": "ot8aG",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Nav",
+              "width": 1440,
+              "height": 80,
+              "padding": [
+                0,
+                80
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mFN3J",
+                  "name": "logo",
+                  "fill": "#FFFFFF",
+                  "content": "A.T. CONSULTING",
+                  "fontFamily": "Geist",
+                  "fontSize": 16,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "frame",
+                  "id": "r6P0s",
+                  "name": "navLinks",
+                  "gap": 40,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lIi6S",
+                      "name": "nav1",
+                      "fill": "#FFFFFFCC",
+                      "content": "Servizi",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Gu3iq",
+                      "name": "nav2",
+                      "fill": "#FFFFFFCC",
+                      "content": "Chi siamo",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gFkaL",
+                      "name": "nav3",
+                      "fill": "#FFFFFFCC",
+                      "content": "Contatti",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "g7LHN",
+                      "name": "navCta",
+                      "fill": "#4A9FD8",
+                      "cornerRadius": 4,
+                      "padding": [
+                        10,
+                        24
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "6w2Dw",
+                          "name": "navCtaTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Area Clienti",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rPyGr",
+              "layoutPosition": "absolute",
+              "x": 80,
+              "y": 220,
+              "name": "Hero Content",
+              "width": 700,
+              "layout": "vertical",
+              "gap": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AA0Sl",
+                  "name": "eyebrow",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "TmKPn",
+                      "name": "dot",
+                      "fill": "#4A9FD8",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q339f",
+                      "name": "eyebrowTxt",
+                      "fill": "#4A9FD8",
+                      "content": "STUDIO PROFESSIONALE · PARMA · TUTTA ITALIA",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "y974G",
+                  "name": "headline",
+                  "fill": "#FFFFFF",
+                  "content": "Consulenza fiscale\ne finanziaria\nper imprese",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Geist",
+                  "fontSize": 72,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "NM9xo",
+                  "name": "subtitle",
+                  "fill": "#FFFFFF99",
+                  "textGrowth": "fixed-width",
+                  "width": 550,
+                  "content": "Supportiamo imprese e professionisti nella gestione fiscale,\nnella crisi di impresa e nelle operazioni straordinarie.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "yazIo",
+                  "name": "ctaRow",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Fbzko",
+                      "name": "ctaPrimary",
+                      "fill": "#4A9FD8",
+                      "cornerRadius": 4,
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        32
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FnT9w",
+                          "name": "ctaPrimaryTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Richiedi una consulenza",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KBQLD",
+                          "name": "ctaPrimaryArrow",
+                          "fill": "#FFFFFF",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pkjGS",
+                      "name": "ctaSecondary",
+                      "cornerRadius": 4,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#FFFFFF33"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        32
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "nsLIz",
+                          "name": "ctaSecondaryTxt",
+                          "fill": "#FFFFFF",
+                          "content": "+39 0521 247721",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gEvdL",
+              "layoutPosition": "absolute",
+              "x": 80,
+              "y": 760,
+              "name": "Stats",
+              "width": 1280,
+              "gap": 80,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n4AAs",
+                  "name": "stat1",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IvMjO",
+                      "name": "stat1num",
+                      "fill": "#4A9FD8",
+                      "content": "20+",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 36,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T7Wbr",
+                      "name": "stat1label",
+                      "fill": "#FFFFFF88",
+                      "content": "Anni di esperienza",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qSGC9",
+                  "name": "stat2",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GFopy",
+                      "name": "stat2num",
+                      "fill": "#4A9FD8",
+                      "content": "200+",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 36,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sHRvZ",
+                      "name": "stat2label",
+                      "fill": "#FFFFFF88",
+                      "content": "Clienti assistiti",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jNpiG",
+                  "name": "stat3",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rbWPv",
+                      "name": "stat3num",
+                      "fill": "#4A9FD8",
+                      "content": "3",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 36,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xQFmY",
+                      "name": "stat3label",
+                      "fill": "#FFFFFF88",
+                      "content": "Aree di specializzazione",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "Iaddw",
+                  "name": "divider",
+                  "fill": "#FFFFFF22",
+                  "width": 1,
+                  "height": 40
+                },
+                {
+                  "type": "frame",
+                  "id": "l3ba7",
+                  "name": "stat4",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zLKKf",
+                      "name": "stat4label",
+                      "fill": "#FFFFFF",
+                      "content": "Dal 2005",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DZfwR",
+                      "name": "stat4sub",
+                      "fill": "#FFFFFF88",
+                      "content": "Radicati a Parma, attivi in tutta Italia",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XxTC1",
+          "name": "Color Bar",
+          "width": "fill_container",
+          "height": 4,
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "LItmH",
+              "name": "bar1",
+              "fill": "#4A9FD8",
+              "width": "fill_container",
+              "height": 4
+            },
+            {
+              "type": "rectangle",
+              "id": "sT3V1",
+              "name": "bar2",
+              "fill": "#0A0A0A",
+              "width": "fill_container",
+              "height": 4
+            },
+            {
+              "type": "rectangle",
+              "id": "0wbYj",
+              "name": "bar3",
+              "fill": "#B3D9F0",
+              "width": "fill_container",
+              "height": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AgNZD",
+          "name": "Services Section",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "LYvmJ",
+              "name": "servicesHeader",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mE5RW",
+                  "name": "servicesLeft",
+                  "width": 600,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "H8f0J",
+                      "name": "servicesEyebrow",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "SCJLH",
+                          "name": "sDot",
+                          "fill": "#4A9FD8",
+                          "width": 6,
+                          "height": 6
+                        },
+                        {
+                          "type": "text",
+                          "id": "sve7X",
+                          "name": "sEyeTxt",
+                          "fill": "#4A9FD8",
+                          "content": "LE NOSTRE AREE DI SPECIALIZZAZIONE",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "v4wEY",
+                      "name": "servicesTitle",
+                      "fill": "#1A1A1A",
+                      "content": "Cosa facciamo",
+                      "fontFamily": "Geist",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "DM1Dh",
+                  "name": "servicesRight",
+                  "fill": "#666666",
+                  "textGrowth": "fixed-width",
+                  "width": 400,
+                  "content": "Un team di professionisti qualificati al tuo fianco,\ndalla pianificazione fiscale fino alle operazioni\npiu' complesse.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "D0ASz",
+              "name": "Service Cards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YMGJl",
+                  "name": "card1",
+                  "width": "fill_container",
+                  "fill": "#F8F9FA",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 40,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "y0lmB",
+                      "name": "c1num",
+                      "fill": "#4A9FD833",
+                      "content": "01",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g9akg",
+                      "name": "c1title",
+                      "fill": "#1A1A1A",
+                      "content": "Consulenza\nfiscale",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Geist",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FgnUw",
+                      "name": "c1desc",
+                      "fill": "#666666",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Dichiarazioni, pianificazione fiscale, IVA, imposte dirette e indirette. Assistenza nelle verifiche e nei contenziosi tributari.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "wAjzR",
+                      "name": "c1line",
+                      "fill": "#EEF0F2",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jNasF",
+                      "name": "c1cta",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fNVzn",
+                          "name": "c1ctaTxt",
+                          "fill": "#4A9FD8",
+                          "content": "Scopri di piu'",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2V5DF",
+                          "name": "c1ctaArr",
+                          "fill": "#4A9FD8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "eqlzq",
+                  "name": "card2",
+                  "width": "fill_container",
+                  "fill": "#F8F9FA",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 40,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WXWb2",
+                      "name": "c2num",
+                      "fill": "#4A9FD833",
+                      "content": "02",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eXiKW",
+                      "name": "c2title",
+                      "fill": "#1A1A1A",
+                      "content": "Crisi\ndi impresa",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Geist",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IhPuK",
+                      "name": "c2desc",
+                      "fill": "#666666",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Gestione delle procedure concorsuali, piani di risanamento, composizione negoziata della crisi e assistenza nelle ristrutturazioni.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "WL9dx",
+                      "name": "c2line",
+                      "fill": "#EEF0F2",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "w8EwN",
+                      "name": "c2cta",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zoZHo",
+                          "name": "c2ctaTxt",
+                          "fill": "#4A9FD8",
+                          "content": "Scopri di piu'",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "yN94Z",
+                          "name": "c2ctaArr",
+                          "fill": "#4A9FD8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FYddp",
+                  "name": "card3",
+                  "width": "fill_container",
+                  "fill": "#F8F9FA",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 40,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "huo2l",
+                      "name": "c3num",
+                      "fill": "#4A9FD833",
+                      "content": "03",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rTwvA",
+                      "name": "c3title",
+                      "fill": "#1A1A1A",
+                      "content": "Consulenza\nfinanziaria",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Geist",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dBT7C",
+                      "name": "c3desc",
+                      "fill": "#666666",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Accesso al credito, finanza agevolata, business plan, valutazione d'azienda e supporto nelle operazioni di M&A.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "Yb8sm",
+                      "name": "c3line",
+                      "fill": "#EEF0F2",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gNdKs",
+                      "name": "c3cta",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xx8Zv",
+                          "name": "c3ctaTxt",
+                          "fill": "#4A9FD8",
+                          "content": "Scopri di piu'",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ifad5",
+                          "name": "c3ctaArr",
+                          "fill": "#4A9FD8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vziSU",
+          "name": "Online Services / Pricing",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "a8Yt7",
+              "name": "onlineHeader",
+              "width": 600,
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rf9Wh",
+                  "name": "onlineEyebrow",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "asByE",
+                      "name": "oDot",
+                      "fill": "#4A9FD8",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "vevW1",
+                      "name": "oEyeTxt",
+                      "fill": "#4A9FD8",
+                      "content": "SERVIZI ONLINE",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "SjdKt",
+                  "name": "onlineTitle",
+                  "fill": "#FFFFFF",
+                  "content": "Acquista direttamente online",
+                  "fontFamily": "Geist",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "pdSXs",
+                  "name": "onlineSubtitle",
+                  "fill": "#FFFFFF88",
+                  "textGrowth": "fixed-width",
+                  "width": 550,
+                  "content": "Servizi fiscali standard, gestiti da professionisti iscritti all'albo.\nPagamento sicuro, documenti nell'area riservata.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mQIvs",
+              "name": "Pricing Cards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LLf5q",
+                  "name": "p1",
+                  "width": "fill_container",
+                  "fill": "#141414",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#FFFFFF11"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 40,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "V0EW2",
+                      "name": "p1badge",
+                      "fill": "#4A9FD822",
+                      "cornerRadius": 4,
+                      "padding": [
+                        4,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "u8Xi9",
+                          "name": "p1badgeTxt",
+                          "fill": "#4A9FD8",
+                          "content": "PIU' RICHIESTO",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "T9C30",
+                      "name": "p1title",
+                      "fill": "#FFFFFF",
+                      "content": "Dichiarazione 730",
+                      "fontFamily": "Geist",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VNQXG",
+                      "name": "p1desc",
+                      "fill": "#FFFFFF88",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Compilazione e invio del modello 730, verifica precompilato, ottimizzazione detrazioni.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "unmwl",
+                      "name": "p1price",
+                      "gap": 8,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YsS0o",
+                          "name": "p1priceNum",
+                          "fill": "#FFFFFF",
+                          "content": "€ 79",
+                          "fontFamily": "Geist",
+                          "fontSize": 40,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "161I1",
+                          "name": "p1priceLabel",
+                          "fill": "#FFFFFF66",
+                          "content": "/ pratica",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vQGEB",
+                      "name": "p1features",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "sO8ns",
+                          "name": "p1f1",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Analisi precompilato ADE",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IreXC",
+                          "name": "p1f2",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Ottimizzazione detrazioni",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "HjOrb",
+                          "name": "p1f3",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Invio telematico incluso",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4fM1J",
+                          "name": "p1f4",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Documenti in area riservata",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UN7RR",
+                      "name": "p1btn",
+                      "width": "fill_container",
+                      "height": 52,
+                      "fill": "#4A9FD8",
+                      "cornerRadius": 4,
+                      "padding": [
+                        16,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "nBVxQ",
+                          "name": "p1btnTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Acquista ora",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iMVIf",
+                  "name": "p2",
+                  "width": "fill_container",
+                  "fill": "#141414",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#FFFFFF11"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 40,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "iWdI1",
+                      "name": "p2title",
+                      "fill": "#FFFFFF",
+                      "content": "Apertura Partita IVA",
+                      "fontFamily": "Geist",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "2E5MS",
+                      "name": "p2desc",
+                      "fill": "#FFFFFF88",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Apertura P.IVA, scelta del regime fiscale, iscrizione Camera di Commercio, consulenza iniziale.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GXBcs",
+                      "name": "p2price",
+                      "gap": 8,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1Uu5f",
+                          "name": "p2priceNum",
+                          "fill": "#FFFFFF",
+                          "content": "€ 149",
+                          "fontFamily": "Geist",
+                          "fontSize": 40,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1SRg4",
+                          "name": "p2priceLabel",
+                          "fill": "#FFFFFF66",
+                          "content": "/ pratica",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "eG7mY",
+                      "name": "p2features",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "sHhTZ",
+                          "name": "p2f1",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Consulenza regime fiscale",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Zuf6j",
+                          "name": "p2f2",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Apertura presso AdE",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wzZjo",
+                          "name": "p2f3",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Iscrizione CCIAA (se necessaria)",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "sB3Ne",
+                          "name": "p2f4",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Prima consulenza inclusa",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6cj8m",
+                      "name": "p2btn",
+                      "width": "fill_container",
+                      "height": 52,
+                      "cornerRadius": 4,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#FFFFFF33"
+                      },
+                      "padding": [
+                        16,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zyAvu",
+                          "name": "p2btnTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Acquista ora",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CNqwz",
+                  "name": "p3",
+                  "width": "fill_container",
+                  "fill": "#141414",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#4A9FD844"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 40,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IHTMW",
+                      "name": "p3title",
+                      "fill": "#FFFFFF",
+                      "content": "Consulenza\nsu misura",
+                      "fontFamily": "Geist",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xbP50",
+                      "name": "p3desc",
+                      "fill": "#FFFFFF88",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Crisi d'impresa, operazioni straordinarie, M&A, pianificazione fiscale avanzata. Preventivo personalizzato.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pv0hy",
+                      "name": "p3price",
+                      "gap": 8,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "HEZOL",
+                          "name": "p3priceLabel",
+                          "fill": "#4A9FD8",
+                          "content": "A preventivo",
+                          "fontFamily": "Geist",
+                          "fontSize": 40,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mzF5J",
+                      "name": "p3features",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GczhB",
+                          "name": "p3f1",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Analisi preliminare gratuita",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qOrhU",
+                          "name": "p3f2",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Team multidisciplinare dedicato",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fJGvO",
+                          "name": "p3f3",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Report e documenti in area riservata",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CqFdJ",
+                          "name": "p3f4",
+                          "fill": "#FFFFFF99",
+                          "content": "✓  Supporto continuativo",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IaZoR",
+                      "name": "p3btn",
+                      "width": "fill_container",
+                      "height": 52,
+                      "fill": "#4A9FD8",
+                      "cornerRadius": 4,
+                      "padding": [
+                        16,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1bgN4",
+                          "name": "p3btnTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Richiedi preventivo",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vKLsc",
+          "name": "About Section",
+          "width": "fill_container",
+          "height": 600,
+          "fill": "#FFFFFF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "1wZpj",
+              "name": "aboutImg",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1775312362328.png",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "frame",
+              "id": "ZMt80",
+              "name": "aboutContent",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": 80,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YAdsw",
+                  "name": "aboutEyebrow",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "XBAsc",
+                      "name": "aDot",
+                      "fill": "#4A9FD8",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "9o1ly",
+                      "name": "aEyeTxt",
+                      "fill": "#4A9FD8",
+                      "content": "CHI SIAMO",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "FnB2W",
+                  "name": "aboutTitle",
+                  "fill": "#1A1A1A",
+                  "content": "Un approccio\nintegrato ai problemi\ncomplessi",
+                  "lineHeight": 1.15,
+                  "fontFamily": "Geist",
+                  "fontSize": 40,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "NbSnI",
+                  "name": "aboutDesc",
+                  "fill": "#666666",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A.T. Consulting Parma nasce dall'esperienza pluriennale nel supporto a imprese e professionisti. Il nostro team e' composto da dottori commercialisti e revisori legali iscritti ai rispettivi albi professionali.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "cLcV9",
+                  "name": "aboutCta",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "17ic0",
+                      "name": "aboutCtaTxt",
+                      "fill": "#4A9FD8",
+                      "content": "Conosci il team",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "u34DO",
+                      "name": "aboutCtaArr",
+                      "fill": "#4A9FD8",
+                      "content": "→",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PdvJf",
+          "name": "Testimonials",
+          "width": "fill_container",
+          "fill": "#F8F9FA",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "mDM8Y",
+              "name": "testHeader",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "069C0",
+                  "name": "testEyebrow",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "b4nfg",
+                      "name": "tDot",
+                      "fill": "#4A9FD8",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "gdx4i",
+                      "name": "tEyeTxt",
+                      "fill": "#4A9FD8",
+                      "content": "COSA DICONO DI NOI",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "normal",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "hqNKX",
+                  "name": "testTitle",
+                  "fill": "#1A1A1A",
+                  "content": "I nostri clienti",
+                  "fontFamily": "Geist",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LLEN9",
+              "name": "testCards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rmAx8",
+                  "name": "t1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 36,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "S1b3P",
+                      "name": "t1quote",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Professionali, puntuali e sempre disponibili. Ci hanno guidato in una procedura di ristrutturazione complessa con grande competenza.\"",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "GzI7Z",
+                      "name": "t1line",
+                      "fill": "#4A9FD8",
+                      "width": 40,
+                      "height": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5fMIw",
+                      "name": "t1author",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZzavA",
+                          "name": "t1name",
+                          "fill": "#1A1A1A",
+                          "content": "Marco B.",
+                          "fontFamily": "Geist",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QLPtu",
+                          "name": "t1role",
+                          "fill": "#666666",
+                          "content": "CEO, PMI manifatturiera",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VMMFu",
+                  "name": "t2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 36,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qSshV",
+                      "name": "t2quote",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Finalmente uno studio che capisce le esigenze reali di un'impresa. Rispondono entro 24 ore e sanno anticipare i problemi.\"",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "LLou1",
+                      "name": "t2line",
+                      "fill": "#4A9FD8",
+                      "width": 40,
+                      "height": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "T7ZPN",
+                      "name": "t2author",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lh7tu",
+                          "name": "t2name",
+                          "fill": "#1A1A1A",
+                          "content": "Laura M.",
+                          "fontFamily": "Geist",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ee6Yb",
+                          "name": "t2role",
+                          "fill": "#666666",
+                          "content": "Titolare, studio associato",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "eFCLn",
+                  "name": "t3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": 36,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MDOSj",
+                      "name": "t3quote",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Grazie al loro supporto abbiamo ottenuto un finanziamento agevolato che non sapevamo nemmeno esistesse. Risultati concreti.\"",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "NRE8S",
+                      "name": "t3line",
+                      "fill": "#4A9FD8",
+                      "width": 40,
+                      "height": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uoKdg",
+                      "name": "t3author",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "WtJSC",
+                          "name": "t3name",
+                          "fill": "#1A1A1A",
+                          "content": "Roberto S.",
+                          "fontFamily": "Geist",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GzvFg",
+                          "name": "t3role",
+                          "fill": "#666666",
+                          "content": "Imprenditore, settore food",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4nwNj",
+          "name": "Why Us",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "c2Gus",
+              "name": "whyHeader",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BvBGi",
+                  "name": "whyLeft",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "5PROp",
+                      "name": "whyEyebrow",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "4w9zT",
+                          "name": "wDot",
+                          "fill": "#4A9FD8",
+                          "width": 6,
+                          "height": 6
+                        },
+                        {
+                          "type": "text",
+                          "id": "nQQ1o",
+                          "name": "wEyeTxt",
+                          "fill": "#4A9FD8",
+                          "content": "IL VALORE CHE PORTIAMO",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "eGwkW",
+                      "name": "whyTitle",
+                      "fill": "#1A1A1A",
+                      "content": "Perche' sceglierci",
+                      "fontFamily": "Geist",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IBUo3",
+              "name": "whyGrid",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "52YDK",
+                  "name": "whyCol1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "8uI73",
+                      "name": "w1",
+                      "width": "fill_container",
+                      "fill": "#F8F9FA",
+                      "cornerRadius": 4,
+                      "gap": 20,
+                      "padding": 32,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vpytd",
+                          "name": "w1icon",
+                          "fill": "#4A9FD8",
+                          "content": "✓",
+                          "fontFamily": "Geist",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Do6Jb",
+                          "name": "w1content",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "RXhPF",
+                              "name": "w1title",
+                              "fill": "#1A1A1A",
+                              "content": "Risposta entro 24 ore",
+                              "fontFamily": "Geist",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "DxNyD",
+                              "name": "w1desc",
+                              "fill": "#666666",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Per tutte le richieste urgenti, garantiamo un tempo di risposta massimo di un giorno lavorativo.",
+                              "lineHeight": 1.6,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5Vm0q",
+                      "name": "w2",
+                      "width": "fill_container",
+                      "fill": "#F8F9FA",
+                      "cornerRadius": 4,
+                      "gap": 20,
+                      "padding": 32,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1tDdj",
+                          "name": "w2icon",
+                          "fill": "#4A9FD8",
+                          "content": "✓",
+                          "fontFamily": "Geist",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "C1ZVk",
+                          "name": "w2content",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Ncl6Z",
+                              "name": "w2title",
+                              "fill": "#1A1A1A",
+                              "content": "Team multidisciplinare",
+                              "fontFamily": "Geist",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Pvyun",
+                              "name": "w2desc",
+                              "fill": "#666666",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Fisco, finanza e diritto societario: un unico interlocutore per tutte le esigenze della tua impresa.",
+                              "lineHeight": 1.6,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9TU2J",
+                      "name": "w3",
+                      "width": "fill_container",
+                      "fill": "#F8F9FA",
+                      "cornerRadius": 4,
+                      "gap": 20,
+                      "padding": 32,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "WwyDM",
+                          "name": "w3icon",
+                          "fill": "#4A9FD8",
+                          "content": "✓",
+                          "fontFamily": "Geist",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "r8B8L",
+                          "name": "w3content",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "LSRrX",
+                              "name": "w3title",
+                              "fill": "#1A1A1A",
+                              "content": "Esperienza nella crisi d'impresa",
+                              "fontFamily": "Geist",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JJsEX",
+                              "name": "w3desc",
+                              "fill": "#666666",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Competenza specifica nelle procedure concorsuali, ristrutturazioni e composizioni negoziate.",
+                              "lineHeight": 1.6,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mjLPZ",
+                  "name": "whyCol2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dhs9D",
+                      "name": "w4",
+                      "width": "fill_container",
+                      "fill": "#F8F9FA",
+                      "cornerRadius": 4,
+                      "gap": 20,
+                      "padding": 32,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "b6W7l",
+                          "name": "w4icon",
+                          "fill": "#4A9FD8",
+                          "content": "✓",
+                          "fontFamily": "Geist",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "BC5VI",
+                          "name": "w4content",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aus7m",
+                              "name": "w4title",
+                              "fill": "#1A1A1A",
+                              "content": "Presenza costante",
+                              "fontFamily": "Geist",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FNXgQ",
+                              "name": "w4desc",
+                              "fill": "#666666",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Non solo a scadenza, ma tutto l'anno. Ti affianchiamo nella gestione quotidiana della tua attivita'.",
+                              "lineHeight": 1.6,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fxjkX",
+                      "name": "w5",
+                      "width": "fill_container",
+                      "fill": "#F8F9FA",
+                      "cornerRadius": 4,
+                      "gap": 20,
+                      "padding": 32,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KZA2E",
+                          "name": "w5icon",
+                          "fill": "#4A9FD8",
+                          "content": "✓",
+                          "fontFamily": "Geist",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bVOyz",
+                          "name": "w5content",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "bjOZX",
+                              "name": "w5title",
+                              "fill": "#1A1A1A",
+                              "content": "Strumenti digitali",
+                              "fontFamily": "Geist",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ITkUU",
+                              "name": "w5desc",
+                              "fill": "#666666",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Area riservata online, gestione documentale e scadenze. Tutto a portata di click, ovunque ti trovi.",
+                              "lineHeight": 1.6,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vgjWD",
+                      "name": "w6",
+                      "width": "fill_container",
+                      "fill": "#F8F9FA",
+                      "cornerRadius": 4,
+                      "gap": 20,
+                      "padding": 32,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "8VY9T",
+                          "name": "w6icon",
+                          "fill": "#4A9FD8",
+                          "content": "✓",
+                          "fontFamily": "Geist",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "5jj4s",
+                          "name": "w6content",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "i3cvc",
+                              "name": "w6title",
+                              "fill": "#1A1A1A",
+                              "content": "20 anni di esperienza",
+                              "fontFamily": "Geist",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "aSc2K",
+                              "name": "w6desc",
+                              "fill": "#666666",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Da Parma al servizio di imprese e professionisti in tutta Italia. Oltre 200 clienti assistiti dal 2005.",
+                              "lineHeight": 1.6,
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4akwi",
+          "name": "Blog / Guide Fiscali",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 64,
+          "padding": [
+            100,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "l7glw",
+              "name": "blogHeader",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "N4FPD",
+                  "name": "blogLeft",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "pNGiL",
+                      "name": "blogEyebrow",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "2SqHd",
+                          "name": "bDot",
+                          "fill": "#4A9FD8",
+                          "width": 6,
+                          "height": 6
+                        },
+                        {
+                          "type": "text",
+                          "id": "WXSL3",
+                          "name": "bEyeTxt",
+                          "fill": "#4A9FD8",
+                          "content": "AGGIORNAMENTI FISCALI",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Tjxjv",
+                      "name": "blogTitle",
+                      "fill": "#1A1A1A",
+                      "content": "Guide e novita'",
+                      "fontFamily": "Geist",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "x3XyS",
+                  "name": "blogAllCta",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "9pEVe",
+                      "name": "blogAllTxt",
+                      "fill": "#4A9FD8",
+                      "content": "Vedi tutti gli articoli",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MgM7w",
+                      "name": "blogAllArr",
+                      "fill": "#4A9FD8",
+                      "content": "→",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "j0lRB",
+              "name": "blogCards",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "RfQid",
+                  "name": "b1",
+                  "clip": true,
+                  "width": "fill_container",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Dk9Mj",
+                      "name": "b1img",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1775312756535.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RXgfN",
+                      "name": "b1content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1eHYF",
+                          "name": "b1tag",
+                          "fill": "#4A9FD8",
+                          "content": "GUIDA",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "uT1Y5",
+                          "name": "b1title",
+                          "fill": "#1A1A1A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Commercialista online: come sceglierlo e perche' conviene",
+                          "lineHeight": 1.4,
+                          "fontFamily": "Geist",
+                          "fontSize": 18,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pGsRi",
+                          "name": "b1date",
+                          "fill": "#666666",
+                          "content": "28 Marzo 2026",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gkMqE",
+                  "name": "b2",
+                  "clip": true,
+                  "width": "fill_container",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "0Mkrt",
+                      "name": "b2img",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1775312781998.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "f2i5D",
+                      "name": "b2content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "T6Jst",
+                          "name": "b2tag",
+                          "fill": "#4A9FD8",
+                          "content": "GUIDA",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "hzPKi",
+                          "name": "b2title",
+                          "fill": "#1A1A1A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Come aprire la Partita IVA online nel 2026: tutto quello che devi sapere",
+                          "lineHeight": 1.4,
+                          "fontFamily": "Geist",
+                          "fontSize": 18,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bvlEA",
+                          "name": "b2date",
+                          "fill": "#666666",
+                          "content": "15 Marzo 2026",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "J6YDg",
+                  "name": "b3",
+                  "clip": true,
+                  "width": "fill_container",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#EEF0F2"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GDOCW",
+                      "name": "b3img",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1775312805408.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FfS0Y",
+                      "name": "b3content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "r36kc",
+                          "name": "b3tag",
+                          "fill": "#4A9FD8",
+                          "content": "GUIDA",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "KcZhs",
+                          "name": "b3title",
+                          "fill": "#1A1A1A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Come fare il 730 online: guida completa 2026",
+                          "lineHeight": 1.4,
+                          "fontFamily": "Geist",
+                          "fontSize": 18,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "RKvvK",
+                          "name": "b3date",
+                          "fill": "#666666",
+                          "content": "2 Marzo 2026",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ExG8r",
+          "name": "CTA Section",
+          "clip": true,
+          "width": "fill_container",
+          "height": 500,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1775312466401.png",
+            "mode": "fill"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "WGlTM",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "ctaOverlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 0,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#0A0A0AE6",
+                    "position": 0
+                  },
+                  {
+                    "color": "#0A0A0ABB",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 1440,
+              "height": 500
+            },
+            {
+              "type": "frame",
+              "id": "62RnU",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "ctaContent",
+              "width": 1440,
+              "height": 500,
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                0,
+                80
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3gp6a",
+                  "name": "ctaTitle",
+                  "fill": "#FFFFFF",
+                  "content": "Hai una questione urgente?",
+                  "textAlign": "center",
+                  "fontFamily": "Geist",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "kBbuf",
+                  "name": "ctaDesc",
+                  "fill": "#FFFFFF99",
+                  "content": "Il nostro team e' disponibile per rispondere entro 24 ore\nda lunedi' a venerdi'.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "6346O",
+                  "name": "ctaBtns",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fKjZZ",
+                      "name": "ctaBtn1",
+                      "fill": "#4A9FD8",
+                      "cornerRadius": 4,
+                      "gap": 8,
+                      "padding": [
+                        18,
+                        40
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fpc0t",
+                          "name": "ctaBtn1Txt",
+                          "fill": "#FFFFFF",
+                          "content": "Richiedi una consulenza",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "golJn",
+                      "name": "ctaBtn2",
+                      "cornerRadius": 4,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#FFFFFF44"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        18,
+                        40
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NWhhA",
+                          "name": "ctaBtn2Txt",
+                          "fill": "#FFFFFF",
+                          "content": "Chiama lo studio",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DYYH7",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "padding": [
+            60,
+            80
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bUDyy",
+              "name": "footerLeft",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LFMWD",
+                  "name": "footerLogo",
+                  "fill": "#FFFFFF",
+                  "content": "A.T. CONSULTING PARMA",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "kIyqi",
+                  "name": "footerDesc",
+                  "fill": "#FFFFFF66",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "A.T. Consulting Parma S.R.L.S.\nP.IVA 02794450342",
+                  "lineHeight": 1.8,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YG6b3",
+              "name": "footerMid",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jNxEv",
+                  "name": "footerMidTitle",
+                  "fill": "#FFFFFF88",
+                  "content": "CONTATTI",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "aI2BT",
+                  "name": "footerAddr",
+                  "fill": "#FFFFFF66",
+                  "textGrowth": "fixed-width",
+                  "width": 200,
+                  "content": "Borgo Riccio da Parma 5\n43121 Parma (PR)",
+                  "lineHeight": 1.8,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "jLgL7",
+                  "name": "footerEmail",
+                  "fill": "#4A9FD8",
+                  "content": "segreteria@atparma.com",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "KlZt1",
+                  "name": "footerTel",
+                  "fill": "#FFFFFF66",
+                  "content": "+39 0521 247721",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TZcAH",
+              "name": "footerRight",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Ue5vV",
+                  "name": "footerRTitle",
+                  "fill": "#FFFFFF88",
+                  "content": "LINK UTILI",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "47ub7",
+                  "name": "footerL1",
+                  "fill": "#FFFFFF66",
+                  "content": "Area Clienti",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "JVDGt",
+                  "name": "footerL2",
+                  "fill": "#FFFFFF66",
+                  "content": "Privacy Policy",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "zZNBK",
+                  "name": "footerL3",
+                  "fill": "#FFFFFF66",
+                  "content": "Cookie Policy",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "FTOB4",
+                  "name": "footerPec",
+                  "fill": "#FFFFFF66",
+                  "content": "PEC: atconsultingparma@pec.it",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
