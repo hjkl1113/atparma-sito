@@ -1,7 +1,7 @@
 # Sito Web A.T. Consulting Parma — Report Progetto
 
-**Ultimo aggiornamento:** 2026-04-05 02:30
-**Versione:** 0.7
+**Ultimo aggiornamento:** 2026-04-05 03:00
+**Versione:** 0.8
 
 ---
 
