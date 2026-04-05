@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { put, list } from "@vercel/blob";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export interface Servizio {
   id: string;
   title: string;
@@ -53,7 +56,11 @@ async function getPrezzi(): Promise<Servizio[]> {
 // GET — legge i prezzi (pubblico)
 export async function GET() {
   const prezzi = await getPrezzi();
-  return NextResponse.json(prezzi);
+  return NextResponse.json(prezzi, {
+    headers: {
+      "Cache-Control": "no-store, max-age=0",
+    },
+  });
 }
 
 // POST — aggiorna i prezzi (protetto da password)

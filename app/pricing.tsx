@@ -89,7 +89,7 @@ export function Pricing() {
   const [loading, setLoading] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/prezzi")
+    fetch("/api/prezzi", { cache: "no-store" })
       .then((r) => r.json())
       .then((data) => { if (Array.isArray(data)) setPrezzi(data); })
       .catch(() => {});
