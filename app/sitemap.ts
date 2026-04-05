@@ -40,5 +40,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/commercialista-online`,
+      lastModified: new Date("2026-04-01"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/aprire-partita-iva-online`,
+      lastModified: new Date("2026-03-25"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/come-fare-730-online`,
+      lastModified: new Date("2026-03-18"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
   ];
 }

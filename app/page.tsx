@@ -408,14 +408,17 @@ function PercheSceglierci() {
 
 const blogArticles = [
   {
+    slug: "commercialista-online",
     title: "Commercialista online: come sceglierlo e perche conviene",
     image: "/images/generated-1775311824086.png",
   },
   {
+    slug: "aprire-partita-iva-online",
     title: "Come aprire la Partita IVA online nel 2026: tutto quello che devi sapere",
     image: "/images/generated-1775312781998.png",
   },
   {
+    slug: "come-fare-730-online",
     title: "Come fare il 730 online: guida completa 2026",
     image: "/images/generated-1775312805408.png",
   },
@@ -450,7 +453,7 @@ function Blog() {
                   {a.title}
                 </h3>
                 <a
-                  href="#"
+                  href={`/blog/${a.slug}`}
                   className="inline-flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium mt-4 hover:underline"
                 >
                   Leggi l&apos;articolo
