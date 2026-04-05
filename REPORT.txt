@@ -1,7 +1,7 @@
 ============================================================
   SITO WEB A.T. CONSULTING PARMA - REPORT PROGETTO
-  Ultimo aggiornamento: 2026-04-05 02:00
-  Versione: 0.6
+  Ultimo aggiornamento: 2026-04-05 02:30
+  Versione: 0.7
 ============================================================
 
 PANORAMICA
@@ -85,7 +85,7 @@ FASE 1 - SITO PUBBLICO
 
 FASE 2 - PAGAMENTI STRIPE
 [X] 2.1  Integrazione Stripe checkout (manca solo STRIPE_SECRET_KEY)
-[ ] 2.2  Webhook Stripe > crea account portale
+[X] 2.2  Webhook Stripe > notifica email pagamento
 [X] 2.3  Pagina conferma ordine + pagina annullamento
 [ ] 2.4  Pannello gestione prezzi (admin)
 
