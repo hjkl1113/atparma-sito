@@ -1,7 +1,7 @@
 # Sito Web A.T. Consulting Parma — Report Progetto
 
-**Ultimo aggiornamento:** 2026-04-05 01:30
-**Versione:** 0.5
+**Ultimo aggiornamento:** 2026-04-05 02:00
+**Versione:** 0.6
 
 ---
 
@@ -88,11 +88,11 @@
 | Step | Descrizione | Stato |
 |---|---|---|
 | 1.1 | Sviluppo landing page da design v2 | COMPLETATO |
-| 1.2 | Pagina servizi dettaglio | COMPLETATO (3 sotto-pagine) |
-| 1.3 | Form richiesta preventivo/consulenza | COMPLETATO (Brevo email) |
+| 1.2 | Pagina servizi dettaglio (3 sotto-pagine) | COMPLETATO |
+| 1.3 | Form richiesta preventivo/consulenza (Brevo) | COMPLETATO |
 | 1.4 | Link "Area Clienti" > portale | COMPLETATO |
 | 1.5 | SEO + meta tags + sitemap + robots.txt | COMPLETATO |
-| 1.6 | Blog / sistema articoli fiscali | DA FARE |
+| 1.6 | Blog / 3 articoli fiscali SEO | COMPLETATO |
 
 ### Fase 2 — Pagamenti (Stripe + PayPal)
 | Step | Descrizione | Stato |
@@ -116,7 +116,7 @@
 1. Aggiungere PayPal Client ID live (da developer.paypal.com)
 2. Aggiungere STRIPE_SECRET_KEY su Vercel (da dashboard.stripe.com)
 3. Webhook Stripe > crea account portale clienti
-4. Blog con articoli fiscali
+4. Pannello admin per gestione prezzi
 5. Prezzi definitivi catalogo
 6. Switchover dominio atparma.com da WordPress a Vercel
 
