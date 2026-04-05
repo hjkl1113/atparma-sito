@@ -4,6 +4,12 @@ import { put, list } from "@vercel/blob";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+// DEBUG endpoint: lista tutti i blob con prefix prezzi
+async function listAllBlobs() {
+  const { blobs } = await list({ prefix: "prezzi" });
+  return blobs.map((b) => ({ url: b.url, pathname: b.pathname, uploadedAt: b.uploadedAt }));
+}
+
 export interface Servizio {
   id: string;
   title: string;
@@ -57,7 +63,14 @@ async function getPrezzi(): Promise<Servizio[]> {
 }
 
 // GET — legge i prezzi (pubblico)
-export async function GET() {
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  if (url.searchParams.get("debug") === "1") {
+    const all = await listAllBlobs();
+    return NextResponse.json({ blobs: all }, {
+      headers: { "Cache-Control": "no-store" },
+    });
+  }
   const prezzi = await getPrezzi();
   return NextResponse.json(prezzi, {
     headers: {
