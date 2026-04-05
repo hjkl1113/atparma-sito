@@ -38,6 +38,21 @@ export const metadata: Metadata = {
     siteName: "A.T. Consulting Parma",
     locale: "it_IT",
     type: "website",
+    images: [
+      {
+        url: "/images/parma-duomo-aerial.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Duomo e Battistero di Parma - A.T. Consulting",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "A.T. Consulting Parma — Consulenza fiscale e finanziaria",
+    description:
+      "Studio commercialista a Parma. Consulenza fiscale, crisi di impresa, consulenza finanziaria.",
+    images: ["/images/parma-duomo-aerial.jpg"],
   },
 };
 
