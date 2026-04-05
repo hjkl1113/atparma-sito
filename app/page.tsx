@@ -21,8 +21,8 @@ function Header() {
           <a href="/blog" className="hover:text-zinc-900 transition-colors">
             Blog
           </a>
-          <a href="#chi-siamo" className="hover:text-zinc-900 transition-colors">
-            Chi siamo
+          <a href="/faq" className="hover:text-zinc-900 transition-colors">
+            FAQ
           </a>
           <a href="/contatti" className="hover:text-zinc-900 transition-colors">
             Contatti
@@ -589,6 +589,11 @@ function Footer() {
               <li>
                 <a href="/blog" className="hover:text-white transition-colors">
                   Blog
+                </a>
+              </li>
+              <li>
+                <a href="/faq" className="hover:text-white transition-colors">
+                  FAQ
                 </a>
               </li>
               <li>

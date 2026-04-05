@@ -28,7 +28,7 @@ export function MobileMenu() {
           <div className="flex flex-col p-6 gap-4">
             <a href="/servizi" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Servizi</a>
             <a href="/blog" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Blog</a>
-            <a href="#chi-siamo" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Chi siamo</a>
+            <a href="/faq" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>FAQ</a>
             <a href="/contatti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Contatti</a>
             <a
               href="https://at-parma.vercel.app"
