@@ -70,7 +70,8 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ url: session.url });
   } catch (err) {
-    console.error("Errore Stripe checkout:", err);
-    return NextResponse.json({ error: "Errore creazione checkout" }, { status: 500 });
+    const msg = err instanceof Error ? err.message : "Errore sconosciuto";
+    console.error("Errore Stripe checkout:", msg);
+    return NextResponse.json({ error: `Errore checkout: ${msg}` }, { status: 500 });
   }
 }
