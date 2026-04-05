@@ -1,0 +1,81 @@
+import { NextResponse } from "next/server";
+import { put, list } from "@vercel/blob";
+
+export interface Servizio {
+  id: string;
+  title: string;
+  desc: string;
+  price: number | null;
+  originalPrice: number | null; // prezzo sbarrato (promo)
+  active: boolean;
+}
+
+const DEFAULT_PREZZI: Servizio[] = [
+  {
+    id: "730",
+    title: "Dichiarazione 730",
+    desc: "Compilazione e invio della dichiarazione dei redditi modello 730.",
+    price: 79,
+    originalPrice: null,
+    active: true,
+  },
+  {
+    id: "piva",
+    title: "Apertura Partita IVA",
+    desc: "Apertura e configurazione della Partita IVA per la tua attivita.",
+    price: 149,
+    originalPrice: null,
+    active: true,
+  },
+  {
+    id: "consulenza",
+    title: "Consulenza su misura",
+    desc: "Analisi personalizzata e piano d'azione per la tua situazione specifica.",
+    price: null,
+    originalPrice: null,
+    active: true,
+  },
+];
+
+const BLOB_NAME = "prezzi.json";
+
+async function getPrezzi(): Promise<Servizio[]> {
+  try {
+    const { blobs } = await list({ prefix: BLOB_NAME });
+    if (blobs.length === 0) return DEFAULT_PREZZI;
+    const res = await fetch(blobs[0].url);
+    return await res.json();
+  } catch {
+    return DEFAULT_PREZZI;
+  }
+}
+
+// GET — legge i prezzi (pubblico)
+export async function GET() {
+  const prezzi = await getPrezzi();
+  return NextResponse.json(prezzi);
+}
+
+// POST — aggiorna i prezzi (protetto da password)
+export async function POST(request: Request) {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword) {
+    return NextResponse.json({ error: "Admin non configurato" }, { status: 500 });
+  }
+
+  const auth = request.headers.get("authorization");
+  if (auth !== `Bearer ${adminPassword}`) {
+    return NextResponse.json({ error: "Non autorizzato" }, { status: 401 });
+  }
+
+  try {
+    const prezzi: Servizio[] = await request.json();
+    await put(BLOB_NAME, JSON.stringify(prezzi), {
+      access: "public",
+      addRandomSuffix: false,
+    });
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: "Errore salvataggio" }, { status: 500 });
+  }
+}

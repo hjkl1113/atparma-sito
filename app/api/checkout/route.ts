@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { list } from "@vercel/blob";
 
 function getStripe() {
   if (!process.env.STRIPE_SECRET_KEY) {
@@ -8,25 +9,38 @@ function getStripe() {
   return new Stripe(process.env.STRIPE_SECRET_KEY);
 }
 
-const SERVIZI: Record<string, { name: string; price: number; description: string }> = {
-  "730": {
-    name: "Dichiarazione 730",
-    price: 7900, // centesimi
-    description: "Compilazione e invio della dichiarazione dei redditi modello 730",
-  },
-  "piva": {
-    name: "Apertura Partita IVA",
-    price: 14900,
-    description: "Apertura e configurazione della Partita IVA per la tua attivita",
-  },
-};
+interface Servizio {
+  id: string;
+  title: string;
+  desc: string;
+  price: number | null;
+  originalPrice: number | null;
+  active: boolean;
+}
+
+const DEFAULT_PREZZI: Servizio[] = [
+  { id: "730", title: "Dichiarazione 730", desc: "Compilazione e invio della dichiarazione dei redditi modello 730.", price: 79, originalPrice: null, active: true },
+  { id: "piva", title: "Apertura Partita IVA", desc: "Apertura e configurazione della Partita IVA per la tua attivita.", price: 149, originalPrice: null, active: true },
+];
+
+async function getPrezzi(): Promise<Servizio[]> {
+  try {
+    const { blobs } = await list({ prefix: "prezzi.json" });
+    if (blobs.length === 0) return DEFAULT_PREZZI;
+    const res = await fetch(blobs[0].url);
+    return await res.json();
+  } catch {
+    return DEFAULT_PREZZI;
+  }
+}
 
 export async function POST(request: Request) {
   try {
     const { servizio } = await request.json();
-    const item = SERVIZI[servizio];
+    const prezzi = await getPrezzi();
+    const item = prezzi.find((p) => p.id === servizio && p.active && p.price);
 
-    if (!item) {
+    if (!item || !item.price) {
       return NextResponse.json({ error: "Servizio non valido" }, { status: 400 });
     }
 
@@ -41,10 +55,10 @@ export async function POST(request: Request) {
           price_data: {
             currency: "eur",
             product_data: {
-              name: item.name,
-              description: item.description,
+              name: item.title,
+              description: item.desc,
             },
-            unit_amount: item.price,
+            unit_amount: item.price * 100, // centesimi
           },
           quantity: 1,
         },
