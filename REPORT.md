@@ -1,7 +1,7 @@
 # Sito Web A.T. Consulting Parma — Report Progetto
 
-**Ultimo aggiornamento:** 2026-04-05 02:00
-**Versione:** 0.6
+**Ultimo aggiornamento:** 2026-04-05 02:30
+**Versione:** 0.7
 
 ---
 
@@ -99,7 +99,7 @@
 |---|---|---|
 | 2.1 | Integrazione Stripe checkout | COMPLETATO (manca STRIPE_SECRET_KEY) |
 | 2.1b | PayPal Buttons | COMPLETATO (manca Client ID live) |
-| 2.2 | Webhook Stripe > crea account portale | DA FARE |
+| 2.2 | Webhook Stripe > notifica email pagamento | COMPLETATO |
 | 2.3 | Pagina conferma ordine + annullamento | COMPLETATO |
 | 2.4 | Pannello gestione prezzi (admin) | DA FARE |
 
