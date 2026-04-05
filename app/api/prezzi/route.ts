@@ -52,9 +52,12 @@ async function getPrezzi(): Promise<Servizio[]> {
   try {
     const { blobs } = await list({ prefix: BLOB_NAME });
     if (blobs.length === 0) return DEFAULT_PREZZI;
-    // Usa downloadUrl o url con cache-buster per evitare CDN cache
-    const url = `${blobs[0].url}?v=${Date.now()}`;
-    const res = await fetch(url, { cache: "no-store" });
+    // Usa downloadUrl che bypassa la CDN cache
+    const downloadUrl = blobs[0].downloadUrl || blobs[0].url;
+    const res = await fetch(`${downloadUrl}?t=${Date.now()}`, {
+      cache: "no-store",
+      next: { revalidate: 0 },
+    });
     return await res.json();
   } catch (err) {
     console.error("Errore lettura prezzi:", err);
