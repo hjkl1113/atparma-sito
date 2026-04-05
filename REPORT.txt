@@ -1,7 +1,7 @@
 ============================================================
   SITO WEB A.T. CONSULTING PARMA - REPORT PROGETTO
-  Ultimo aggiornamento: 2026-04-05 03:00
-  Versione: 0.8
+  Ultimo aggiornamento: 2026-04-05 10:50
+  Versione: 0.9
 ============================================================
 
 PANORAMICA
@@ -87,7 +87,7 @@ FASE 2 - PAGAMENTI STRIPE
 [X] 2.1  Integrazione Stripe checkout (manca solo STRIPE_SECRET_KEY)
 [X] 2.2  Webhook Stripe > notifica email pagamento
 [X] 2.3  Pagina conferma ordine + pagina annullamento
-[ ] 2.4  Pannello gestione prezzi (admin)
+[X] 2.4  Pannello admin prezzi con Vercel Blob (promo/sconti)
 
 FASE 3 - GO-LIVE
 [ ] 3.1  Definire prezzi definitivi catalogo
@@ -95,12 +95,17 @@ FASE 3 - GO-LIVE
 
 PROSSIMI PASSI
 --------------
-1. Aggiungere STRIPE_SECRET_KEY su Vercel (da dashboard.stripe.com/apikeys)
-2. Webhook Stripe > crea account portale clienti
-3. Pagina servizi dettaglio
-4. Blog con articoli fiscali
-5. Sitemap + SEO avanzato
-6. Switchover dominio atparma.com da WordPress a Vercel
+1. Webhook Stripe > crea account portale clienti (fase 2)
+2. Switchover dominio atparma.com da WordPress a Vercel
+
+CREDENZIALI ATTIVE
+------------------
+- Admin prezzi: https://atparma-sito.vercel.app/admin
+- Password admin: AleSic$0101
+- PayPal live: configurato (account sicuri@atparma.com)
+- Stripe live: configurato
+- Brevo email: configurato > segreteria@atparma.com
+- Vercel Blob: connesso (prezzi dinamici)
 
 NOTE
 ----

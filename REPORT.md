@@ -1,7 +1,7 @@
 # Sito Web A.T. Consulting Parma — Report Progetto
 
-**Ultimo aggiornamento:** 2026-04-05 03:00
-**Versione:** 0.8
+**Ultimo aggiornamento:** 2026-04-05 10:50
+**Versione:** 0.9
 
 ---
 
@@ -101,7 +101,7 @@
 | 2.1b | PayPal Buttons | COMPLETATO (manca Client ID live) |
 | 2.2 | Webhook Stripe > notifica email pagamento | COMPLETATO |
 | 2.3 | Pagina conferma ordine + annullamento | COMPLETATO |
-| 2.4 | Pannello gestione prezzi (admin) | DA FARE |
+| 2.4 | Pannello admin prezzi (Vercel Blob + promo) | COMPLETATO |
 
 ### Fase 3 — Go-Live
 | Step | Descrizione | Stato |
