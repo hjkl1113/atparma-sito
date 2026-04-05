@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Pricing } from "./pricing";
+import { MobileMenu } from "./mobile-menu";
 
 function Header() {
   return (
@@ -14,8 +15,11 @@ function Header() {
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-          <a href="#servizi" className="hover:text-zinc-900 transition-colors">
+          <a href="/servizi" className="hover:text-zinc-900 transition-colors">
             Servizi
+          </a>
+          <a href="/blog" className="hover:text-zinc-900 transition-colors">
+            Blog
           </a>
           <a href="#chi-siamo" className="hover:text-zinc-900 transition-colors">
             Chi siamo
@@ -30,6 +34,7 @@ function Header() {
             Area Clienti
           </a>
         </nav>
+        <MobileMenu />
       </div>
     </header>
   );
