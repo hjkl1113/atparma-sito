@@ -52,6 +52,42 @@ export default function RootLayout({
       className={`${geist.variable} ${geistMono.variable} ${inter.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-white text-zinc-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AccountingService",
+              name: "A.T. Consulting Parma",
+              legalName: "A.T. Consulting Parma S.R.L.S.",
+              url: "https://www.atparma.com",
+              telephone: "+390521247721",
+              email: "segreteria@atparma.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Borgo Riccio da Parma 5",
+                addressLocality: "Parma",
+                postalCode: "43121",
+                addressRegion: "PR",
+                addressCountry: "IT",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 44.8015,
+                longitude: 10.3279,
+              },
+              areaServed: [
+                { "@type": "City", name: "Parma" },
+                { "@type": "Country", name: "Italia" },
+              ],
+              description:
+                "Studio commercialista a Parma. Consulenza fiscale, crisi di impresa e consulenza finanziaria per imprese e professionisti.",
+              foundingDate: "2005",
+              vatID: "02794450342",
+              priceRange: "$$",
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

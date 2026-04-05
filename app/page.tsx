@@ -582,13 +582,13 @@ function Footer() {
             </h3>
             <ul className="space-y-2 text-zinc-400 text-sm">
               <li>
-                <a href="#servizi" className="hover:text-white transition-colors">
+                <a href="/servizi" className="hover:text-white transition-colors">
                   Servizi
                 </a>
               </li>
               <li>
-                <a href="#chi-siamo" className="hover:text-white transition-colors">
-                  Chi siamo
+                <a href="/blog" className="hover:text-white transition-colors">
+                  Blog
                 </a>
               </li>
               <li>
@@ -597,6 +597,11 @@ function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   Area Clienti
+                </a>
+              </li>
+              <li>
+                <a href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
                 </a>
               </li>
             </ul>
