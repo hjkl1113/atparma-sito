@@ -1,7 +1,7 @@
 ============================================================
   SITO WEB A.T. CONSULTING PARMA - REPORT PROGETTO
-  Ultimo aggiornamento: 2026-04-05 01:30
-  Versione: 0.5
+  Ultimo aggiornamento: 2026-04-05 02:00
+  Versione: 0.6
 ============================================================
 
 PANORAMICA
@@ -81,7 +81,7 @@ FASE 1 - SITO PUBBLICO
 [X] 1.3  Form richiesta preventivo/consulenza (Brevo email)
 [X] 1.4  Link "Area Clienti" > portale
 [X] 1.5  SEO + meta tags + sitemap + robots.txt
-[ ] 1.6  Blog / sistema articoli fiscali
+[X] 1.6  Blog / 3 articoli fiscali (commercialista online, P.IVA, 730)
 
 FASE 2 - PAGAMENTI STRIPE
 [X] 2.1  Integrazione Stripe checkout (manca solo STRIPE_SECRET_KEY)
