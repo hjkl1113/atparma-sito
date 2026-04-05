@@ -80,9 +80,12 @@ export async function POST(request: Request) {
     await put(BLOB_NAME, JSON.stringify(prezzi), {
       access: "public",
       addRandomSuffix: false,
+      allowOverwrite: true,
     });
     return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json({ error: "Errore salvataggio" }, { status: 500 });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Errore sconosciuto";
+    console.error("Errore blob put:", msg);
+    return NextResponse.json({ error: `Errore salvataggio: ${msg}` }, { status: 500 });
   }
 }
