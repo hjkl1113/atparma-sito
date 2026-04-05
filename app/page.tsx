@@ -44,7 +44,7 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <Image
-        src="/images/generated-1775312466401.png"
+        src="/images/parma-duomo-aerial.jpg"
         alt="Vista aerea di Parma"
         fill
         className="object-cover"
@@ -492,7 +492,7 @@ function CtaUrgenze() {
       className="relative py-24 overflow-hidden"
     >
       <Image
-        src="/images/generated-1775312220383.png"
+        src="/images/parma-duomo-aerial.jpg"
         alt="Vista aerea di Parma"
         fill
         className="object-cover"
