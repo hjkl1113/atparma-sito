@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     "studio commercialista",
     "A.T. Consulting Parma",
   ],
+  verification: {
+    google: "tnet8EIZX4RXI4SWgdLc6OGSOQOV-0UrOgADZNYOYgg",
+  },
   openGraph: {
     title: "A.T. Consulting Parma — Consulenza fiscale e finanziaria",
     description:
