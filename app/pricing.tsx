@@ -56,13 +56,20 @@ function PayPalButton({ servizio, price }: { servizio: string; price: number }) 
           });
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onApprove: async (_data: any, actions: any) => {
-          await actions.order.capture();
+        onApprove: async (data: any, actions: any) => {
+          const order = await actions.order.capture();
           setStatus("success");
-          fetch("/api/contatti", {
+          const payer = order?.payer;
+          fetch("/api/paypal-notify", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ nome: "Pagamento PayPal", email: "noreply@paypal.com", servizio, messaggio: `Pagamento PayPal ricevuto: ${servizio} — EUR ${price}.` }),
+            body: JSON.stringify({
+              nome: payer ? `${payer.name?.given_name || ""} ${payer.name?.surname || ""}`.trim() : "Cliente PayPal",
+              email: payer?.email_address || "",
+              servizio,
+              importo: price.toFixed(2),
+              orderId: data.orderID || order?.id || "N/A",
+            }),
           });
         },
         onError: () => setStatus("error"),
