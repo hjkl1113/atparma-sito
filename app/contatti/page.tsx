@@ -25,7 +25,7 @@ export default function ContattiPage() {
               Chi siamo
             </a>
             <a
-              href="https://at-parma.vercel.app"
+              href="https://clienti.atparma.com"
               className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
             >
               Area Clienti

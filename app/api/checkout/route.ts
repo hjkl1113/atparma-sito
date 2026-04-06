@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     }
 
     const stripe = getStripe();
-    const origin = request.headers.get("origin") || "https://atparma-sito.vercel.app";
+    const origin = request.headers.get("origin") || "https://www.atparma.com";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",

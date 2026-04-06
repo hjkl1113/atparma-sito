@@ -31,7 +31,7 @@ export function MobileMenu() {
             <a href="/faq" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>FAQ</a>
             <a href="/contatti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Contatti</a>
             <a
-              href="https://at-parma.vercel.app"
+              href="https://clienti.atparma.com"
               className="px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg text-center"
             >
               Area Clienti

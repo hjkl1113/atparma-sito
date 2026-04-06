@@ -49,7 +49,7 @@ export default function BlogPage() {
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
             <Link href="/blog" className="text-zinc-900 font-medium">Blog</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
-            <a href="https://at-parma.vercel.app" className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors">
+            <a href="https://clienti.atparma.com" className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors">
               Area Clienti
             </a>
           </nav>

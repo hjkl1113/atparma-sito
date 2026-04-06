@@ -128,7 +128,7 @@ export default function FAQPage() {
             <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
             <Link href="/faq" className="text-zinc-900 font-medium">FAQ</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
-            <a href="https://at-parma.vercel.app" className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors">
+            <a href="https://clienti.atparma.com" className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors">
               Area Clienti
             </a>
           </nav>

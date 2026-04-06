@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 // Stripe webhook — riceve notifiche di pagamento completato
 // Configurare su dashboard.stripe.com > Webhooks > Add endpoint
-// URL: https://atparma-sito.vercel.app/api/webhook
+// URL: https://www.atparma.com/api/webhook
 // Evento: checkout.session.completed
 
 export async function POST(request: Request) {

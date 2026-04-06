@@ -28,7 +28,7 @@ function Header() {
             Contatti
           </a>
           <a
-            href="https://at-parma.vercel.app"
+            href="https://clienti.atparma.com"
             className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
           >
             Area Clienti
@@ -76,7 +76,7 @@ function Hero() {
             +39 0521 247721
           </a>
           <a
-            href="https://at-parma.vercel.app"
+            href="https://clienti.atparma.com"
             className="text-white/70 hover:text-white underline underline-offset-4 text-sm transition-colors"
           >
             Accedi all&apos;area clienti
@@ -147,7 +147,7 @@ function AreaClienti() {
               spazio sicuro e riservato.
             </p>
             <a
-              href="https://at-parma.vercel.app"
+              href="https://clienti.atparma.com"
               className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium"
             >
               Accedi all&apos;area clienti
@@ -598,7 +598,7 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="https://at-parma.vercel.app"
+                  href="https://clienti.atparma.com"
                   className="hover:text-white transition-colors"
                 >
                   Area Clienti
