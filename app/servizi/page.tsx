@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Servizi — A.T. Consulting Parma",
+  title: "Servizi — Commercialista online Parma | A.T. Consulting Parma",
   description:
-    "Consulenza fiscale, crisi di impresa e consulenza finanziaria per imprese e professionisti. Scopri i nostri servizi.",
+    "Consulenza fiscale, 730 online, apertura Partita IVA, crisi di impresa e consulenza finanziaria. Commercialista online a Parma per imprese e professionisti.",
+  alternates: {
+    canonical: "/servizi",
+  },
 };
 
 const servizi = [

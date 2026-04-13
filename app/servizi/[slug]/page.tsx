@@ -91,8 +91,11 @@ export async function generateMetadata({
   const s = serviziData[slug];
   if (!s) return {};
   return {
-    title: `${s.title} — A.T. Consulting Parma`,
+    title: `${s.title} — Commercialista Parma | A.T. Consulting`,
     description: s.metaDesc,
+    alternates: {
+      canonical: `/servizi/${slug}`,
+    },
   };
 }
 

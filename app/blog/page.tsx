@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Blog — Guide fiscali | A.T. Consulting Parma",
   description:
     "Guide fiscali, articoli e approfondimenti su dichiarazioni, Partita IVA e consulenza fiscale online. A cura di A.T. Consulting Parma.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const articoli = [

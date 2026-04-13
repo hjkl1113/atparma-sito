@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy — A.T. Consulting Parma",
   description: "Informativa sulla privacy e trattamento dei dati personali ai sensi del GDPR.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

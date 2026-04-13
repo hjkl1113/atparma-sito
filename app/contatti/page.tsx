@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { ContattiForm } from "./form";
 
 export const metadata: Metadata = {
-  title: "Richiedi una consulenza — A.T. Consulting Parma",
+  title: "Contatti — Richiedi una consulenza | A.T. Consulting Parma",
   description:
-    "Contattaci per una consulenza fiscale, finanziaria o per la crisi di impresa. Risposta entro 24 ore.",
+    "Contattaci per una consulenza fiscale, finanziaria o per la crisi di impresa. Commercialista online a Parma. Risposta entro 24 ore.",
+  alternates: {
+    canonical: "/contatti",
+  },
 };
 
 export default function ContattiPage() {

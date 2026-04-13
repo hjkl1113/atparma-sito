@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Domande frequenti — A.T. Consulting Parma",
+  title: "FAQ — Domande frequenti | A.T. Consulting Parma",
   description:
-    "Risposte alle domande piu frequenti su Partita IVA, 730, consulenza fiscale, scadenze e servizi di A.T. Consulting Parma.",
+    "Risposte alle domande piu frequenti su Partita IVA, 730, consulenza fiscale, scadenze e servizi di A.T. Consulting Parma. Commercialista online.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 const faqs = [
