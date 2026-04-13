@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { list } from "@vercel/blob";
+import { parseCheckoutIdentity } from "@/app/lib/checkout";
+
+export const runtime = "nodejs";
 
 function getStripe() {
   if (!process.env.STRIPE_SECRET_KEY) {
@@ -36,7 +39,13 @@ async function getPrezzi(): Promise<Servizio[]> {
 
 export async function POST(request: Request) {
   try {
-    const { servizio } = await request.json();
+    const body = await request.json();
+    const { servizio } = body;
+    const parsedIdentity = parseCheckoutIdentity(body);
+    if (!parsedIdentity.data) {
+      return NextResponse.json({ error: parsedIdentity.error }, { status: 400 });
+    }
+
     const prezzi = await getPrezzi();
     const item = prezzi.find((p) => p.id === servizio && p.active && p.price);
 
@@ -46,10 +55,23 @@ export async function POST(request: Request) {
 
     const stripe = getStripe();
     const origin = request.headers.get("origin") || "https://www.atparma.com";
+    const metadata = {
+      source: "atparma-site",
+      serviceId: item.id,
+      serviceTitle: item.title,
+      fullName: parsedIdentity.data.fullName,
+      email: parsedIdentity.data.email,
+      taxCode: parsedIdentity.data.taxCode || "",
+      vatNumber: parsedIdentity.data.vatNumber || "",
+    };
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
+      billing_address_collection: "required",
+      client_reference_id: item.id,
+      customer_creation: "always",
+      customer_email: parsedIdentity.data.email,
       line_items: [
         {
           price_data: {
@@ -63,7 +85,10 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
-      customer_creation: "always",
+      metadata,
+      payment_intent_data: {
+        metadata,
+      },
       success_url: `${origin}/checkout/successo?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/checkout/annullato`,
     });

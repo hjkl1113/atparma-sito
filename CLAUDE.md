@@ -3,12 +3,12 @@
 ## Progetto: Sito Web A.T. Consulting Parma
 
 Sito pubblico professionale per lo studio commercialista A.T. Consulting Parma S.R.L.S.
-Dominio: www.atparma.com (attualmente WordPress/WooCommerce — da sostituire)
+Dominio: www.atparma.com (sostituisce il vecchio WordPress/WooCommerce)
 
 ### Stack
 - Next.js 16 + TypeScript
 - Tailwind CSS v4 + shadcn/ui
-- Stripe (pagamenti servizi)
+- Stripe + PayPal (pagamenti servizi)
 - Vercel (hosting)
 - Design: Pencil (.pen files)
 
@@ -18,7 +18,7 @@ Sostituisce il vecchio WordPress + WooCommerce.
 
 ### Funzionalita
 1. Landing page professionale (chi siamo, servizi, team, contatti)
-2. Catalogo servizi con acquisto diretto (730, P.IVA, consulenze) via Stripe
+2. Catalogo servizi con acquisto diretto (730, P.IVA, consulenze) via Stripe + PayPal
 3. Richiesta preventivo/consulenza (form)
 4. Area "Sei gia cliente?" → link al portale clienti (at-parma.vercel.app)
 5. Blog/news fiscali (opzionale, fase 2)
@@ -26,8 +26,14 @@ Sostituisce il vecchio WordPress + WooCommerce.
 
 ### Collegamento con Portale Clienti
 - Portale clienti: https://at-parma.vercel.app (progetto separato in /Desktop/studio at/portale/)
-- Quando un cliente acquista un servizio via Stripe → webhook crea account sul portale
+- I pagamenti del sito raccolgono dati minimi e notificano il portale/foundation Fase L
+- Il provisioning automatico nel portale non e' ancora completato
 - Il sito ha un bottone "Area Clienti" che punta al portale
+
+### Leggere Per Prime
+1. `REPORT.md`
+2. `HANDOFF.md`
+3. `CLAUDE.md`
 
 ### Dati Studio
 - Ragione sociale: A.T. Consulting Parma S.R.L.S.

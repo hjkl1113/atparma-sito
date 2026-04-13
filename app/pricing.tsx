@@ -11,15 +11,56 @@ interface Servizio {
   active: boolean;
 }
 
+interface CheckoutFormData {
+  fullName: string;
+  email: string;
+  taxCode: string;
+  vatNumber: string;
+}
+
+const EMPTY_CHECKOUT_DATA: CheckoutFormData = {
+  fullName: "",
+  email: "",
+  taxCode: "",
+  vatNumber: "",
+};
+
+function normalizeTaxCode(value: string) {
+  return value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+}
+
+function normalizeVatNumber(value: string) {
+  return value.replace(/\D/g, "");
+}
+
+function getCheckoutError(data: CheckoutFormData) {
+  if (!data.fullName.trim()) return "Inserisci nome e cognome";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) return "Inserisci un'email valida";
+  if (!data.taxCode.trim() && !data.vatNumber.trim()) return "Inserisci almeno codice fiscale o P.IVA";
+  return null;
+}
+
 const FALLBACK: Servizio[] = [
   { id: "730", title: "Dichiarazione 730", desc: "Compilazione e invio della dichiarazione dei redditi modello 730.", price: 79, originalPrice: null, active: true },
   { id: "piva", title: "Apertura Partita IVA", desc: "Apertura e configurazione della Partita IVA per la tua attivita.", price: 149, originalPrice: null, active: true },
   { id: "consulenza", title: "Consulenza su misura", desc: "Analisi personalizzata e piano d'azione per la tua situazione specifica.", price: null, originalPrice: null, active: true },
 ];
 
-function PayPalButton({ servizio, price }: { servizio: string; price: number }) {
+function PayPalButton({
+  serviceId,
+  serviceTitle,
+  price,
+  checkoutData,
+  onValidationError,
+}: {
+  serviceId: string;
+  serviceTitle: string;
+  price: number;
+  checkoutData: CheckoutFormData;
+  onValidationError: (message: string) => void;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"loading" | "ready" | "success" | "error">("loading");
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -30,7 +71,6 @@ function PayPalButton({ servizio, price }: { servizio: string; price: number }) 
       return;
     }
 
-    setStatus("loading");
     const script = document.createElement("script");
     const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "sb";
     script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=EUR&intent=capture`;
@@ -50,33 +90,48 @@ function PayPalButton({ servizio, price }: { servizio: string; price: number }) 
       paypal.Buttons({
         style: { layout: "horizontal", color: "gold", shape: "rect", label: "pay", height: 40, tagline: false },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onClick: (_data: any, actions: any) => {
+          const error = getCheckoutError(checkoutData);
+          if (error) {
+            onValidationError(error);
+            return actions.reject();
+          }
+          return actions.resolve();
+        },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         createOrder: (_data: any, actions: any) => {
           return actions.order.create({
-            purchase_units: [{ description: servizio, amount: { value: price.toFixed(2), currency_code: "EUR" } }],
+            purchase_units: [{
+              custom_id: serviceId,
+              description: serviceTitle,
+              amount: { value: price.toFixed(2), currency_code: "EUR" },
+            }],
           });
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onApprove: async (data: any, actions: any) => {
           const order = await actions.order.capture();
-          setStatus("success");
-          const payer = order?.payer;
-          fetch("/api/paypal-notify", {
+          const response = await fetch("/api/paypal-notify", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              nome: payer ? `${payer.name?.given_name || ""} ${payer.name?.surname || ""}`.trim() : "Cliente PayPal",
-              email: payer?.email_address || "",
-              servizio,
-              importo: price.toFixed(2),
               orderId: data.orderID || order?.id || "N/A",
+              serviceId,
+              servizio: serviceTitle,
+              importo: price.toFixed(2),
+              fullName: checkoutData.fullName,
+              email: checkoutData.email,
+              taxCode: checkoutData.taxCode,
+              vatNumber: checkoutData.vatNumber,
             }),
           });
+          setStatus(response.ok ? "success" : "error");
         },
         onError: () => setStatus("error"),
       }).render(containerRef.current);
       setStatus("ready");
     }
-  }, [servizio, price]);
+  }, [checkoutData, onValidationError, price, serviceId, serviceTitle]);
 
   if (status === "success") {
     return <div className="text-center py-3 text-green-600 font-medium text-sm">Pagamento completato!</div>;
@@ -94,6 +149,8 @@ function PayPalButton({ servizio, price }: { servizio: string; price: number }) 
 export function Pricing() {
   const [prezzi, setPrezzi] = useState<Servizio[]>(FALLBACK);
   const [loading, setLoading] = useState<string | null>(null);
+  const [checkoutData, setCheckoutData] = useState<Record<string, CheckoutFormData>>({});
+  const [checkoutErrors, setCheckoutErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     fetch("/api/prezzi", { cache: "no-store" })
@@ -103,12 +160,45 @@ export function Pricing() {
   }, []);
 
   async function handleStripeCheckout(servizioId: string) {
+    const form = checkoutData[servizioId] || EMPTY_CHECKOUT_DATA;
+    const error = getCheckoutError(form);
+    if (error) {
+      setCheckoutErrors((prev) => ({ ...prev, [servizioId]: error }));
+      return;
+    }
+
     setLoading(servizioId);
     try {
-      const res = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ servizio: servizioId }) });
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          servizio: servizioId,
+          ...form,
+        }),
+      });
       const data = await res.json();
       if (data.url) { window.location.href = data.url; } else { setLoading(null); }
     } catch { setLoading(null); }
+  }
+
+  function updateCheckoutField(servizioId: string, field: keyof CheckoutFormData, value: string) {
+    setCheckoutData((prev) => {
+      const current = prev[servizioId] || EMPTY_CHECKOUT_DATA;
+      let nextValue = value;
+      if (field === "email") nextValue = value.trim().toLowerCase();
+      if (field === "taxCode") nextValue = normalizeTaxCode(value);
+      if (field === "vatNumber") nextValue = normalizeVatNumber(value);
+
+      return {
+        ...prev,
+        [servizioId]: {
+          ...current,
+          [field]: nextValue,
+        },
+      };
+    });
+    setCheckoutErrors((prev) => ({ ...prev, [servizioId]: "" }));
   }
 
   const visibili = prezzi.filter((p) => p.active);
@@ -146,7 +236,51 @@ export function Pricing() {
               </div>
               {p.price ? (
                 <div className="space-y-3">
-                  <PayPalButton servizio={p.title} price={p.price} />
+                  <div className="grid gap-3">
+                    <input
+                      type="text"
+                      value={(checkoutData[p.id] || EMPTY_CHECKOUT_DATA).fullName}
+                      onChange={(e) => updateCheckoutField(p.id, "fullName", e.target.value)}
+                      placeholder="Nome e cognome"
+                      className="w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm"
+                    />
+                    <input
+                      type="email"
+                      value={(checkoutData[p.id] || EMPTY_CHECKOUT_DATA).email}
+                      onChange={(e) => updateCheckoutField(p.id, "email", e.target.value)}
+                      placeholder="Email"
+                      className="w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm"
+                    />
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      <input
+                        type="text"
+                        value={(checkoutData[p.id] || EMPTY_CHECKOUT_DATA).taxCode}
+                        onChange={(e) => updateCheckoutField(p.id, "taxCode", e.target.value)}
+                        placeholder="Codice fiscale"
+                        className="w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm uppercase"
+                      />
+                      <input
+                        type="text"
+                        value={(checkoutData[p.id] || EMPTY_CHECKOUT_DATA).vatNumber}
+                        onChange={(e) => updateCheckoutField(p.id, "vatNumber", e.target.value)}
+                        placeholder="P.IVA (opzionale)"
+                        className="w-full rounded-lg border border-zinc-200 px-3 py-2 text-sm"
+                      />
+                    </div>
+                    <p className="text-xs text-zinc-500">
+                      Prima del pagamento servono email e almeno uno tra codice fiscale o P.IVA.
+                    </p>
+                    {checkoutErrors[p.id] ? (
+                      <p className="text-xs text-red-500">{checkoutErrors[p.id]}</p>
+                    ) : null}
+                  </div>
+                  <PayPalButton
+                    serviceId={p.id}
+                    serviceTitle={p.title}
+                    price={p.price}
+                    checkoutData={checkoutData[p.id] || EMPTY_CHECKOUT_DATA}
+                    onValidationError={(message) => setCheckoutErrors((prev) => ({ ...prev, [p.id]: message }))}
+                  />
                   <button
                     onClick={() => handleStripeCheckout(p.id)}
                     disabled={loading === p.id}

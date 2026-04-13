@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContattiForm } from "./form";
 
 export const metadata: Metadata = {
@@ -15,18 +16,18 @@ export default function ContattiPage() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <span className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
               A.T. Consulting
             </span>
-          </a>
+          </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-            <a href="/#servizi" className="hover:text-zinc-900 transition-colors">
+            <Link href="/#servizi" className="hover:text-zinc-900 transition-colors">
               Servizi
-            </a>
-            <a href="/#chi-siamo" className="hover:text-zinc-900 transition-colors">
+            </Link>
+            <Link href="/#chi-siamo" className="hover:text-zinc-900 transition-colors">
               Chi siamo
-            </a>
+            </Link>
             <a
               href="https://clienti.atparma.com"
               className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"

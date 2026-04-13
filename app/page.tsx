@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Pricing } from "./pricing";
 import { MobileMenu } from "./mobile-menu";
 
@@ -15,9 +16,9 @@ function Header() {
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-          <a href="/servizi" className="hover:text-zinc-900 transition-colors">
+          <Link href="/servizi" className="hover:text-zinc-900 transition-colors">
             Servizi
-          </a>
+          </Link>
           <a href="/blog" className="hover:text-zinc-900 transition-colors">
             Blog
           </a>
@@ -582,9 +583,9 @@ function Footer() {
             </h3>
             <ul className="space-y-2 text-zinc-400 text-sm">
               <li>
-                <a href="/servizi" className="hover:text-white transition-colors">
+                <Link href="/servizi" className="hover:text-white transition-colors">
                   Servizi
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="/blog" className="hover:text-white transition-colors">
