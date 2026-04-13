@@ -1,118 +1,252 @@
-============================================================
-  SITO WEB A.T. CONSULTING PARMA - REPORT PROGETTO
-  Ultimo aggiornamento: 2026-04-05 10:50
-  Versione: 0.9
-============================================================
+================================================================================
+REPORT UNIFICATO — AT PARMA
+Sito www.atparma.com + Portale clienti.atparma.com
+Data: 2026-04-14 | Versione: 1.0
+================================================================================
 
-PANORAMICA
-----------
-Sito pubblico professionale per lo studio A.T. Consulting
-Parma S.R.L.S. Sostituisce il vecchio WordPress/WooCommerce.
-Design top-tier per professionisti italiani.
+--------------------------------------------------------------------------------
+1. PANORAMICA DUE PROGETTI
+--------------------------------------------------------------------------------
 
-Dominio target: www.atparma.com
-Repository: https://github.com/hjkl1113/atparma-sito
-Cartella locale (Mac): /Users/alessandrosicuri/Desktop/studio at/sito/
-Cartella locale (Win): C:\Users\hp\projects\atparma-sito\
+SITO (atparma.com)
+- Scopo: Marketing, acquisizione, vendita servizi/guide
+- Stack: Next.js + Stripe + PayPal (NO WooCommerce)
+- GitHub: hjkl1113/atparma-sito
+- Stato: LIVE
 
-STACK TECNOLOGICO
------------------
-- Framework:    Next.js 16 + TypeScript
-- UI:           Tailwind CSS v4 + shadcn/ui
-- Design:       Pencil (.pen files)
-- Pagamenti:    Stripe
-- Hosting:      Vercel
+PORTALE (clienti.atparma.com)
+- Scopo: Gestione quotidiana clienti esistenti
+- Stack: Next.js + Prisma + Neon + R2
+- GitHub: hjkl1113/studio-atparma
+- GitLab: hjkl1113/piattaforma
+- Stato: LIVE
 
-COLLEGAMENTO CON PORTALE CLIENTI
---------------------------------
-- Portale: https://at-parma.vercel.app
-- Repo:    https://github.com/hjkl1113/studio-atparma
-- Flusso:  Stripe checkout > webhook > crea account portale > email
+--------------------------------------------------------------------------------
+2. STRUTTURA PREZZI DEFINITIVA
+--------------------------------------------------------------------------------
 
-DATI STUDIO
-------------
-- A.T. Consulting Parma S.R.L.S.
-- P.IVA / CF: 02794450342
-- Borgo Riccio da Parma 5, 43121 Parma (PR)
-- PEC: atconsultingparma@pec.it
-- Email: segreteria@atparma.com
-- Tel: 0521 247721
+SERVIZI SUL SITO
+- Dichiarazione 730: EUR 79
+- Apertura P.IVA Professionista: EUR 150
+- Apertura P.IVA Artigiano/Commerciante (SIA, INPS, CCIAA): EUR 500
+- Apertura P.IVA Forfettario (caricamento documenti via portale): EUR 500
+- Apertura P.IVA Forfettario + GIS Ranocchi (EFAT fatturazione): EUR 550/anno
+- Consulenza su misura: A preventivo
 
-DESIGN
-------
-- File: new.pen (Pencil)
-- Frame: "AT Parma - Homepage v2" (node hT3Pj)
-- Stile: Aerial Gravitas
-- Palette: Carbon Frost (bianco/grigio/blu #4A9FD8)
-- Font titoli: Geist (sans-serif)
-- Font corpo: Inter (sans-serif)
-- Font caption: Geist Mono (monospace)
+SERVIZI RICORRENTI (portale)
+- Gestione contabilita forfettaria: da definire
+- Gestione 730: EUR 79 (una tantum)
+- Gestione forfettario + EFAT: EUR 550/anno
 
-SEZIONI HOMEPAGE
-----------------
-1. Hero (foto aerea Parma, headline, 2 CTA, 4 stats)
-2. Servizi (3 card numerate: fiscale, crisi impresa, finanziaria)
-3. Servizi Online / Pricing (3 card con prezzi e CTA acquisto)
-   - 730: EUR 79 (PLACEHOLDER - da aggiornare prima del go-live)
-   - Apertura P.IVA: EUR 149 (PLACEHOLDER - da aggiornare)
-   - Consulenza su misura: a preventivo
-4. Chi siamo (split 50/50: foto team + testo)
-5. Testimonial (3 recensioni clienti)
-6. Perche sceglierci (griglia 2x3 vantaggi)
-7. Blog / Guide fiscali (3 card articoli con illustrazioni)
-8. CTA finale (foto aerea + "Hai una questione urgente?")
-9. Footer (contatti, link, P.IVA/PEC)
+--------------------------------------------------------------------------------
+3. CATALOGO PRODOTTI DIGITALI
+--------------------------------------------------------------------------------
 
-STATO AVANZAMENTO
------------------
+GUIDE GRATUITE (lead magnet) — Download libero per tutti
+- Documentazione necessaria per 730 -> Acquisto servizio 730 EUR 79
+- Documentazione necessaria per apertura P.IVA -> Acquisto servizio EUR 150-550
 
-FASE 0 - SETUP
-[X] 0.1  Init Next.js + TypeScript + Tailwind
-[X] 0.2  Repository GitHub
-[X] 0.3  CLAUDE.md + REPORT
-[X] 0.4  Contenuti approvati (contenuti.md)
-[X] 0.5  Design homepage v1 (Monumental Editorial - scartato)
-[X] 0.6  Design homepage v2 (Aerial Gravitas - approvato)
-[X] 0.7  Deploy Vercel (atparma-sito.vercel.app)
+CALCOLATORI GRATUITI (lead magnet web)
+- "Conviene il forfettario?" — Risultato gratuito + email per report dettagliato
+- "SRL vs SAS vs DI?" — Risultato gratuito + email per report dettagliato
 
-FASE 1 - SITO PUBBLICO
-[X] 1.1  Sviluppo landing page da design v2
-[X] 1.2  Pagina servizi dettaglio (3 sotto-pagine)
-[X] 1.3  Form richiesta preventivo/consulenza (Brevo email)
-[X] 1.4  Link "Area Clienti" > portale
-[X] 1.5  SEO + meta tags + sitemap + robots.txt
-[X] 1.6  Blog / 3 articoli fiscali (commercialista online, P.IVA, 730)
+GUIDE A PAGAMENTO (vendita sul sito)
+- Regime Forfettario 2026 — PDF + Excel: EUR 27-37
+- E-commerce Italia — PDF: EUR 37-47
+- Adeguati Assetti Societari PMI — PDF: EUR 47-67
 
-FASE 2 - PAGAMENTI STRIPE
-[X] 2.1  Integrazione Stripe checkout (manca solo STRIPE_SECRET_KEY)
-[X] 2.2  Webhook Stripe > notifica email pagamento
-[X] 2.3  Pagina conferma ordine + pagina annullamento
-[X] 2.4  Pannello admin prezzi con Vercel Blob (promo/sconti)
+RIEPILOGO MODELLI
+- Documentazione 730: GRATIS (pre-acquisto, riduce barriere)
+- Documentazione P.IVA: GRATIS (pre-acquisto, riduce barriere)
+- Calcolatore forfettario: GRATIS (lead magnet, alto intento)
+- Calcolatore forma giuridica: GRATIS (lead magnet, alto intento)
+- Guida Forfettario: EUR 27-37 (upsell post-acquisto calcolatore)
+- Guida E-commerce: EUR 37-47 (nicchia specifica)
+- Guida Adeguati Assetti: EUR 47-67 (B2B, contenuto alto valore)
 
-FASE 3 - GO-LIVE
-[ ] 3.1  Definire prezzi definitivi catalogo
-[ ] 3.2  Switchover dominio da WordPress a Vercel
+--------------------------------------------------------------------------------
+4. FUNNEL DI VENDITA
+--------------------------------------------------------------------------------
 
-PROSSIMI PASSI
---------------
-1. Webhook Stripe > crea account portale clienti (fase 2)
-2. Switchover dominio atparma.com da WordPress a Vercel
+FUNNEL FORFETTARIO
+1. Lead arriva sul sito
+2. Scarica guida documentazione P.IVA (GRATIS)
+3. Email capturata
+4. Usa calcolatore "Conviene il forfettario?" (GRATIS)
+5. Risultato: "Per te conviene" + offerta servizio
+6. Acquista apertura P.IVA EUR 500 (o EUR 550 con EFAT)
+7. Accesso portale + guida PDF Forfettario omaggio
+8. Cliente servizio ricorrente EUR 550/anno
 
-CREDENZIALI ATTIVE
-------------------
-- Admin prezzi: https://atparma-sito.vercel.app/admin
-- Password admin: AleSic$0101
-- PayPal live: configurato (account sicuri@atparma.com)
-- Stripe live: configurato
-- Brevo email: configurato > segreteria@atparma.com
-- Vercel Blob: connesso (prezzi dinamici)
+FUNNEL 730
+1. Lead arriva sul sito
+2. Scarica guida documentazione 730 (GRATUITA)
+3. Email capturata
+4. Offerta servizio 730 EUR 79
+5. Acquista -> accesso portale
 
-NOTE
-----
-- Prezzi 730 e P.IVA sono placeholder, da definire prima del go-live
-- Serve meccanismo per modificare prezzi senza toccare codice
-- Design v1 (oro/nero, Monumental Editorial) scartato: troppo template
+FUNNEL ADEGUATI ASSETTI
+1. Lead (SRL, PMI) raggiunge articolo/blog sul sito
+2. Scarica guida Adeguati Assetti EUR 47-67
+3. Se apre attivita con AT Parma -> guida rimborsata/scontata
 
-============================================================
-  Repository: https://github.com/hjkl1113/atparma-sito
-============================================================
+--------------------------------------------------------------------------------
+5. ANALISI DI MERCATO
+--------------------------------------------------------------------------------
+
+CONTESTO NUMERICO ITALIANO
+- Commercialisti tradizionali (forfettario): EUR 500-1.000/anno
+- TaxMan / FidoCommercialista: EUR 199-264/anno
+- Guide fiscali professionali: EUR 25-40 a guida
+- CAC B2B servizi professionali: EUR 200-800/cliente
+- Lead qualificato B2B: EUR 100-300
+- Conversione lead->cliente: 10-15%
+- Content marketing per commercialisti: +156% lead
+
+I DUE MODELLI A CONFRONTO
+                            Vendita guide EUR 27  Lead magnet -> cliente EUR 500/anno
+- Ricavo unitario:           EUR 27              EUR 500/anno x ~3 anni = EUR 1.500 LTV
+- Clienti per EUR 1.500:     ~56 vendite         3 clienti
+- Costo acquisizione:        EUR 5-15/vendita    EUR 20-50/lead
+- Margine netto (ads):       ~EUR 12-22/vendita ~EUR 450-480/cliente
+- Volume realistico mese 1:  10-30 vendite       5-15 lead -> 1-3 clienti
+- Competizione:              Alta                Bassa
+
+Il calcolatore gratuito genera ~5-6x piu ricavo a parita di spesa pubblicitaria.
+
+CHANCE FIDUCIA CONTABILITA ONLINE
+- Freelance / consulenti under 35: Alta (70-80%)
+- Artigiani / commercianti 40-60: Bassa senza relazione pregressa (20-30%)
+- E-commerce / startuppers: Alta (60-70%)
+
+Il portale e un differenziatore, non il prodotto. Il cliente deve percepire:
+"C'e Alessandro/Pietro che conosco, e per la gestione quotidiana uso il portale."
+
+--------------------------------------------------------------------------------
+6. DATABASE — DISTRIBUZIONE CLIENTI
+--------------------------------------------------------------------------------
+
+Totale clienti: 184
+
+FORFETTARIO:    15
+SRLS:           20
+SRL:            18
+DITTA_IND:      14
+PF_UNICO:        6
+COOP:            2
+SSD:             1
+
+I 15 forfettari esistenti sono il banco di prova ideale.
+
+--------------------------------------------------------------------------------
+7. DASHBOARD CLIENTE — STRUTTURA
+--------------------------------------------------------------------------------
+
+MENU LATERALE CLIENTE (portale)
+1. Home — riepilogo scadenze, pratiche, notifiche
+2. Documenti — scarica (F24, dichiarazioni) + carica (ricevute)
+3. Pratiche — stato pratiche in corso
+4. Scadenze — scadenze fiscali personali
+5. Messaggi — chat con lo studio
+6. Strumenti & Guide — guide acquistate + tool Excel
+
+FILOSOFIA: "Vetrina + Upload"
+- Il cliente vede solo quello che gli mandi tu (passivo)
+- Puo caricare documenti richiesti (interattivo)
+- Minimo confusione, massima adozione
+
+STAFF (accesso completo)
+- Alessandro + Pietro: ADMIN
+- Casciaro Sara + Susanna Bianchi: SENIOR_EMPLOYEE
+
+--------------------------------------------------------------------------------
+8. FUNZIONALITA DA IMPLEMENTARE
+--------------------------------------------------------------------------------
+
+COLLEGAMENTO SITO -> PORTALE (Stripe webhook)
+Acquisto sul sito (Stripe) -> Stripe invia webhook -> /api/webhook/stripe nel
+portale -> Verifica pagamento + crea account cliente -> Email attivazione
+
+FLAG VISIBILITA DOCUMENTI
+- clientVisible: toggle documento visibile al cliente o solo staff
+- sharedUntil: link condivisione temporanea (7/15/30 giorni) per esterni
+
+SEZIONE "STRUMENTI & GUIDE"
+- PDF Guida: Staff sempre | Cliente con acquisto sbloccato | Senza acquisto anteprima+CTA
+- Tool Excel: Staff sempre | Cliente con acquisto scarica | Senza acquisto non visibile
+- Simulatore web: Staff sempre | Cliente con acquisto usa | Senza acquisto non visibile
+
+BLOCCANTI TEST INTERNO
+1. Captcha Turnstile da riattivare
+2. Flusso invito attivazione account clienti (end-to-end test)
+3. Primo accesso reale di Casciaro Sara e Susanna
+4. Rclone sul server fisico (sync 300GB -> R2)
+
+--------------------------------------------------------------------------------
+9. VISIONE SAAS — PROFESSIO
+--------------------------------------------------------------------------------
+
+Nome: PROFESSIO
+Claim: "Il tuo studio, finalmente in un posto solo."
+Target: Studi commercialisti 2-5 persone, 50-200 clienti
+Pricing SaaS: Core EUR 49 / Pro EUR 79 / Wizard +EUR 25
+Domini: professio.io, professio.it, professio.app
+Probabilita: 65%
+
+--------------------------------------------------------------------------------
+10. REPOSITORY E LINK
+--------------------------------------------------------------------------------
+
+Sito AT Parma:     https://github.com/hjkl1113/atparma-sito
+Portail GitHub:    https://github.com/hjkl1113/studio-atparma
+Portail GitLab:    https://gitlab.com/hjkl1113/piattaforma
+Sito LIVE:         https://www.atparma.com
+Portale LIVE:      https://clienti.atparma.com
+
+--------------------------------------------------------------------------------
+11. PROSSIMI PASSI
+--------------------------------------------------------------------------------
+
+IMMEDIATO (bloccanti test interno)
+1. Riattivare Captcha Turnstile
+2. Testare flusso invito account clienti
+3. Abilitare Casciaro Sara e Susanna (insert SQL diretto)
+4. Test interno con staff sui 15 forfettari
+
+BREVE TERMINE (collegamento Sito <-> Portale)
+5. Implementare Stripe webhook -> crea account portale
+6. Creare sezione "Strumenti & Guide" lato cliente
+7. Creare guida documentazione 730 (GRATUITA)
+8. Creare guida documentazione P.IVA (GRATUITA)
+9. Implementare calcolatore web "Conviene il forfettario?"
+10. Aggiornare prezzi sul sito con struttura definitiva
+
+MEDIO TERMINE (infoprodotti)
+11. Creare guida PDF Regime Forfettario 2026
+12. Creare Simulatore Excel Forfettario
+13. Implementare calcolatore "SRL vs SAS vs DI?"
+14. Test portale con i 15 forfettari esistenti
+
+--------------------------------------------------------------------------------
+12. VALUTAZIONE PROGETTO SITO
+--------------------------------------------------------------------------------
+
+PUNTI DI FORZA
+- Design curato (stile Aerial Gravitas, palette Carbon Frost)
+- Struttura chiara con pricing, servizi, blog SEO
+- Checkout Stripe + PayPal gia funzionante
+- Gia LIVE
+
+PUNTI DI DEBOLEZZA
+- I prezzi sul sito sono ancora placeholder
+- Il funnel di acquisizione clienti non e ancora costruito
+- Nessun blog articolo SEO in produzione
+- Collegamento Sito -> Portale post-acquisto non implementato
+
+GIUDIZIO
+Il sito e una vetrina ma non e ancora un sistema di acquisizione.
+Ha le fondamenta giuste, ma manca il motore che converte visitatori in clienti.
+
+--------------------------------------------------------------------------------
+Report compilato: 2026-04-14
+================================================================================
