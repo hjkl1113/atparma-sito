@@ -330,4 +330,31 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 
 ---
 
+## 13. CHECKLIST — COSA MANCA
+
+### Sito (atparma-sito)
+- [ ] Aggiornare prezzi dal placeholder (€149) alla struttura reale (€150-550)
+- [ ] Dashboard admin per gestire prodotti (o modifica diretta JSON via /api/prezzi)
+- [ ] Collegamento Stripe → Portale (webhook post-acquisto)
+- [ ] Landing page per "730 online" con guida gratuita
+- [ ] Implementare calcolatore "Conviene il forfettario?"
+- [ ] Implementare calcolatore "SRL vs SAS vs DI?"
+
+### Portale (clienti.atparma.com)
+- [ ] Riattivare Captcha Turnstile
+- [ ] Testare flusso invito account clienti (end-to-end)
+- [ ] Abilitare Casciaro Sara e Susanna (insert SQL diretto)
+- [ ] Sezione "Strumenti & Guide" lato cliente
+- [ ] Flag clientVisible e sharedUntil sui documenti
+- [ ] Test interno con i 15 forfettari esistenti
+
+### Contenuti digitali
+- [ ] Guida documentazione 730 (gratuita, PDF)
+- [ ] Guida documentazione P.IVA (gratuita, PDF)
+- [ ] Guida PDF Regime Forfettario 2026 (+ Simulatore Excel)
+- [ ] Guida PDF E-commerce Italia
+- [ ] Guida PDF Adeguati Assetti PMI
+
+---
+
 *Report compilato: 2026-04-14*
