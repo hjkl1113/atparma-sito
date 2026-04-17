@@ -207,7 +207,7 @@ export function Pricing() {
   const visibili = prezzi.filter((p) => p.active);
 
   return (
-    <section className="py-24 bg-[var(--color-surface)]">
+    <section id="servizi-online" className="py-24 bg-[var(--color-surface)] scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3 text-center">
           Servizi online

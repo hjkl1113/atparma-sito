@@ -57,24 +57,25 @@ function Hero() {
           Studio Professionale · Parma · Tutta Italia
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-          Consulenza fiscale e finanziaria per imprese
+          Il tuo commercialista online, veramente.
         </h1>
         <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Supportiamo imprese e professionisti nella gestione fiscale, nella
-          crisi di impresa e nelle operazioni straordinarie.
+          Dottori commercialisti iscritti all&apos;albo. Apri Partita IVA da
+          €150, fai il 730 a €79, ricevi consulenze su misura — tutto dal
+          portale clienti, con risposta entro 24 ore.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="/contatti"
+            href="#servizi-online"
             className="px-8 py-4 bg-[var(--color-accent)] text-white font-medium rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-base"
           >
-            Richiedi una consulenza
+            Vedi i servizi online
           </a>
           <a
-            href="tel:+390521247721"
+            href="/contatti"
             className="px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-base"
           >
-            +39 0521 247721
+            Prenota consulenza
           </a>
           <a
             href="https://clienti.atparma.com"
@@ -123,8 +124,10 @@ function Intro() {
     <section className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <p className="text-xl sm:text-2xl text-zinc-600 leading-relaxed">
-          Un team di professionisti qualificati al tuo fianco, dalla
-          pianificazione fiscale fino alle operazioni piu complesse.
+          Studio dal 2005, oltre 200 aziende seguite. Dichiarazioni, apertura
+          Partita IVA e gestione fiscale continuativa — e, quando serve,
+          assistenza nei momenti complessi: crisi d&apos;impresa, M&amp;A,
+          finanza agevolata.
         </p>
       </div>
     </section>
