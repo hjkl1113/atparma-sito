@@ -292,7 +292,52 @@ export function Pricing() {
             </div>
           ))}
         </div>
-        <div className="mt-12 text-center">
+
+        <div className="mt-16 bg-white border border-zinc-200 rounded-2xl p-8">
+          <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-4 text-center">
+            Incluso in ogni servizio
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center mb-3">
+                <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2a4 4 0 014-4h6m0 0l-3-3m3 3l-3 3M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-zinc-900">Portale clienti</p>
+              <p className="text-xs text-zinc-500 leading-relaxed mt-1">Documenti, scadenze e pratiche in un&apos;unica dashboard.</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center mb-3">
+                <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-zinc-900">Upload sicuro</p>
+              <p className="text-xs text-zinc-500 leading-relaxed mt-1">Canale cifrato per caricare documenti sensibili.</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center mb-3">
+                <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-zinc-900">Accesso 24/7</p>
+              <p className="text-xs text-zinc-500 leading-relaxed mt-1">Consulta lo stato della pratica quando vuoi.</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center mb-3">
+                <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-zinc-900">Albo dottori commercialisti</p>
+              <p className="text-xs text-zinc-500 leading-relaxed mt-1">Studio iscritto con dottori revisori legali.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
           <Link
             href="/calcolatori/forfettario"
             className="inline-flex items-center gap-2 text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-dark)] font-medium"

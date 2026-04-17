@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Calculator } from "./calculator";
+import { MobileMenu } from "@/app/mobile-menu";
 
 export const metadata: Metadata = {
   title: "Calcolatore forfettario 2026 — Conviene? | A.T. Consulting Parma",
@@ -30,18 +31,11 @@ export default function CalcolatoreForfettarioPage() {
             A.T. Consulting
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-            <Link href="/servizi" className="hover:text-zinc-900 transition-colors">
-              Servizi
-            </Link>
-            <Link href="/blog" className="hover:text-zinc-900 transition-colors">
-              Blog
-            </Link>
-            <Link href="/faq" className="hover:text-zinc-900 transition-colors">
-              FAQ
-            </Link>
-            <Link href="/contatti" className="hover:text-zinc-900 transition-colors">
-              Contatti
-            </Link>
+            <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
+            <Link href="/calcolatori/forfettario" className="text-zinc-900 font-medium">Calcolatore</Link>
+            <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
+            <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
+            <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
               className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
@@ -49,6 +43,7 @@ export default function CalcolatoreForfettarioPage() {
               Area Clienti
             </a>
           </nav>
+          <MobileMenu />
         </div>
       </header>
 

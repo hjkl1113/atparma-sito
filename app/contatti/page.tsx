@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContattiForm } from "./form";
+import { MobileMenu } from "@/app/mobile-menu";
 
 export const metadata: Metadata = {
   title: "Contatti — Richiedi una consulenza | A.T. Consulting Parma",
@@ -16,18 +17,15 @@ export default function ContattiPage() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
-              A.T. Consulting
-            </span>
+          <Link href="/" className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
+            A.T. Consulting
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-            <Link href="/#servizi" className="hover:text-zinc-900 transition-colors">
-              Servizi
-            </Link>
-            <Link href="/#chi-siamo" className="hover:text-zinc-900 transition-colors">
-              Chi siamo
-            </Link>
+            <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
+            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcolatore</Link>
+            <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
+            <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
+            <Link href="/contatti" className="text-zinc-900 font-medium">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
               className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
@@ -35,6 +33,7 @@ export default function ContattiPage() {
               Area Clienti
             </a>
           </nav>
+          <MobileMenu />
         </div>
       </header>
 
