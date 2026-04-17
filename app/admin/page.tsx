@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-interface Servizio {
-  id: string;
-  title: string;
-  desc: string;
-  price: number | null;
-  originalPrice: number | null;
-  active: boolean;
-}
+import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
 
 export default function AdminPage() {
   const [password, setPassword] = useState("");
@@ -94,6 +86,17 @@ export default function AdminPage() {
   function removeServizio(id: string) {
     if (!confirm(`Eliminare il servizio "${id}"? L'azione sara definitiva al prossimo salvataggio.`)) return;
     setPrezzi((prev) => prev.filter((s) => s.id !== id));
+  }
+
+  function loadDefaults() {
+    if (
+      !confirm(
+        `Ripristinare i ${DEFAULT_PREZZI.length} servizi di default? Sovrascrive la lista attuale nel form. Dovrai cliccare "Salva prezzi" per persistere.`
+      )
+    )
+      return;
+    setPrezzi([...DEFAULT_PREZZI]);
+    setMessage("");
   }
 
   if (!authed) {
@@ -266,13 +269,21 @@ export default function AdminPage() {
           ))}
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap gap-3">
           <button
             type="button"
             onClick={addServizio}
             className="px-4 py-2 bg-white border border-zinc-300 text-zinc-700 rounded-lg text-sm font-medium hover:bg-zinc-50"
           >
             + Aggiungi servizio
+          </button>
+          <button
+            type="button"
+            onClick={loadDefaults}
+            className="px-4 py-2 bg-white border border-zinc-300 text-zinc-700 rounded-lg text-sm font-medium hover:bg-zinc-50"
+            title="Carica nel form i 6 servizi di default definiti nel codice. Non salva: devi cliccare Salva prezzi dopo."
+          >
+            Ripristina default ({DEFAULT_PREZZI.length} servizi)
           </button>
         </div>
 

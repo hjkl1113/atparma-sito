@@ -2,15 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-
-interface Servizio {
-  id: string;
-  title: string;
-  desc: string;
-  price: number | null;
-  originalPrice: number | null;
-  active: boolean;
-}
+import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
 
 interface CheckoutFormData {
   fullName: string;
@@ -40,15 +32,6 @@ function getCheckoutError(data: CheckoutFormData) {
   if (!data.taxCode.trim() && !data.vatNumber.trim()) return "Inserisci almeno codice fiscale o P.IVA";
   return null;
 }
-
-const FALLBACK: Servizio[] = [
-  { id: "730", title: "Dichiarazione 730", desc: "Compilazione e invio della dichiarazione dei redditi modello 730.", price: 79, originalPrice: null, active: true },
-  { id: "piva-prof", title: "Apertura P.IVA Professionista", desc: "Apertura Partita IVA per professionisti (no iscrizioni CCIAA/INPS artigiani).", price: 150, originalPrice: null, active: true },
-  { id: "piva-art", title: "Apertura P.IVA Artigiano/Commerciante", desc: "Apertura Partita IVA con iscrizione CCIAA, INPS artigiani/commercianti, SIA.", price: 500, originalPrice: null, active: true },
-  { id: "piva-forf", title: "P.IVA Forfettario", desc: "Apertura Partita IVA forfettaria con caricamento documenti tramite portale clienti.", price: 500, originalPrice: null, active: true },
-  { id: "piva-forf-gis", title: "P.IVA Forfettario + EFAT", desc: "Apertura + fatturazione elettronica GIS Ranocchi EFAT inclusa per un anno.", price: 550, originalPrice: null, active: true },
-  { id: "consulenza", title: "Consulenza su misura", desc: "Analisi personalizzata e piano d'azione per la tua situazione specifica.", price: null, originalPrice: null, active: true },
-];
 
 function PayPalButton({
   serviceId,
@@ -151,7 +134,7 @@ function PayPalButton({
 }
 
 export function Pricing() {
-  const [prezzi, setPrezzi] = useState<Servizio[]>(FALLBACK);
+  const [prezzi, setPrezzi] = useState<Servizio[]>(DEFAULT_PREZZI);
   const [loading, setLoading] = useState<string | null>(null);
   const [checkoutData, setCheckoutData] = useState<Record<string, CheckoutFormData>>({});
   const [checkoutErrors, setCheckoutErrors] = useState<Record<string, string>>({});
