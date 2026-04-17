@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MobileMenu } from "@/app/mobile-menu";
+import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 
 export const metadata: Metadata = {
   title: "Servizi — Commercialista online Parma | A.T. Consulting Parma",
@@ -87,11 +88,61 @@ export default function ServiziPage() {
             I nostri servizi
           </p>
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
-            Le nostre aree di specializzazione
+            Servizi online e aree di specializzazione
           </h1>
           <p className="text-zinc-600 max-w-2xl mb-16 leading-relaxed">
-            Un team di dottori commercialisti e revisori legali al tuo fianco,
-            dalla pianificazione fiscale fino alle operazioni piu complesse.
+            Acquisti subito quello che ti serve o ci contatti per progetti piu complessi.
+            Team di dottori commercialisti e revisori legali iscritti all&apos;albo.
+          </p>
+
+          <section className="mb-20">
+            <h2 className="text-xl font-semibold mb-2 font-[family-name:var(--font-heading)]">
+              Servizi online acquistabili
+            </h2>
+            <p className="text-zinc-600 text-sm mb-8 max-w-2xl">
+              Prezzo chiaro, checkout in due minuti, portale clienti incluso. La pratica si
+              apre appena completi il pagamento.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {DEFAULT_PREZZI.filter((p) => p.active).map((p) => {
+                const isLinkable = Boolean(p.slug);
+                const Card = (
+                  <div className="h-full bg-white rounded-2xl border border-zinc-100 p-6 flex flex-col hover:border-zinc-300 hover:shadow-sm transition-all">
+                    <h3 className="font-semibold mb-2 font-[family-name:var(--font-heading)]">
+                      {p.title}
+                    </h3>
+                    <p className="text-zinc-600 text-sm leading-relaxed flex-1 mb-4">{p.desc}</p>
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
+                        {p.price !== null ? `€${p.price}` : "A preventivo"}
+                      </span>
+                      {isLinkable ? (
+                        <span className="text-xs text-[var(--color-accent)] font-medium inline-flex items-center gap-1">
+                          Scopri <span aria-hidden>&rarr;</span>
+                        </span>
+                      ) : p.price !== null ? (
+                        <span className="text-xs text-zinc-400">Scheda in arrivo</span>
+                      ) : null}
+                    </div>
+                  </div>
+                );
+                return isLinkable ? (
+                  <Link key={p.id} href={`/servizi/${p.slug}`} className="block">
+                    {Card}
+                  </Link>
+                ) : (
+                  <div key={p.id}>{Card}</div>
+                );
+              })}
+            </div>
+          </section>
+
+          <h2 className="text-xl font-semibold mb-2 font-[family-name:var(--font-heading)]">
+            Aree di specializzazione
+          </h2>
+          <p className="text-zinc-600 text-sm mb-12 max-w-2xl">
+            Consulenze su progetti complessi, operazioni straordinarie e contenziosi.
+            Valutiamo insieme il perimetro e ti facciamo un preventivo dedicato.
           </p>
 
           <div className="space-y-12">

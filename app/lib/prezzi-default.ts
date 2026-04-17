@@ -5,6 +5,7 @@ export interface Servizio {
   price: number | null;
   originalPrice: number | null;
   active: boolean;
+  slug?: string;
 }
 
 export const DEFAULT_PREZZI: Servizio[] = [
@@ -39,6 +40,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     price: 500,
     originalPrice: null,
     active: true,
+    slug: "piva-forfettario",
   },
   {
     id: "piva-forf-gis",
