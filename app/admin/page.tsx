@@ -76,6 +76,26 @@ export default function AdminPage() {
     );
   }
 
+  function addServizio() {
+    const newId = `servizio-${Date.now()}`;
+    setPrezzi((prev) => [
+      ...prev,
+      {
+        id: newId,
+        title: "Nuovo servizio",
+        desc: "Descrizione del servizio",
+        price: null,
+        originalPrice: null,
+        active: false,
+      },
+    ]);
+  }
+
+  function removeServizio(id: string) {
+    if (!confirm(`Eliminare il servizio "${id}"? L'azione sara definitiva al prossimo salvataggio.`)) return;
+    setPrezzi((prev) => prev.filter((s) => s.id !== id));
+  }
+
   if (!authed) {
     return (
       <main className="min-h-screen flex items-center justify-center px-6">
@@ -117,26 +137,47 @@ export default function AdminPage() {
         </div>
 
         <div className="space-y-6">
-          {prezzi.map((s) => (
+          {prezzi.map((s, idx) => (
             <div
-              key={s.id}
+              key={idx}
               className={`bg-white rounded-2xl p-6 border ${s.active ? "border-zinc-200" : "border-red-200 bg-red-50/30"}`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold font-[family-name:var(--font-heading)]">
+              <div className="flex items-center justify-between mb-4 gap-4">
+                <h2 className="text-lg font-semibold font-[family-name:var(--font-heading)] truncate">
                   {s.title}
                 </h2>
-                <label className="flex items-center gap-2 text-sm">
-                  <input
-                    type="checkbox"
-                    checked={s.active}
-                    onChange={(e) =>
-                      updateServizio(s.id, "active", e.target.checked)
-                    }
-                    className="rounded"
-                  />
-                  Attivo
+                <div className="flex items-center gap-4 shrink-0">
+                  <label className="flex items-center gap-2 text-sm">
+                    <input
+                      type="checkbox"
+                      checked={s.active}
+                      onChange={(e) =>
+                        updateServizio(s.id, "active", e.target.checked)
+                      }
+                      className="rounded"
+                    />
+                    Attivo
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => removeServizio(s.id)}
+                    className="text-xs text-red-500 hover:text-red-700 underline"
+                  >
+                    Elimina
+                  </button>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-xs font-medium text-zinc-500 mb-1">
+                  ID servizio (usato nei pagamenti — cambiarlo rompe la tracciabilita)
                 </label>
+                <input
+                  type="text"
+                  value={s.id}
+                  onChange={(e) => updateServizio(s.id, "id", e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg border border-zinc-200 text-sm font-mono"
+                />
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-4">
@@ -223,6 +264,16 @@ export default function AdminPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={addServizio}
+            className="px-4 py-2 bg-white border border-zinc-300 text-zinc-700 rounded-lg text-sm font-medium hover:bg-zinc-50"
+          >
+            + Aggiungi servizio
+          </button>
         </div>
 
         <div className="mt-8 flex items-center gap-4">
