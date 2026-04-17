@@ -1,8 +1,8 @@
 # REPORT UNIFICATO — AT PARMA
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
-**Data:** 2026-04-14
-**Versione:** 1.0
+**Data:** 2026-04-17
+**Versione:** 1.1
 
 ---
 
@@ -301,7 +301,7 @@ Email attivazione con link
 7. Creare guida documentazione 730 (GRATUITA)
 8. Creare guida documentazione P.IVA (GRATUITA)
 9. Implementare calcolatore web "Conviene il forfettario?"
-10. Aggiornare prezzi sul sito con struttura definitiva
+10. ~~Aggiornare prezzi sul sito con struttura definitiva~~ DONE 2026-04-17 (catalogo 6 servizi nel codice; ricordare login /admin per riscrivere blob prod)
 
 ### Medio termine (infoprodotti)
 11. Creare guida PDF Regime Forfettario 2026
@@ -320,7 +320,6 @@ Email attivazione con link
 - Già LIVE
 
 ### Punti di debolezza
-- I prezzi sul sito sono ancora placeholder
 - Il funnel di acquisizione clienti non è ancora costruito
 - Nessun blog articolo SEO in produzione
 - Collegamento Sito → Portale post-acquisto non implementato
@@ -333,8 +332,9 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 ## 13. CHECKLIST — COSA MANCA
 
 ### Sito (atparma-sito)
-- [ ] Aggiornare prezzi dal placeholder (€149) alla struttura reale (€150-550)
-- [ ] Dashboard admin per gestire prodotti (o modifica diretta JSON via /api/prezzi)
+- [x] Aggiornare prezzi dal placeholder (€149) alla struttura reale (€150-550) — 2026-04-17
+- [x] Dashboard admin per gestire prodotti (add/remove + edit) — 2026-04-17
+- [ ] Riscrivere blob `prezzi.json` in prod via /admin (serve dopo deploy Vercel)
 - [ ] Collegamento Stripe → Portale (webhook post-acquisto)
 - [ ] Landing page per "730 online" con guida gratuita
 - [ ] Implementare calcolatore "Conviene il forfettario?"
