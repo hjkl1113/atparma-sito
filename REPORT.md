@@ -300,7 +300,7 @@ Email attivazione con link
 6. Creare sezione "Strumenti & Guide" lato cliente
 7. Creare guida documentazione 730 (GRATUITA)
 8. Creare guida documentazione P.IVA (GRATUITA)
-9. Implementare calcolatore web "Conviene il forfettario?"
+9. ~~Implementare calcolatore web "Conviene il forfettario?"~~ DONE 2026-04-17 (`/calcolatori/forfettario`, 8 attivita, 3 casse, IRPEF 2026)
 10. ~~Aggiornare prezzi sul sito con struttura definitiva~~ DONE 2026-04-17 (catalogo 6 servizi nel codice; ricordare login /admin per riscrivere blob prod)
 
 ### Medio termine (infoprodotti)
@@ -337,7 +337,7 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 - [ ] Riscrivere blob `prezzi.json` in prod via /admin (serve dopo deploy Vercel)
 - [ ] Collegamento Stripe → Portale (webhook post-acquisto)
 - [ ] Landing page per "730 online" con guida gratuita
-- [ ] Implementare calcolatore "Conviene il forfettario?"
+- [x] Implementare calcolatore "Conviene il forfettario?" — 2026-04-17
 - [ ] Implementare calcolatore "SRL vs SAS vs DI?"
 
 ### Portale (clienti.atparma.com)
