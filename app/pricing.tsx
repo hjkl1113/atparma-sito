@@ -52,9 +52,17 @@ function PayPalButton({
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const paypalReady = () => Boolean((window as any).paypal_sdk || (window as any).paypal);
+
     const existing = document.querySelector('script[src*="paypal.com/sdk"]');
     if (existing) {
-      renderButton();
+      if (paypalReady()) {
+        renderButton();
+      } else {
+        existing.addEventListener("load", renderButton, { once: true });
+        existing.addEventListener("error", () => setStatus("error"), { once: true });
+      }
       return;
     }
 
