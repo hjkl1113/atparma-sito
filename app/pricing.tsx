@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 interface Servizio {
@@ -299,6 +300,15 @@ export function Pricing() {
               )}
             </div>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Link
+            href="/calcolatori/forfettario"
+            className="inline-flex items-center gap-2 text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-dark)] font-medium"
+          >
+            Non sei sicuro quale regime scegliere? Prova il calcolatore forfettario
+            <span aria-hidden>&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>

@@ -28,6 +28,7 @@ export function MobileMenu() {
         <nav className="absolute top-16 left-0 right-0 bg-white border-b border-zinc-100 shadow-lg">
           <div className="flex flex-col p-6 gap-4">
             <Link href="/servizi" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Servizi</Link>
+            <Link href="/calcolatori/forfettario" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolatore forfettario</Link>
             <a href="/blog" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Blog</a>
             <a href="/faq" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>FAQ</a>
             <a href="/contatti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Contatti</a>

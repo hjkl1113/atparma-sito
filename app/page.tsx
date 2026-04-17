@@ -19,6 +19,9 @@ function Header() {
           <Link href="/servizi" className="hover:text-zinc-900 transition-colors">
             Servizi
           </Link>
+          <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">
+            Calcolatore
+          </Link>
           <a href="/blog" className="hover:text-zinc-900 transition-colors">
             Blog
           </a>
