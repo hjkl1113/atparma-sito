@@ -99,17 +99,17 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     prezzoId: "piva-prof",
     title: "Apertura P.IVA per Professionisti",
     tagline:
-      "Per chi svolge un'attivita intellettuale (consulenza, sviluppo software, progettazione, traduzione). Apertura veloce, gestione separata INPS e portale clienti inclusi.",
+      "Per chi svolge un'attività intellettuale (consulenza, sviluppo software, progettazione, traduzione). Apertura veloce, gestione separata INPS e portale clienti inclusi.",
     metaDesc:
       "Apertura P.IVA professionisti a 150 euro: codice ATECO, gestione separata INPS e portale clienti 12 mesi inclusi. Commercialista online iscritto all'albo.",
     perChi: [
       "Consulenti, sviluppatori, designer, copywriter, traduttori",
       "Professionisti intellettuali non iscritti ad albi con cassa privata",
       "Chi lavora a progetto/prestazione per aziende o privati",
-      "Dipendenti che vogliono affiancare un'attivita autonoma",
+      "Dipendenti che vogliono affiancare un'attività autonoma",
     ],
     bullets: [
-      "Consulenza preliminare: codice ATECO corretto per la tua attivita",
+      "Consulenza preliminare: codice ATECO corretto per la tua attività",
       "Apertura Partita IVA presso l'Agenzia delle Entrate",
       "Iscrizione gestione separata INPS (aliquota 26,07% 2026)",
       "Simulazione carico fiscale con scelta regime (ordinario vs forfettario)",
@@ -119,8 +119,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     esclusi: [
       "Fatturazione elettronica (da attivare a parte)",
-      "Iscrizione CCIAA e INPS artigiani/commercianti (per attivita artigianali serve il piano Artigiano/Commerciante)",
-      "Contabilita annuale e tenuta registri (servizio a parte)",
+      "Iscrizione CCIAA e INPS artigiani/commercianti (per attività artigianali serve il piano Artigiano/Commerciante)",
+      "Contabilità annuale e tenuta registri (servizio a parte)",
       "Dichiarazione dei redditi annuale (Redditi PF, da preventivare)",
       "Iscrizione a casse private (Inarcassa, Cassa Forense, ENPAP): gestibili su richiesta con maggiorazione",
     ],
@@ -135,7 +135,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Carichi i documenti",
-        body: "Dal portale carichi carta d'identita, codice fiscale, indirizzo sede. Tempo stimato: 10 minuti.",
+        body: "Dal portale carichi carta d'identità, codice fiscale, indirizzo sede. Tempo stimato: 10 minuti.",
       },
       {
         step: "4. Apertura P.IVA",
@@ -143,10 +143,10 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     docs: [
-      "Carta d'identita o passaporto in corso di validita",
+      "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale (tessera sanitaria)",
       "Indirizzo sede operativa e domicilio fiscale",
-      "Descrizione dell'attivita che vuoi svolgere (al codice ATECO ci pensiamo noi)",
+      "Descrizione dell'attività che vuoi svolgere (al codice ATECO ci pensiamo noi)",
       "IBAN per eventuali pagamenti F24 via addebito diretto",
     ],
     deliveryDays: "entro 5 giorni lavorativi dalla conferma del pagamento",
@@ -165,7 +165,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Qual e la differenza tra questo piano e 'P.IVA Forfettario' a 500 euro?",
-        a: "Questo piano e generico: apriamo la P.IVA scegliendo regime con te. Il piano Forfettario a 500 euro e pensato specificamente per chi parte gia col forfettario e vuole un setup piu completo (simulazione dettagliata, documentazione specifica). In entrambi il portale e incluso.",
+        a: "Questo piano e generico: apriamo la P.IVA scegliendo regime con te. Il piano Forfettario a 500 euro e pensato specificamente per chi parte già col forfettario e vuole un setup più completo (simulazione dettagliata, documentazione specifica). In entrambi il portale e incluso.",
       },
       {
         q: "Sono iscritto a un albo con cassa privata. Va bene questo piano?",
@@ -178,14 +178,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     prezzoId: "piva-art",
     title: "Apertura P.IVA Artigiano o Commerciante",
     tagline:
-      "Per chi apre un'attivita artigianale o commerciale: apertura Partita IVA con iscrizione CCIAA, INPS artigiani/commercianti e SIA. Tutto incluso, tutto online.",
+      "Per chi apre un'attività artigianale o commerciale: apertura Partita IVA con iscrizione CCIAA, INPS artigiani/commercianti e SIA. Tutto incluso, tutto online.",
     metaDesc:
       "P.IVA artigiani e commercianti a 500 euro: apertura + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Commercialista online.",
     perChi: [
       "Artigiani (elettricisti, idraulici, parrucchieri, estetiste, riparatori)",
       "Commercianti (negozi fisici, e-commerce, ristorazione, ambulanti)",
-      "Chi apre un'attivita con locali, merci, rapporti di lavoro",
-      "Soci di societa di persone per quote lavorative",
+      "Chi apre un'attività con locali, merci, rapporti di lavoro",
+      "Soci di società di persone per quote lavorative",
     ],
     bullets: [
       "Consulenza preliminare su codice ATECO e qualifica artigiana/commerciale",
@@ -193,14 +193,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Iscrizione alla Camera di Commercio (CCIAA) con ComUnica",
       "Iscrizione INPS gestione artigiani o commercianti (aliquota 24% 2026, minimale circa 4.208 euro)",
       "Iscrizione SIA (Servizi Integrati Albo) per artigiani, ove richiesto",
-      "Gestione delle pratiche SUAP (se attivita con licenze specifiche)",
+      "Gestione delle pratiche SUAP (se attività con licenze specifiche)",
       "Portale clienti per 12 mesi",
       "Simulazione iniziale contributi fissi e variabili",
     ],
     esclusi: [
       "Fatturazione elettronica (da attivare a parte)",
       "Licenze specifiche (SCIA, autorizzazioni ASL, HACCP per alimenti): gestibili su richiesta con preventivo",
-      "Contabilita annuale e tenuta registri (servizio a parte)",
+      "Contabilità annuale e tenuta registri (servizio a parte)",
       "Dichiarazione dei redditi annuale (da preventivare)",
       "Consulenza lavoro per assunzioni dipendenti (servizio dedicato)",
     ],
@@ -215,7 +215,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Carichi documenti",
-        body: "Dal portale: documenti identita, sede operativa, contratto di locazione, eventuali licenze.",
+        body: "Dal portale: documenti identità, sede operativa, contratto di locazione, eventuali licenze.",
       },
       {
         step: "4. Apertura e iscrizioni",
@@ -223,12 +223,12 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     docs: [
-      "Carta d'identita o passaporto in corso di validita",
+      "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale",
-      "Indirizzo sede operativa (contratto di locazione o atto di proprieta)",
-      "Descrizione dell'attivita e locali dove la svolgi",
-      "Eventuali licenze gia in possesso (SCIA, autorizzazioni sanitarie)",
-      "Documenti di eventuali soci (per societa di persone)",
+      "Indirizzo sede operativa (contratto di locazione o atto di proprietà)",
+      "Descrizione dell'attività e locali dove la svolgi",
+      "Eventuali licenze già in possesso (SCIA, autorizzazioni sanitarie)",
+      "Documenti di eventuali soci (per società di persone)",
       "IBAN per pagamento contributi INPS",
     ],
     deliveryDays: "entro 10 giorni lavorativi (CCIAA + INPS richiedono tempi propri)",
@@ -239,7 +239,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Qual e la differenza rispetto al Professionista a 150 euro?",
-        a: "Il professionista fa attivita intellettuale (consulenze, servizi non manuali): solo gestione separata INPS, niente CCIAA. L'artigiano/commerciante ha attivita manuale o di vendita e serve CCIAA + INPS specifica + SIA. Costi amministrativi e burocratici diversi.",
+        a: "Il professionista fa attività intellettuale (consulenze, servizi non manuali): solo gestione separata INPS, niente CCIAA. L'artigiano/commerciante ha attività manuale o di vendita e serve CCIAA + INPS specifica + SIA. Costi amministrativi e burocratici diversi.",
       },
       {
         q: "Posso scegliere il regime forfettario?",
@@ -266,8 +266,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     perChi: [
       "Freelance e professionisti con ricavi stimati fino a 85.000 euro",
       "Consulenti, creator, designer, sviluppatori che partono in proprio",
-      "Chi ha gia un'attivita e vuole passare al forfettario",
-      "Dipendenti che vogliono affiancare un'attivita autonoma",
+      "Chi ha già un'attività e vuole passare al forfettario",
+      "Dipendenti che vogliono affiancare un'attività autonoma",
     ],
     bullets: [
       "Consulenza preliminare: scegliamo insieme codice ATECO e cassa previdenziale",
@@ -281,9 +281,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     esclusi: [
       "Fatturazione elettronica (inclusa solo nel piano Forfettario + EFAT a 550 euro)",
-      "Contabilita annuale e tenuta registri (servizio a parte)",
+      "Contabilità annuale e tenuta registri (servizio a parte)",
       "Dichiarazione dei redditi annuale (Redditi PF, da preventivare)",
-      "Iscrizione CCIAA e INPS artigiani/commercianti (per chi svolge attivita artigianali, serve il piano Artigiano/Commerciante a 500 euro)",
+      "Iscrizione CCIAA e INPS artigiani/commercianti (per chi svolge attività artigianali, serve il piano Artigiano/Commerciante a 500 euro)",
     ],
     process: [
       {
@@ -292,7 +292,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "2. Carichi i documenti dal portale",
-        body: "Dal tuo portale carichi in sicurezza carta d'identita, codice fiscale e indirizzo sede. Tempo stimato: 10 minuti.",
+        body: "Dal tuo portale carichi in sicurezza carta d'identità, codice fiscale e indirizzo sede. Tempo stimato: 10 minuti.",
       },
       {
         step: "3. Ti chiamiamo entro 24 ore",
@@ -300,14 +300,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "4. Apriamo la Partita IVA",
-        body: "Entro 5 giorni lavorativi la tua P.IVA e attiva. Ricevi tutti i documenti sul portale con il calendario scadenze gia impostato.",
+        body: "Entro 5 giorni lavorativi la tua P.IVA e attiva. Ricevi tutti i documenti sul portale con il calendario scadenze già impostato.",
       },
     ],
     docs: [
-      "Carta d'identita o passaporto in corso di validita",
+      "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale (tessera sanitaria)",
       "Indirizzo della sede operativa e del domicilio fiscale",
-      "Descrizione sintetica dell'attivita che vuoi svolgere (al codice ATECO ci pensiamo noi)",
+      "Descrizione sintetica dell'attività che vuoi svolgere (al codice ATECO ci pensiamo noi)",
       "IBAN per eventuali pagamenti F24 via addebito",
     ],
     deliveryDays: "entro 5 giorni lavorativi dalla conferma del pagamento",
@@ -326,11 +326,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Cosa succede se supero gli 85.000 euro?",
-        a: "Il forfettario non e piu applicabile e passi al regime ordinario l'anno successivo. Ti avvisiamo in tempo e ti aiutiamo nella transizione. Se stai gia pensando di crescere oltre la soglia, valuta prima il piano Artigiano/Commerciante o una consulenza su misura.",
+        a: "Il forfettario non e più applicabile e passi al regime ordinario l'anno successivo. Ti avvisiamo in tempo e ti aiutiamo nella transizione. Se stai già pensando di crescere oltre la soglia, valuta prima il piano Artigiano/Commerciante o una consulenza su misura.",
       },
       {
         q: "Nei 500 euro e compresa la dichiarazione dei redditi?",
-        a: "No. Il prezzo copre l'apertura, la consulenza iniziale e 12 mesi di portale. La dichiarazione dei redditi annuale si aggiunge a parte (prezzo indicativo 200-350 euro per il forfettario, a seconda della complessita).",
+        a: "No. Il prezzo copre l'apertura, la consulenza iniziale e 12 mesi di portale. La dichiarazione dei redditi annuale si aggiunge a parte (prezzo indicativo 200-350 euro per il forfettario, a seconda della complessità).",
       },
       {
         q: "Posso pagare a rate?",
@@ -348,7 +348,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "P.IVA forfettario + EFAT a 550 euro: apertura + fatturazione elettronica GIS Ranocchi inclusa 12 mesi + portale clienti. Pronto a fatturare subito.",
     perChi: [
       "Freelance che devono fatturare subito a clienti business",
-      "Forfettari che prevedono piu di 10-15 fatture l'anno",
+      "Forfettari che prevedono più di 10-15 fatture l'anno",
       "Chi vuole evitare di dover integrare la fatturazione dopo",
       "Professionisti che lavorano con PA (obbligo fatturazione elettronica)",
     ],
@@ -363,9 +363,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     esclusi: [
       "Canone EFAT oltre i primi 12 mesi (rinnovo a circa 50 euro/anno)",
-      "Contabilita annuale e tenuta registri (servizio a parte)",
+      "Contabilità annuale e tenuta registri (servizio a parte)",
       "Dichiarazione dei redditi annuale (da preventivare)",
-      "Iscrizione CCIAA / INPS artigiani (per attivita artigianali serve il piano dedicato)",
+      "Iscrizione CCIAA / INPS artigiani (per attività artigianali serve il piano dedicato)",
     ],
     process: [
       {
@@ -386,26 +386,26 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     docs: [
-      "Carta d'identita o passaporto in corso di validita",
+      "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale",
       "Indirizzo sede operativa e domicilio fiscale",
-      "Descrizione sintetica dell'attivita",
+      "Descrizione sintetica dell'attività",
       "IBAN per pagamenti F24 e da riportare in fattura",
       "Logo in formato PNG o JPG (opzionale, per le tue fatture)",
     ],
     deliveryDays: "entro 5 giorni lavorativi dalla conferma del pagamento",
     faqs: [
       {
-        q: "Perche pagare 50 euro in piu rispetto al piano Forfettario semplice?",
-        a: "Perche attiviamo gia il software di fatturazione elettronica EFAT (valore circa 50 euro/anno di listino), lo configuriamo con i tuoi dati e ti facciamo la formazione. Parti operativo dal primo giorno. Nel piano base il setup EFAT va fatto separatamente dopo.",
+        q: "Perché pagare 50 euro in più rispetto al piano Forfettario semplice?",
+        a: "Perché attiviamo già il software di fatturazione elettronica EFAT (valore circa 50 euro/anno di listino), lo configuriamo con i tuoi dati e ti facciamo la formazione. Parti operativo dal primo giorno. Nel piano base il setup EFAT va fatto separatamente dopo.",
       },
       {
         q: "Sono obbligato a usare la fatturazione elettronica da forfettario?",
-        a: "Si, dal 2024 l'obbligo e esteso anche ai forfettari senza limite di ricavi. Quindi se apri la P.IVA oggi, la fatturazione elettronica ti serve. Questo piano te la da gia inclusa, senza pensieri.",
+        a: "Si, dal 2024 l'obbligo e esteso anche ai forfettari senza limite di ricavi. Quindi se apri la P.IVA oggi, la fatturazione elettronica ti serve. Questo piano te la da già inclusa, senza pensieri.",
       },
       {
         q: "Cos'e GIS Ranocchi EFAT?",
-        a: "E il software di fatturazione elettronica del gruppo Ranocchi, uno dei piu diffusi in Italia tra studi commercialisti. Interfaccia semplice, app mobile, conservazione a norma inclusa.",
+        a: "E il software di fatturazione elettronica del gruppo Ranocchi, uno dei più diffusi in Italia tra studi commercialisti. Interfaccia semplice, app mobile, conservazione a norma inclusa.",
       },
       {
         q: "Dopo 12 mesi cosa succede al software?",

@@ -15,20 +15,20 @@ const sezioni: { titolo: string; voci: string[] }[] = [
     titolo: "Documenti personali (sempre necessari)",
     voci: [
       "Codice fiscale",
-      "Carta d'identita o passaporto in corso di validita",
+      "Carta d'identità o passaporto in corso di validità",
       "Permesso di soggiorno (per cittadini extra-UE)",
-      "Indirizzo di residenza e indirizzo della sede dell'attivita",
+      "Indirizzo di residenza e indirizzo della sede dell'attività",
       "Recapito telefonico e indirizzo email",
-      "Codice IBAN del conto corrente dedicato all'attivita",
+      "Codice IBAN del conto corrente dedicato all'attività",
     ],
   },
   {
-    titolo: "Informazioni sull'attivita",
+    titolo: "Informazioni sull'attività",
     voci: [
-      "Descrizione dettagliata dell'attivita che intendi svolgere",
-      "Codice ATECO di riferimento (se gia identificato)",
+      "Descrizione dettagliata dell'attività che intendi svolgere",
+      "Codice ATECO di riferimento (se già identificato)",
       "Regime fiscale scelto: forfettario o ordinario",
-      "Data di inizio attivita prevista",
+      "Data di inizio attività prevista",
       "Eventuale insegna o denominazione commerciale",
       "Luogo di svolgimento: domicilio, studio, negozio",
     ],
@@ -47,11 +47,11 @@ const sezioni: { titolo: string; voci: string[] }[] = [
       "Visura camerale esistente (se subentro) o dati dell'impresa individuale da iscrivere",
       "Certificati abilitativi obbligatori (SCIA, autorizzazioni sanitarie, patente)",
       "Contratto di locazione del locale o titolo di disponibilita",
-      "Iscrizione al SIA (Sistema Informativo Agricolo) se attivita agricola",
+      "Iscrizione al SIA (Sistema Informativo Agricolo) se attività agricola",
     ],
   },
   {
-    titolo: "Solo per attivita online ed e-commerce",
+    titolo: "Solo per attività online ed e-commerce",
     voci: [
       "Dominio del sito internet e hosting",
       "Account di vendita (Amazon, Etsy, Shopify, eBay)",
@@ -65,9 +65,9 @@ const sezioni: { titolo: string; voci: string[] }[] = [
       "Apertura P.IVA presso Agenzia delle Entrate",
       "Iscrizione CCIAA (per artigiani e commercianti)",
       "Iscrizione INPS gestione appropriata",
-      "Comunicazione di inizio attivita al Comune (se necessaria)",
+      "Comunicazione di inizio attività al Comune (se necessaria)",
       "Setup fatturazione elettronica (GIS Ranocchi EFAT incluso nel pacchetto +EFAT)",
-      "Consulenza iniziale sul regime fiscale piu conveniente",
+      "Consulenza iniziale sul regime fiscale più conveniente",
     ],
   },
 ];
@@ -125,7 +125,7 @@ export default function GuidaDocumentazionePIVA() {
         <footer className="pt-6 border-t border-zinc-200 text-xs text-zinc-500 leading-relaxed">
           <p className="mb-2">
             <strong className="text-zinc-700">Avvertenza.</strong> Questa checklist copre
-            i casi piu comuni. Attivita regolate (professioni ordinistiche, commercio
+            i casi più comuni. Attività regolate (professioni ordinistiche, commercio
             alimentare, somministrazione) possono richiedere documenti specifici: il
             nostro team li verifica caso per caso durante la consulenza iniziale.
           </p>

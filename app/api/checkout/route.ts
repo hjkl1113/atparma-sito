@@ -23,7 +23,7 @@ interface Servizio {
 
 const DEFAULT_PREZZI: Servizio[] = [
   { id: "730", title: "Dichiarazione 730", desc: "Compilazione e invio della dichiarazione dei redditi modello 730.", price: 79, originalPrice: null, active: true },
-  { id: "piva", title: "Apertura Partita IVA", desc: "Apertura e configurazione della Partita IVA per la tua attivita.", price: 149, originalPrice: null, active: true },
+  { id: "piva", title: "Apertura Partita IVA", desc: "Apertura e configurazione della Partita IVA per la tua attività.", price: 149, originalPrice: null, active: true },
 ];
 
 async function getPrezzi(): Promise<Servizio[]> {

@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata: Metadata = {
   title: "Calcolatore forfettario 2026 — Conviene? | A.T. Consulting Parma",
   description:
-    "Calcolatore gratuito: confronta regime forfettario e ordinario 2026 in base ai tuoi ricavi, spese e cassa previdenziale. Scopri quale ti fa risparmiare di piu.",
+    "Calcolatore gratuito: confronta regime forfettario e ordinario 2026 in base ai tuoi ricavi, spese e cassa previdenziale. Scopri quale ti fa risparmiare di più.",
   alternates: {
     canonical: "/calcolatori/forfettario",
   },
@@ -36,7 +36,7 @@ export default function CalcolatoreForfettarioPage() {
             <p className="text-zinc-600 leading-relaxed">
               Inserisci ricavi, spese e cassa previdenziale: confrontiamo il regime
               forfettario con il regime ordinario e ti diciamo quale ti fa risparmiare
-              di piu. Basato su aliquote e coefficienti 2026.
+              di più. Basato su aliquote e coefficienti 2026.
             </p>
           </div>
 

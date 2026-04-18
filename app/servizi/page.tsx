@@ -71,7 +71,7 @@ export default function ServiziPage() {
             Servizi online e aree di specializzazione
           </h1>
           <p className="text-zinc-600 max-w-2xl mb-16 leading-relaxed">
-            Acquisti subito quello che ti serve o ci contatti per progetti piu complessi.
+            Acquisti subito quello che ti serve o ci contatti per progetti più complessi.
             Team di dottori commercialisti e revisori legali iscritti all&apos;albo.
           </p>
 
@@ -145,7 +145,7 @@ export default function ServiziPage() {
                     href={`/servizi/${s.slug}`}
                     className="inline-flex items-center gap-2 text-[var(--color-accent)] font-medium text-sm hover:underline"
                   >
-                    Scopri di piu
+                    Scopri di più
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>

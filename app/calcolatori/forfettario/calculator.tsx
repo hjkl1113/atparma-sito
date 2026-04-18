@@ -128,7 +128,7 @@ export function Calculator() {
 
         <div>
           <label className="block text-sm font-medium text-zinc-700 mb-2">
-            Tipo di attivita
+            Tipo di attività
           </label>
           <select
             value={attivitaId}
@@ -160,7 +160,7 @@ export function Calculator() {
           />
           {ricavi > 85000 && (
             <p className="text-xs text-red-600 mt-1">
-              Oltre EUR 85.000 il forfettario non e applicabile. Serve il regime ordinario.
+              Oltre EUR 85.000 il forfettario non è applicabile. Serve il regime ordinario.
             </p>
           )}
         </div>
@@ -229,8 +229,8 @@ export function Calculator() {
             className="mt-1"
           />
           <span className="text-sm text-zinc-700">
-            <span className="font-medium">Nuova attivita</span> — primi 5 anni, se rispetti i
-            requisiti l&apos;aliquota e 5% invece di 15%.
+            <span className="font-medium">Nuova attività</span> — primi 5 anni, se rispetti i
+            requisiti l&apos;aliquota è 5% invece di 15%.
           </span>
         </label>
 
@@ -262,8 +262,8 @@ export function Calculator() {
           />
           <p className="text-xs text-zinc-500 mt-1">
             {primoAnno
-              ? "Nessuna deduzione: e il tuo primo anno di attivita."
-              : "Contributi previdenziali effettivamente pagati durante l'anno d'imposta (saldo anno precedente + acconti). Principio di cassa: solo quelli gia versati riducono il reddito imponibile."}
+              ? "Nessuna deduzione: è il tuo primo anno di attività."
+              : "Contributi previdenziali effettivamente pagati durante l'anno d'imposta (saldo anno precedente + acconti). Principio di cassa: solo quelli già versati riducono il reddito imponibile."}
           </p>
         </div>
       </div>
@@ -502,10 +502,10 @@ function ShareAndPdf({
     section("Dati inseriti");
     row("Ricavi annui", formatEuro(context.ricavi));
     row("Spese deducibili", formatEuro(context.spese));
-    row("Attivita", context.attivitaLabel);
+    row("Attività", context.attivitaLabel);
     row("Cassa previdenziale", context.cassaLabel);
-    row("Nuova attivita (5%)", context.nuovaAttivita ? "Si" : "No");
-    row("Primo anno di attivita", context.primoAnno ? "Si" : "No");
+    row("Nuova attività (5%)", context.nuovaAttivita ? "Sì" : "No");
+    row("Primo anno di attività", context.primoAnno ? "Sì" : "No");
     row("INPS versati deducibili", context.primoAnno ? formatEuro(0) : formatEuro(context.inpsVersatiPrec));
     y += 3;
 
@@ -688,7 +688,7 @@ function ProfessionistaCTA() {
       </p>
       {status === "done" ? (
         <p className="text-green-300 text-sm">
-          Ti abbiamo aggiunto. Ti contatteremo appena Professio sara pronto.
+          Ti abbiamo aggiunto. Ti contatteremo appena Professio sarà pronto.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">

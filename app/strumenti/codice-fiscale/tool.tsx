@@ -525,7 +525,7 @@ function ProfessionistaCTA() {
       </p>
       {status === "done" ? (
         <p className="text-green-300 text-sm">
-          Ti abbiamo aggiunto. Ti contatteremo appena Professio sara pronto.
+          Ti abbiamo aggiunto. Ti contatteremo appena Professio sarà pronto.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">

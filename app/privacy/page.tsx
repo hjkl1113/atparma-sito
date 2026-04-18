@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                 Comunicazione e diffusione dei dati
               </h2>
               <p>
-                I dati personali non sono diffusi a terzi. Possono essere comunicati a soggetti esterni che erogano servizi strumentali alle finalita sopra indicate (es. provider di hosting, servizi email), i quali agiscono in qualita di responsabili del trattamento ai sensi dell&apos;art. 28 del GDPR.
+                I dati personali non sono diffusi a terzi. Possono essere comunicati a soggetti esterni che erogano servizi strumentali alle finalita sopra indicate (es. provider di hosting, servizi email), i quali agiscono in qualità di responsabili del trattamento ai sensi dell&apos;art. 28 del GDPR.
               </p>
               <p className="mt-3">
                 Servizi di terze parti utilizzati: Vercel (hosting), Brevo (invio email), Stripe e PayPal (pagamenti).
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
                 Ai sensi degli articoli 15-22 del GDPR, l&apos;interessato ha il diritto di accedere ai propri dati personali, chiederne la rettifica o la cancellazione, limitare il trattamento, opporsi al trattamento e richiedere la portabilita dei dati.
               </p>
               <p className="mt-3">
-                Per esercitare i propri diritti, l&apos;interessato puo contattare il Titolare del trattamento all&apos;indirizzo email segreteria@atparma.com o PEC atconsultingparma@pec.it.
+                Per esercitare i propri diritti, l&apos;interessato può contattare il Titolare del trattamento all&apos;indirizzo email segreteria@atparma.com o PEC atconsultingparma@pec.it.
               </p>
             </section>
 

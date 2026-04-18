@@ -300,7 +300,7 @@ export function Tool() {
             <strong className="text-zinc-700">Avvertenza.</strong> Calcolo semplificato:
             non considera riduzioni specifiche (comodato a parenti, fabbricati inagibili,
             terreni agricoli IAP, immobili storici), esenzioni settoriali o aliquote
-            differenziate che il comune puo deliberare per fasce di rendita o uso. Le
+            differenziate che il comune può deliberare per fasce di rendita o uso. Le
             aliquote reali vanno verificate sul portale del tuo comune (delibera IMU
             annuale). Non sostituisce la consulenza di un commercialista.
           </p>
@@ -378,7 +378,7 @@ function ProfessionistaCTA() {
       </p>
       {status === "done" ? (
         <p className="text-green-300 text-sm">
-          Ti abbiamo aggiunto. Ti contatteremo appena Professio sara pronto.
+          Ti abbiamo aggiunto. Ti contatteremo appena Professio sarà pronto.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">

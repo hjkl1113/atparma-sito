@@ -28,7 +28,7 @@ const competenze: Record<string, {
       "Adempimenti fiscali periodici e gestione scadenze",
     ],
     perChi: [
-      "Imprese e societa di capitali",
+      "Imprese e società di capitali",
       "Professionisti e studi associati",
       "Imprenditori individuali e ditte",
       "Privati con situazioni fiscali complesse",
@@ -38,20 +38,20 @@ const competenze: Record<string, {
   "crisi-di-impresa": {
     title: "Crisi di impresa",
     metaDesc: "Gestione crisi di impresa a Parma. Composizione negoziata, piani di risanamento, concordato preventivo, ristrutturazioni.",
-    intro: "La gestione della crisi d'impresa richiede competenze specialistiche e tempestivita. Il nostro team ha maturato una significativa esperienza nella gestione delle procedure concorsuali e nella composizione negoziata della crisi, assistendo imprese in difficolta con soluzioni concrete e personalizzate.",
+    intro: "La gestione della crisi d'impresa richiede competenze specialistiche e tempestivita. Il nostro team ha maturato una significativa esperienza nella gestione delle procedure concorsuali e nella composizione negoziata della crisi, assistendo imprese in difficoltà con soluzioni concrete e personalizzate.",
     dettagli: [
       "Composizione negoziata della crisi (D.Lgs. 14/2019 — Codice della Crisi)",
       "Piani di risanamento attestati (art. 67, co. 3, lett. d, L.F.)",
       "Accordi di ristrutturazione dei debiti",
-      "Concordato preventivo in continuita e liquidatorio",
+      "Concordato preventivo in continuità e liquidatorio",
       "Liquidazione giudiziale e procedure concorsuali",
       "Perizie e attestazioni per il Tribunale",
       "Assistenza agli organi di controllo societario (sindaci, revisori)",
-      "Analisi della continuita aziendale e test di sostenibilita",
+      "Analisi della continuità aziendale e test di sostenibilita",
     ],
     perChi: [
-      "Imprese in difficolta finanziaria",
-      "Societa soggette a procedure concorsuali",
+      "Imprese in difficoltà finanziaria",
+      "Società soggette a procedure concorsuali",
       "Organi di controllo e revisori legali",
       "Professionisti nominati dal Tribunale",
     ],
@@ -74,7 +74,7 @@ const competenze: Record<string, {
     perChi: [
       "PMI in fase di crescita o espansione",
       "Imprese che necessitano di finanziamenti",
-      "Societa interessate a operazioni straordinarie",
+      "Società interessate a operazioni straordinarie",
       "Start-up e nuove iniziative imprenditoriali",
     ],
     cta: "Richiedi una consulenza finanziaria",

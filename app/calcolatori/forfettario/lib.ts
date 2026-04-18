@@ -6,17 +6,17 @@
 export interface Attivita {
   id: string;
   label: string;
-  coefficiente: number; // redditivita forfettario
+  coefficiente: number; // redditività forfettario
 }
 
 export const ATTIVITA: Attivita[] = [
   { id: "professionista", label: "Professionista intellettuale (avvocato, commercialista, ingegnere...)", coefficiente: 0.78 },
-  { id: "costruzioni", label: "Costruzioni / attivita immobiliari", coefficiente: 0.86 },
+  { id: "costruzioni", label: "Costruzioni / attività immobiliari", coefficiente: 0.86 },
   { id: "intermediari", label: "Intermediari del commercio", coefficiente: 0.62 },
   { id: "servizi", label: "Altri servizi", coefficiente: 0.67 },
-  { id: "artigiani", label: "Attivita artigianali (riparazioni, manutenzioni)", coefficiente: 0.67 },
+  { id: "artigiani", label: "Attività artigianali (riparazioni, manutenzioni)", coefficiente: 0.67 },
   { id: "commercio-dettaglio", label: "Commercio al dettaglio / ambulanti alimentari", coefficiente: 0.40 },
-  { id: "commercio-ingrosso", label: "Commercio all'ingrosso e altre attivita di vendita", coefficiente: 0.40 },
+  { id: "commercio-ingrosso", label: "Commercio all'ingrosso e altre attività di vendita", coefficiente: 0.40 },
   { id: "alimentari", label: "Ristorazione / alberghi / alimentari", coefficiente: 0.40 },
 ];
 

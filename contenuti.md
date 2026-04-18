@@ -21,7 +21,7 @@ Ultimo aggiornamento: 2026-04-04 23:50
 - Dal 2005 Radicati a Parma, attivi in tutta Italia
 
 ## INTRO
-Un team di professionisti qualificati al tuo fianco, dalla pianificazione fiscale fino alle operazioni piu complesse.
+Un team di professionisti qualificati al tuo fianco, dalla pianificazione fiscale fino alle operazioni più complesse.
 
 ## AREA CLIENTI
 **Label:** STUDIO DIGITALE E AREA CLIENTI RISERVATA
@@ -55,7 +55,7 @@ A.T. Consulting Parma nasce dall'esperienza pluriennale nel supporto a imprese e
 
 **CTA:** Conosci il team
 
-## PERCHE SCEGLIERCI — "Il valore che portiamo"
+## PERCHÉ SCEGLIERCI — "Il valore che portiamo"
 - Risposta entro 24 ore per tutte le richieste urgenti
 - Team multidisciplinare: fisco, finanza e diritto societario
 - Esperienza specifica nella crisi di impresa e nelle ristrutturazioni
@@ -65,10 +65,10 @@ A.T. Consulting Parma nasce dall'esperienza pluriennale nel supporto a imprese e
 
 ## CTA URGENZE
 **Titolo:** Hai una questione urgente?
-**Testo:** Il nostro team e disponibile per rispondere entro 24 ore da lunedi a venerdi.
+**Testo:** Il nostro team è disponibile per rispondere entro 24 ore da lunedì a venerdì.
 
 ## BLOG / GUIDE FISCALI
-1. Commercialista online: come sceglierlo e perche conviene
+1. Commercialista online: come sceglierlo e perché conviene
 2. Come aprire la Partita IVA online nel 2026: tutto quello che devi sapere
 3. Come fare il 730 online: guida completa 2026
 

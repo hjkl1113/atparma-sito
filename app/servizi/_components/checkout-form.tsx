@@ -112,7 +112,7 @@ export function CheckoutForm({
           </div>
           <div>
             <label className="block text-sm font-medium text-zinc-700 mb-1">
-              P.IVA <span className="text-zinc-400 font-normal">(se gia esistente)</span>
+              P.IVA <span className="text-zinc-400 font-normal">(se già esistente)</span>
             </label>
             <input
               type="text"

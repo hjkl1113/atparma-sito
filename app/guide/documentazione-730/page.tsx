@@ -16,7 +16,7 @@ const sezioni: { titolo: string; voci: string[] }[] = [
     voci: [
       "Codice fiscale del contribuente",
       "Codice fiscale del coniuge e dei familiari a carico",
-      "Copia di un documento di identita in corso di validita",
+      "Copia di un documento di identità in corso di validità",
       "IBAN per eventuale rimborso",
       "Visura catastale aggiornata degli immobili posseduti",
     ],
@@ -56,7 +56,7 @@ const sezioni: { titolo: string; voci: string[] }[] = [
     voci: [
       "Spese di istruzione: tasse universitarie, scuole paritarie, mensa scolastica",
       "Spese per asili nido",
-      "Attivita sportive dei figli minori (palestre, corsi)",
+      "Attività sportive dei figli minori (palestre, corsi)",
       "Spese per assistenza di anziani non autosufficienti",
       "Erogazioni liberali a favore di enti e associazioni riconosciute",
     ],
@@ -133,7 +133,7 @@ export default function GuidaDocumentazione730() {
         <footer className="pt-6 border-t border-zinc-200 text-xs text-zinc-500 leading-relaxed">
           <p className="mb-2">
             <strong className="text-zinc-700">Avvertenza.</strong> Questa checklist e
-            indicativa e copre le spese piu comuni. Casi particolari (successioni,
+            indicativa e copre le spese più comuni. Casi particolari (successioni,
             redditi esteri, credito d&apos;imposta) possono richiedere documenti aggiuntivi:
             chiedi conferma al commercialista prima di inviare.
           </p>

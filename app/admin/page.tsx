@@ -84,7 +84,7 @@ export default function AdminPage() {
   }
 
   function removeServizio(id: string) {
-    if (!confirm(`Eliminare il servizio "${id}"? L'azione sara definitiva al prossimo salvataggio.`)) return;
+    if (!confirm(`Eliminare il servizio "${id}"? L'azione sarà definitiva al prossimo salvataggio.`)) return;
     setPrezzi((prev) => prev.filter((s) => s.id !== id));
   }
 

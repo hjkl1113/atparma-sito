@@ -44,13 +44,13 @@ export async function POST(request: Request) {
     ];
     if (typeof body.ricavi === "number") rows.push(["Ricavi", `EUR ${body.ricavi.toLocaleString("it-IT")}`]);
     if (typeof body.spese === "number") rows.push(["Spese", `EUR ${body.spese.toLocaleString("it-IT")}`]);
-    if (body.attivita) rows.push(["Attivita", body.attivita]);
+    if (body.attivita) rows.push(["Attività", body.attivita]);
     if (body.cassa) rows.push(["Cassa", body.cassa]);
     if (typeof body.inpsVersatiPrec === "number" && !body.primoAnno) {
       rows.push(["INPS versati", `EUR ${body.inpsVersatiPrec.toLocaleString("it-IT")}`]);
     }
-    if (body.primoAnno) rows.push(["Primo anno", "Si"]);
-    if (body.nuovaAttivita) rows.push(["Nuova attivita", "Si (aliquota 5%)"]);
+    if (body.primoAnno) rows.push(["Primo anno", "Sì"]);
+    if (body.nuovaAttivita) rows.push(["Nuova attività", "Sì (aliquota 5%)"]);
     if (body.verdetto) rows.push(["Verdetto", body.verdetto]);
     if (typeof body.nettoForf === "number") {
       rows.push(["Netto forfettario", `EUR ${Math.round(body.nettoForf).toLocaleString("it-IT")}`]);

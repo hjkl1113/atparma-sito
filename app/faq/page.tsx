@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata: Metadata = {
   title: "FAQ — Domande frequenti | A.T. Consulting Parma",
   description:
-    "Risposte alle domande piu frequenti su Partita IVA, 730, consulenza fiscale, scadenze e servizi di A.T. Consulting Parma. Commercialista online.",
+    "Risposte alle domande più frequenti su Partita IVA, 730, consulenza fiscale, scadenze e servizi di A.T. Consulting Parma. Commercialista online.",
   alternates: {
     canonical: "/faq",
   },
@@ -38,11 +38,11 @@ const faqs = [
       },
       {
         q: "Posso aprire la Partita IVA online?",
-        a: "Si. Con noi puoi aprire la Partita IVA interamente online, senza muoverti dallo studio o da casa. Ti guidiamo nella scelta del regime fiscale e del codice ATECO piu adatto.",
+        a: "Si. Con noi puoi aprire la Partita IVA interamente online, senza muoverti dallo studio o da casa. Ti guidiamo nella scelta del regime fiscale e del codice ATECO più adatto.",
       },
       {
         q: "Quale regime fiscale conviene per iniziare?",
-        a: "Il regime forfettario e spesso la scelta migliore per chi inizia, con un'imposta sostitutiva del 5% per i primi 5 anni. Non e adatto a tutti pero: dipende dall'attivita, dai costi e dalle prospettive di crescita. Ti aiutiamo a scegliere in base alla tua situazione.",
+        a: "Il regime forfettario e spesso la scelta migliore per chi inizia, con un'imposta sostitutiva del 5% per i primi 5 anni. Non e adatto a tutti però: dipende dall'attività, dai costi e dalle prospettive di crescita. Ti aiutiamo a scegliere in base alla tua situazione.",
       },
     ],
   },
@@ -50,7 +50,7 @@ const faqs = [
     category: "Dichiarazione 730",
     items: [
       {
-        q: "Chi puo presentare il 730?",
+        q: "Chi può presentare il 730?",
         a: "Il 730 e destinato a lavoratori dipendenti, pensionati e titolari di alcuni redditi assimilati. I titolari di Partita IVA devono invece presentare il modello Redditi PF.",
       },
       {
@@ -71,12 +71,12 @@ const faqs = [
     category: "Crisi di impresa",
     items: [
       {
-        q: "Cosa fare se la mia impresa e in difficolta?",
+        q: "Cosa fare se la mia impresa e in difficoltà?",
         a: "Agire tempestivamente e fondamentale. Il nuovo Codice della Crisi (D.Lgs. 14/2019) offre strumenti efficaci come la composizione negoziata e i piani di risanamento. Prenota una consulenza per valutare la tua situazione in modo riservato.",
       },
       {
         q: "Che cos'e la composizione negoziata della crisi?",
-        a: "E una procedura stragiudiziale introdotta dal Codice della Crisi che permette all'impresa in difficolta di negoziare con i creditori con l'assistenza di un esperto indipendente, mantenendo la continuita aziendale.",
+        a: "E una procedura stragiudiziale introdotta dal Codice della Crisi che permette all'impresa in difficoltà di negoziare con i creditori con l'assistenza di un esperto indipendente, mantenendo la continuità aziendale.",
       },
     ],
   },
@@ -133,7 +133,7 @@ export default function FAQPage() {
             Domande frequenti
           </h1>
           <p className="text-zinc-600 mb-12 leading-relaxed">
-            Le risposte alle domande che i nostri clienti ci pongono piu spesso.
+            Le risposte alle domande che i nostri clienti ci pongono più spesso.
             Non trovi quello che cerchi? <Link href="/contatti" className="text-[var(--color-accent)] hover:underline">Contattaci direttamente</Link>.
           </p>
 
