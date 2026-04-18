@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Calculator } from "./calculator";
+import { Tool } from "./tool";
 import { MobileMenu } from "@/app/mobile-menu";
 
 export const metadata: Metadata = {
-  title: "Calcolatore forfettario 2026 — Conviene? | A.T. Consulting Parma",
+  title: "Calcolo codice fiscale online — gratuito | A.T. Consulting Parma",
   description:
-    "Calcolatore gratuito: confronta regime forfettario e ordinario 2026 in base ai tuoi ricavi, spese e cassa previdenziale. Scopri quale ti fa risparmiare di piu.",
+    "Calcola il tuo codice fiscale italiano in pochi secondi. Strumento gratuito con oltre 7.900 comuni italiani. Decodifica anche codici fiscali esistenti.",
   alternates: {
-    canonical: "/calcolatori/forfettario",
+    canonical: "/strumenti/codice-fiscale",
   },
   openGraph: {
-    title: "Calcolatore forfettario 2026 — Conviene davvero?",
+    title: "Calcolo codice fiscale online — gratuito",
     description:
-      "Confronta forfettario e ordinario in base a ricavi, spese e cassa. Calcolo gratuito e istantaneo.",
-    url: "https://www.atparma.com/calcolatori/forfettario",
+      "Calcola il tuo codice fiscale o decodifica un codice esistente. Tutti i comuni italiani inclusi.",
+    url: "https://www.atparma.com/strumenti/codice-fiscale",
     type: "website",
   },
 };
 
-export default function CalcolatoreForfettarioPage() {
+export default function CodiceFiscalePage() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
@@ -32,8 +32,8 @@ export default function CalcolatoreForfettarioPage() {
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
-            <Link href="/calcolatori/forfettario" className="text-zinc-900 font-medium">Forfettario</Link>
-            <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">Codice fiscale</Link>
+            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Forfettario</Link>
+            <Link href="/strumenti/codice-fiscale" className="text-zinc-900 font-medium">Codice fiscale</Link>
             <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
@@ -51,19 +51,19 @@ export default function CalcolatoreForfettarioPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mb-12">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
-              Calcolatore gratuito
+              Strumento gratuito
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-              Conviene davvero il regime forfettario?
+              Calcolo codice fiscale
             </h1>
             <p className="text-zinc-600 leading-relaxed">
-              Inserisci ricavi, spese e cassa previdenziale: confrontiamo il regime
-              forfettario con il regime ordinario e ti diciamo quale ti fa risparmiare
-              di piu. Basato su aliquote e coefficienti 2026.
+              Calcola il tuo codice fiscale inserendo nome, cognome, sesso, data e comune di
+              nascita. Oppure incolla un codice esistente per vedere i dati di nascita
+              decodificati. Oltre 7.900 comuni italiani inclusi.
             </p>
           </div>
 
-          <Calculator />
+          <Tool />
         </div>
       </main>
 
