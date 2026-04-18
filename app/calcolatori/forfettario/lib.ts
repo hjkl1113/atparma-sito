@@ -1,4 +1,6 @@
 // Calcolo convenienza regime forfettario 2026 vs ordinario semplificato.
+// Modello: l'utente dichiara i contributi INPS pagati nell'anno d'imposta (deducibili per cassa)
+// e quelli stimati dell'anno corrente (cash-flow, non deducibili quest'anno).
 // Semplificazioni MVP: IVA esclusa, no detrazioni IRPEF personali, addizionali medie 2.5%.
 
 export interface Attivita {
@@ -33,12 +35,16 @@ export interface InputCalcolo {
   cassa: Cassa;
   aliquotaCassaPrivata: number; // usata solo se cassa=privata, es. 0.16
   nuovaAttivita: boolean; // primi 5 anni -> 5% invece di 15%
+  inpsVersatiPrec: number; // contributi INPS pagati nell'anno d'imposta, deducibili dal reddito imponibile
+  primoAnno: boolean; // se true azzera inpsVersatiPrec (nessuna deduzione disponibile)
 }
 
 export interface RisultatoRegime {
-  redditoImponibile: number;
+  redditoLordo: number; // forf: ricavi x coefficiente; ord: ricavi - spese
+  deduzioneInps: number; // inpsVersatiPrec applicati (0 se primoAnno)
+  redditoImponibile: number; // redditoLordo - deduzioneInps
   imposta: number;
-  contributi: number;
+  contributi: number; // INPS correnti stimati (cassa-flow, non deducibili quest'anno)
   netto: number;
 }
 
@@ -79,23 +85,23 @@ function irpefScaglioni(imponibile: number): number {
 export function calcola(input: InputCalcolo): Risultato {
   const attivita = ATTIVITA.find((a) => a.id === input.attivitaId) ?? ATTIVITA[0];
   const aliquotaForf = input.nuovaAttivita ? 0.05 : 0.15;
+  const deduzione = input.primoAnno ? 0 : Math.max(0, input.inpsVersatiPrec);
 
-  // Forfettario
-  const redditoForf = input.ricavi * attivita.coefficiente;
-  const contributiForf = contributi(input.cassa, redditoForf, input.aliquotaCassaPrivata);
-  // Nel forfettario i contributi sono deducibili dal reddito imponibile.
-  const baseImpostaForf = Math.max(redditoForf - contributiForf, 0);
-  const impostaForf = baseImpostaForf * aliquotaForf;
-  const nettoForf = input.ricavi - input.spese - contributiForf - impostaForf;
+  // Forfettario: reddito lordo = ricavi x coeff; deduci INPS pagati nell'anno; su imponibile applica aliquota.
+  const redditoLordoForf = input.ricavi * attivita.coefficiente;
+  const imponibileForf = Math.max(redditoLordoForf - deduzione, 0);
+  const impostaForf = imponibileForf * aliquotaForf;
+  const contributiForf = contributi(input.cassa, imponibileForf, input.aliquotaCassaPrivata);
+  const nettoForf = input.ricavi - input.spese - impostaForf - contributiForf;
 
-  // Ordinario semplificato
-  const utileLordo = Math.max(input.ricavi - input.spese, 0);
-  const contributiOrd = contributi(input.cassa, utileLordo, input.aliquotaCassaPrivata);
-  const imponibileOrd = Math.max(utileLordo - contributiOrd, 0);
+  // Ordinario semplificato: utile lordo = ricavi - spese; deduci INPS pagati nell'anno; IRPEF a scaglioni.
+  const utileLordoOrd = Math.max(input.ricavi - input.spese, 0);
+  const imponibileOrd = Math.max(utileLordoOrd - deduzione, 0);
   const irpef = irpefScaglioni(imponibileOrd);
   const addizionali = imponibileOrd * ADDIZIONALI_MEDIE;
   const impostaOrd = irpef + addizionali;
-  const nettoOrd = input.ricavi - input.spese - contributiOrd - impostaOrd;
+  const contributiOrd = contributi(input.cassa, imponibileOrd, input.aliquotaCassaPrivata);
+  const nettoOrd = input.ricavi - input.spese - impostaOrd - contributiOrd;
 
   const oltreSoglia = input.ricavi > SOGLIA_FORFETTARIO;
   const diff = nettoForf - nettoOrd;
@@ -107,13 +113,17 @@ export function calcola(input: InputCalcolo): Risultato {
 
   return {
     forfettario: {
-      redditoImponibile: baseImpostaForf,
+      redditoLordo: redditoLordoForf,
+      deduzioneInps: deduzione,
+      redditoImponibile: imponibileForf,
       imposta: impostaForf,
       contributi: contributiForf,
       netto: nettoForf,
       oltreSoglia,
     },
     ordinario: {
+      redditoLordo: utileLordoOrd,
+      deduzioneInps: deduzione,
       redditoImponibile: imponibileOrd,
       imposta: impostaOrd,
       contributi: contributiOrd,

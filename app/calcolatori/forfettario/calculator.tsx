@@ -15,6 +15,8 @@ export function Calculator() {
   const [cassa, setCassa] = useState<Cassa>("separata");
   const [aliquotaCassaPrivata, setAliquotaCassaPrivata] = useState(0.16);
   const [nuovaAttivita, setNuovaAttivita] = useState(true);
+  const [inpsVersatiPrec, setInpsVersatiPrec] = useState(4800);
+  const [primoAnno, setPrimoAnno] = useState(false);
 
   const risultato = useMemo(
     () =>
@@ -25,8 +27,10 @@ export function Calculator() {
         cassa,
         aliquotaCassaPrivata,
         nuovaAttivita,
+        inpsVersatiPrec,
+        primoAnno,
       }),
-    [ricavi, spese, attivitaId, cassa, aliquotaCassaPrivata, nuovaAttivita]
+    [ricavi, spese, attivitaId, cassa, aliquotaCassaPrivata, nuovaAttivita, inpsVersatiPrec, primoAnno]
   );
 
   const verdetto = risultato.verdetto;
@@ -147,6 +151,39 @@ export function Calculator() {
             requisiti l&apos;aliquota e 5% invece di 15%.
           </span>
         </label>
+
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={primoAnno}
+            onChange={(e) => setPrimoAnno(e.target.checked)}
+            className="mt-1"
+          />
+          <span className="text-sm text-zinc-700">
+            <span className="font-medium">E&apos; il mio primo anno</span> — nessun contributo
+            INPS pagato negli anni precedenti, quindi nessuna deduzione.
+          </span>
+        </label>
+
+        <div>
+          <label className="block text-sm font-medium text-zinc-700 mb-2">
+            INPS versati nell&apos;anno (deducibili) — EUR
+          </label>
+          <input
+            type="number"
+            value={primoAnno ? 0 : inpsVersatiPrec}
+            disabled={primoAnno}
+            onChange={(e) => setInpsVersatiPrec(Math.max(0, Number(e.target.value) || 0))}
+            className="w-full px-3 py-2 rounded-lg border border-zinc-200 text-sm disabled:bg-zinc-50 disabled:text-zinc-400"
+            min={0}
+            step={100}
+          />
+          <p className="text-xs text-zinc-500 mt-1">
+            {primoAnno
+              ? "Nessuna deduzione: e il tuo primo anno di attivita."
+              : "Contributi previdenziali effettivamente pagati durante l'anno d'imposta (saldo anno precedente + acconti). Principio di cassa: solo quelli gia versati riducono il reddito imponibile."}
+          </p>
+        </div>
       </div>
 
       {/* Risultato */}
@@ -187,8 +224,11 @@ export function Calculator() {
           <RegimeCard
             titolo="Forfettario"
             aliquota={nuovaAttivita ? "5% (start-up)" : "15%"}
+            redditoLordoLabel="Ricavi x coefficiente"
             disabilitato={risultato.forfettario.oltreSoglia}
             evidenza={verdetto === "forfettario" && !risultato.forfettario.oltreSoglia}
+            redditoLordo={risultato.forfettario.redditoLordo}
+            deduzioneInps={risultato.forfettario.deduzioneInps}
             redditoImponibile={risultato.forfettario.redditoImponibile}
             imposta={risultato.forfettario.imposta}
             contributi={risultato.forfettario.contributi}
@@ -197,11 +237,46 @@ export function Calculator() {
           <RegimeCard
             titolo="Ordinario"
             aliquota="IRPEF scaglioni + addizionali"
+            redditoLordoLabel="Ricavi - spese deducibili"
             evidenza={verdetto === "ordinario"}
+            redditoLordo={risultato.ordinario.redditoLordo}
+            deduzioneInps={risultato.ordinario.deduzioneInps}
             redditoImponibile={risultato.ordinario.redditoImponibile}
             imposta={risultato.ordinario.imposta}
             contributi={risultato.ordinario.contributi}
             netto={risultato.ordinario.netto}
+          />
+        </div>
+
+        {/* Verifica risparmio (what-if) */}
+        <div className="bg-zinc-50 rounded-2xl p-6 border border-zinc-200">
+          <h4 className="text-sm font-semibold mb-1 font-[family-name:var(--font-heading)]">
+            Verifica risparmio
+          </h4>
+          <p className="text-xs text-zinc-600 mb-5">
+            Sposta i cursori per vedere subito come cambia il netto, senza rifare il form.
+          </p>
+
+          <WhatIfSlider
+            label="Ricavi annui"
+            value={ricavi}
+            onChange={setRicavi}
+            min={5000}
+            max={85000}
+            step={1000}
+          />
+          <WhatIfSlider
+            label="INPS deducibili"
+            value={primoAnno ? 0 : inpsVersatiPrec}
+            onChange={(v) => {
+              setInpsVersatiPrec(v);
+              if (v > 0 && primoAnno) setPrimoAnno(false);
+            }}
+            min={0}
+            max={15000}
+            step={100}
+            disabled={primoAnno}
+            hint={primoAnno ? "Disabilitato: e il tuo primo anno." : undefined}
           />
         </div>
 
@@ -245,6 +320,9 @@ export function Calculator() {
 function RegimeCard({
   titolo,
   aliquota,
+  redditoLordoLabel,
+  redditoLordo,
+  deduzioneInps,
   redditoImponibile,
   imposta,
   contributi,
@@ -254,6 +332,9 @@ function RegimeCard({
 }: {
   titolo: string;
   aliquota: string;
+  redditoLordoLabel: string;
+  redditoLordo: number;
+  deduzioneInps: number;
   redditoImponibile: number;
   imposta: number;
   contributi: number;
@@ -276,10 +357,16 @@ function RegimeCard({
         <span className="text-xs text-zinc-500">{aliquota}</span>
       </div>
 
-      <dl className="space-y-2 text-sm">
-        <Riga label="Reddito imponibile" value={redditoImponibile} />
+      <dl className="space-y-1.5 text-sm">
+        <Riga label={redditoLordoLabel} value={redditoLordo} />
+        <Riga
+          label="- Contributi INPS pagati (deducibili)"
+          value={-deduzioneInps}
+          muted
+        />
+        <Riga label="= Reddito imponibile" value={redditoImponibile} strong />
         <Riga label="Imposte" value={imposta} />
-        <Riga label="Contributi" value={contributi} />
+        <Riga label="Contributi INPS anno corrente" value={contributi} />
       </dl>
 
       <div className="border-t border-zinc-100 mt-4 pt-4 flex items-baseline justify-between">
@@ -292,11 +379,69 @@ function RegimeCard({
   );
 }
 
-function Riga({ label, value }: { label: string; value: number }) {
+function WhatIfSlider({
+  label,
+  value,
+  onChange,
+  min,
+  max,
+  step,
+  disabled,
+  hint,
+}: {
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+  min: number;
+  max: number;
+  step: number;
+  disabled?: boolean;
+  hint?: string;
+}) {
   return (
-    <div className="flex items-baseline justify-between">
-      <dt className="text-zinc-600">{label}</dt>
-      <dd className="font-medium">{formatEuro(value)}</dd>
+    <div className="mb-4 last:mb-0">
+      <div className="flex items-baseline justify-between mb-1">
+        <label className="text-xs font-medium text-zinc-700">{label}</label>
+        <span className="text-sm font-semibold tabular-nums">{formatEuro(value)}</span>
+      </div>
+      <input
+        type="range"
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        min={min}
+        max={max}
+        step={step}
+        disabled={disabled}
+        className="w-full accent-[var(--color-accent)] disabled:opacity-40"
+      />
+      {hint ? <p className="text-xs text-zinc-500 mt-1">{hint}</p> : null}
+    </div>
+  );
+}
+
+function Riga({
+  label,
+  value,
+  strong,
+  muted,
+}: {
+  label: string;
+  value: number;
+  strong?: boolean;
+  muted?: boolean;
+}) {
+  return (
+    <div
+      className={`flex items-baseline justify-between ${
+        strong ? "border-t border-zinc-100 pt-2 mt-1" : ""
+      } ${muted ? "text-zinc-500" : ""}`}
+    >
+      <dt className={strong ? "text-zinc-800 font-medium" : muted ? "text-zinc-500" : "text-zinc-600"}>
+        {label}
+      </dt>
+      <dd className={strong ? "font-semibold" : muted ? "font-normal" : "font-medium"}>
+        {formatEuro(value)}
+      </dd>
     </div>
   );
 }
