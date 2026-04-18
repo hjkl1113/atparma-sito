@@ -30,11 +30,12 @@ export default function CalcolatoreForfettarioPage() {
           >
             A.T. Consulting
           </Link>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
+          <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-600">
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
             <Link href="/calcolatori/forfettario" className="text-zinc-900 font-medium">Forfettario</Link>
-            <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">Codice fiscale</Link>
+            <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">CF</Link>
             <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
+            <Link href="/strumenti/imu" className="hover:text-zinc-900 transition-colors">IMU</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"

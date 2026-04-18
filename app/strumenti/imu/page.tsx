@@ -4,22 +4,21 @@ import { Tool } from "./tool";
 import { MobileMenu } from "@/app/mobile-menu";
 
 export const metadata: Metadata = {
-  title: "Calcolo busta paga 2026 — da lordo a netto | A.T. Consulting Parma",
+  title: "Calcolo IMU 2026 — abitazione principale, seconda casa | A.T. Consulting Parma",
   description:
-    "Calcola il netto in busta paga dalla RAL (o il lordo dal netto). IRPEF 2026, contributi INPS, detrazione lavoro dipendente, addizionali, trattamento integrativo.",
+    "Calcola l'IMU 2026: rendita catastale, categoria, quota e mesi di possesso, aliquota comunale. Esenzione abitazione principale. Acconto giugno, saldo dicembre.",
   alternates: {
-    canonical: "/strumenti/buste-paga",
+    canonical: "/strumenti/imu",
   },
   openGraph: {
-    title: "Calcolo busta paga 2026 — da lordo a netto",
-    description:
-      "Simulatore gratuito: RAL, contributi, IRPEF, detrazioni, addizionali. Netto mensile e annuo.",
-    url: "https://www.atparma.com/strumenti/buste-paga",
+    title: "Calcolo IMU 2026 — abitazione principale, seconda casa",
+    description: "Simulatore IMU gratuito. Acconto e saldo, esenzione prima casa, detrazioni.",
+    url: "https://www.atparma.com/strumenti/imu",
     type: "website",
   },
 };
 
-export default function BustaPagaPage() {
+export default function ImuPage() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
@@ -34,8 +33,8 @@ export default function BustaPagaPage() {
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
             <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Forfettario</Link>
             <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">CF</Link>
-            <Link href="/strumenti/buste-paga" className="text-zinc-900 font-medium">Busta paga</Link>
-            <Link href="/strumenti/imu" className="hover:text-zinc-900 transition-colors">IMU</Link>
+            <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
+            <Link href="/strumenti/imu" className="text-zinc-900 font-medium">IMU</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
@@ -55,12 +54,13 @@ export default function BustaPagaPage() {
               Strumento gratuito
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-              Da lordo a netto in busta paga
+              Calcolo IMU 2026
             </h1>
             <p className="text-zinc-600 leading-relaxed">
-              Inserisci la RAL e ottieni il netto mensile e annuo. Contributi INPS, IRPEF
-              2026, detrazione lavoro dipendente, addizionali medie e trattamento
-              integrativo. Funziona anche al contrario: dal netto desiderato alla RAL.
+              Calcola l&apos;IMU 2026 su casa, seconda casa, ufficio, negozio o capannone.
+              Rendita catastale, categoria, quota e mesi di possesso. Esenzione abitazione
+              principale non di lusso. Acconto entro il 16 giugno, saldo entro il 16
+              dicembre.
             </p>
           </div>
 
