@@ -2,7 +2,7 @@
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
 **Data:** 2026-04-18
-**Versione:** 1.2
+**Versione:** 1.3
 
 ---
 
@@ -136,6 +136,52 @@ contesto calcolo. Riusato dai 4 tool per waitlist Professio e lead magnet.
 **Bug risolto (Milestone A)**: la card Ordinario del calcolatore forfettario
 saltava il passaggio "Reddito lordo → deduzione INPS → imponibile IRPEF".
 Ora mostra breakdown completo e simmetrico per i due regimi.
+
+---
+
+## 3.6 ROLLOUT VETRINA PRODOTTI (aggiornamento 2026-04-18)
+
+Chiusura refactor vetrina commit `61f6b08`. Riconciliazione con hub
+/strumenti via cherry-pick selettivo (zero conflitti visibili).
+
+**Pagine prodotto dedicate** (`/servizi/[slug]`):
+- `/servizi/dichiarazione-730`
+- `/servizi/piva-professionista`
+- `/servizi/piva-artigiano-commerciante`
+- `/servizi/piva-forfettario` (pilot)
+- `/servizi/piva-forfettario-efat`
+
+Ogni scheda prodotto include: tagline, per-chi, bullets, esclusi,
+process 4-step, checklist documenti, deliveryDays, FAQ dedicate,
+CTA "Scarica checklist PDF", blocco "Dopo il pagamento cosa succede"
+(6 step narrativi dal pagamento alla consegna nel portale).
+
+**Checkout dedicato** (`/servizi/[slug]/checkout`): form + PayPal SDK.
+Stripe session passa da `/api/checkout`.
+
+**Fix root cause errore PayPal famoso**: riscritto `paypal-button.tsx`
+con `useRef` per `checkoutData` e `onValidationError`, cosi `useEffect`
+non ri-renderizza il button a ogni keystroke (deps effective:
+`[serviceId, serviceTitle, price]`). Cleanup `.close()` al unmount.
+
+**Prezzo P.IVA Professionista**: €170 scontato da €200 (-15%,
+`originalPrice: 200` su `prezzi-default.ts`). Vercel Blob `prezzi.json`
+riscritto con valori corretti + slug su tutti i servizi.
+
+**Guide PDF print-friendly** (no jspdf dep, solo `window.print()`):
+- `/guide/documentazione-730` — 7 sezioni checklist (dati, redditi,
+  spese sanitarie, casa, famiglia, previdenza, altre)
+- `/guide/documentazione-partita-iva` — 6 sezioni checklist (personali,
+  attivita, previdenza, artigiani, e-commerce, servizi)
+- Entrambe `robots: noindex`, accent button "Stampa o salva PDF"
+
+**Homepage**: nuovo `CalcolatoreBanner` tra sezione Servizi e Pricing
+(gradient accent, CTA "Apri il simulatore" → `/calcolatori/forfettario`).
+Card Pricing con bordi `zinc-200 + shadow-sm + hover:shadow-md`.
+
+**Form inline Pricing rimosso**: la homepage non ha piu input email+nome
+diretti; ogni servizio apre la pagina prodotto dedicata via "Scopri e
+acquista".
 
 ---
 
@@ -350,10 +396,10 @@ Email attivazione con link
 ### Breve termine (collegamento Sito ↔ Portale)
 5. Implementare Stripe webhook → crea account portale
 6. Creare sezione "Strumenti & Guide" lato cliente
-7. Creare guida documentazione 730 (GRATUITA)
-8. Creare guida documentazione P.IVA (GRATUITA)
+7. ~~Creare guida documentazione 730 (GRATUITA)~~ DONE 2026-04-18 (print-friendly /guide/documentazione-730)
+8. ~~Creare guida documentazione P.IVA (GRATUITA)~~ DONE 2026-04-18 (print-friendly /guide/documentazione-partita-iva)
 9. ~~Implementare calcolatore web "Conviene il forfettario?"~~ DONE 2026-04-17, refit 2026-04-18 (v2 con INPS deducibili, breakdown, share, PDF, toggle B2C/B2B)
-10. ~~Aggiornare prezzi sul sito con struttura definitiva~~ DONE 2026-04-17
+10. ~~Aggiornare prezzi sul sito con struttura definitiva~~ DONE 2026-04-17, piva-prof 170/200 corretto su blob 2026-04-18
 
 ### Breve termine — NUOVI TOOL SEO (Milestone E + F, completata 2026-04-18)
 - ~~Tool codice fiscale `/strumenti/codice-fiscale`~~ DONE 2026-04-18
@@ -402,9 +448,15 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 ### Sito (atparma-sito)
 - [x] Aggiornare prezzi dal placeholder (€149) alla struttura reale (€150-550) — 2026-04-17
 - [x] Dashboard admin per gestire prodotti (add/remove + edit) — 2026-04-17
-- [ ] Riscrivere blob `prezzi.json` in prod via /admin (serve dopo deploy Vercel)
+- [x] Riscrivere blob `prezzi.json` in prod con slug + piva-prof 170/200 — 2026-04-17
+- [x] Rollout 5 pagine prodotto `/servizi/[slug]` + checkout dedicati — 2026-04-18
+- [x] Fix root cause errore PayPal (ref pattern, no re-render su keystroke) — 2026-04-18
+- [x] Landing page per "730 online" con guida gratuita — 2026-04-18 (`/servizi/dichiarazione-730` + `/guide/documentazione-730`)
+- [x] Guida documentazione 730 gratuita (print-friendly) — 2026-04-18
+- [x] Guida documentazione P.IVA gratuita (print-friendly) — 2026-04-18
+- [x] Banner calcolatore su homepage + bordi card visibili — 2026-04-18
+- [x] Rimozione form inline da pricing (ogni servizio ha pagina dedicata) — 2026-04-18
 - [ ] Collegamento Stripe → Portale (webhook post-acquisto)
-- [ ] Landing page per "730 online" con guida gratuita
 - [x] Implementare calcolatore "Conviene il forfettario?" — 2026-04-17
 - [x] Fix bug breakdown ordinario + INPS deducibili + share + PDF — 2026-04-18
 - [x] Tool codice fiscale `/strumenti/codice-fiscale` — 2026-04-18
@@ -428,8 +480,8 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 - [ ] Convenience Check automatico (cron trimestrale + AI narrativa)
 
 ### Contenuti digitali
-- [ ] Guida documentazione 730 (gratuita, PDF)
-- [ ] Guida documentazione P.IVA (gratuita, PDF)
+- [x] Guida documentazione 730 (gratuita, print-friendly) — 2026-04-18
+- [x] Guida documentazione P.IVA (gratuita, print-friendly) — 2026-04-18
 - [ ] Guida PDF Regime Forfettario 2026 (+ Simulatore Excel)
 - [ ] Guida PDF E-commerce Italia
 - [ ] Guida PDF Adeguati Assetti PMI
@@ -440,4 +492,4 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 
 ---
 
-*Report compilato: 2026-04-14, aggiornato 2026-04-18*
+*Report compilato: 2026-04-14, aggiornato 2026-04-18 (v1.3: rollout vetrina + fix PayPal + guide PDF)*
