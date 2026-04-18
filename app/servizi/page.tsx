@@ -67,7 +67,7 @@ export default function ServiziPage() {
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
             <Link href="/servizi" className="text-zinc-900 font-medium">Servizi</Link>
-            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcolatore</Link>
+            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcola forfettario</Link>
             <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
             <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
@@ -107,7 +107,7 @@ export default function ServiziPage() {
               {DEFAULT_PREZZI.filter((p) => p.active).map((p) => {
                 const isLinkable = Boolean(p.slug);
                 const Card = (
-                  <div className="h-full bg-white rounded-2xl border border-zinc-100 p-6 flex flex-col hover:border-zinc-300 hover:shadow-sm transition-all">
+                  <div className="h-full bg-white rounded-2xl border border-zinc-200 shadow-sm p-6 flex flex-col hover:border-zinc-300 hover:shadow-md transition-all">
                     <h3 className="font-semibold mb-2 font-[family-name:var(--font-heading)]">
                       {p.title}
                     </h3>

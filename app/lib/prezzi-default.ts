@@ -16,14 +16,16 @@ export const DEFAULT_PREZZI: Servizio[] = [
     price: 79,
     originalPrice: null,
     active: true,
+    slug: "dichiarazione-730",
   },
   {
     id: "piva-prof",
     title: "Apertura P.IVA Professionista",
     desc: "Apertura Partita IVA per professionisti (no iscrizioni CCIAA/INPS artigiani).",
-    price: 150,
-    originalPrice: null,
+    price: 170,
+    originalPrice: 200,
     active: true,
+    slug: "piva-professionista",
   },
   {
     id: "piva-art",
@@ -32,6 +34,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     price: 500,
     originalPrice: null,
     active: true,
+    slug: "piva-artigiano-commerciante",
   },
   {
     id: "piva-forf",
@@ -49,6 +52,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     price: 550,
     originalPrice: null,
     active: true,
+    slug: "piva-forfettario-efat",
   },
   {
     id: "consulenza",

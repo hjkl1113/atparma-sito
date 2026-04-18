@@ -48,7 +48,7 @@ export default async function CheckoutPage({
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
-            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcolatore</Link>
+            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcola forfettario</Link>
             <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
             <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>

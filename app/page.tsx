@@ -239,6 +239,46 @@ function Servizi() {
 
 // Pricing component imported from ./pricing.tsx (client component for Stripe checkout)
 
+function CalcolatoreBanner() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)] p-8 sm:p-12 text-white shadow-lg">
+          <div className="grid md:grid-cols-[1.5fr_1fr] gap-8 items-center">
+            <div>
+              <p className="text-xs tracking-[0.25em] uppercase text-white/70 font-medium mb-3">
+                Strumento gratuito
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
+                Forfettario o ordinario? Scoprilo in 2 minuti.
+              </h2>
+              <p className="text-white/90 leading-relaxed mb-6 text-sm sm:text-base">
+                Simulatore gratuito che confronta i due regimi sulla tua attivita:
+                calcola tasse reali, contributi INPS o cassa privata, e ti dice
+                quale ti fa risparmiare di piu. Basato su aliquote 2026.
+              </p>
+              <Link
+                href="/calcolatori/forfettario"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-zinc-900 rounded-lg font-semibold text-sm hover:bg-zinc-100 transition-colors"
+              >
+                Apri il simulatore
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+            <div className="hidden md:flex justify-center">
+              <svg className="w-40 h-40 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 7h6m-6 4h6m-6 4h4m-9 5h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ChiSiamo() {
   return (
     <section id="chi-siamo" className="py-24 bg-white">
@@ -637,6 +677,7 @@ export default function Home() {
         <Intro />
         <AreaClienti />
         <Servizi />
+        <CalcolatoreBanner />
         <Pricing />
         <ChiSiamo />
         <Testimonials />

@@ -126,7 +126,7 @@ function SharedHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
           <Link href="/servizi" className="text-zinc-900 font-medium">Servizi</Link>
-          <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcolatore</Link>
+          <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcola forfettario</Link>
           <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
           <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
           <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
@@ -143,9 +143,16 @@ function SharedHeader() {
   );
 }
 
+function getGuidaSlug(prezzoId: string): string | null {
+  if (prezzoId === "730") return "documentazione-730";
+  if (prezzoId.startsWith("piva-")) return "documentazione-partita-iva";
+  return null;
+}
+
 function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
   const prezzo = DEFAULT_PREZZI.find((p) => p.id === prodotto.prezzoId);
   const price = prezzo?.price ?? null;
+  const guidaSlug = getGuidaSlug(prodotto.prezzoId);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -342,51 +349,78 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   </li>
                 ))}
               </ul>
+              {guidaSlug && (
+                <Link
+                  href={`/guide/${guidaSlug}`}
+                  className="mt-6 flex items-center gap-4 bg-[var(--color-accent)]/5 border border-[var(--color-accent)]/30 rounded-xl p-4 hover:bg-[var(--color-accent)]/10 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-[var(--color-accent)]/15 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-zinc-900">Scarica la checklist completa (PDF)</p>
+                    <p className="text-xs text-zinc-600">Guida gratuita con tutti i documenti da preparare, stampabile.</p>
+                  </div>
+                  <svg className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              )}
             </div>
           </section>
 
           <section className="mb-20 bg-zinc-950 text-white rounded-3xl p-8 sm:p-12">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
-              Il portale che ricevi
+              Dopo il pagamento, cosa succede
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 font-[family-name:var(--font-heading)]">
-              Non un commercialista a telefono. Un&apos;area clienti digitale di ultima generazione.
+              Il flusso documentale, passo per passo.
             </h2>
-            <p className="text-zinc-300 leading-relaxed mb-8 max-w-2xl">
-              Dopo il pagamento ricevi le credenziali del nostro portale: carichi i documenti in
-              sicurezza, segui lo stato della pratica in tempo reale e parli con il tuo
-              commercialista senza email e senza telefonate ripetute.
+            <p className="text-zinc-300 leading-relaxed mb-10 max-w-2xl">
+              Pagare e solo il primo passo. Ecco esattamente come gestiamo la tua pratica
+              dal momento della conferma al completamento del servizio — tutto tracciato
+              nel portale clienti.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                </div>
-                <p className="text-sm font-semibold mb-1">Upload sicuro</p>
-                <p className="text-xs text-zinc-400 leading-relaxed">Canale cifrato per documenti sensibili, niente email.</p>
-              </div>
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <p className="text-sm font-semibold mb-1">Stato pratica in tempo reale</p>
-                <p className="text-xs text-zinc-400 leading-relaxed">Vedi a che punto siamo senza dover chiamare.</p>
-              </div>
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                </div>
-                <p className="text-sm font-semibold mb-1">Scadenze automatiche</p>
-                <p className="text-xs text-zinc-400 leading-relaxed">F24 e dichiarazioni con alert proattivi.</p>
-              </div>
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-                </div>
-                <p className="text-sm font-semibold mb-1">Chat col commercialista</p>
-                <p className="text-xs text-zinc-400 leading-relaxed">Tutte le conversazioni tracciate, mai perse.</p>
-              </div>
-            </div>
+            <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                {
+                  t: "Email di conferma",
+                  d: "Ricevi subito email con ricevuta di pagamento e link di attivazione account portale.",
+                },
+                {
+                  t: "Registrazione portale",
+                  d: "Crei la tua password personale in 2 minuti su clienti.atparma.com.",
+                },
+                {
+                  t: "Checklist documenti",
+                  d: "Nel portale trovi la checklist guidata: esattamente quali documenti servono e in che formato.",
+                },
+                {
+                  t: "Upload cifrato",
+                  d: "Carichi i documenti con drag & drop su canale sicuro. Niente email, niente WhatsApp.",
+                },
+                {
+                  t: "Lavorazione tracciata",
+                  d: "Noi lavoriamo, tu vedi in tempo reale lo stato della pratica e ricevi notifiche se serve integrazione.",
+                },
+                {
+                  t: "Consegna nel portale",
+                  d: "Ricevute, F24, dichiarazioni e invii telematici sempre scaricabili dalla tua area per 5 anni.",
+                },
+              ].map((s, i) => (
+                <li key={s.t} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="w-7 h-7 rounded-full bg-[var(--color-accent)] text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+                      {i + 1}
+                    </span>
+                    <p className="text-sm font-semibold">{s.t}</p>
+                  </div>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{s.d}</p>
+                </li>
+              ))}
+            </ol>
           </section>
 
           <section className="mb-20">
