@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Tool } from "./tool";
 import { MobileMenu } from "@/app/mobile-menu";
+import { Grid } from "./grid";
 
 export const metadata: Metadata = {
-  title: "Calcolo IMU 2026 — abitazione principale, seconda casa | A.T. Consulting Parma",
+  title: "Strumenti gratuiti per forfettari, P.IVA, commercialisti | A.T. Consulting Parma",
   description:
-    "Calcola l'IMU 2026: rendita catastale, categoria, quota e mesi di possesso, aliquota comunale. Esenzione abitazione principale. Acconto giugno, saldo dicembre.",
+    "Calcolatori e strumenti gratuiti per privati, professionisti e commercialisti: forfettario, codice fiscale, busta paga, IMU, scadenze fiscali 2026.",
   alternates: {
-    canonical: "/strumenti/imu",
+    canonical: "/strumenti",
   },
   openGraph: {
-    title: "Calcolo IMU 2026 — abitazione principale, seconda casa",
-    description: "Simulatore IMU gratuito. Acconto e saldo, esenzione prima casa, detrazioni.",
-    url: "https://www.atparma.com/strumenti/imu",
+    title: "Strumenti fiscali gratuiti 2026",
+    description:
+      "Calcolatore forfettario, codice fiscale, busta paga, IMU, scadenze. Gratuiti, senza registrazione.",
+    url: "https://www.atparma.com/strumenti",
     type: "website",
   },
 };
 
-export default function ImuPage() {
+export default function StrumentiHubPage() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
@@ -50,20 +51,19 @@ export default function ImuPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mb-12">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
-              Strumento gratuito
+              Strumenti gratuiti
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-              Calcolo IMU 2026
+              Calcolatori e strumenti fiscali
             </h1>
             <p className="text-zinc-600 leading-relaxed">
-              Calcola l&apos;IMU 2026 su casa, seconda casa, ufficio, negozio o capannone.
-              Rendita catastale, categoria, quota e mesi di possesso. Esenzione abitazione
-              principale non di lusso. Acconto entro il 16 giugno, saldo entro il 16
-              dicembre.
+              Strumenti gratuiti pensati per privati, professionisti con P.IVA e
+              commercialisti. Nessuna registrazione richiesta. Costruiti dai nostri dottori
+              commercialisti, aggiornati per il 2026.
             </p>
           </div>
 
-          <Tool />
+          <Grid />
         </div>
       </main>
 

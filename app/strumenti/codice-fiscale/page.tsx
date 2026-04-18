@@ -30,13 +30,11 @@ export default function CodiceFiscalePage() {
           >
             A.T. Consulting
           </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-600">
+          <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
-            <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Forfettario</Link>
-            <Link href="/strumenti/codice-fiscale" className="text-zinc-900 font-medium">CF</Link>
-            <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
-            <Link href="/strumenti/imu" className="hover:text-zinc-900 transition-colors">IMU</Link>
-            <Link href="/strumenti/scadenze" className="hover:text-zinc-900 transition-colors">Scadenze</Link>
+            <Link href="/strumenti" className="text-zinc-900 font-medium">Strumenti</Link>
+            <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
+            <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
