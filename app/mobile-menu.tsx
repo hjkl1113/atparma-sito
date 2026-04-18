@@ -32,6 +32,7 @@ export function MobileMenu() {
             <Link href="/strumenti/codice-fiscale" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolo codice fiscale</Link>
             <Link href="/strumenti/buste-paga" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolo busta paga</Link>
             <Link href="/strumenti/imu" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolo IMU</Link>
+            <Link href="/strumenti/scadenze" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Scadenze fiscali 2026</Link>
             <a href="/blog" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Blog</a>
             <a href="/faq" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>FAQ</a>
             <a href="/contatti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Contatti</a>

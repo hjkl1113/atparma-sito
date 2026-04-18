@@ -4,22 +4,22 @@ import { Tool } from "./tool";
 import { MobileMenu } from "@/app/mobile-menu";
 
 export const metadata: Metadata = {
-  title: "Calcolo busta paga 2026 — da lordo a netto | A.T. Consulting Parma",
+  title: "Scadenziario fiscale 2026 — calendario IVA, IRPEF, INPS | A.T. Consulting Parma",
   description:
-    "Calcola il netto in busta paga dalla RAL (o il lordo dal netto). IRPEF 2026, contributi INPS, detrazione lavoro dipendente, addizionali, trattamento integrativo.",
+    "Tutte le scadenze fiscali 2026 in un unico calendario. Filtra per profilo (forfettario, ordinario, società, dipendenti). Scarica in formato iCal per aggiungere al tuo calendario.",
   alternates: {
-    canonical: "/strumenti/buste-paga",
+    canonical: "/strumenti/scadenze",
   },
   openGraph: {
-    title: "Calcolo busta paga 2026 — da lordo a netto",
+    title: "Scadenziario fiscale 2026 — calendario completo",
     description:
-      "Simulatore gratuito: RAL, contributi, IRPEF, detrazioni, addizionali. Netto mensile e annuo.",
-    url: "https://www.atparma.com/strumenti/buste-paga",
+      "IVA, IRPEF, INPS, IMU, 770, Redditi. Filtra per contribuente e scarica in iCal.",
+    url: "https://www.atparma.com/strumenti/scadenze",
     type: "website",
   },
 };
 
-export default function BustaPagaPage() {
+export default function ScadenzePage() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
@@ -34,9 +34,9 @@ export default function BustaPagaPage() {
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
             <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Forfettario</Link>
             <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">CF</Link>
-            <Link href="/strumenti/buste-paga" className="text-zinc-900 font-medium">Busta paga</Link>
+            <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
             <Link href="/strumenti/imu" className="hover:text-zinc-900 transition-colors">IMU</Link>
-            <Link href="/strumenti/scadenze" className="hover:text-zinc-900 transition-colors">Scadenze</Link>
+            <Link href="/strumenti/scadenze" className="text-zinc-900 font-medium">Scadenze</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
@@ -56,12 +56,13 @@ export default function BustaPagaPage() {
               Strumento gratuito
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-              Da lordo a netto in busta paga
+              Scadenziario fiscale 2026
             </h1>
             <p className="text-zinc-600 leading-relaxed">
-              Inserisci la RAL e ottieni il netto mensile e annuo. Contributi INPS, IRPEF
-              2026, detrazione lavoro dipendente, addizionali medie e trattamento
-              integrativo. Funziona anche al contrario: dal netto desiderato alla RAL.
+              Tutte le scadenze principali 2026: IVA, IRPEF, INPS, IMU, 770, Modello
+              Redditi. Filtra per profilo (forfettario, ordinario, società, dipendenti) e
+              scarica un file .ics da aggiungere a Google Calendar, Outlook, Apple
+              Calendar.
             </p>
           </div>
 

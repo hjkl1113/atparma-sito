@@ -35,6 +35,7 @@ export default function ImuPage() {
             <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">CF</Link>
             <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
             <Link href="/strumenti/imu" className="text-zinc-900 font-medium">IMU</Link>
+            <Link href="/strumenti/scadenze" className="hover:text-zinc-900 transition-colors">Scadenze</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
