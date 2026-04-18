@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Come aprire la Partita IVA online nel 2026 | A.T. Consulting Parma",
@@ -21,16 +22,7 @@ export const metadata: Metadata = {
 export default function ArticoloPage() {
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">A.T. Consulting</Link>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-            <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
-            <Link href="/blog" className="text-zinc-900 font-medium">Blog</Link>
-            <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader current="blog" />
 
       <script
         type="application/ld+json"

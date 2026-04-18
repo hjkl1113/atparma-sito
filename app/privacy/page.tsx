@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — A.T. Consulting Parma",
@@ -12,13 +12,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
-            A.T. Consulting
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="pt-32 pb-24">
         <div className="max-w-3xl mx-auto px-6">

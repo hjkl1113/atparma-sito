@@ -1,48 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Pricing } from "./pricing";
-import { MobileMenu } from "./mobile-menu";
-
-function Header() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
-            A.T. Consulting
-          </span>
-          <span className="hidden sm:inline text-xs text-zinc-400 tracking-widest uppercase">
-            Studio Professionale · Parma · Tutta Italia
-          </span>
-        </div>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-          <Link href="/servizi" className="hover:text-zinc-900 transition-colors">
-            Servizi
-          </Link>
-          <Link href="/strumenti" className="hover:text-zinc-900 transition-colors">
-            Strumenti
-          </Link>
-          <a href="/blog" className="hover:text-zinc-900 transition-colors">
-            Blog
-          </a>
-          <a href="/faq" className="hover:text-zinc-900 transition-colors">
-            FAQ
-          </a>
-          <a href="/contatti" className="hover:text-zinc-900 transition-colors">
-            Contatti
-          </a>
-          <a
-            href="https://clienti.atparma.com"
-            className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
-          >
-            Area Clienti
-          </a>
-        </nav>
-        <MobileMenu />
-      </div>
-    </header>
-  );
-}
+import { SiteHeader } from "@/components/site-header";
+import { articoli } from "@/lib/articoli";
 
 function Hero() {
   return (
@@ -253,9 +213,9 @@ function CalcolatoreBanner() {
                 Forfettario o ordinario? Scoprilo in 2 minuti.
               </h2>
               <p className="text-white/90 leading-relaxed mb-6 text-sm sm:text-base">
-                Simulatore gratuito che confronta i due regimi sulla tua attivita:
+                Simulatore gratuito che confronta i due regimi sulla tua attività:
                 calcola tasse reali, contributi INPS o cassa privata, e ti dice
-                quale ti fa risparmiare di piu. Basato su aliquote 2026.
+                quale ti fa risparmiare di più. Basato su aliquote 2026.
               </p>
               <Link
                 href="/calcolatori/forfettario"
@@ -301,7 +261,7 @@ function ChiSiamo() {
             </h2>
             <p className="text-zinc-600 leading-relaxed mb-6">
               A.T. Consulting Parma nasce dall&apos;esperienza pluriennale nel
-              supporto a imprese e professionisti. Il nostro team e composto da
+              supporto a imprese e professionisti. Il nostro team è composto da
               dottori commercialisti e revisori legali iscritti ai rispettivi
               albi professionali, figure che uniscono competenze fiscali, legali
               e finanziarie per offrire soluzioni concrete e personalizzate.
@@ -426,7 +386,7 @@ function PercheSceglierci() {
           Il valore che portiamo
         </p>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-16 font-[family-name:var(--font-heading)]">
-          Perche sceglierci
+          Perché sceglierci
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {vantaggi.map((v) => (
@@ -458,24 +418,6 @@ function PercheSceglierci() {
   );
 }
 
-const blogArticles = [
-  {
-    slug: "commercialista-online",
-    title: "Commercialista online: come sceglierlo e perche conviene",
-    image: "/images/generated-1775311824086.png",
-  },
-  {
-    slug: "aprire-partita-iva-online",
-    title: "Come aprire la Partita IVA online nel 2026: tutto quello che devi sapere",
-    image: "/images/generated-1775312781998.png",
-  },
-  {
-    slug: "come-fare-730-online",
-    title: "Come fare il 730 online: guida completa 2026",
-    image: "/images/generated-1775312805408.png",
-  },
-];
-
 function Blog() {
   return (
     <section className="py-24 bg-[var(--color-surface)]">
@@ -487,22 +429,22 @@ function Blog() {
           Guide fiscali
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {blogArticles.map((a) => (
+          {articoli.map((a) => (
             <article
-              key={a.title}
+              key={a.slug}
               className="bg-white rounded-2xl overflow-hidden border border-zinc-100 group hover:shadow-lg transition-shadow"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={a.image}
-                  alt={a.title}
+                  src={a.immagine}
+                  alt={a.titolo}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
                 <h3 className="font-semibold leading-snug font-[family-name:var(--font-heading)]">
-                  {a.title}
+                  {a.titolo}
                 </h3>
                 <a
                   href={`/blog/${a.slug}`}
@@ -550,8 +492,8 @@ function CtaUrgenze() {
           Hai una questione urgente?
         </h2>
         <p className="text-lg text-white/80 mb-8 leading-relaxed">
-          Il nostro team e disponibile per rispondere entro 24 ore da lunedi a
-          venerdi.
+          Il nostro team è disponibile per rispondere entro 24 ore da lunedì a
+          venerdì.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -671,7 +613,7 @@ function Footer() {
 export default function Home() {
   return (
     <>
-      <Header />
+      <SiteHeader current="home" />
       <main>
         <Hero />
         <Intro />

@@ -2,7 +2,7 @@
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
 **Data:** 2026-04-18
-**Versione:** 1.3
+**Versione:** 1.5
 
 ---
 
@@ -492,4 +492,165 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 
 ---
 
-*Report compilato: 2026-04-14, aggiornato 2026-04-18 (v1.3: rollout vetrina + fix PayPal + guide PDF)*
+## 14. AI INTEGRABILI SUL SITO — OPZIONI VALUTATE (2026-04-18)
+
+Valutazione fatta in sessione. Nessuna implementata ancora: il sito oggi
+non ha chiamate LLM in prod. Obiettivo: aumentare conversione e generare
+traffico SEO senza esplodere il budget.
+
+### 14.1 Dove l'AI ha senso qui
+
+A differenza del portale (workflow interni) il sito deve **convertire
+visitatori** e **spiegare calcoli**. Quindi: chatbot, narrazione output
+tool, OCR pre-acquisto, blog SEO, FAQ semantica.
+
+### 14.2 Provider confrontati
+
+| Provider | Ruolo consigliato | Costo indicativo |
+|---|---|---|
+| **Anthropic Claude** (Sonnet 4.6 / Haiku 4.5 / Opus 4.7) | Chatbot premium, tono formale italiano, email bozze | €0.0005-0.003/risposta |
+| **Google Gemini 2.5** (Flash / Pro) | Narrazione tool, OCR documenti, grounding con Google Search | 1.500 req/giorno Flash gratis, 50 req/giorno Pro gratis |
+| **Perplexity Sonar / Sonar Pro** | "Chiedi all'esperto" con fonti citate, monitoraggio scadenze | $1-5/1M token, $5 crediti inclusi in Pro $20/mese |
+| **Qwen3** (Alibaba) | Fallback low-cost, self-host GDPR-friendly | $0.10/1M via OpenRouter, gratis self-host Ollama |
+| **Groq** (Llama 3.3 / QwQ / Qwen) | Velocità (~500 tok/s), fallback gratis | 14.400 req/giorno free |
+| **Cloudflare Workers AI** | Edge inference su routing middleware | 10.000 neuron/giorno free |
+| **Mistral / HuggingFace** | Embedding FAQ, rate-limited free | free tier piccolo |
+
+### 14.3 Casi d'uso per priorità
+
+**Priorità 1 — zero costo, massimo impatto conversione**
+
+1. **Narrazione risultato forfettario/IMU/busta paga** con Gemini 2.5 Flash.
+   Paragrafo naturale ("nel tuo caso conviene perché...") accanto al breakdown
+   numerico. Copre l'intero volume con free tier.
+
+**Priorità 2 — differenziatore vs TaxMan/FidoCommercialista**
+
+2. **Sezione "Chiedi all'esperto" con Perplexity Sonar Pro**.
+   Risposte fiscali con fonti citate (Agenzia Entrate, normativa, gazzetta).
+   Un commercialista DEVE citare fonti, Claude/Gemini inventano meno ma non
+   linkano. Alternative: Gemini 2.5 Flash + `tools: [{googleSearch: {}}]`
+   gratuito nel free tier.
+
+**Priorità 3 — capture lead su intento alto**
+
+3. **OCR pre-acquisto con Gemini 2.5 Flash Vision**. Utente carica CU /
+   cedolino / 730 precompilato → estrazione campi → CTA servizio 730
+   precompilata. 1.500 upload/giorno gratis.
+
+4. **Chatbot qualificazione lead** con Claude Sonnet 4.6 via AI Gateway.
+   Solo dopo validazione che l'AI converte. ~€0.003/risposta.
+
+**Priorità 4 — crescita traffico organico**
+
+5. **Blog SEO settimanale** con Perplexity Sonar Pro (fonti citate) +
+   review umana. ~€1/mese per 4 articoli.
+
+6. **Batch SEO notturno self-host** con Qwen3 14B su VPS Hetzner €10/mese
+   se volume cresce. Review umana prima di pubblicare.
+
+### 14.4 Setup multi-provider consigliato
+
+Vercel AI Gateway come routing layer unico:
+
+```
+atparma-sito (AI_GATEWAY_API_KEY)
+├── chatbot homepage        → anthropic/claude-sonnet-4-6
+├── narrazione tool         → google/gemini-2.5-flash (free)
+├── "chiedi esperto"+ fonti → perplexity/sonar-pro
+├── OCR upload documenti    → google/gemini-2.5-flash (vision free)
+├── fallback low-cost       → openrouter/qwen/qwen3-30b
+└── blog SEO batch          → perplexity/sonar-pro o qwen self-host
+```
+
+Vantaggi: un solo provider key, stringa modello `"provider/model"`,
+fallback automatico se rate-limit, osservabilità unificata.
+
+### 14.5 Note di scelta
+
+- **Italiano formale**: Claude Sonnet > Gemini Pro > Qwen. Claude resta
+  prima scelta dove il tono conta (email, chatbot premium).
+- **Citazioni / freschezza**: Perplexity e Gemini+Search imbattibili.
+  Claude da solo non porta fonti linkabili.
+- **GDPR / on-prem**: solo Qwen/Mistral self-host. Rilevante più per
+  portale che per sito.
+- **Free tier realistico**: Gemini Flash (1.500/g) + Groq (14.4k/g)
+  coprono il 100% del traffico attuale senza spendere nulla.
+- **Vercel Agent** (beta) per code review sui PR del sito: gratis in beta,
+  attivabile subito.
+- **Vercel BotID**: protezione form preventivo da scraper. GA giugno 2025.
+
+### 14.6 Decisione presa
+
+Implementazione rinviata. Il report serve come memoria delle opzioni
+valutate: quando si deciderà di partire, si parte da priorità 1 (Gemini
+Flash sulla narrazione forfettario) — ~1h di lavoro, zero costo.
+
+---
+
+## 15. REVIEW GENERALE SITO — SiteHeader + articoli unificati + ortografia (2026-04-18)
+
+Review generale richiesta dall'utente dopo aver navigato il sito. Due
+problemi concreti segnalati (voce Home mancante, guide fiscali con due
+stili diversi), un refactor di fondo emerso dall'analisi (17 header
+duplicati inline).
+
+### 15.1 Refactor navigazione
+
+**Componenti nuovi:**
+- `components/site-header.tsx` — server component, 6 voci standard (Home ·
+  Servizi · Strumenti · Blog · FAQ · Contatti) + Area Clienti, prop
+  `current` per highlight voce attiva.
+- `components/mobile-menu.tsx` — spostato da `app/mobile-menu.tsx`, voce
+  Home aggiunta come prima (era mancante), stessa prop `current`.
+
+**Pagine aggiornate (16)**: home, servizi, servizi/[slug], 5 strumenti,
+calcolatori/forfettario, 3 articoli blog, blog, faq, contatti, privacy.
+Tutti gli header inline eliminati (eliminati ~350 righe di duplicazione),
+sostituiti con `<SiteHeader current="..." />`. Rimossi `Header()` e
+`SharedHeader()` locali.
+
+**Non toccate**: `/checkout/*`, `/admin`, `/guide/*` (intenzionalmente
+senza site header come da scope).
+
+### 15.2 Single source of truth articoli
+
+- `lib/articoli.ts` — nuovo, interfaccia `Articolo` + array canonico dei 3
+  articoli blog. Campi rinominati in italiano (`titolo`/`immagine`/`data`).
+- `app/page.tsx` (homepage, grid 3 card) e `app/blog/page.tsx` (lista
+  orizzontale) importano entrambi da qui. Dati unificati, stili distinti
+  mantenuti come da scelta utente.
+- Accenti corretti durante la migrazione (titoli/excerpt: "perché",
+  "qualità", "è un processo", "più diffusa").
+
+### 15.3 Fix ortografici (13 accenti)
+
+`app/page.tsx`: attivita→attività, piu→più (×2), e→è (×2), Perche→Perché,
+lunedi→lunedì, venerdi→venerdì.
+
+`app/servizi/_data/prodotti.ts`: piu→più, gia→già, e→è (×3), attivita→
+attività (×2), Qual e→Qual è.
+
+### 15.4 Verifica
+
+- `npm run build` — 43 pagine compilano pulite, zero errori TS.
+- `npm run lint` — zero warning.
+- Smoke test visivo su 6 pagine chiave rinviato a test manuale utente.
+
+### 15.5 TODO segnalati (fuori scope)
+
+- **Prezzo P.IVA Professionista incoerente**: FAQ dice €149, `prodotti.ts`
+  metaDesc dice €150, `prezzi-default.ts` canonico dice €170 scontato
+  da €200. **Da allineare con Alessandro** prima di toccare.
+- **3 servizi extra in `[slug]/page.tsx`** (consulenza-fiscale, crisi-di-
+  impresa, consulenza-finanziaria) non presenti in `prodotti.ts` ma
+  serviti dinamicamente. Sitemap + breadcrumb schema li includono.
+  Incoerenza architetturale, non bug.
+- **Fix accenti non esaustivo**: esistono altri "e"/"piu"/"attivita" nel
+  codebase (es. testi minori in prodotti.ts riga 156, metaDesc). Review
+  sistematica rinviata.
+
+---
+
+*Report compilato: 2026-04-14, aggiornato 2026-04-18 (v1.5: SiteHeader
+condiviso + articoli unificati + ortografia)*

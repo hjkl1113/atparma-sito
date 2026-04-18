@@ -74,11 +74,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     faqs: [
       {
         q: "Posso fare il 730 da solo col precompilato?",
-        a: "Si, ma il precompilato spesso manca di spese mediche non inviate dal farmacista, bonus edilizi, detrazioni per familiari. Un commercialista verifica ogni voce: spesso il recupero vale piu del costo del servizio.",
+        a: "Si, ma il precompilato spesso manca di spese mediche non inviate dal farmacista, bonus edilizi, detrazioni per familiari. Un commercialista verifica ogni voce: spesso il recupero vale più del costo del servizio.",
       },
       {
         q: "Quanto dura il processo?",
-        a: "Dall'upload completo dei documenti al 730 inviato passano 7 giorni lavorativi. Puoi iniziare a caricare documenti gia subito dopo il pagamento.",
+        a: "Dall'upload completo dei documenti al 730 inviato passano 7 giorni lavorativi. Puoi iniziare a caricare documenti già subito dopo il pagamento.",
       },
       {
         q: "Cosa succede se mi accorgo di aver dimenticato una spesa?",
@@ -152,16 +152,16 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "entro 5 giorni lavorativi dalla conferma del pagamento",
     faqs: [
       {
-        q: "Qual e la differenza tra Professionista e Artigiano?",
-        a: "Il professionista svolge attivita intellettuale (consulenze, progettazioni, servizi): iscritto solo a gestione separata INPS. L'artigiano/commerciante ha attivita manuale o di vendita: iscrizione CCIAA + INPS artigiani/commercianti + SIA. Operazioni diverse, costi diversi.",
+        q: "Qual è la differenza tra Professionista e Artigiano?",
+        a: "Il professionista svolge attività intellettuale (consulenze, progettazioni, servizi): iscritto solo a gestione separata INPS. L'artigiano/commerciante ha attività manuale o di vendita: iscrizione CCIAA + INPS artigiani/commercianti + SIA. Operazioni diverse, costi diversi.",
       },
       {
         q: "Devo scegliere forfettario o ordinario?",
-        a: "Dipende da ricavi e spese attesi. Se prevedi ricavi sotto 85.000 euro e spese basse, il forfettario e spesso piu conveniente (5% start-up o 15%). Ti aiutiamo con una simulazione prima dell'apertura. Se sai gia di voler partire forfettario, scegli direttamente il piano dedicato a 500 euro (che include anche portale + consulenza).",
+        a: "Dipende da ricavi e spese attesi. Se prevedi ricavi sotto 85.000 euro e spese basse, il forfettario è spesso più conveniente (5% start-up o 15%). Ti aiutiamo con una simulazione prima dell'apertura. Se sai già di voler partire forfettario, scegli direttamente il piano dedicato a 500 euro (che include anche portale + consulenza).",
       },
       {
         q: "Posso fatturare dal primo giorno?",
-        a: "Si, da P.IVA attiva puoi fatturare. La fatturazione elettronica non e inclusa in questo piano: se ti serve, la attivi a parte (50 euro/anno con GIS EFAT).",
+        a: "Si, da P.IVA attiva puoi fatturare. La fatturazione elettronica non è inclusa in questo piano: se ti serve, la attivi a parte (50 euro/anno con GIS EFAT).",
       },
       {
         q: "Qual e la differenza tra questo piano e 'P.IVA Forfettario' a 500 euro?",
@@ -235,7 +235,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     faqs: [
       {
         q: "Posso essere contemporaneamente artigiano e commerciante?",
-        a: "Generalmente no: l'attivita prevalente determina l'iscrizione INPS. In casi specifici (es. artigiano che vende anche prodotti) si valuta caso per caso. Ne parliamo in consulenza.",
+        a: "Generalmente no: l'attività prevalente determina l'iscrizione INPS. In casi specifici (es. artigiano che vende anche prodotti) si valuta caso per caso. Ne parliamo in consulenza.",
       },
       {
         q: "Qual e la differenza rispetto al Professionista a 150 euro?",

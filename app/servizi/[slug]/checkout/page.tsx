@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MobileMenu } from "@/app/mobile-menu";
+import { MobileMenu } from "@/components/mobile-menu";
 import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 import { getAllProdotti, getProdotto } from "@/app/servizi/_data/prodotti";
 import { CheckoutForm } from "@/app/servizi/_components/checkout-form";

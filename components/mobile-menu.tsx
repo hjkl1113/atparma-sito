@@ -3,7 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export function MobileMenu() {
+type Current = "home" | "servizi" | "strumenti" | "blog" | "faq" | "contatti";
+
+const voci: { href: string; label: string; key: Current }[] = [
+  { href: "/", label: "Home", key: "home" },
+  { href: "/servizi", label: "Servizi", key: "servizi" },
+  { href: "/strumenti", label: "Strumenti", key: "strumenti" },
+  { href: "/blog", label: "Blog", key: "blog" },
+  { href: "/faq", label: "FAQ", key: "faq" },
+  { href: "/contatti", label: "Contatti", key: "contatti" },
+];
+
+export function MobileMenu({ current }: { current?: Current }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,11 +38,20 @@ export function MobileMenu() {
       {open && (
         <nav className="absolute top-16 left-0 right-0 bg-white border-b border-zinc-100 shadow-lg">
           <div className="flex flex-col p-6 gap-4">
-            <Link href="/servizi" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Servizi</Link>
-            <Link href="/strumenti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Strumenti</Link>
-            <a href="/blog" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Blog</a>
-            <a href="/faq" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>FAQ</a>
-            <a href="/contatti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Contatti</a>
+            {voci.map((v) => (
+              <Link
+                key={v.key}
+                href={v.href}
+                className={
+                  current === v.key
+                    ? "text-zinc-900 font-semibold"
+                    : "text-zinc-700 font-medium"
+                }
+                onClick={() => setOpen(false)}
+              >
+                {v.label}
+              </Link>
+            ))}
             <a
               href="https://clienti.atparma.com"
               className="px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg text-center"

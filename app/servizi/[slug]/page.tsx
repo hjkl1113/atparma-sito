@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MobileMenu } from "@/app/mobile-menu";
+import { SiteHeader } from "@/components/site-header";
 import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
 
@@ -117,32 +117,6 @@ export async function generateMetadata({
   };
 }
 
-function SharedHeader() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
-          A.T. Consulting
-        </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
-          <Link href="/servizi" className="text-zinc-900 font-medium">Servizi</Link>
-          <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Calcola forfettario</Link>
-          <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
-          <Link href="/faq" className="hover:text-zinc-900 transition-colors">FAQ</Link>
-          <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
-          <a
-            href="https://clienti.atparma.com"
-            className="ml-2 px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
-          >
-            Area Clienti
-          </a>
-        </nav>
-        <MobileMenu />
-      </div>
-    </header>
-  );
-}
-
 function getGuidaSlug(prezzoId: string): string | null {
   if (prezzoId === "730") return "documentazione-730";
   if (prezzoId.startsWith("piva-")) return "documentazione-partita-iva";
@@ -185,7 +159,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <SharedHeader />
+      <SiteHeader current="servizi" />
 
       <main className="pt-32 pb-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -486,7 +460,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
 function CompetenzaView({ s }: { s: (typeof competenze)[string] }) {
   return (
     <>
-      <SharedHeader />
+      <SiteHeader current="servizi" />
 
       <main className="pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-6">
