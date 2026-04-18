@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { ATTIVITA, CASSA_LABEL, calcola, type Cassa } from "./lib";
+import { startTransition, useCallback, useEffect, useMemo, useState } from "react";
+import { ATTIVITA, CASSA_LABEL, calcola, type Cassa, type Risultato } from "./lib";
+
+type Modo = "privato" | "professionista";
 
 function formatEuro(n: number): string {
   return new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+}
+
+function isCassa(v: string | null): v is Cassa {
+  return v === "separata" || v === "artigiani-commercianti" || v === "privata";
 }
 
 export function Calculator() {
@@ -17,6 +23,36 @@ export function Calculator() {
   const [nuovaAttivita, setNuovaAttivita] = useState(true);
   const [inpsVersatiPrec, setInpsVersatiPrec] = useState(4800);
   const [primoAnno, setPrimoAnno] = useState(false);
+  const [modo, setModo] = useState<Modo>("privato");
+
+  // Leggi parametri dall'URL al mount per share link pre-compilati.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const p = new URLSearchParams(window.location.search);
+    const num = (k: string) => {
+      const v = p.get(k);
+      return v === null ? undefined : Number(v);
+    };
+    startTransition(() => {
+      const nRicavi = num("r");
+      if (nRicavi !== undefined && !Number.isNaN(nRicavi)) setRicavi(Math.max(0, nRicavi));
+      const nSpese = num("s");
+      if (nSpese !== undefined && !Number.isNaN(nSpese)) setSpese(Math.max(0, nSpese));
+      const att = p.get("a");
+      if (att && ATTIVITA.some((x) => x.id === att)) setAttivitaId(att);
+      const c = p.get("c");
+      if (isCassa(c)) setCassa(c);
+      const nAlq = num("ap");
+      if (nAlq !== undefined && !Number.isNaN(nAlq)) setAliquotaCassaPrivata(Math.min(0.5, Math.max(0, nAlq)));
+      if (p.get("nu") === "1") setNuovaAttivita(true);
+      if (p.get("nu") === "0") setNuovaAttivita(false);
+      const nInps = num("i");
+      if (nInps !== undefined && !Number.isNaN(nInps)) setInpsVersatiPrec(Math.max(0, nInps));
+      if (p.get("pa") === "1") setPrimoAnno(true);
+      const m = p.get("m");
+      if (m === "professionista" || m === "privato") setModo(m);
+    });
+  }, []);
 
   const risultato = useMemo(
     () =>
@@ -36,7 +72,53 @@ export function Calculator() {
   const verdetto = risultato.verdetto;
   const diff = Math.abs(risultato.differenzaNettaForfettario);
 
+  const buildShareUrl = useCallback(() => {
+    if (typeof window === "undefined") return "";
+    const p = new URLSearchParams();
+    p.set("r", String(ricavi));
+    p.set("s", String(spese));
+    p.set("a", attivitaId);
+    p.set("c", cassa);
+    if (cassa === "privata") p.set("ap", String(aliquotaCassaPrivata));
+    p.set("nu", nuovaAttivita ? "1" : "0");
+    if (!primoAnno) p.set("i", String(inpsVersatiPrec));
+    if (primoAnno) p.set("pa", "1");
+    p.set("m", modo);
+    return `${window.location.origin}${window.location.pathname}?${p.toString()}`;
+  }, [ricavi, spese, attivitaId, cassa, aliquotaCassaPrivata, nuovaAttivita, inpsVersatiPrec, primoAnno, modo]);
+
   return (
+    <div className="space-y-6">
+      {/* Toggle modo privato / commercialista */}
+      <div className="flex justify-center">
+        <div className="inline-flex rounded-full border border-zinc-200 bg-white p-1 shadow-sm">
+          <button
+            type="button"
+            onClick={() => setModo("privato")}
+            aria-pressed={modo === "privato"}
+            className={`px-4 py-1.5 text-xs sm:text-sm rounded-full transition-colors ${
+              modo === "privato"
+                ? "bg-zinc-900 text-white font-medium"
+                : "text-zinc-600 hover:text-zinc-900"
+            }`}
+          >
+            <span aria-hidden>👤</span> Sono un privato / professionista
+          </button>
+          <button
+            type="button"
+            onClick={() => setModo("professionista")}
+            aria-pressed={modo === "professionista"}
+            className={`px-4 py-1.5 text-xs sm:text-sm rounded-full transition-colors ${
+              modo === "professionista"
+                ? "bg-zinc-900 text-white font-medium"
+                : "text-zinc-600 hover:text-zinc-900"
+            }`}
+          >
+            <span aria-hidden>👔</span> Sono un commercialista
+          </button>
+        </div>
+      </div>
+
     <div className="grid lg:grid-cols-5 gap-8">
       {/* Form */}
       <div className="lg:col-span-2 bg-white rounded-2xl border border-zinc-200 p-6 sm:p-8 space-y-6">
@@ -280,30 +362,51 @@ export function Calculator() {
           />
         </div>
 
-        {/* CTA */}
-        <div className="bg-zinc-900 text-white rounded-2xl p-6 sm:p-8">
-          <h3 className="text-xl font-bold mb-2 font-[family-name:var(--font-heading)]">
-            Vuoi aprire la Partita IVA con noi?
-          </h3>
-          <p className="text-zinc-300 text-sm mb-6 leading-relaxed">
-            Dottori commercialisti iscritti all&apos;albo: scegliamo insieme regime e codice
-            ATECO, apriamo la P.IVA e gestiamo tutti gli adempimenti dal portale.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/#servizi-online"
-              className="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm hover:bg-[var(--color-accent-dark)] transition-colors text-center"
-            >
-              Vedi i servizi online
-            </Link>
-            <Link
-              href="/contatti"
-              className="px-6 py-3 border border-white/30 text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-colors text-center"
-            >
-              Prenota una consulenza
-            </Link>
+        {/* Share + Lead magnet PDF */}
+        <ShareAndPdf
+          buildShareUrl={buildShareUrl}
+          risultato={risultato}
+          modo={modo}
+          context={{
+            ricavi,
+            spese,
+            attivitaLabel:
+              ATTIVITA.find((a) => a.id === attivitaId)?.label ?? attivitaId,
+            cassaLabel: CASSA_LABEL[cassa],
+            nuovaAttivita,
+            primoAnno,
+            inpsVersatiPrec,
+          }}
+        />
+
+        {/* CTA — cambia messaggio in base al modo */}
+        {modo === "privato" ? (
+          <div className="bg-zinc-900 text-white rounded-2xl p-6 sm:p-8">
+            <h3 className="text-xl font-bold mb-2 font-[family-name:var(--font-heading)]">
+              Vuoi aprire la Partita IVA con noi?
+            </h3>
+            <p className="text-zinc-300 text-sm mb-6 leading-relaxed">
+              Dottori commercialisti iscritti all&apos;albo: scegliamo insieme regime e codice
+              ATECO, apriamo la P.IVA e gestiamo tutti gli adempimenti dal portale.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/#servizi-online"
+                className="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm hover:bg-[var(--color-accent-dark)] transition-colors text-center"
+              >
+                Vedi i servizi online
+              </Link>
+              <Link
+                href="/contatti"
+                className="px-6 py-3 border border-white/30 text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-colors text-center"
+              >
+                Prenota una consulenza
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          <ProfessionistaCTA />
+        )}
 
         <p className="text-xs text-zinc-500 leading-relaxed">
           <strong className="text-zinc-700">Avvertenza.</strong> Stima indicativa basata su
@@ -313,6 +416,302 @@ export function Calculator() {
           analitiche, IVA e riduzioni contributive possono cambiare il risultato.
         </p>
       </div>
+    </div>
+    </div>
+  );
+}
+
+function ShareAndPdf({
+  buildShareUrl,
+  risultato,
+  modo,
+  context,
+}: {
+  buildShareUrl: () => string;
+  risultato: Risultato;
+  modo: Modo;
+  context: {
+    ricavi: number;
+    spese: number;
+    attivitaLabel: string;
+    cassaLabel: string;
+    nuovaAttivita: boolean;
+    primoAnno: boolean;
+    inpsVersatiPrec: number;
+  };
+}) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(buildShareUrl());
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard not available
+    }
+  }
+
+  function whatsAppUrl() {
+    const f = risultato.forfettario;
+    const d = Math.abs(risultato.differenzaNettaForfettario);
+    const verdettoTxt = f.oltreSoglia
+      ? "oltre soglia EUR 85k"
+      : risultato.verdetto === "forfettario"
+        ? `forfettario conviene (~${formatEuro(d)}/anno)`
+        : risultato.verdetto === "ordinario"
+          ? `ordinario conviene (~${formatEuro(d)}/anno)`
+          : "differenza minima";
+    const text = `Calcolatore forfettario 2026 AT Parma: ${verdettoTxt}. ${buildShareUrl()}`;
+    return `https://wa.me/?text=${encodeURIComponent(text)}`;
+  }
+
+  async function generatePdf() {
+    const { default: jsPDF } = await import("jspdf");
+    const doc = new jsPDF();
+    const f = risultato.forfettario;
+    const o = risultato.ordinario;
+    const diff = risultato.differenzaNettaForfettario;
+
+    let y = 18;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("Report convenienza regime forfettario 2026", 14, y);
+    y += 7;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text(`Generato il ${new Date().toLocaleDateString("it-IT")} da atparma.com`, 14, y);
+    y += 10;
+
+    const section = (title: string) => {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.text(title, 14, y);
+      y += 6;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+    };
+    const row = (k: string, v: string) => {
+      doc.text(k, 16, y);
+      doc.text(v, 130, y);
+      y += 5;
+    };
+
+    section("Dati inseriti");
+    row("Ricavi annui", formatEuro(context.ricavi));
+    row("Spese deducibili", formatEuro(context.spese));
+    row("Attivita", context.attivitaLabel);
+    row("Cassa previdenziale", context.cassaLabel);
+    row("Nuova attivita (5%)", context.nuovaAttivita ? "Si" : "No");
+    row("Primo anno di attivita", context.primoAnno ? "Si" : "No");
+    row("INPS versati deducibili", context.primoAnno ? formatEuro(0) : formatEuro(context.inpsVersatiPrec));
+    y += 3;
+
+    section("Forfettario");
+    row("Reddito lordo (ricavi x coeff.)", formatEuro(f.redditoLordo));
+    row("- INPS deducibili", formatEuro(-f.deduzioneInps));
+    row("= Reddito imponibile", formatEuro(f.redditoImponibile));
+    row("Imposta sostitutiva", formatEuro(f.imposta));
+    row("Contributi INPS anno corrente", formatEuro(f.contributi));
+    row("Netto stimato", formatEuro(f.netto));
+    if (f.oltreSoglia) {
+      doc.setFont("helvetica", "italic");
+      doc.text("Oltre soglia EUR 85.000: forfettario non applicabile.", 16, y);
+      doc.setFont("helvetica", "normal");
+      y += 5;
+    }
+    y += 3;
+
+    section("Ordinario");
+    row("Reddito lordo (ricavi - spese)", formatEuro(o.redditoLordo));
+    row("- INPS deducibili", formatEuro(-o.deduzioneInps));
+    row("= Imponibile IRPEF", formatEuro(o.redditoImponibile));
+    row("Imposte (IRPEF + addizionali)", formatEuro(o.imposta));
+    row("Contributi INPS anno corrente", formatEuro(o.contributi));
+    row("Netto stimato", formatEuro(o.netto));
+    y += 3;
+
+    section("Verdetto");
+    const verd = f.oltreSoglia
+      ? "Il forfettario non e applicabile (oltre soglia EUR 85.000)."
+      : risultato.verdetto === "forfettario"
+        ? `Forfettario conviene di ${formatEuro(Math.abs(diff))}/anno.`
+        : risultato.verdetto === "ordinario"
+          ? `Ordinario conviene di ${formatEuro(Math.abs(diff))}/anno.`
+          : "Differenza minima tra i due regimi.";
+    doc.text(doc.splitTextToSize(verd, 180), 16, y);
+    y += 12;
+
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(8);
+    const disclaimer =
+      "Stima indicativa basata su aliquote 2026 (IRPEF 23/35/43%, addizionali medie 2,5%, gestione separata 26,07%, artigiani/commercianti 24% con minimale EUR 4.208). Non sostituisce una consulenza fiscale personalizzata. A.T. Consulting Parma S.R.L.S. - www.atparma.com";
+    doc.text(doc.splitTextToSize(disclaimer, 180), 14, y);
+
+    doc.save("report-forfettario-atparma.pdf");
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
+      return;
+    }
+    setStatus("submitting");
+    try {
+      await fetch("/api/lead-forfettario", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email,
+          fonte: "calcolatore-forfettario-pdf",
+          modo,
+          ricavi: context.ricavi,
+          spese: context.spese,
+          attivita: context.attivitaLabel,
+          cassa: context.cassaLabel,
+          nuovaAttivita: context.nuovaAttivita,
+          primoAnno: context.primoAnno,
+          inpsVersatiPrec: context.inpsVersatiPrec,
+          verdetto: risultato.verdetto,
+          nettoForf: risultato.forfettario.netto,
+          nettoOrd: risultato.ordinario.netto,
+          differenza: risultato.differenzaNettaForfettario,
+        }),
+      });
+      await generatePdf();
+      setStatus("done");
+    } catch (err) {
+      console.error("download pdf errore:", err);
+      setStatus("error");
+    }
+  }
+
+  return (
+    <div className="bg-white rounded-2xl border border-zinc-200 p-6">
+      <div className="flex flex-wrap gap-2 mb-5">
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="px-3 py-2 text-xs font-medium rounded-lg border border-zinc-200 hover:bg-zinc-50 transition-colors"
+        >
+          {copied ? "Link copiato" : "Copia link con risultato"}
+        </button>
+        <a
+          href={whatsAppUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-3 py-2 text-xs font-medium rounded-lg border border-zinc-200 hover:bg-zinc-50 transition-colors"
+        >
+          Condividi su WhatsApp
+        </a>
+      </div>
+
+      <h4 className="text-sm font-semibold mb-1 font-[family-name:var(--font-heading)]">
+        Scarica il report in PDF
+      </h4>
+      <p className="text-xs text-zinc-600 mb-4">
+        Salviamo la tua email per inviarti aggiornamenti su regimi fiscali e novita per
+        {modo === "professionista" ? " commercialisti." : " forfettari e professionisti."}
+      </p>
+
+      {status === "done" ? (
+        <p className="text-sm text-green-700">
+          PDF scaricato. Controlla la cartella Download del tuo dispositivo.
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="La tua email"
+            className="flex-1 px-3 py-2 rounded-lg border border-zinc-200 text-sm"
+          />
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="px-4 py-2 bg-zinc-900 text-white rounded-lg font-medium text-sm hover:bg-zinc-800 transition-colors disabled:opacity-50"
+          >
+            {status === "submitting" ? "Preparo il PDF..." : "Scarica PDF"}
+          </button>
+        </form>
+      )}
+      {status === "error" && (
+        <p className="text-xs text-red-600 mt-2">Email non valida o errore di rete. Riprova.</p>
+      )}
+    </div>
+  );
+}
+
+function ProfessionistaCTA() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
+      return;
+    }
+    setStatus("submitting");
+    try {
+      const res = await fetch("/api/lead-forfettario", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email,
+          fonte: "waitlist-professio",
+          modo: "professionista",
+        }),
+      });
+      if (!res.ok) throw new Error("Errore invio");
+      setStatus("done");
+    } catch (err) {
+      console.error("waitlist professio errore:", err);
+      setStatus("error");
+    }
+  }
+
+  return (
+    <div className="bg-zinc-900 text-white rounded-2xl p-6 sm:p-8">
+      <h3 className="text-xl font-bold mb-2 font-[family-name:var(--font-heading)]">
+        Professio — il portale del tuo studio
+      </h3>
+      <p className="text-zinc-300 text-sm mb-6 leading-relaxed">
+        Offri questo calcolatore e tanti altri ai tuoi clienti, brandizzati con il nome del
+        tuo studio. Documenti, scadenze, pratiche, tool fiscali: tutto in un unico portale.
+        Lasciaci la tua email professionale per entrare nella lista d&apos;attesa beta.
+      </p>
+      {status === "done" ? (
+        <p className="text-green-300 text-sm">
+          Ti abbiamo aggiunto. Ti contatteremo appena Professio sara pronto.
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="nome@studio-commercialisti.it"
+            className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-sm"
+          />
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm hover:bg-[var(--color-accent-dark)] transition-colors disabled:opacity-50"
+          >
+            {status === "submitting" ? "Invio..." : "Iscrivimi alla waitlist"}
+          </button>
+        </form>
+      )}
+      {status === "error" && (
+        <p className="text-red-300 text-xs mt-2">Controlla l&apos;email e riprova.</p>
+      )}
     </div>
   );
 }
