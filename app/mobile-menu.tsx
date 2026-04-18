@@ -30,6 +30,7 @@ export function MobileMenu() {
             <Link href="/servizi" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Servizi</Link>
             <Link href="/calcolatori/forfettario" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolatore forfettario</Link>
             <Link href="/strumenti/codice-fiscale" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolo codice fiscale</Link>
+            <Link href="/strumenti/buste-paga" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Calcolo busta paga</Link>
             <a href="/blog" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Blog</a>
             <a href="/faq" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>FAQ</a>
             <a href="/contatti" className="text-zinc-700 font-medium" onClick={() => setOpen(false)}>Contatti</a>

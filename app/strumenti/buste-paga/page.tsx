@@ -4,22 +4,22 @@ import { Tool } from "./tool";
 import { MobileMenu } from "@/app/mobile-menu";
 
 export const metadata: Metadata = {
-  title: "Calcolo codice fiscale online — gratuito | A.T. Consulting Parma",
+  title: "Calcolo busta paga 2026 — da lordo a netto | A.T. Consulting Parma",
   description:
-    "Calcola il tuo codice fiscale italiano in pochi secondi. Strumento gratuito con oltre 7.900 comuni italiani. Decodifica anche codici fiscali esistenti.",
+    "Calcola il netto in busta paga dalla RAL (o il lordo dal netto). IRPEF 2026, contributi INPS, detrazione lavoro dipendente, addizionali, trattamento integrativo.",
   alternates: {
-    canonical: "/strumenti/codice-fiscale",
+    canonical: "/strumenti/buste-paga",
   },
   openGraph: {
-    title: "Calcolo codice fiscale online — gratuito",
+    title: "Calcolo busta paga 2026 — da lordo a netto",
     description:
-      "Calcola il tuo codice fiscale o decodifica un codice esistente. Tutti i comuni italiani inclusi.",
-    url: "https://www.atparma.com/strumenti/codice-fiscale",
+      "Simulatore gratuito: RAL, contributi, IRPEF, detrazioni, addizionali. Netto mensile e annuo.",
+    url: "https://www.atparma.com/strumenti/buste-paga",
     type: "website",
   },
 };
 
-export default function CodiceFiscalePage() {
+export default function BustaPagaPage() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
@@ -33,8 +33,8 @@ export default function CodiceFiscalePage() {
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-600">
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
             <Link href="/calcolatori/forfettario" className="hover:text-zinc-900 transition-colors">Forfettario</Link>
-            <Link href="/strumenti/codice-fiscale" className="text-zinc-900 font-medium">Codice fiscale</Link>
-            <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
+            <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">Codice fiscale</Link>
+            <Link href="/strumenti/buste-paga" className="text-zinc-900 font-medium">Busta paga</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
@@ -54,12 +54,12 @@ export default function CodiceFiscalePage() {
               Strumento gratuito
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-              Calcolo codice fiscale
+              Da lordo a netto in busta paga
             </h1>
             <p className="text-zinc-600 leading-relaxed">
-              Calcola il tuo codice fiscale inserendo nome, cognome, sesso, data e comune di
-              nascita. Oppure incolla un codice esistente per vedere i dati di nascita
-              decodificati. Oltre 7.900 comuni italiani inclusi.
+              Inserisci la RAL e ottieni il netto mensile e annuo. Contributi INPS, IRPEF
+              2026, detrazione lavoro dipendente, addizionali medie e trattamento
+              integrativo. Funziona anche al contrario: dal netto desiderato alla RAL.
             </p>
           </div>
 

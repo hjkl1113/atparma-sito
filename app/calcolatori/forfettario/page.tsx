@@ -34,7 +34,7 @@ export default function CalcolatoreForfettarioPage() {
             <Link href="/servizi" className="hover:text-zinc-900 transition-colors">Servizi</Link>
             <Link href="/calcolatori/forfettario" className="text-zinc-900 font-medium">Forfettario</Link>
             <Link href="/strumenti/codice-fiscale" className="hover:text-zinc-900 transition-colors">Codice fiscale</Link>
-            <Link href="/blog" className="hover:text-zinc-900 transition-colors">Blog</Link>
+            <Link href="/strumenti/buste-paga" className="hover:text-zinc-900 transition-colors">Busta paga</Link>
             <Link href="/contatti" className="hover:text-zinc-900 transition-colors">Contatti</Link>
             <a
               href="https://clienti.atparma.com"
