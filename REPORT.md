@@ -1,8 +1,8 @@
 # REPORT UNIFICATO — AT PARMA
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
-**Data:** 2026-04-17
-**Versione:** 1.1
+**Data:** 2026-04-18
+**Versione:** 1.2
 
 ---
 
@@ -84,6 +84,58 @@
 | Guida Forfettario | **PAID €27-37** | Upsell post-acquisto calcolatore |
 | Guida E-commerce | **PAID €37-47** | Nicchia specifica |
 | Guida Adeguati Assetti | **PAID €47-67** | B2B, contenuto alto valore |
+
+---
+
+## 3.5 TOOL PUBBLICI LIVE (aggiornamento 2026-04-18)
+
+Milestone A + E + F del piano "si-stasera-non-faremo" completate. 5 tool
+pubblici live su www.atparma.com, hub centralizzato, nav consolidata.
+
+| Tool | URL | Pubblico | Commit |
+|---|---|---|---|
+| Forfettario v2 | `/calcolatori/forfettario` | libero prof. + commercialista | `05fd099` + `b36c175` |
+| Codice fiscale | `/strumenti/codice-fiscale` | tutti | `78eb91e` |
+| Busta paga (lordo↔netto) | `/strumenti/buste-paga` | privati + commercialisti | `09ecbad` |
+| IMU 2026 | `/strumenti/imu` | privati + commercialisti | `1ab1ec5` |
+| Scadenziario 2026 | `/strumenti/scadenze` | liberi prof. + commercialisti | `f0491bc` |
+| Hub strumenti | `/strumenti` | tutti | `c5c0276` |
+
+**Feature trasversali** (su tutti i tool):
+- Toggle 👤 Privato / 👔 Commercialista con CTA differenziata
+- Waitlist Professio: lead email su `/api/lead-forfettario` (fonte variabile per segmentare)
+- Modo privato → CTA servizi AT; modo commercialista → pitch Professio
+- Metadata SEO + OG + sitemap.xml
+- URL querystring sync per condivisione link pre-compilati (forfettario)
+
+**Feature specifiche:**
+- **Forfettario v2**: breakdown step-by-step con INPS deducibili anno prec.,
+  box "Verifica risparmio" (2 slider what-if), share WhatsApp, lead magnet
+  PDF client-side (jsPDF ~300KB dynamic import).
+- **Codice fiscale**: calcolo diretto + decodifica inversa, 7.904 comuni
+  italiani (dataset slim 309KB, lazy-load da `/data/comuni.json`),
+  autocomplete + fallback codice catastale manuale.
+- **Busta paga**: formula completa INPS 9,49% + IRPEF scaglioni + detrazione
+  lavoro dipendente art. 13 TUIR + addizionali + trattamento integrativo.
+  Calcolo inverso via bisezione (40 iterazioni).
+- **IMU**: 7 categorie catastali con moltiplicatore corretto, esenzione
+  abitazione principale, quota% + mesi, detrazione €200 lusso,
+  rata acconto/saldo 50/50.
+- **Scadenzario**: 37 scadenze 2026, 9 filtri chip, download .ics (RFC 5545)
+  compatibile Google/Outlook/Apple, lead magnet "ricordami le scadenze".
+- **Hub**: griglia 3 col con filtro "per chi" (privati/liberi prof./comm.).
+
+**Endpoint API aggiunto**: `/api/lead-forfettario` (POST) — salva lead via Brevo con
+contesto calcolo. Riusato dai 4 tool per waitlist Professio e lead magnet.
+
+**Modifiche di navigazione**:
+- Homepage nav: "Calcolatore" → "Strumenti" (link all'hub)
+- Mobile menu: 5 link tool compattati in "Strumenti" unico
+- Nav interna dei 5 tool: 5 voci consistenti (Servizi · Strumenti · Blog · FAQ · Contatti)
+
+**Bug risolto (Milestone A)**: la card Ordinario del calcolatore forfettario
+saltava il passaggio "Reddito lordo → deduzione INPS → imponibile IRPEF".
+Ora mostra breakdown completo e simmetrico per i due regimi.
 
 ---
 
@@ -300,14 +352,30 @@ Email attivazione con link
 6. Creare sezione "Strumenti & Guide" lato cliente
 7. Creare guida documentazione 730 (GRATUITA)
 8. Creare guida documentazione P.IVA (GRATUITA)
-9. ~~Implementare calcolatore web "Conviene il forfettario?"~~ DONE 2026-04-17 (`/calcolatori/forfettario`, 8 attivita, 3 casse, IRPEF 2026)
-10. ~~Aggiornare prezzi sul sito con struttura definitiva~~ DONE 2026-04-17 (catalogo 6 servizi nel codice; ricordare login /admin per riscrivere blob prod)
+9. ~~Implementare calcolatore web "Conviene il forfettario?"~~ DONE 2026-04-17, refit 2026-04-18 (v2 con INPS deducibili, breakdown, share, PDF, toggle B2C/B2B)
+10. ~~Aggiornare prezzi sul sito con struttura definitiva~~ DONE 2026-04-17
 
-### Medio termine (infoprodotti)
+### Breve termine — NUOVI TOOL SEO (Milestone E + F, completata 2026-04-18)
+- ~~Tool codice fiscale `/strumenti/codice-fiscale`~~ DONE 2026-04-18
+- ~~Tool busta paga lordo-netto `/strumenti/buste-paga`~~ DONE 2026-04-18
+- ~~Tool IMU 2026 `/strumenti/imu`~~ DONE 2026-04-18
+- ~~Scadenzario 2026 `/strumenti/scadenze` con download .ics~~ DONE 2026-04-18
+- ~~Hub /strumenti + nav consolidata~~ DONE 2026-04-18
+
+### Medio termine (infoprodotti + altri tool P1)
 11. Creare guida PDF Regime Forfettario 2026
 12. Creare Simulatore Excel Forfettario
-13. Implementare calcolatore "SRL vs SAS vs DI?"
-14. Test portale con i 15 forfettari esistenti
+13. Implementare calcolatore "SRL vs SAS vs DI?" (tool P1)
+14. Altri tool P1: IRPEF scaglioni, TFR, Ravvedimento operoso
+15. Test portale con i 15 forfettari esistenti
+16. Landing Professio separata (sottodominio o /professio)
+17. Primi €300 Google Ads search sui tool SEO
+
+### Lungo termine (Convenience Check + pacchetto logica condivisa)
+- Milestone B: estrarre logica tool in `@atparma/fiscal-tools` o cartella
+  condivisa tra sito e portale (source-of-truth singolo per evitare drift)
+- Milestone D: Convenience Check automatico nel portale (cron trimestrale
+  per-cliente, raccomandazione regime con AI narrativa)
 
 ---
 
@@ -338,7 +406,16 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 - [ ] Collegamento Stripe → Portale (webhook post-acquisto)
 - [ ] Landing page per "730 online" con guida gratuita
 - [x] Implementare calcolatore "Conviene il forfettario?" — 2026-04-17
-- [ ] Implementare calcolatore "SRL vs SAS vs DI?"
+- [x] Fix bug breakdown ordinario + INPS deducibili + share + PDF — 2026-04-18
+- [x] Tool codice fiscale `/strumenti/codice-fiscale` — 2026-04-18
+- [x] Tool busta paga `/strumenti/buste-paga` — 2026-04-18
+- [x] Tool IMU `/strumenti/imu` — 2026-04-18
+- [x] Scadenzario fiscale 2026 `/strumenti/scadenze` — 2026-04-18
+- [x] Hub `/strumenti` + nav consolidata — 2026-04-18
+- [ ] Implementare calcolatore "SRL vs SAS vs DI?" (P1)
+- [ ] Altri tool P1: IRPEF scaglioni, TFR, Ravvedimento operoso
+- [ ] Landing Professio (sottodominio o /professio)
+- [ ] Primi €300 Google Ads sui tool SEO
 
 ### Portale (clienti.atparma.com)
 - [ ] Riattivare Captcha Turnstile
@@ -347,6 +424,8 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 - [ ] Sezione "Strumenti & Guide" lato cliente
 - [ ] Flag clientVisible e sharedUntil sui documenti
 - [ ] Test interno con i 15 forfettari esistenti
+- [ ] Replicare tool sito nel portale (auth, precompilazione dati cliente)
+- [ ] Convenience Check automatico (cron trimestrale + AI narrativa)
 
 ### Contenuti digitali
 - [ ] Guida documentazione 730 (gratuita, PDF)
@@ -355,6 +434,10 @@ Il sito è una *vetrina* ma non è ancora un *sistema di acquisizione*. Ha le fo
 - [ ] Guida PDF E-commerce Italia
 - [ ] Guida PDF Adeguati Assetti PMI
 
+### Architettura
+- [ ] Milestone B: estrarre logica tool in pacchetto condiviso `@atparma/fiscal-tools`
+      o cartella sync tra sito e portale (single source of truth)
+
 ---
 
-*Report compilato: 2026-04-14*
+*Report compilato: 2026-04-14, aggiornato 2026-04-18*
