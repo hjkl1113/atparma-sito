@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { STUDIO } from "@/lib/studio-data";
+import { TrustStrip } from "@/components/trust-badges";
 
 export function SiteFooter() {
   const { ragioneSociale, brand, partitaIva, indirizzo, tel, telHref, email, pec, portaleClienti } = STUDIO;
@@ -93,7 +94,10 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500 text-xs">
+        <div className="mt-12 pt-8 border-t border-zinc-800">
+          <TrustStrip tone="dark" />
+        </div>
+        <div className="mt-6 pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500 text-xs">
           <p>P.IVA / CF: {partitaIva}</p>
           <p>
             &copy; {new Date().getFullYear()} {ragioneSociale} &mdash; Tutti i diritti

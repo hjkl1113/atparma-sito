@@ -42,9 +42,11 @@ export function TrustBadges() {
   );
 }
 
-export function TrustStrip() {
+export function TrustStrip({ tone = "light" }: { tone?: "light" | "dark" }) {
+  const base = tone === "dark" ? "text-zinc-400" : "text-zinc-500";
+  const hover = tone === "dark" ? "hover:text-white" : "hover:text-zinc-900";
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-500">
+    <div className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-xs ${base}`}>
       <span className="inline-flex items-center gap-1.5">
         <GlobeIcon className="w-3.5 h-3.5" /> Dati UE
       </span>
@@ -59,7 +61,7 @@ export function TrustStrip() {
       <span aria-hidden>·</span>
       <Link
         href="/sicurezza"
-        className="underline hover:text-zinc-900 transition-colors"
+        className={`underline ${hover} transition-colors`}
       >
         Come proteggiamo i tuoi dati &rarr;
       </Link>
