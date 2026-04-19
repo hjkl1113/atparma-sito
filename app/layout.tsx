@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import { AnalyticsWrapper } from "@/components/analytics-wrapper";
+import { CookieBanner } from "@/components/cookie-banner";
 import "./globals.css";
 
 const geist = Geist({
@@ -182,7 +183,8 @@ export default function RootLayout({
           }}
         />
         {children}
-        <Analytics />
+        <CookieBanner />
+        <AnalyticsWrapper />
       </body>
     </html>
   );

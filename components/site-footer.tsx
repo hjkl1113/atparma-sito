@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { STUDIO } from "@/lib/studio-data";
 import { TrustStrip } from "@/components/trust-badges";
+import { CookiePreferencesLink } from "@/components/cookie-preferences-link";
 
 export function SiteFooter() {
   const { ragioneSociale, brand, partitaIva, indirizzo, tel, telHref, email, pec, portaleClienti } = STUDIO;
@@ -90,6 +91,9 @@ export function SiteFooter() {
                 <Link href="/privacy" className="hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
+              </li>
+              <li>
+                <CookiePreferencesLink />
               </li>
             </ul>
           </div>

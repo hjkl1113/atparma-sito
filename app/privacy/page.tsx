@@ -129,12 +129,45 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <section>
+            <section id="cookie">
               <h2 className="text-lg font-semibold text-zinc-900 mb-3 font-[family-name:var(--font-heading)]">
                 Cookie
               </h2>
               <p>
-                Il sito utilizza esclusivamente cookie tecnici necessari al funzionamento del servizio. Non vengono utilizzati cookie di profilazione o di terze parti a fini pubblicitari.
+                Il sito utilizza esclusivamente cookie strettamente necessari
+                al funzionamento del servizio e, solo previo consenso
+                dell&apos;utente, statistiche anonime aggregate. Non vengono
+                utilizzati cookie di profilazione pubblicitaria né di terze
+                parti a fini di marketing.
+              </p>
+              <p className="mt-3">
+                <strong>Cookie tecnici</strong> (sempre attivi, nessun
+                consenso richiesto):
+              </p>
+              <ul className="list-disc ml-5 space-y-1 mt-2">
+                <li>cookie di sessione per la fruizione delle pagine</li>
+                <li>cookie di checkout (Stripe e PayPal), attivi solo
+                    durante il pagamento e necessari al completamento
+                    dell&apos;acquisto</li>
+                <li>cookie che memorizza la scelta di consenso cookie
+                    (<code>atparma_cc</code>, durata 180 giorni)</li>
+              </ul>
+              <p className="mt-3">
+                <strong>Statistiche anonime</strong> (attive solo se
+                consentite):
+              </p>
+              <ul className="list-disc ml-5 space-y-1 mt-2">
+                <li>
+                  Vercel Analytics — raccoglie dati di visita in forma
+                  aggregata e pseudonima, senza usare cookie di
+                  tracciamento cross-site. Serve a capire quali pagine sono
+                  più utili e come migliorare il servizio.
+                </li>
+              </ul>
+              <p className="mt-3">
+                Puoi accettare, rifiutare o modificare le tue preferenze in
+                qualsiasi momento tramite il link{" "}
+                <em>&ldquo;Gestisci cookie&rdquo;</em> nel footer del sito.
               </p>
             </section>
 
