@@ -1,8 +1,8 @@
 # REPORT UNIFICATO — AT PARMA
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
-**Data:** 2026-04-18
-**Versione:** 1.5
+**Data:** 2026-04-19
+**Versione:** 1.6
 
 ---
 
@@ -652,5 +652,107 @@ attività (×2), Qual e→Qual è.
 
 ---
 
-*Report compilato: 2026-04-14, aggiornato 2026-04-18 (v1.5: SiteHeader
-condiviso + articoli unificati + ortografia)*
+## 16. PRE-LAUNCH CHECKLIST (2026-04-19)
+
+Dopo review completa con l'utente su integrità contenuti e flusso
+commerciale. Il sito ora è tecnicamente pronto ma servono alcune azioni
+prima del go-live definitivo.
+
+### 16.1 Interventi fatti oggi
+
+**Contenuto - rimozioni di elementi non veritieri:**
+- Rimossa sezione "Cosa dicono di noi" (3 testimonial inventati)
+- Rimosso `aggregateRating` 4.9/47 dal JSON-LD Schema.org layout
+- Motivazione: pratica commerciale ingannevole ex art. 21 Codice Consumo
+  + dir. UE Omnibus 2022. Per uno studio commercialista il rischio
+  reputazionale/regolatorio supera il +10% conversion.
+
+**Prezzi:**
+- Sconto 730 ripristinato: price 50, originalPrice 79 (era sparito per
+  errore nel commit listino anchor)
+- Decisione: NO anchor pricing finto su altri servizi. I prezzi 199/690/
+  690/750 del listino anchor restano nudi, senza `originalPrice` inventato
+- Motivazione: stessa analisi compliance dei testimonial. Reintrodurremo
+  anchor solo con base reale (prezzo effettivamente praticato 30gg prima
+  regola UE) o con sconto condizionato (codice, primo acquisto)
+
+**Flusso post-pagamento - opzione A (manuale guidato):**
+- Webhook `/api/webhook/route.ts` aggiornato: email a segreteria@atparma.com
+  con tabella dati + blocco monospace "copia-pronto" (nome/cognome/email/
+  CF/P.IVA/note) + link diretto a portale `/admin/clients`
+- Operatore (Alessandro/Pietro/Sara Casciaro) apre portale, clicca
+  "+ Nuovo Cliente", incolla dati. Dal portale partono automaticamente
+  email attivazione + mandato + (futuro) fatturazione Fatture in Cloud
+- Destinatario email: `segreteria@atparma.com` (casella condivisa studio),
+  gestibile anche da `casciaro@atparma.com`
+
+### 16.2 Già coperto (nel portale clienti.atparma.com)
+
+- Mandato professionale digitale: implementato
+- Fatturazione elettronica: integrazione Fatture in Cloud (prossima release)
+- Provisioning account client con email attivazione: attivo
+- Firma mandato + upload documenti + lavorazione pratica: attivi
+
+### 16.3 Ancora da fare - sito
+
+**Quick wins (1-3h ciascuno):**
+- **Stripe pagamento a rate**: attivare Klarna/Scalapay dalla dashboard
+  Stripe (15 min + test). Il form checkout si aggiorna da solo
+- **Consenso privacy esplicito**: checkbox obbligatoria nel form checkout
+  con link a `/privacy` (oggi non c'è)
+- **Email benvenuto cliente**: estendere webhook per inviare email ANCHE
+  al cliente (oggi solo allo studio) con istruzioni per attendere le
+  credenziali del portale
+
+### 16.4 Upgrade pianificato - opzione B (automatizzazione)
+
+**Quando**: volumi acquisti > 20 ordini/mese oppure decisione operativa.
+
+**Cosa**: passare da opzione A (manuale guidato) a opzione B (automazione).
+
+**Richiede lavoro su 2 progetti:**
+
+1. **Sito `atparma-sito`** (~15 min):
+   - Webhook costruisce link precompilato:
+     `https://clienti.atparma.com/admin/clients?new=1&firstName=...&lastName=...&email=...&fiscalCode=...&vatNumber=...&notes=...`
+
+2. **Portale `studio-atparma`** (~30 min):
+   - `clients-page-client.tsx` → leggere `useSearchParams()`, se `new=1`
+     aprire automaticamente `CreateClientDialog` con dati precompilati
+   - `create-client-dialog.tsx` → accettare prop `initialData` per
+     popolare i campi all'apertura
+
+**Beneficio**: operatore clicca link email → si apre dialog precompilato
+→ verifica e conferma. Zero copia-incolla, zero errori di battitura.
+
+**Successore B (futuro, volumi > 50/mese)**:
+- Endpoint dedicato `POST /api/public/signup-from-payment` sul portale
+- Autenticazione con `Bearer <API_TOKEN>` condiviso
+- Sito chiama direttamente → portale crea client + invia attivazione
+- Zero intervento umano, auto-provisioning end-to-end
+
+### 16.5 Roadmap aggiornata
+
+**Pre-launch definitivo (bloccante):**
+1. Consenso privacy checkbox nel checkout
+2. Test E2E acquisto → email → creazione cliente manuale → attivazione
+3. Verifica Stripe webhook su produzione con evento test
+
+**Post-launch breve termine:**
+4. Stripe rate (Klarna/Scalapay)
+5. Email benvenuto cliente
+6. Opzione B (precompilazione dialog portale)
+
+**Medio termine:**
+7. Recensioni reali (Google Business / Trustpilot) → ripristino sezione
+   "Cosa dicono di noi" con `Review` schema valido
+8. Sconto condizionato (codice promo / primo acquisto / referral) al
+   posto del finto anchor
+9. Integrazione Fatture in Cloud completata sul portale
+10. Provisioning automatico sito↔portale (successore B)
+
+---
+
+*Report compilato: 2026-04-14, aggiornato 2026-04-19 (v1.6: rimozione
+testimonial/rating finti + sconto 730 ripristinato + opzione A manuale
+guidato + roadmap pre-launch aggiornata)*

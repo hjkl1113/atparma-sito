@@ -33,6 +33,20 @@ async function sendNotification(
   const emailTo = process.env.EMAIL_TO || "segreteria@atparma.com";
   const portalUrl = "https://clienti.atparma.com/admin/clients";
 
+  // Split nome per precompilazione manuale nel dialog portale
+  const nameParts = customerName.trim().split(/\s+/);
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts.slice(1).join(" ") || "";
+
+  const copyBlock = [
+    `Nome: ${firstName}`,
+    `Cognome: ${lastName}`,
+    `Email: ${customerEmail}`,
+    taxCode ? `Codice fiscale: ${taxCode}` : null,
+    vatNumber ? `P.IVA: ${vatNumber}` : null,
+    `Note: Acquisto ${servizio} EUR ${amount} via sito (tx ${transactionId})`,
+  ].filter(Boolean).join("\n");
+
   await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: {
@@ -49,7 +63,7 @@ async function sendNotification(
       replyTo: { email: customerEmail, name: customerName },
       subject,
       htmlContent: `
-        <div style="font-family:system-ui,sans-serif;max-width:600px;">
+        <div style="font-family:system-ui,sans-serif;max-width:640px;">
           <h2 style="color:#0A0A0A;border-bottom:2px solid #4A9FD8;padding-bottom:8px;">
             Nuovo acquisto dal sito
           </h2>
@@ -63,16 +77,28 @@ async function sendNotification(
             ${vatNumber ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">P.IVA</td><td style="padding:10px;border:1px solid #e5e7eb;">${vatNumber}</td></tr>` : ""}
             <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">ID Transazione</td><td style="padding:10px;border:1px solid #e5e7eb;font-family:monospace;font-size:12px;">${transactionId}</td></tr>
           </table>
+
           <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:16px;margin:16px 0;">
             <p style="margin:0 0 8px;font-weight:600;color:#0369a1;">Azione richiesta</p>
-            <p style="margin:0;font-size:14px;color:#0c4a6e;">
-              Pagamento verificato tramite Stripe webhook firmato.<br>
-              Crea o collega l'account del cliente sul portale per gestire la pratica.<br>
-              <a href="${portalUrl}" style="color:#4A9FD8;font-weight:600;">Apri il portale clienti &rarr;</a>
+            <p style="margin:0 0 12px;font-size:14px;color:#0c4a6e;">
+              Pagamento verificato tramite webhook firmato. Crea l'account cliente sul portale per avviare mandato e pratica.
+            </p>
+            <p style="margin:0 0 8px;font-size:13px;color:#0c4a6e;">
+              <strong>1.</strong> Apri il portale: <a href="${portalUrl}" style="color:#4A9FD8;font-weight:600;">${portalUrl} &rarr;</a><br>
+              <strong>2.</strong> Clicca <em>&quot;+ Nuovo Cliente&quot;</em> e incolla i dati qui sotto.
             </p>
           </div>
+
+          <div style="margin:16px 0;">
+            <p style="margin:0 0 6px;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;">
+              Dati copiabili
+            </p>
+            <pre style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-family:monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;margin:0;">${copyBlock}</pre>
+          </div>
+
           <p style="color:#9ca3af;font-size:11px;margin-top:24px;">
-            Acquisto da www.atparma.com &mdash; ${new Date().toLocaleString("it-IT", { timeZone: "Europe/Rome" })}
+            Acquisto da www.atparma.com &mdash; ${new Date().toLocaleString("it-IT", { timeZone: "Europe/Rome" })}<br>
+            Destinatario: segreteria@atparma.com &mdash; gestibile anche da casciaro@atparma.com
           </p>
         </div>
       `,
