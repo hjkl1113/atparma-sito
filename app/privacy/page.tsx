@@ -31,8 +31,19 @@ export default function PrivacyPage() {
                 A.T. Consulting Parma S.R.L.S.<br />
                 Borgo Riccio da Parma 5, 43121 Parma (PR)<br />
                 P.IVA / CF: 02794450342<br />
-                Email: segreteria@atparma.com<br />
                 PEC: atconsultingparma@pec.it
+              </p>
+              <p className="mt-3">
+                Nella persona del legale rappresentante{" "}
+                <strong>Alessandro Sicuri</strong>, referente per il trattamento
+                dei dati personali.<br />
+                Email diretta:{" "}
+                <a
+                  href="mailto:sicuri@atparma.com"
+                  className="text-[var(--color-accent)] hover:underline"
+                >
+                  sicuri@atparma.com
+                </a>
               </p>
             </section>
 
@@ -106,7 +117,15 @@ export default function PrivacyPage() {
                 Ai sensi degli articoli 15-22 del GDPR, l&apos;interessato ha il diritto di accedere ai propri dati personali, chiederne la rettifica o la cancellazione, limitare il trattamento, opporsi al trattamento e richiedere la portabilita dei dati.
               </p>
               <p className="mt-3">
-                Per esercitare i propri diritti, l&apos;interessato può contattare il Titolare del trattamento all&apos;indirizzo email segreteria@atparma.com o PEC atconsultingparma@pec.it.
+                Per esercitare i propri diritti, l&apos;interessato può contattare
+                il Titolare del trattamento all&apos;indirizzo email{" "}
+                <a
+                  href="mailto:sicuri@atparma.com"
+                  className="text-[var(--color-accent)] hover:underline"
+                >
+                  sicuri@atparma.com
+                </a>
+                {" "}o PEC atconsultingparma@pec.it.
               </p>
             </section>
 

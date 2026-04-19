@@ -61,13 +61,16 @@ export default function SicurezzaPage() {
                 Brescia (sez A). Socio di A.T. Consulting Parma.
               </li>
             </ul>
-            <p className="text-zinc-600 text-sm mt-4">
-              Per richieste relative ai tuoi dati personali:{" "}
+            <p className="text-zinc-700 leading-relaxed mt-4">
+              Titolare del trattamento ai sensi del GDPR è A.T. Consulting
+              Parma S.R.L.S., nella persona del legale rappresentante{" "}
+              <strong>Alessandro Sicuri</strong>. Per richieste relative ai
+              tuoi dati personali scrivi direttamente a{" "}
               <a
-                href="mailto:segreteria@atparma.com"
+                href="mailto:sicuri@atparma.com"
                 className="text-[var(--color-accent)] hover:underline"
               >
-                segreteria@atparma.com
+                sicuri@atparma.com
               </a>
               .
             </p>
@@ -193,12 +196,13 @@ export default function SicurezzaPage() {
             </h2>
             <p className="text-zinc-700 leading-relaxed mb-4">
               Puoi esercitare in qualsiasi momento i diritti previsti dagli
-              artt. 15-22 GDPR scrivendo a{" "}
+              artt. 15-22 GDPR scrivendo direttamente al Titolare del
+              trattamento{" "}
               <a
-                href="mailto:segreteria@atparma.com"
+                href="mailto:sicuri@atparma.com"
                 className="text-[var(--color-accent)] hover:underline"
               >
-                segreteria@atparma.com
+                sicuri@atparma.com
               </a>
               :
             </p>
