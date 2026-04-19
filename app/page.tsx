@@ -293,65 +293,6 @@ function ChiSiamo() {
   );
 }
 
-const testimonials = [
-  {
-    quote:
-      "Professionali, puntuali e sempre disponibili. Ci hanno guidato in una procedura di ristrutturazione complessa con grande competenza.",
-    name: "Marco B.",
-    role: "CEO, PMI manifatturiera",
-  },
-  {
-    quote:
-      "Finalmente uno studio che capisce le esigenze reali di un'impresa. Rispondono entro 24 ore e sanno anticipare i problemi.",
-    name: "Laura M.",
-    role: "Titolare, studio associato",
-  },
-  {
-    quote:
-      "Grazie al loro supporto abbiamo ottenuto un finanziamento agevolato che non sapevamo nemmeno esistesse. Risultati concreti.",
-    name: "Roberto S.",
-    role: "Imprenditore, settore food",
-  },
-];
-
-function Testimonials() {
-  return (
-    <section className="py-24 bg-[var(--color-surface)]">
-      <div className="max-w-6xl mx-auto px-6">
-        <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3 text-center">
-          I nostri clienti
-        </p>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-16 font-[family-name:var(--font-heading)]">
-          Cosa dicono di noi
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="bg-white rounded-2xl p-8 border border-zinc-100"
-            >
-              <svg
-                className="w-8 h-8 text-zinc-200 mb-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
-              </svg>
-              <p className="text-zinc-700 leading-relaxed mb-6 text-sm">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div>
-                <p className="font-semibold text-sm">{t.name}</p>
-                <p className="text-zinc-500 text-xs">{t.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const vantaggi = [
   {
     title: "Risposta entro 24 ore",
@@ -623,7 +564,6 @@ export default function Home() {
         <CalcolatoreBanner />
         <Pricing />
         <ChiSiamo />
-        <Testimonials />
         <PercheSceglierci />
         <Blog />
         <CtaUrgenze />
