@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Pricing } from "./pricing";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
 
 function Hero() {
@@ -456,102 +457,6 @@ function CtaUrgenze() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="bg-zinc-950 text-white">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div>
-            <h3 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
-              A.T. Consulting Parma
-            </h3>
-            <p className="text-zinc-400 text-sm leading-relaxed">
-              A.T. Consulting Parma S.R.L.S.
-              <br />
-              Borgo Riccio da Parma 5
-              <br />
-              43121 Parma (PR)
-            </p>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-zinc-300">
-              Contatti
-            </h3>
-            <ul className="space-y-2 text-zinc-400 text-sm">
-              <li>
-                Tel:{" "}
-                <a
-                  href="tel:+390521247721"
-                  className="hover:text-white transition-colors"
-                >
-                  0521 247721
-                </a>
-              </li>
-              <li>
-                Email:{" "}
-                <a
-                  href="mailto:segreteria@atparma.com"
-                  className="hover:text-white transition-colors"
-                >
-                  segreteria@atparma.com
-                </a>
-              </li>
-              <li>
-                PEC:{" "}
-                <a
-                  href="mailto:atconsultingparma@pec.it"
-                  className="hover:text-white transition-colors"
-                >
-                  atconsultingparma@pec.it
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-zinc-300">
-              Link utili
-            </h3>
-            <ul className="space-y-2 text-zinc-400 text-sm">
-              <li>
-                <Link href="/servizi" className="hover:text-white transition-colors">
-                  Servizi
-                </Link>
-              </li>
-              <li>
-                <a href="/blog" className="hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="/faq" className="hover:text-white transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://clienti.atparma.com"
-                  className="hover:text-white transition-colors"
-                >
-                  Area Clienti
-                </a>
-              </li>
-              <li>
-                <a href="/privacy" className="hover:text-white transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500 text-xs">
-          <p>P.IVA / CF: 02794450342</p>
-          <p>&copy; {new Date().getFullYear()} A.T. Consulting Parma S.R.L.S. — Tutti i diritti riservati</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 export default function Home() {
   return (
     <>
@@ -568,7 +473,7 @@ export default function Home() {
         <Blog />
         <CtaUrgenze />
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContattiForm } from "./form";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Contatti — Richiedi una consulenza | A.T. Consulting Parma",
@@ -84,6 +85,7 @@ export default function ContattiPage() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }

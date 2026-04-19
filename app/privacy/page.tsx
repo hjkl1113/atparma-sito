@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — A.T. Consulting Parma",
@@ -86,6 +88,14 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 Servizi di terze parti utilizzati: Vercel (hosting), Brevo (invio email), Stripe e PayPal (pagamenti).
               </p>
+              <p className="mt-3">
+                Per dettagli sull&apos;infrastruttura tecnica, cifratura, firma
+                elettronica e tempi di conservazione vedi la pagina{" "}
+                <Link href="/sicurezza" className="text-[var(--color-accent)] hover:underline">
+                  Sicurezza e riservatezza dei dati
+                </Link>
+                .
+              </p>
             </section>
 
             <section>
@@ -123,6 +133,7 @@ export default function PrivacyPage() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }

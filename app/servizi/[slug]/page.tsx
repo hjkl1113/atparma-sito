@@ -2,8 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { ProductCredentials } from "@/components/product-credentials";
 import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
+
+type Autore = { author: "Pietro Franzosi" | "Aldo Ponzi"; authorAlbo: "Parma" | "Brescia" };
+
+const AUTORE_PER_SLUG: Record<string, Autore> = {
+  "dichiarazione-730": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-professionista": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-forfettario-efat": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-artigiano-commerciante": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
+};
+
+const ULTIMA_REVISIONE = "2026-04-19";
 
 const competenze: Record<string, {
   title: string;
@@ -419,6 +433,14 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             </div>
           </section>
 
+          <section className="mb-12 max-w-2xl mx-auto">
+            <ProductCredentials
+              author={AUTORE_PER_SLUG[prodotto.slug]?.author ?? "Pietro Franzosi"}
+              authorAlbo={AUTORE_PER_SLUG[prodotto.slug]?.authorAlbo ?? "Parma"}
+              lastRevision={ULTIMA_REVISIONE}
+            />
+          </section>
+
           <section className="bg-[var(--color-surface)] rounded-3xl p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 font-[family-name:var(--font-heading)]">
               Pronto a partire?
@@ -453,6 +475,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
           </section>
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }
@@ -526,6 +549,7 @@ function CompetenzaView({ s }: { s: (typeof competenze)[string] }) {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }

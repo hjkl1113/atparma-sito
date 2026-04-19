@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Come fare il 730 online: guida completa 2026 | A.T. Consulting Parma",
@@ -382,6 +383,7 @@ export default function ArticoloPage() {
           </div>
         </article>
       </main>
+      <SiteFooter />
     </>
   );
 }

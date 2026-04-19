@@ -2,7 +2,7 @@
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
 **Data:** 2026-04-19
-**Versione:** 1.6
+**Versione:** 1.7
 
 ---
 
@@ -753,6 +753,110 @@ prima del go-live definitivo.
 
 ---
 
-*Report compilato: 2026-04-14, aggiornato 2026-04-19 (v1.6: rimozione
-testimonial/rating finti + sconto 730 ripristinato + opzione A manuale
-guidato + roadmap pre-launch aggiornata)*
+## 17. TRUST SIGNALS IMPLEMENTATI (2026-04-19)
+
+Implementazione di M.1 + M.2 + M.3 + M.6 del documento
+`studio-atparma/docs/MARKETING-TRUST-SIGNALS.md` con adattamenti alle
+convention del sito (zinc palette, no shadcn, no emoji, no numeri albo).
+
+### 17.1 Nuovi asset
+
+**Componenti condivisi** (`components/`):
+- `site-footer.tsx` — footer condiviso esteso con link `/sicurezza`,
+  importa `STUDIO` da `lib/studio-data.ts`
+- `trust-badges.tsx` — esporta `TrustBadges` (grid 3×2 con 6 badge) e
+  `TrustStrip` (riga compatta con link `/sicurezza`)
+- `product-credentials.tsx` — versione sintetica: autore + Albo + data
+  revisione + 3 bullet + link `/sicurezza`
+
+**Library** (`lib/`):
+- `studio-data.ts` — oggetto `STUDIO` con dati studio centralizzati
+  (ragione sociale, P.IVA, indirizzo, contatti, portale) + array `TEAM`
+- `icons.tsx` — 6 componenti SVG stroke-only per sostituire le emoji del
+  doc: `GlobeIcon`, `LockIcon`, `SignatureIcon`, `DocumentIcon`,
+  `ChatIcon`, `ShieldIcon`
+
+**Nuova pagina**:
+- `app/sicurezza/page.tsx` — pagina trust signal completa (~200 righe)
+  con team, dove vivono i dati, TLS, autenticazione, firma eIDAS,
+  conservazione 10 anni, diritti GDPR, cosa NON facciamo, `<TrustBadges/>`
+
+### 17.2 Modifiche propagate
+
+**Footer su 15 pagine** (14 pagine + homepage):
+- Homepage: `Footer()` inline rimosso, sostituito con `<SiteFooter />`
+- 6 pagine tool/calcolatori: mini footer duplicato rimosso → `<SiteFooter />`
+- 8 pagine prima senza footer (blog × 4, faq, contatti, servizi, privacy)
+  → `<SiteFooter />` aggiunto
+- `app/servizi/[slug]/page.tsx`: aggiunto su entrambe ProdottoView e
+  CompetenzaView
+
+**Privacy page**:
+- Aggiunto paragrafo con link a `/sicurezza` nella sezione
+  "Comunicazione e diffusione dei dati"
+
+**`app/servizi/[slug]/page.tsx` ProdottoView**:
+- Aggiunto `<ProductCredentials />` sopra la sezione "Pronto a partire?"
+- Mapping autore per slug:
+  - `dichiarazione-730`, `piva-professionista`, `piva-forfettario`,
+    `piva-forfettario-efat` → Pietro Franzosi, Albo Parma
+  - `piva-artigiano-commerciante` → Aldo Ponzi, Albo Brescia
+- `lastRevision: "2026-04-19"` per tutti
+
+### 17.3 Decisioni sul contenuto
+
+**Team esposto pubblicamente**:
+- Pietro Franzosi — dottore commercialista, Albo Parma (sez A)
+- Aldo Ponzi — dottore commercialista, Albo Brescia (sez A)
+- Alessandro Sicuri — NON esposto (ruolo interno gestione studio)
+
+Correzione rispetto al doc portale: Aldo Ponzi è commercialista Albo
+Brescia (non avvocato Ordine Avvocati Parma come dichiarato nella prima
+versione del doc). Doc portale corretto in-repo.
+
+**Claim commerciali**:
+- ✅ **Tenuto**: "Supporto email 24h lavorative"
+- ❌ **Rimosso**: "Rimborso 14 giorni" (policy Stripe non configurata)
+- ❌ **Rimosso**: "Aggiornamenti normativi 12 mesi" (non applicabile
+  a servizi; solo per future guide a pagamento)
+
+**Numeri di iscrizione Albo**:
+- Policy: non esposti in pubblico (dato professionale non necessario
+  al trust). Formulazione generica "iscritti agli Albi di Parma e
+  Brescia (sezione A)".
+
+### 17.4 Adattamenti tecnici
+
+Doc marketing usa convention shadcn + emoji. Nel sito tradotto:
+- `bg-card` / `bg-background` → `bg-white`
+- `text-muted-foreground` → `text-zinc-600`
+- `bg-primary` → `bg-[var(--color-accent)]`
+- `border` (nudo) → `border border-zinc-200`
+- Emoji (🇪🇺🔒✍📜💬↩) → 6 SVG inline in `lib/icons.tsx` (stroke, viewBox
+  24×24, aria-hidden)
+
+### 17.5 Gate autorizzazione
+
+⚠️ **Testo `/sicurezza` pending review legale** — il doc originale
+raccomanda review di un avvocato/socio prima del go-live. Il contenuto
+è coerente con i riferimenti normativi (GDPR artt. 15-22, eIDAS art.
+26, CAD D.Lgs. 82/2005 art. 20 1-bis, art. 2220 cc, D.Lgs. 231/2007
+art. 31) ma tocca formulazioni delicate. Review utente prima del merge
+raccomandata.
+
+### 17.6 TODO futuri
+
+- **M.5** Sezione testimonianze con 3-5 clienti reali (richiede
+  autorizzazione scritta clienti) — P2
+- **Versione full-blown di `ProductCredentials`** per future guide a
+  pagamento (aggiungerà prop opzionali `price?`, `pages?`, `previewUrl?`,
+  `buyUrl?`, `includesExcel?`) — retrocompatibile
+- **Review utente/legale del testo `/sicurezza`** prima del deploy
+  pubblico
+- **Sincronizzazione doc portale** corretto in-repo in questa sessione;
+  il portale repo va committato separatamente
+
+---
+
+*Report compilato: 2026-04-14, aggiornato 2026-04-19 (v1.7: trust
+signals M.1+M.2+M.3+M.6 implementati con adattamenti e correzioni team)*

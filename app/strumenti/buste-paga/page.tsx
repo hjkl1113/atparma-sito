@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Tool } from "./tool";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Calcolo busta paga 2026 — da lordo a netto | A.T. Consulting Parma",
@@ -44,19 +44,7 @@ export default function BustaPagaPage() {
         </div>
       </main>
 
-      <footer className="bg-zinc-950 text-white py-12">
-        <div className="max-w-6xl mx-auto px-6 text-center text-zinc-400 text-xs">
-          <p className="mb-2">
-            A.T. Consulting Parma S.R.L.S. — Borgo Riccio da Parma 5, 43121 Parma
-            (PR) — P.IVA 02794450342
-          </p>
-          <p>
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

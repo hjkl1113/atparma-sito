@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 
 export const metadata: Metadata = {
@@ -175,6 +176,7 @@ export default function ServiziPage() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }

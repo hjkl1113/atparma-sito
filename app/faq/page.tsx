@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "FAQ — Domande frequenti | A.T. Consulting Parma",
@@ -181,6 +182,7 @@ export default function FAQPage() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }
