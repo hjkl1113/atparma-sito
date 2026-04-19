@@ -1,0 +1,56 @@
+name: Review semestrale testi legali
+
+on:
+  schedule:
+    # 19 aprile e 19 ottobre alle 09:00 UTC (11:00 Europe/Rome)
+    - cron: "0 9 19 4,10 *"
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  open-review-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crea issue review legale
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const mese = new Date().toLocaleString("it-IT", { month: "long", year: "numeric" });
+            const titolo = `Review semestrale testi legali — ${mese}`;
+
+            const corpo = `Revisione semestrale programmata dei testi legali del sito.
+            Responsabile review: **Alessandro Sicuri** (Titolare del trattamento).
+
+            ## Checklist
+
+            - [ ] \`app/sicurezza/page.tsx\` — pagina Sicurezza e riservatezza
+            - [ ] \`app/privacy/page.tsx\` — Informativa privacy
+            - [ ] \`components/trust-badges.tsx\` — claim nei badge
+            - [ ] \`components/product-credentials.tsx\` — bullet garanzie
+            - [ ] Verificare coerenza con il portale (\`studio-atparma/src/lib/privacy-informativa.ts\`)
+
+            ## Cosa verificare
+
+            1. Riferimenti normativi ancora validi (GDPR, eIDAS, CAD, Codice Civile, D.Lgs. 231/2007)
+            2. Claim commerciali coerenti con condizioni generali di vendita correnti
+            3. Team esposto coerente (Pietro Franzosi, Aldo Ponzi, Albi Parma/Brescia)
+            4. Fornitori UE citati ancora in uso (Neon, Cloudflare R2, Brevo, Vercel)
+            5. Data "ultimo aggiornamento" da aggiornare se testo cambia
+
+            ## Prossima review
+
+            Questa azione gira automaticamente il 19 aprile e il 19 ottobre.
+            Prossima: ${new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toLocaleDateString("it-IT")}
+
+            _Issue aperta automaticamente da \`.github/workflows/legal-review-reminder.yml\`_`;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: titolo,
+              body: corpo,
+              labels: ["legal", "review"],
+            });

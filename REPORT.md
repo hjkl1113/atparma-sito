@@ -835,15 +835,19 @@ Doc marketing usa convention shadcn + emoji. Nel sito tradotto:
 - Emoji (🇪🇺🔒✍📜💬↩) → 6 SVG inline in `lib/icons.tsx` (stroke, viewBox
   24×24, aria-hidden)
 
-### 17.5 Gate autorizzazione
+### 17.5 Review testo — APPROVATA 2026-04-19
 
-⚠️ **Testo `/sicurezza` pending review** — il contenuto è coerente con
-i riferimenti normativi (GDPR artt. 15-22, eIDAS art. 26, CAD D.Lgs.
-82/2005 art. 20 1-bis, art. 2220 cc, D.Lgs. 231/2007 art. 31) ma tocca
-formulazioni delicate. **Review diretta da Alessandro Sicuri**
-(titolare/legale rappresentante) prima del go-live pubblico, in
-sostituzione della review di Aldo inizialmente prevista dal doc
-portale.
+✅ Testo `/sicurezza` e `/privacy` **approvato direttamente da Alessandro
+Sicuri** (titolare del trattamento, legale rappresentante) in data
+2026-04-19. Nessuna modifica richiesta. Gate review superato, il go-live
+non è più bloccato da revisione legale dei trust signals.
+
+**Reminder semestrale attivo** (GitHub Actions):
+- `.github/workflows/legal-review-reminder.yml` apre automaticamente
+  issue di review ogni 19 aprile e 19 ottobre alle 09:00 UTC
+- Checklist integrata con link a file, riferimenti normativi da
+  verificare, elenco responsabili del trattamento ex art. 28 GDPR
+- Stesso pattern sul portale per l'informativa privacy multi-tenant
 
 ### 17.6 TODO futuri
 
@@ -852,8 +856,9 @@ portale.
 - **Versione full-blown di `ProductCredentials`** per future guide a
   pagamento (aggiungerà prop opzionali `price?`, `pages?`, `previewUrl?`,
   `buyUrl?`, `includesExcel?`) — retrocompatibile
-- **Review del testo `/sicurezza` da Alessandro Sicuri** prima del
-  deploy pubblico (non più Aldo)
+- ~~Review del testo `/sicurezza` da Alessandro Sicuri~~ DONE
+  2026-04-19 — approvato senza modifiche. Reminder semestrale attivo
+  via GitHub Actions
 - **Sincronizzazione doc portale** corretto in-repo in questa sessione;
   il portale repo va committato separatamente
 
