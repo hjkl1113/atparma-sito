@@ -837,12 +837,13 @@ Doc marketing usa convention shadcn + emoji. Nel sito tradotto:
 
 ### 17.5 Gate autorizzazione
 
-⚠️ **Testo `/sicurezza` pending review legale** — il doc originale
-raccomanda review di un avvocato/socio prima del go-live. Il contenuto
-è coerente con i riferimenti normativi (GDPR artt. 15-22, eIDAS art.
-26, CAD D.Lgs. 82/2005 art. 20 1-bis, art. 2220 cc, D.Lgs. 231/2007
-art. 31) ma tocca formulazioni delicate. Review utente prima del merge
-raccomandata.
+⚠️ **Testo `/sicurezza` pending review** — il contenuto è coerente con
+i riferimenti normativi (GDPR artt. 15-22, eIDAS art. 26, CAD D.Lgs.
+82/2005 art. 20 1-bis, art. 2220 cc, D.Lgs. 231/2007 art. 31) ma tocca
+formulazioni delicate. **Review diretta da Alessandro Sicuri**
+(titolare/legale rappresentante) prima del go-live pubblico, in
+sostituzione della review di Aldo inizialmente prevista dal doc
+portale.
 
 ### 17.6 TODO futuri
 
@@ -851,8 +852,8 @@ raccomandata.
 - **Versione full-blown di `ProductCredentials`** per future guide a
   pagamento (aggiungerà prop opzionali `price?`, `pages?`, `previewUrl?`,
   `buyUrl?`, `includesExcel?`) — retrocompatibile
-- **Review utente/legale del testo `/sicurezza`** prima del deploy
-  pubblico
+- **Review del testo `/sicurezza` da Alessandro Sicuri** prima del
+  deploy pubblico (non più Aldo)
 - **Sincronizzazione doc portale** corretto in-repo in questa sessione;
   il portale repo va committato separatamente
 
