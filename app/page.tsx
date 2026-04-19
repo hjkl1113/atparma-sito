@@ -20,12 +20,12 @@ function Hero() {
           Studio Professionale · Parma · Tutta Italia
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-          Il tuo commercialista online, veramente.
+          Il fisco è online. Lo studio pure.
         </h1>
         <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Dottori commercialisti iscritti all&apos;albo. Apri Partita IVA da
-          €150, fai il 730 a €79, ricevi consulenze su misura — tutto dal
-          portale clienti, con risposta entro 24 ore.
+          Dottori commercialisti iscritti all&apos;albo. Dichiarazioni, Partita
+          IVA e consulenze su misura — dal portale clienti, senza code e senza
+          carta, con risposta entro 24 ore.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -87,10 +87,11 @@ function Intro() {
     <section className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <p className="text-xl sm:text-2xl text-zinc-600 leading-relaxed">
-          Studio dal 2005, oltre 200 aziende seguite. Dichiarazioni, apertura
-          Partita IVA e gestione fiscale continuativa — e, quando serve,
-          assistenza nei momenti complessi: crisi d&apos;impresa, M&amp;A,
-          finanza agevolata.
+          Il mondo è passato online: riunioni, banca, firma. Anche il fisco
+          merita di esserlo — digitale, veloce, tracciabile. Dal 2005 seguiamo
+          oltre 200 aziende in tutta Italia, tra dichiarazioni, Partita IVA,
+          gestione continuativa e — quando serve — crisi d&apos;impresa, M&amp;A
+          e finanza agevolata.
         </p>
       </div>
     </section>
@@ -369,8 +370,8 @@ const vantaggi = [
     desc: "Non solo a scadenza, ma tutto l'anno",
   },
   {
-    title: "Strumenti digitali",
-    desc: "Gestione documentale e scadenze online",
+    title: "Studio senza carta",
+    desc: "Tutto sul portale: documenti, firme, scadenze e pagamenti",
   },
   {
     title: "20 anni di esperienza",

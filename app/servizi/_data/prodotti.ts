@@ -101,7 +101,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Per chi svolge un'attività intellettuale (consulenza, sviluppo software, progettazione, traduzione). Apertura veloce, gestione separata INPS e portale clienti inclusi.",
     metaDesc:
-      "Apertura P.IVA professionisti a 150 euro: codice ATECO, gestione separata INPS e portale clienti 12 mesi inclusi. Commercialista online iscritto all'albo.",
+      "Apertura P.IVA professionisti a 199 euro: codice ATECO, gestione separata INPS e portale clienti 12 mesi inclusi. Commercialista online iscritto all'albo.",
     perChi: [
       "Consulenti, sviluppatori, designer, copywriter, traduttori",
       "Professionisti intellettuali non iscritti ad albi con cassa privata",
@@ -157,15 +157,15 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Devo scegliere forfettario o ordinario?",
-        a: "Dipende da ricavi e spese attesi. Se prevedi ricavi sotto 85.000 euro e spese basse, il forfettario è spesso più conveniente (5% start-up o 15%). Ti aiutiamo con una simulazione prima dell'apertura. Se sai già di voler partire forfettario, scegli direttamente il piano dedicato a 500 euro (che include anche portale + consulenza).",
+        a: "Dipende da ricavi e spese attesi. Se prevedi ricavi sotto 85.000 euro e spese basse, il forfettario è spesso più conveniente (5% start-up o 15%). Ti aiutiamo con una simulazione prima dell'apertura. Se sai già di voler partire forfettario, scegli direttamente il piano dedicato a 690 euro (che include anche portale + consulenza).",
       },
       {
         q: "Posso fatturare dal primo giorno?",
         a: "Si, da P.IVA attiva puoi fatturare. La fatturazione elettronica non è inclusa in questo piano: se ti serve, la attivi a parte (50 euro/anno con GIS EFAT).",
       },
       {
-        q: "Qual e la differenza tra questo piano e 'P.IVA Forfettario' a 500 euro?",
-        a: "Questo piano e generico: apriamo la P.IVA scegliendo regime con te. Il piano Forfettario a 500 euro e pensato specificamente per chi parte già col forfettario e vuole un setup più completo (simulazione dettagliata, documentazione specifica). In entrambi il portale e incluso.",
+        q: "Qual è la differenza tra questo piano e 'P.IVA Forfettario' a 690 euro?",
+        a: "Questo piano è generico: apriamo la P.IVA scegliendo regime con te. Il piano Forfettario a 690 euro è pensato specificamente per chi parte già col forfettario e vuole un setup più completo (simulazione dettagliata, documentazione specifica). In entrambi il portale è incluso.",
       },
       {
         q: "Sono iscritto a un albo con cassa privata. Va bene questo piano?",
@@ -180,7 +180,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Per chi apre un'attività artigianale o commerciale: apertura Partita IVA con iscrizione CCIAA, INPS artigiani/commercianti e SIA. Tutto incluso, tutto online.",
     metaDesc:
-      "P.IVA artigiani e commercianti a 500 euro: apertura + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Commercialista online.",
+      "P.IVA artigiani e commercianti a 690 euro: apertura + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Commercialista online.",
     perChi: [
       "Artigiani (elettricisti, idraulici, parrucchieri, estetiste, riparatori)",
       "Commercianti (negozi fisici, e-commerce, ristorazione, ambulanti)",
@@ -238,7 +238,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         a: "Generalmente no: l'attività prevalente determina l'iscrizione INPS. In casi specifici (es. artigiano che vende anche prodotti) si valuta caso per caso. Ne parliamo in consulenza.",
       },
       {
-        q: "Qual e la differenza rispetto al Professionista a 150 euro?",
+        q: "Qual è la differenza rispetto al Professionista a 199 euro?",
         a: "Il professionista fa attività intellettuale (consulenze, servizi non manuali): solo gestione separata INPS, niente CCIAA. L'artigiano/commerciante ha attività manuale o di vendita e serve CCIAA + INPS specifica + SIA. Costi amministrativi e burocratici diversi.",
       },
       {
@@ -262,7 +262,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Apriamo la tua Partita IVA forfettaria senza che tu debba uscire di casa. Codice ATECO, regime fiscale e portale clienti gestiti da dottori commercialisti iscritti all'albo.",
     metaDesc:
-      "Apertura P.IVA regime forfettario a 500 euro. Codice ATECO + consulenza fiscale + portale clienti 12 mesi inclusi. Commercialista iscritto all'albo.",
+      "Apertura P.IVA regime forfettario a 690 euro. Codice ATECO + consulenza fiscale + portale clienti 12 mesi inclusi. Commercialista iscritto all'albo.",
     perChi: [
       "Freelance e professionisti con ricavi stimati fino a 85.000 euro",
       "Consulenti, creator, designer, sviluppatori che partono in proprio",
@@ -280,10 +280,10 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Email di benvenuto con credenziali e guida operativa",
     ],
     esclusi: [
-      "Fatturazione elettronica (inclusa solo nel piano Forfettario + EFAT a 550 euro)",
+      "Fatturazione elettronica (inclusa solo nel piano Forfettario + EFAT a 750 euro)",
       "Contabilità annuale e tenuta registri (servizio a parte)",
       "Dichiarazione dei redditi annuale (Redditi PF, da preventivare)",
-      "Iscrizione CCIAA e INPS artigiani/commercianti (per chi svolge attività artigianali, serve il piano Artigiano/Commerciante a 500 euro)",
+      "Iscrizione CCIAA e INPS artigiani/commercianti (per chi svolge attività artigianali, serve il piano Artigiano/Commerciante a 690 euro)",
     ],
     process: [
       {
@@ -318,7 +318,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Posso fare fattura dal primo giorno?",
-        a: "Si, da quando la P.IVA e attiva puoi fatturare. La fatturazione elettronica non e inclusa in questo piano: se ti serve, scegli il piano Forfettario + EFAT a 550 euro oppure integri dopo il setup fatturazione a 50 euro.",
+        a: "Sì, da quando la P.IVA è attiva puoi fatturare. La fatturazione elettronica non è inclusa in questo piano: se ti serve, scegli il piano Forfettario + EFAT a 750 euro oppure integri dopo il setup fatturazione a 50 euro.",
       },
       {
         q: "Devo venire fisicamente a Parma?",
@@ -329,7 +329,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         a: "Il forfettario non e più applicabile e passi al regime ordinario l'anno successivo. Ti avvisiamo in tempo e ti aiutiamo nella transizione. Se stai già pensando di crescere oltre la soglia, valuta prima il piano Artigiano/Commerciante o una consulenza su misura.",
       },
       {
-        q: "Nei 500 euro e compresa la dichiarazione dei redditi?",
+        q: "Nei 690 euro è compresa la dichiarazione dei redditi?",
         a: "No. Il prezzo copre l'apertura, la consulenza iniziale e 12 mesi di portale. La dichiarazione dei redditi annuale si aggiunge a parte (prezzo indicativo 200-350 euro per il forfettario, a seconda della complessità).",
       },
       {
@@ -345,7 +345,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Apertura P.IVA forfettaria + software di fatturazione elettronica GIS Ranocchi EFAT incluso per 12 mesi. Parti pronto a fatturare dal primo giorno.",
     metaDesc:
-      "P.IVA forfettario + EFAT a 550 euro: apertura + fatturazione elettronica GIS Ranocchi inclusa 12 mesi + portale clienti. Pronto a fatturare subito.",
+      "P.IVA forfettario + EFAT a 750 euro: apertura + fatturazione elettronica GIS Ranocchi inclusa 12 mesi + portale clienti. Pronto a fatturare subito.",
     perChi: [
       "Freelance che devono fatturare subito a clienti business",
       "Forfettari che prevedono più di 10-15 fatture l'anno",
@@ -353,7 +353,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Professionisti che lavorano con PA (obbligo fatturazione elettronica)",
     ],
     bullets: [
-      "Tutto quello che e incluso nel piano Forfettario a 500 euro",
+      "Tutto quello che è incluso nel piano Forfettario a 690 euro",
       "Licenza GIS Ranocchi EFAT per 12 mesi (valore ~50 euro)",
       "Setup completo del software: anagrafica, logo, IBAN, tipologie documento",
       "Configurazione invio/ricezione tramite SDI (Sistema di Interscambio)",
@@ -396,7 +396,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "entro 5 giorni lavorativi dalla conferma del pagamento",
     faqs: [
       {
-        q: "Perché pagare 50 euro in più rispetto al piano Forfettario semplice?",
+        q: "Perché pagare 60 euro in più rispetto al piano Forfettario semplice?",
         a: "Perché attiviamo già il software di fatturazione elettronica EFAT (valore circa 50 euro/anno di listino), lo configuriamo con i tuoi dati e ti facciamo la formazione. Parti operativo dal primo giorno. Nel piano base il setup EFAT va fatto separatamente dopo.",
       },
       {
