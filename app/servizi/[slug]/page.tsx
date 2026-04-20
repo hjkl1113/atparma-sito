@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ProductCredentials } from "@/components/product-credentials";
+import { VerificaRequisitiForfettario } from "@/components/verifica-requisiti-forfettario";
 import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
 
@@ -16,6 +17,8 @@ const AUTORE_PER_SLUG: Record<string, Autore> = {
   "piva-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-forfettario-efat": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-artigiano-commerciante": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
+  "piva-artigiano-commerciante-forfettario": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
+  "piva-artigiano-commerciante-semplificato": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
 };
 
 const ULTIMA_REVISIONE = "2026-04-19";
@@ -299,6 +302,19 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   </Link>
                 </div>
               </div>
+            </section>
+          )}
+
+          {(prodotto.slug === "piva-professionista" ||
+            prodotto.slug === "piva-professionista-semplificato") && (
+            <section className="mb-20">
+              <VerificaRequisitiForfettario
+                slugForfettario="piva-professionista"
+                prezzoForfettario={449}
+                slugSemplificato="piva-professionista-semplificato"
+                prezzoSemplificato={1099}
+                contesto="professionista"
+              />
             </section>
           )}
 

@@ -469,6 +469,223 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
   },
+  "piva-artigiano-commerciante-forfettario": {
+    slug: "piva-artigiano-commerciante-forfettario",
+    prezzoId: "piva-art-forf",
+    title: "Apertura Artigiano/Commerciante forfettario + contabilità annuale",
+    tagline:
+      "Bundle tutto incluso per chi apre un'attività artigianale o commerciale in regime forfettario: apertura P.IVA, CCIAA, SIA, INPS artigiani/commercianti e 12 mesi di contabilità annuale con fatturazione elettronica EFAT.",
+    metaDesc:
+      "Artigiano o Commerciante forfettario con bundle primo anno a 1.190 euro (listino 1.289). Apertura + CCIAA + SIA + INPS + contabilità annuale + EFAT inclusi. Rinnovo annuale. Dottori commercialisti a Parma.",
+    perChi: [
+      "Artigiani (elettricisti, idraulici, parrucchieri, estetiste, riparatori) con ricavi attesi sotto 85.000 euro",
+      "Commercianti (negozi, e-commerce, ambulanti) in regime forfettario",
+      "Chi vuole un bundle unico apertura + gestione annuale invece di pagare due cose separate",
+      "Chi preferisce prezzo bloccato primo anno senza sorprese ai rinnovi",
+    ],
+    bullets: [
+      "Apertura Partita IVA presso l'Agenzia delle Entrate",
+      "Iscrizione CCIAA con ComUnica (diritti segreteria e bolli esclusi)",
+      "Iscrizione Albo Imprese Artigiane (SIA) per artigiani",
+      "Iscrizione INPS gestione artigiani o commercianti (aliquota 24% o 24,48%)",
+      "Verifica requisiti forfettario e coefficiente ATECO corretto",
+      "Contabilità annuale forfettario completa fino a 20 fatture/anno",
+      "Dichiarazione dei redditi annuale (Redditi PF con quadro LM)",
+      "Fatturazione elettronica EFAT Ranocchi inclusa il primo anno",
+      "Calcolo e predisposizione F24: imposta sostitutiva + contributi INPS",
+      "Portale clienti con upload documenti, scadenzario, archivio 10 anni + 2 videocall/anno",
+    ],
+    esclusi: [
+      "Tributi e diritti pubblici (bolli CCIAA, diritto annuale, SIA, SCIA comunale): dovuti agli enti e pagati direttamente dal cliente",
+      "SCIA al SUAP comunale per attività regolate (esercizio pubblico, estetista, parrucchiere, alimentaristi): gestibile con preventivo dedicato",
+      "Autorizzazioni sanitarie USL + HACCP per attività alimentari: gestibili con preventivo dedicato",
+      "Volumi oltre 20 fatture/anno: rivalutazione preventivo dall'anno successivo",
+      "Iscrizione casse private: gestibile su richiesta con maggiorazione",
+    ],
+    processTitle: "Dall'iscrizione al portale alla P.IVA attiva, in 6 passi",
+    process: [
+      {
+        step: "1. Preventivo indicativo e iscrizione portale",
+        body: "Usa il tool preventivo per vedere i tributi e diritti pubblici applicabili alla tua provincia. Poi ti registri gratis su clienti.atparma.com.",
+      },
+      {
+        step: "2. Consulenza iniziale",
+        body: "Videocall con un commercialista per verifica requisiti forfettario, codice ATECO corretto, simulazione imposte e SCIA necessarie in base alla tipologia.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale con conferma esatta degli oneri pubblici applicabili al tuo Comune.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "Paghi 1.190 euro con Stripe o PayPal. I tributi e diritti pubblici li paghi direttamente agli enti competenti, secondo bozza mandato.",
+      },
+      {
+        step: "5. Apertura e iscrizioni",
+        body: "Entro 10 giorni lavorativi: P.IVA attiva, CCIAA + SIA + INPS completati. Tutti i documenti sul portale.",
+      },
+      {
+        step: "6. Gestione annuale",
+        body: "Fatturazione EFAT attiva, contabilità gestita, F24 calcolati, dichiarazione dei redditi predisposta. 2 videocall/anno di check.",
+      },
+    ],
+    priceBlurb:
+      "1.190 euro primo anno (listino 1.289, sconto bundle). Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità forfettario + EFAT. Rinnovo annuale. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante-forfettario",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 1.190 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
+    closingBlurb:
+      "Iscriviti gratis al portale, facciamo insieme la verifica dei requisiti forfettario e la consulenza iniziale. Firmi il mandato con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia. P.IVA attiva entro 10 giorni lavorativi.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
+    docs: [
+      "Carta d'identità o passaporto in corso di validità",
+      "Codice fiscale",
+      "Indirizzo sede operativa (contratto di locazione o atto di proprietà)",
+      "Descrizione dell'attività e locali dove la svolgi",
+      "Eventuali licenze già in possesso (SCIA, autorizzazioni sanitarie)",
+      "Documenti di eventuali soci (per società di persone)",
+      "IBAN per pagamento contributi INPS",
+    ],
+    deliveryDays: "entro 10 giorni lavorativi (CCIAA + INPS richiedono tempi propri)",
+    faqs: [
+      {
+        q: "Cosa include il bundle a 1.190 euro?",
+        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, iscrizione INPS artigiani/commercianti, 12 mesi di contabilità forfettario (fino a 20 fatture), dichiarazione redditi (Redditi PF con LM), fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Il listino teorico (apertura 690 + contabilità 599) è 1.289: risparmi 99 euro col bundle.",
+      },
+      {
+        q: "Cosa NON include?",
+        a: "I tributi e diritti pubblici dovuti agli enti (bolli, diritti CCIAA, SIA, SCIA comunale se applicabile, USL per alimentaristi) non sono nell'onorario: li paghi direttamente a CCIAA, Comune e USL secondo i loro tariffari, che variano per provincia. Nel preventivo indicativo del sito trovi una stima; l'importo esatto è nella bozza di mandato.",
+      },
+      {
+        q: "Devo verificare se posso fare forfettario?",
+        a: "Sì: il forfettario ha requisiti di legge stringenti (ricavi sotto 85.000 euro, no lavoro dipendente sopra 30.000 euro, no partecipazioni societarie dominanti, no committente ex datore di lavoro). Puoi fare una prima verifica col tool online, la conferma definitiva la facciamo in consulenza prima di firmare il mandato.",
+      },
+      {
+        q: "Come si rinnova dopo il primo anno?",
+        a: "Dal secondo anno paghi solo la contabilità annuale (599 euro forfettario, listino attuale), non ripeti apertura e iscrizioni che sono definitive. Il rinnovo è tacito, disdetta con 60 giorni di preavviso via PEC.",
+      },
+      {
+        q: "Quanto pago di INPS all'anno?",
+        a: "Nel 2026 la gestione artigiani ha contributi fissi 4.521,36 euro/anno sul minimale (4.611,64 per commercianti), pagabili in 4 rate trimestrali. Se superi il minimale, il 24% (24,48% commercianti) sul reddito eccedente. Non è incluso nel bundle: è un costo separato verso l'INPS.",
+      },
+      {
+        q: "Cosa succede se supero gli 85.000 euro di ricavi?",
+        a: "Esci dal forfettario dall'anno successivo e passi al semplificato/ordinario. Il bundle artigiano semplificato (1.690 euro primo anno, listino 1.889) copre la transizione senza interruzione di servizio, mantenendo portale e storico.",
+      },
+    ],
+  },
+  "piva-artigiano-commerciante-semplificato": {
+    slug: "piva-artigiano-commerciante-semplificato",
+    prezzoId: "piva-art-semp",
+    title: "Apertura Artigiano/Commerciante semplificato + contabilità annuale",
+    tagline:
+      "Bundle per chi apre un'attività artigianale o commerciale con ricavi previsti oltre 85.000 euro o con spese rilevanti da dedurre: apertura P.IVA, CCIAA, SIA, INPS, 12 mesi di contabilità semplificata con IVA periodica.",
+    metaDesc:
+      "Artigiano o Commerciante regime semplificato con bundle primo anno a 1.690 euro (listino 1.889). Apertura + CCIAA + SIA + INPS + contabilità annuale + IVA + EFAT inclusi. Dottori commercialisti a Parma.",
+    perChi: [
+      "Artigiani con ricavi previsti oltre 85.000 euro/anno",
+      "Commercianti con volumi rilevanti (negozi medi, ristoranti, e-commerce strutturati)",
+      "Chi ha spese deducibili alte che il forfettario non riflette (locali, materiali, collaboratori)",
+      "Chi sta uscendo dal forfettario e deve passare al regime ordinario semplificato",
+    ],
+    bullets: [
+      "Apertura Partita IVA presso l'Agenzia delle Entrate",
+      "Iscrizione CCIAA con ComUnica (diritti e bolli esclusi)",
+      "Iscrizione Albo Imprese Artigiane (SIA) per artigiani",
+      "Iscrizione INPS gestione artigiani o commercianti",
+      "Consulenza iniziale: codice ATECO, analisi convenienza regime, pianificazione fiscale",
+      "Contabilità annuale con registri IVA acquisti/vendite/corrispettivi",
+      "Liquidazioni IVA periodiche (trimestrali o mensili) e LIPE",
+      "Dichiarazione dei redditi annuale (Redditi PF) + Modello IVA annuale",
+      "Fatturazione elettronica EFAT Ranocchi inclusa il primo anno",
+      "Calcolo e predisposizione F24 IVA, IRPEF, contributi INPS",
+      "Portale clienti con upload documenti, scadenzario, archivio 10 anni + 2 videocall/anno",
+    ],
+    esclusi: [
+      "Tributi e diritti pubblici (bolli CCIAA, diritto annuale, SIA, SCIA comunale): dovuti agli enti",
+      "SCIA al SUAP comunale per attività regolate: gestibile con preventivo dedicato",
+      "Autorizzazioni sanitarie USL + HACCP per attività alimentari: preventivo dedicato",
+      "Contabilità ordinaria (doppia partita) per volumi molto alti: preventivo aggiornato",
+      "Iscrizione casse private: gestibile su richiesta con maggiorazione",
+    ],
+    processTitle: "Dal preventivo alla P.IVA attiva, in 6 passi",
+    process: [
+      {
+        step: "1. Preventivo indicativo e iscrizione portale",
+        body: "Tool preventivo per stima tributi pubblici della tua provincia. Registrazione gratuita portale.",
+      },
+      {
+        step: "2. Consulenza iniziale",
+        body: "Videocall per verifica convenienza semplificato vs ordinario, codice ATECO, pianificazione liquidazioni IVA.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Mandato digitale con dettaglio esatto onorario + tributi pubblici applicabili.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "1.690 euro con Stripe o PayPal. Tributi pubblici pagati direttamente agli enti.",
+      },
+      {
+        step: "5. Apertura e iscrizioni",
+        body: "Entro 10 giorni lavorativi: P.IVA attiva, CCIAA + SIA + INPS completati, registri IVA configurati.",
+      },
+      {
+        step: "6. Gestione annuale",
+        body: "Registrazioni, liquidazioni IVA, F24, dichiarazioni. 2 videocall/anno di check.",
+      },
+    ],
+    priceBlurb:
+      "1.690 euro primo anno (listino 1.889, sconto bundle). Apertura + CCIAA + SIA + INPS + 12 mesi contabilità semplificata + IVA + EFAT. Tributi pubblici dovuti agli enti a parte, importi esatti nella bozza di mandato.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante-semplificato",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 1.690 euro alla firma del mandato.",
+    closingBlurb:
+      "Iscriviti al portale, verifichiamo insieme convenienza semplificato vs ordinario. Firmi il mandato con dettaglio esatto onorario + tributi pubblici. P.IVA attiva entro 10 giorni lavorativi.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
+    docs: [
+      "Carta d'identità o passaporto in corso di validità",
+      "Codice fiscale",
+      "Indirizzo sede operativa (contratto di locazione o atto di proprietà)",
+      "Descrizione dell'attività e locali dove la svolgi",
+      "Stima ricavi e spese previsti (utile per la consulenza)",
+      "Eventuali licenze già in possesso",
+      "IBAN per pagamento contributi INPS",
+    ],
+    deliveryDays: "entro 10 giorni lavorativi (CCIAA + INPS richiedono tempi propri)",
+    faqs: [
+      {
+        q: "Cosa include il bundle a 1.690 euro?",
+        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, INPS artigiani/commercianti, 12 mesi contabilità semplificata con registri IVA, liquidazioni IVA periodiche, LIPE, dichiarazione Redditi PF + IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Listino teorico (690+1.199) 1.889: risparmi 199 euro col bundle.",
+      },
+      {
+        q: "Quando conviene il semplificato rispetto al forfettario?",
+        a: "Con ricavi previsti oltre 85.000 euro/anno (soglia forfettario) oppure se hai spese deducibili alte che il coefficiente forfettario non riflette (locali commerciali, materiali, collaboratori, merci). In consulenza iniziale facciamo una simulazione personalizzata.",
+      },
+      {
+        q: "IVA trimestrale o mensile?",
+        a: "Trimestrale se ricavi anno precedente sotto 500.000 euro (servizi) o 400.000 (beni), pagando un interesse 1% trimestrale. Oltre, obbligatoria mensile. Decidiamo in consulenza in base ai tuoi volumi attesi.",
+      },
+      {
+        q: "Cosa non è incluso?",
+        a: "I tributi e diritti pubblici dovuti agli enti (CCIAA, SIA, SCIA comunale, USL per alimentaristi) sono a parte. Stima nel preventivo online, importo esatto nella bozza di mandato.",
+      },
+      {
+        q: "Come si rinnova?",
+        a: "Dal secondo anno paghi solo la contabilità annuale semplificata (1.199 euro listino attuale). Rinnovo tacito, disdetta 60 giorni preavviso via PEC.",
+      },
+      {
+        q: "Posso passare dal forfettario a questo bundle?",
+        a: "Sì. Se superi 85.000 euro di ricavi nel forfettario dall'anno successivo devi passare al semplificato: gestiamo la transizione senza interruzione di servizio, mantenendo portale e storico.",
+      },
+    ],
+  },
   "piva-forfettario": {
     slug: "piva-forfettario",
     prezzoId: "piva-forf",

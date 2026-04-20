@@ -10,8 +10,13 @@ import {
   type CaratteristicaAttivita,
   type RisultatoPreventivo,
 } from "@/lib/costi-burocratici";
+import {
+  REQUISITI_ESCLUSIONE,
+  verificaIdoneita,
+  type RequisitiRispostaId,
+} from "@/lib/forfettario-requisiti";
 
-type StepId = 1 | 2 | 3 | 4 | 5;
+type StepId = 1 | 2 | 3 | 4 | 5 | 6;
 
 const PROVINCE_IT = [
   "AG","AL","AN","AO","AP","AQ","AR","AT","AV","BA","BG","BI","BL","BN","BO",
@@ -27,6 +32,9 @@ const PROVINCE_IT = [
 export function PreventivoWizard() {
   const [step, setStep] = useState<StepId>(1);
   const [tipologia, setTipologia] = useState<Tipologia | null>(null);
+  const [requisitiRisposte, setRequisitiRisposte] = useState<
+    Partial<Record<RequisitiRispostaId, boolean>>
+  >({});
   const [regime, setRegime] = useState<Regime | null>(null);
   const [caratteristiche, setCaratteristiche] = useState<
     Partial<Record<CaratteristicaAttivita, boolean>>
@@ -34,7 +42,12 @@ export function PreventivoWizard() {
   const [provincia, setProvincia] = useState("");
   const [risultato, setRisultato] = useState<RisultatoPreventivo | null>(null);
 
-  // Lead capture (step 5)
+  const esitoRequisiti =
+    REQUISITI_ESCLUSIONE.every((r) => requisitiRisposte[r.id] !== undefined)
+      ? verificaIdoneita(requisitiRisposte)
+      : null;
+
+  // Lead capture (step 6)
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -51,9 +64,17 @@ export function PreventivoWizard() {
     });
   }
 
+  function rispondiRequisito(id: RequisitiRispostaId, valore: boolean) {
+    setRequisitiRisposte((prev) => ({ ...prev, [id]: valore }));
+  }
+
   function avanza() {
-    if (step === 4) {
-      // Calcola al passaggio a step 5
+    // Passando da step 2 a step 3: preseleziona regime se non ancora scelto
+    if (step === 2 && esitoRequisiti && regime === null) {
+      setRegime(esitoRequisiti.idoneo ? "forfettario" : "non-forfettario");
+    }
+    // Passando da step 5 a step 6: calcola preventivo
+    if (step === 5) {
       if (!tipologia || !regime) return;
       const input: InputPreventivo = {
         tipologia,
@@ -63,7 +84,7 @@ export function PreventivoWizard() {
       };
       setRisultato(calcolaPreventivo(input));
     }
-    setStep((s) => (s < 5 ? ((s + 1) as StepId) : s));
+    setStep((s) => (s < 6 ? ((s + 1) as StepId) : s));
   }
 
   function indietro() {
@@ -102,9 +123,10 @@ export function PreventivoWizard() {
 
   const canAvanzare =
     (step === 1 && tipologia !== null) ||
-    (step === 2 && regime !== null) ||
-    step === 3 ||
-    (step === 4 && provincia.length === 2);
+    (step === 2 && esitoRequisiti !== null) ||
+    (step === 3 && regime !== null) ||
+    step === 4 ||
+    (step === 5 && provincia.length === 2);
 
   return (
     <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden">
@@ -115,18 +137,28 @@ export function PreventivoWizard() {
           <StepTipologia tipologia={tipologia} setTipologia={setTipologia} />
         )}
         {step === 2 && (
-          <StepRegime regime={regime} setRegime={setRegime} />
+          <StepRequisiti
+            risposte={requisitiRisposte}
+            rispondi={rispondiRequisito}
+          />
         )}
         {step === 3 && (
+          <StepRegime
+            regime={regime}
+            setRegime={setRegime}
+            esitoRequisiti={esitoRequisiti}
+          />
+        )}
+        {step === 4 && (
           <StepCaratteristiche
             caratteristiche={caratteristiche}
             toggle={toggleCaratteristica}
           />
         )}
-        {step === 4 && (
+        {step === 5 && (
           <StepProvincia provincia={provincia} setProvincia={setProvincia} />
         )}
-        {step === 5 && risultato && (
+        {step === 6 && risultato && (
           <StepRisultato
             risultato={risultato}
             tipologia={tipologia!}
@@ -146,7 +178,7 @@ export function PreventivoWizard() {
         )}
       </div>
 
-      {step < 5 && (
+      {step < 6 && (
         <div className="border-t border-zinc-100 p-4 sm:p-6 flex items-center justify-between">
           {step > 1 ? (
             <button
@@ -163,7 +195,7 @@ export function PreventivoWizard() {
             disabled={!canAvanzare}
             className="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm hover:bg-[var(--color-accent-dark)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
-            {step === 4 ? "Calcola preventivo" : "Avanti"}
+            {step === 5 ? "Calcola preventivo" : "Avanti"}
           </button>
         </div>
       )}
@@ -172,10 +204,11 @@ export function PreventivoWizard() {
 }
 
 function ProgressHeader({ step }: { step: StepId }) {
-  const totalSteps = 5;
+  const totalSteps = 6;
   const percent = (step / totalSteps) * 100;
   const labels = [
     "Tipologia",
+    "Requisiti forfettario",
     "Regime",
     "Caratteristiche",
     "Provincia",
@@ -248,15 +281,122 @@ function StepTipologia({
   );
 }
 
-// --- STEP 2: Regime ---
+// --- STEP 2: Requisiti forfettario ---
+
+type EsitoRequisiti = ReturnType<typeof verificaIdoneita>;
+
+function StepRequisiti({
+  risposte,
+  rispondi,
+}: {
+  risposte: Partial<Record<RequisitiRispostaId, boolean>>;
+  rispondi: (id: RequisitiRispostaId, valore: boolean) => void;
+}) {
+  const tutteRisposte = REQUISITI_ESCLUSIONE.every((r) => risposte[r.id] !== undefined);
+  const esito = tutteRisposte ? verificaIdoneita(risposte) : null;
+
+  return (
+    <div>
+      <h2 className="text-xl font-semibold mb-2 font-[family-name:var(--font-heading)]">
+        Puoi accedere al regime forfettario?
+      </h2>
+      <p className="text-sm text-zinc-600 mb-6">
+        Il forfettario ha requisiti di legge stringenti. Rispondi alle 4 domande
+        e ti guidiamo nella scelta del regime più adatto.
+      </p>
+
+      <div className="space-y-4">
+        {REQUISITI_ESCLUSIONE.map((req, idx) => (
+          <div
+            key={req.id}
+            className="border border-zinc-200 rounded-xl p-4 bg-white"
+          >
+            <p className="text-sm font-semibold text-zinc-900 mb-1">
+              {idx + 1}. {req.domanda}
+            </p>
+            <p className="text-xs text-zinc-600 mb-3 leading-relaxed">
+              {req.dettaglio}
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => rispondi(req.id, false)}
+                className={`px-5 py-2 rounded-lg text-sm font-semibold border-2 transition-all ${
+                  risposte[req.id] === false
+                    ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
+                    : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400"
+                }`}
+              >
+                No
+              </button>
+              <button
+                onClick={() => rispondi(req.id, true)}
+                className={`px-5 py-2 rounded-lg text-sm font-semibold border-2 transition-all ${
+                  risposte[req.id] === true
+                    ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white"
+                    : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400"
+                }`}
+              >
+                Sì
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {esito && (
+        <div
+          className={`mt-6 p-4 rounded-xl border ${
+            esito.idoneo
+              ? "bg-green-50 border-green-200"
+              : "bg-amber-50 border-amber-200"
+          }`}
+        >
+          {esito.idoneo ? (
+            <p className="text-sm text-green-900">
+              <strong>✓ Puoi aprire in regime forfettario.</strong> In base alle
+              risposte nessuna causa di esclusione. Nel prossimo step preselezioneremo
+              il forfettario (puoi comunque cambiare).
+            </p>
+          ) : (
+            <div className="text-sm text-amber-900">
+              <p>
+                <strong>⚠ Il forfettario non è disponibile nel tuo caso.</strong>{" "}
+                Causa di esclusione:
+              </p>
+              <ul className="mt-2 ml-4 list-disc space-y-0.5">
+                {esito.motivi.map((m) => (
+                  <li key={m.id}>{m.domanda.replace("?", "")}</li>
+                ))}
+              </ul>
+              <p className="mt-2">
+                Nel prossimo step preselezioneremo il regime semplificato/ordinario
+                (puoi comunque cambiare).
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// --- STEP 3: Regime ---
 
 function StepRegime({
   regime,
   setRegime,
+  esitoRequisiti,
 }: {
   regime: Regime | null;
   setRegime: (r: Regime) => void;
+  esitoRequisiti: EsitoRequisiti | null;
 }) {
+  const warningContrario =
+    esitoRequisiti !== null &&
+    regime !== null &&
+    ((esitoRequisiti.idoneo && regime === "non-forfettario") ||
+      (!esitoRequisiti.idoneo && regime === "forfettario"));
+
   return (
     <div>
       <h2 className="text-xl font-semibold mb-2 font-[family-name:var(--font-heading)]">
@@ -265,6 +405,22 @@ function StepRegime({
       <p className="text-sm text-zinc-600 mb-6">
         La scelta incide sulla contabilità annuale. L&apos;apertura è uguale nei due casi.
       </p>
+
+      {esitoRequisiti && (
+        <div
+          className={`mb-4 p-3 rounded-lg text-xs ${
+            esitoRequisiti.idoneo
+              ? "bg-green-50 text-green-800 border border-green-200"
+              : "bg-amber-50 text-amber-800 border border-amber-200"
+          }`}
+        >
+          Suggerimento in base ai requisiti verificati:{" "}
+          <strong>
+            {esitoRequisiti.idoneo ? "Forfettario" : "Semplificato/Ordinario"}
+          </strong>
+          . Puoi comunque scegliere diversamente.
+        </div>
+      )}
 
       <div className="grid sm:grid-cols-2 gap-4">
         <OptionCard
@@ -282,6 +438,14 @@ function StepRegime({
           note="Contabilità annuale da €1.199"
         />
       </div>
+
+      {warningContrario && (
+        <div className="mt-4 p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-800">
+          ⚠ La tua scelta è contraria all&apos;esito della verifica requisiti.
+          Procedi solo se sei certo della tua situazione — il controllo definitivo
+          verrà fatto comunque in consulenza prima della firma del mandato.
+        </div>
+      )}
 
       <div className="mt-6 p-4 bg-[var(--color-surface)] rounded-lg border border-zinc-100 text-xs text-zinc-600">
         <strong>Non sai quale conviene?</strong> Usa il{" "}
@@ -545,14 +709,45 @@ function StepRisultato({
         ))}
       </section>
 
+      {/* CTA bundle consigliato */}
+      {invioStato !== "ok" && (
+        <section className="mb-6 p-6 bg-zinc-950 text-white rounded-xl">
+          <p className="text-xs tracking-[0.2em] uppercase text-zinc-400 font-medium mb-2">
+            Bundle consigliato
+          </p>
+          <h3 className="text-xl font-bold mb-2 font-[family-name:var(--font-heading)]">
+            {regime === "forfettario"
+              ? "Apertura Artigiano/Commerciante forfettario + contabilità annuale"
+              : "Apertura Artigiano/Commerciante semplificato + contabilità annuale"}
+          </h3>
+          <p className="text-sm text-zinc-300 mb-4">
+            €{regime === "forfettario" ? "1.190" : "1.690"} primo anno (listino €
+            {regime === "forfettario" ? "1.289" : "1.889"}). Tutto incluso:
+            apertura + CCIAA + SIA + INPS + 12 mesi contabilità + EFAT. Tributi e
+            diritti pubblici a parte.
+          </p>
+          <Link
+            href={
+              regime === "forfettario"
+                ? "/servizi/piva-artigiano-commerciante-forfettario"
+                : "/servizi/piva-artigiano-commerciante-semplificato"
+            }
+            className="inline-flex items-center gap-2 bg-white text-zinc-900 font-semibold rounded-lg px-6 py-3 hover:bg-zinc-100 transition-colors text-sm"
+          >
+            Vedi il bundle completo →
+          </Link>
+        </section>
+      )}
+
       {/* Lead capture */}
       {invioStato !== "ok" ? (
         <section className="p-6 bg-[var(--color-accent)]/5 border border-[var(--color-accent)]/20 rounded-xl">
           <h3 className="text-lg font-semibold mb-2 font-[family-name:var(--font-heading)]">
-            Ricevi questo preventivo via email
+            Oppure ricevi il preventivo via email
           </h3>
           <p className="text-sm text-zinc-600 mb-4">
-            Ti contatteremo entro 24 ore lavorative con l&apos;offerta puntuale
+            Preferisci essere ricontattato? Ti mandiamo il preventivo via email
+            e ti chiamiamo entro 24 ore lavorative con l&apos;offerta puntuale
             personalizzata e il mandato professionale.
           </p>
           <div className="grid sm:grid-cols-2 gap-3 mb-3">
