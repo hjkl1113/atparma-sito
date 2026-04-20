@@ -52,6 +52,20 @@ Il sito e il portale devono convergere su questa architettura comune:
 3. `pending_product_unlocks` e `commerce_webhook_events` nel portale come foundation
 4. niente WooCommerce nel nuovo flusso
 
+## Dipendenze Portale — Bundle P.IVA Professionista Forfettario
+
+Il tab sito `/servizi/piva-professionista` ora redirige al portale per l'onboarding del bundle annuale €449 (impegno 3 anni, portale-first). Nel repo portale serve:
+
+1. Endpoint `/onboarding/piva-professionista-forfettario` con workflow stateful 7-step (iscrizione → consulenza → mandato triennale → pagamento → apertura → gestione → rinnovo)
+2. Template PDF mandato professionale triennale forfettario + simulazione imposte personalizzata
+3. Firma elettronica remota (Namirial/Aruba) sul mandato
+4. Stripe checkout "€449 primo anno" con `metadata.contratto_triennale=true` e `metadata.service=piva-professionista-forfettario`
+5. Cron rinnovo anni 2 e 3 con controllo volumi fatture: se >20 → alert per rivalutazione preventivo maggiorato prima del rinnovo
+6. Integrazione EFAT Ranocchi: onboarding automatico (anagrafica, logo, SDI) post-firma mandato
+7. Archivio documenti 10 anni nel portale + scadenzario contabile popolato automaticamente
+
+Non chiudere il flusso sito finché questi step portale non sono online (oggi il link punta già al portale, ma l'endpoint onboarding deve esistere entro go-live).
+
 ## Prossima Sessione Portale — Architettura Clienti
 
 Decisione approvata: Cliente unico (persona fisica per CF) + profili servizio separati.

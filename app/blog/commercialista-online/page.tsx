@@ -266,8 +266,8 @@ export default function ArticoloPage() {
                     <td className="py-3 pl-4">Da 50 euro (listino 79)</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
-                    <td className="py-3 pr-4">Apertura Partita IVA + consulenza</td>
-                    <td className="py-3 pl-4">Da 199 euro</td>
+                    <td className="py-3 pr-4">Apertura P.IVA Professionista + contabilità annuale</td>
+                    <td className="py-3 pl-4">Da 449 euro primo anno (bundle, impegno 3 anni)</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Gestione annuale forfettario</td>
@@ -321,7 +321,7 @@ export default function ArticoloPage() {
                 Cerchi un commercialista online a Parma?
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
-                A.T. Consulting Parma: lo studio con 20 anni di esperienza, la comodità di un servizio completamente online. 730 da 50 euro (listino 79), Partita IVA da 199 euro.
+                A.T. Consulting Parma: lo studio con 20 anni di esperienza, la comodità di un servizio completamente online. 730 da 50 euro (listino 79), bundle P.IVA Professionista forfettario da 449 euro primo anno (apertura + contabilità annuale).
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">

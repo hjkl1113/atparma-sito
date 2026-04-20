@@ -10,12 +10,14 @@ export interface ProdottoServizio {
   processTitle?: string;
   process: { step: string; body: string }[];
   priceBlurb?: string;
+  priceSuffix?: string;
   ctaLabel?: string;
   ctaHref?: string;
   ctaNote?: string;
   closingBlurb?: string;
   closingCtaLabel?: string;
   showForfettarioCalculator?: boolean;
+  hidePostPaymentSection?: boolean;
   docs: string[];
   deliveryDays: string;
   faqs: { q: string; a: string }[];
@@ -148,51 +150,76 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
   "piva-professionista": {
     slug: "piva-professionista",
     prezzoId: "piva-prof",
-    title: "Apertura P.IVA per Professionisti",
+    title: "Apertura P.IVA Professionista forfettario + contabilità annuale",
     tagline:
-      "Per chi svolge un'attività intellettuale (consulenza, sviluppo software, progettazione, traduzione). Apertura veloce, gestione separata INPS e portale clienti inclusi.",
+      "Un solo bundle tutto incluso: apriamo la P.IVA forfettario, gestiamo contabilità, fatturazione elettronica e dichiarazione dei redditi per l'intero anno. Dottori commercialisti iscritti all'albo, portale clienti sempre attivo.",
     metaDesc:
-      "Apertura P.IVA professionisti a 199 euro: codice ATECO, gestione separata INPS e portale clienti 12 mesi inclusi. Commercialista online iscritto all'albo.",
+      "P.IVA forfettario + contabilità annuale a 449 euro (listino 549). Apertura, fatturazione elettronica EFAT, dichiarazione redditi, F24 inclusi. Impegno 3 anni. Dottori commercialisti a Parma.",
     perChi: [
-      "Consulenti, sviluppatori, designer, copywriter, traduttori",
-      "Professionisti intellettuali non iscritti ad albi con cassa privata",
-      "Chi lavora a progetto/prestazione per aziende o privati",
-      "Dipendenti che vogliono affiancare un'attività autonoma",
+      "Freelance e professionisti forfettari con ricavi fino a 85.000 euro",
+      "Consulenti, designer, sviluppatori, copywriter, traduttori",
+      "Chi vuole un commercialista unico che segue tutto l'anno, non un servizio spot",
+      "Dipendenti che affiancano un'attività autonoma e vogliono stare tranquilli sulle scadenze",
     ],
     bullets: [
-      "Consulenza preliminare: codice ATECO corretto per la tua attività",
-      "Apertura Partita IVA presso l'Agenzia delle Entrate",
-      "Iscrizione gestione separata INPS (aliquota 26,07% 2026)",
-      "Simulazione carico fiscale con scelta regime (ordinario vs forfettario)",
-      "Portale clienti per 12 mesi con upload documenti sicuro",
-      "Calendario scadenze personalizzato (F24, dichiarazione dei redditi)",
-      "Assistenza via portale per i primi 30 giorni dall'apertura",
+      "Apertura Partita IVA in regime forfettario presso l'Agenzia delle Entrate",
+      "Consulenza iniziale: codice ATECO, cassa previdenziale, simulazione imposte (5% startup o 15%)",
+      "Iscrizione gestione separata INPS o cassa professionale",
+      "Contabilità annuale completa fino a 20 fatture/anno, registri cronologici, LIPE se dovute",
+      "Dichiarazione dei redditi annuale (Redditi PF) con invio telematico",
+      "Fatturazione elettronica EFAT Ranocchi inclusa il primo anno",
+      "Calcolo e predisposizione F24: 2 acconti IRPEF + saldo + contributi INPS",
+      "Portale clienti con upload documenti, scadenzario, archivio 10 anni + 2 videocall l'anno",
     ],
     esclusi: [
-      "Fatturazione elettronica (da attivare a parte)",
+      "Volumi oltre 20 fatture/anno: rivalutazione preventivo dall'anno successivo",
       "Iscrizione CCIAA e INPS artigiani/commercianti (per attività artigianali serve il piano Artigiano/Commerciante)",
-      "Contabilità annuale e tenuta registri (servizio a parte)",
-      "Dichiarazione dei redditi annuale (Redditi PF, da preventivare)",
-      "Iscrizione a casse private (Inarcassa, Cassa Forense, ENPAP): gestibili su richiesta con maggiorazione",
+      "Iscrizione casse private (Inarcassa, Forense, ENPAP, ecc.): gestibile su richiesta con maggiorazione",
+      "Contenzioso tributario, verifiche fiscali, consulenze straordinarie fuori scope",
     ],
+    processTitle: "Dall'iscrizione alla P.IVA attiva, in 7 passi",
     process: [
       {
-        step: "1. Paghi online",
-        body: "Stripe o PayPal. Ricevi subito email di conferma e credenziali portale clienti.",
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
       },
       {
-        step: "2. Consulenza dedicata",
-        body: "Un commercialista ti chiama entro 24 ore: scelta codice ATECO, regime fiscale, cassa previdenziale.",
+        step: "2. Consulenza iniziale",
+        body: "Videocall gratuita con un commercialista: scelta ATECO, cassa previdenziale, simulazione imposte personalizzata.",
       },
       {
-        step: "3. Carichi i documenti",
-        body: "Dal portale carichi carta d'identità, codice fiscale, indirizzo sede. Tempo stimato: 10 minuti.",
+        step: "3. Firma mandato triennale",
+        body: "Firmi digitalmente il mandato professionale per 3 anni direttamente dal portale. Zero carta.",
       },
       {
-        step: "4. Apertura P.IVA",
-        body: "Entro 5 giorni lavorativi la tua P.IVA e attiva. Ricevi tutti i documenti sul portale e il calendario scadenze personalizzato.",
+        step: "4. Pagamento primo anno",
+        body: "Paghi 449 euro con Stripe o PayPal alla firma del mandato. È l'unico passaggio di pagamento per l'apertura.",
+      },
+      {
+        step: "5. Apertura P.IVA",
+        body: "Entro 5 giorni lavorativi dalla firma la tua P.IVA forfettaria è attiva. Calendario scadenze e fatturazione EFAT attivati nel portale.",
+      },
+      {
+        step: "6. Gestione annuale",
+        body: "Fatturi dal portale (EFAT inclusa), registriamo tutto, calcoliamo F24 e prepariamo la dichiarazione dei redditi. 2 videocall/anno di check.",
+      },
+      {
+        step: "7. Rinnovo anno 2 e 3",
+        body: "Fattura annuale di rinnovo. Se hai superato 20 fatture/anno ti proponiamo il preventivo aggiornato per il nuovo anno.",
       },
     ],
+    priceBlurb:
+      "449 euro primo anno, contratto triennale. Paghi solo dopo aver firmato il mandato nel portale.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-forfettario",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 449 euro alla firma del mandato triennale. Fatturazione elettronica automatica.",
+    closingBlurb:
+      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato triennale e solo a quel punto versi i 449 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: true,
+    hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale (tessera sanitaria)",
@@ -200,27 +227,43 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Descrizione dell'attività che vuoi svolgere (al codice ATECO ci pensiamo noi)",
       "IBAN per eventuali pagamenti F24 via addebito diretto",
     ],
-    deliveryDays: "entro 5 giorni lavorativi dalla conferma del pagamento",
+    deliveryDays: "entro 5 giorni lavorativi dalla firma del mandato nel portale",
     faqs: [
       {
-        q: "Qual è la differenza tra Professionista e Artigiano?",
-        a: "Il professionista svolge attività intellettuale (consulenze, progettazioni, servizi): iscritto solo a gestione separata INPS. L'artigiano/commerciante ha attività manuale o di vendita: iscrizione CCIAA + INPS artigiani/commercianti + SIA. Operazioni diverse, costi diversi.",
+        q: "Cosa include esattamente il bundle a 449 euro?",
+        a: "Apertura P.IVA forfettaria, consulenza iniziale, iscrizione INPS, contabilità annuale fino a 20 fatture, dichiarazione dei redditi PF, fatturazione elettronica EFAT Ranocchi inclusa il primo anno, F24 calcolati e predisposti, portale clienti e 2 videocall di check nell'anno. Non è un servizio spot di sola apertura: è il commercialista unico per tutto l'anno.",
       },
       {
-        q: "Devo scegliere forfettario o ordinario?",
-        a: "Dipende da ricavi e spese attesi. Se prevedi ricavi sotto 85.000 euro e spese basse, il forfettario è spesso più conveniente (5% start-up o 15%). Ti aiutiamo con una simulazione prima dell'apertura. Se sai già di voler partire forfettario, scegli direttamente il piano dedicato a 690 euro (che include anche portale + consulenza).",
+        q: "Perché l'impegno è triennale?",
+        a: "Un commercialista forfettario lavora meglio quando segue il cliente su più anni: le scelte fatte all'apertura (ATECO, start-up 5%, cassa) hanno effetti che si vedono sulla dichiarazione dell'anno dopo. Il contratto triennale blocca il prezzo per tre anni e ci permette di offrirti 449 euro invece di un canone più alto o a consumo.",
       },
       {
-        q: "Posso fatturare dal primo giorno?",
-        a: "Si, da P.IVA attiva puoi fatturare. La fatturazione elettronica non è inclusa in questo piano: se ti serve, la attivi a parte (50 euro/anno con GIS EFAT).",
+        q: "Come si rinnova il secondo e terzo anno?",
+        a: "Automaticamente. A inizio di ogni anno solare riemettiamo la fattura annuale di 449 euro e continuiamo a gestire contabilità e scadenze. Se hai superato 20 fatture nell'anno precedente ti contattiamo con un preventivo maggiorato prima del rinnovo: nessuna sorpresa in fattura.",
       },
       {
-        q: "Qual è la differenza tra questo piano e 'P.IVA Forfettario' a 690 euro?",
-        a: "Questo piano è generico: apriamo la P.IVA scegliendo regime con te. Il piano Forfettario a 690 euro è pensato specificamente per chi parte già col forfettario e vuole un setup più completo (simulazione dettagliata, documentazione specifica). In entrambi il portale è incluso.",
+        q: "Cosa succede se supero le 20 fatture nell'anno?",
+        a: "Niente blocco durante l'anno in corso: gestiamo tutto regolarmente. Dall'anno successivo applichiamo un preventivo maggiorato (scaglione 2) proporzionale al volume, che ti comunichiamo prima del rinnovo. Così eviti di pagare di più senza motivo se i volumi restano bassi.",
       },
       {
-        q: "Sono iscritto a un albo con cassa privata. Va bene questo piano?",
-        a: "Richiede una verifica: molte casse (Inarcassa, Forense, ENPAP) hanno procedure specifiche di iscrizione. Lo gestiamo con una maggiorazione concordata prima. Scrivi in fase di checkout o contattaci prima.",
+        q: "Cosa succede se supero gli 85.000 euro di ricavi?",
+        a: "Esci automaticamente dal forfettario dall'anno successivo e passi al regime semplificato o ordinario. Il bundle a 449 euro copre il forfettario: se superi la soglia facciamo un nuovo preventivo dedicato al regime superiore (gestione più complessa, IVA ordinaria, registri). Ti avvisiamo in tempo per pianificare.",
+      },
+      {
+        q: "La fatturazione elettronica EFAT è davvero inclusa?",
+        a: "Sì, il primo anno è inclusa nel prezzo (valore listino 50 euro/anno). Usiamo EFAT Ranocchi, lo stesso sistema che usiamo in studio: emetti fatture dal portale, vanno allo SdI in automatico. Dal secondo anno la rinnovate insieme al bundle.",
+      },
+      {
+        q: "Faccio anche il 730 per dipendenti di famiglia?",
+        a: "Il bundle copre la dichiarazione Redditi PF per la tua P.IVA forfettaria. Se vuoi gestire il 730 di un familiare (coniuge dipendente, pensionato) è un servizio a parte da 50 euro — ma lo colleghiamo allo stesso portale per non duplicare documenti.",
+      },
+      {
+        q: "Quanto supporto è incluso?",
+        a: "Accesso illimitato al portale per domande scritte, risposta entro 1 giorno lavorativo. In più 2 videocall programmate all'anno (una post-apertura, una pre-dichiarazione). Consulenze extra e verifiche straordinarie si concordano a parte.",
+      },
+      {
+        q: "Sono iscritto a cassa privata (Inarcassa, Forense, ENPAP): va bene questo bundle?",
+        a: "Sì, il bundle copre la gestione forfettaria con cassa privata, ma l'iscrizione iniziale ha procedure specifiche per ogni cassa e richiede una maggiorazione una tantum da concordare. Ne parliamo nella consulenza iniziale prima della firma del mandato.",
       },
     ],
   },
@@ -289,8 +332,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         a: "Generalmente no: l'attività prevalente determina l'iscrizione INPS. In casi specifici (es. artigiano che vende anche prodotti) si valuta caso per caso. Ne parliamo in consulenza.",
       },
       {
-        q: "Qual è la differenza rispetto al Professionista a 199 euro?",
-        a: "Il professionista fa attività intellettuale (consulenze, servizi non manuali): solo gestione separata INPS, niente CCIAA. L'artigiano/commerciante ha attività manuale o di vendita e serve CCIAA + INPS specifica + SIA. Costi amministrativi e burocratici diversi.",
+        q: "Qual è la differenza rispetto al bundle Professionista forfettario a 449 euro?",
+        a: "Il bundle Professionista (449 euro primo anno) è pensato per l'attività intellettuale (consulenze, servizi non manuali) e include apertura + contabilità annuale + EFAT + dichiarazione redditi con impegno triennale. L'artigiano/commerciante ha invece attività manuale o di vendita e serve CCIAA + INPS specifica + SIA: cambiano sia la burocrazia sia i costi. Qui paghi una tantum l'apertura, la gestione annuale si concorda a parte.",
       },
       {
         q: "Posso scegliere il regime forfettario?",

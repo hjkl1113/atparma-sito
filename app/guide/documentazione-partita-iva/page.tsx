@@ -145,7 +145,7 @@ export default function GuidaDocumentazionePIVA() {
         <div className="mt-8 bg-zinc-50 border border-zinc-200 rounded-xl p-5 print:hidden">
           <p className="text-sm font-semibold mb-1">Pronto ad aprire la Partita IVA?</p>
           <p className="text-xs text-zinc-600 mb-4">
-            Scegli il pacchetto che fa per te: Professionista (€199), Artigiano/Commerciante
+            Scegli il pacchetto che fa per te: Professionista forfettario + contabilità annuale (€449 primo anno), Artigiano/Commerciante
             (€690), Forfettario (€690) o Forfettario + EFAT (€750).
           </p>
           <Link

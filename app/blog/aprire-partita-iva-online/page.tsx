@@ -236,7 +236,7 @@ export default function ArticoloPage() {
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Consulenza commercialista per apertura</td>
-                    <td className="py-3 pl-4">Da 199 euro</td>
+                    <td className="py-3 pl-4">Da 449 euro (bundle apertura + contabilità annuale)</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Diritto camerale annuo (se dovuto)</td>
@@ -313,7 +313,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Supporto continuativo</strong> — Rimaniamo a disposizione per dubbi, scadenze e adempimenti successivi</span></li>
             </ul>
             <p className="mt-4">
-              Il servizio di apertura Partita IVA parte da <strong>199 euro</strong> e si completa in 2-5 giorni lavorativi.
+              Il bundle Professionista forfettario (apertura + contabilità annuale + EFAT + dichiarazione redditi) parte da <strong>449 euro primo anno</strong> con impegno triennale. L&apos;apertura si completa in 2-5 giorni lavorativi dalla firma del mandato.
             </p>
 
             {/* Link interni */}
@@ -333,7 +333,7 @@ export default function ArticoloPage() {
                 Vuoi aprire la Partita IVA senza pensieri?
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
-                Il nostro team di dottori commercialisti ti guida nella scelta del regime fiscale, del codice ATECO e gestisce tutta la pratica online. A partire da 199 euro, interamente da remoto.
+                Il nostro team di dottori commercialisti ti guida nella scelta del regime fiscale, del codice ATECO e gestisce tutta la pratica online. Bundle Professionista forfettario da 449 euro primo anno (apertura + contabilità annuale), interamente da remoto.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">

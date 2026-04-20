@@ -238,7 +238,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                 <span className="text-4xl font-bold font-[family-name:var(--font-heading)]">
                   {price !== null ? `€${price}` : "A preventivo"}
                 </span>
-                {price !== null && <span className="text-sm text-zinc-500">una tantum</span>}
+                {price !== null && <span className="text-sm text-zinc-500">{prodotto.priceSuffix ?? "una tantum"}</span>}
               </div>
               <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
                 {prodotto.priceBlurb ??
@@ -381,7 +381,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             </div>
           </section>
 
-          {prodotto.slug !== "dichiarazione-730" && (
+          {prodotto.slug !== "dichiarazione-730" && !prodotto.hidePostPaymentSection && (
           <section className="mb-20 bg-zinc-950 text-white rounded-3xl p-8 sm:p-12">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
               Dopo il pagamento, cosa succede
