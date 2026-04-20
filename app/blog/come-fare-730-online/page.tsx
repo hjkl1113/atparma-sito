@@ -195,7 +195,7 @@ export default function ArticoloPage() {
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4 font-medium">Costo</td>
                     <td className="py-3 px-4">Gratuito</td>
-                    <td className="py-3 pl-4">Da 79 euro</td>
+                    <td className="py-3 pl-4">Da 50 euro (listino 79)</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4 font-medium">Verifica detrazioni</td>
@@ -332,7 +332,7 @@ export default function ArticoloPage() {
               Fare il 730 online con un commercialista e oggi semplice e veloce. Non serve andare in studio, non servono appuntamenti e non servono code. Ecco come funziona con A.T. Consulting Parma:
             </p>
             <ul className="space-y-2 ml-4">
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Acquisti il servizio online</strong> direttamente dal nostro sito, a partire da 79 euro</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Acquisti il servizio online</strong> direttamente dal nostro sito, a partire da 50 euro (listino 79)</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Carichi i documenti</strong> nel portale clienti dedicato (CU, spese, documenti immobili)</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Il nostro team verifica tutto:</strong> controlliamo ogni voce, cerchiamo detrazioni mancanti, verifichiamo la coerenza dei dati</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Ti inviamo il riepilogo</strong> con il risultato della dichiarazione (rimborso o debito) prima dell&apos;invio</span></li>
@@ -345,7 +345,7 @@ export default function ArticoloPage() {
             {/* CTA intermedio */}
             <div className="bg-zinc-50 rounded-xl p-6 my-8 border border-zinc-100">
               <p className="text-sm text-zinc-900">
-                <strong>Hai già la CU?</strong> Non aspettare settembre. Prima presenti, prima ricevi il rimborso. Il nostro servizio 730 online parte da 79 euro e include la verifica completa di tutte le detrazioni applicabili.
+                <strong>Hai già la CU?</strong> Non aspettare settembre. Prima presenti, prima ricevi il rimborso. Il nostro servizio 730 online costa 50 euro (listino 79) e include la verifica completa di tutte le detrazioni applicabili.
               </p>
             </div>
 
@@ -369,7 +369,7 @@ export default function ArticoloPage() {
                 Vuoi fare il 730 online con un professionista?
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
-                Affidati al nostro team di dottori commercialisti: controlliamo ogni detrazione, gestiamo l&apos;invio telematico e ti garantiamo assistenza completa. A partire da 79 euro, interamente online.
+                Affidati al nostro team di dottori commercialisti: controlliamo ogni detrazione, gestiamo l&apos;invio telematico e ti garantiamo assistenza completa. A partire da 50 euro (listino 79), interamente online.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">

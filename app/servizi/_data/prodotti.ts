@@ -21,7 +21,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Compilazione e invio del tuo 730 da dottori commercialisti. Zero file all'Agenzia, tutto dal portale. Massimizziamo le detrazioni a cui hai diritto.",
     metaDesc:
-      "730 online a 79 euro: compilazione, invio telematico e controllo detrazioni da dottori commercialisti. Portale clienti per upload documenti.",
+      "730 online a 50 euro (prezzo di lancio, listino 79): compilazione, invio telematico e controllo detrazioni da dottori commercialisti. Portale clienti per upload documenti.",
     perChi: [
       "Lavoratori dipendenti e pensionati",
       "Percettori di redditi assimilati (collaborazioni, tirocini retribuiti)",

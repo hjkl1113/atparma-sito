@@ -108,7 +108,7 @@ export default function GuidaDocumentazione730() {
           <p className="text-zinc-600 leading-relaxed">
             Tutti i documenti che servono per preparare il 730. Usa questa lista come
             traccia per raccogliere il materiale prima di iniziare. Se ci affidi il
-            servizio 730 online (€79), li carichi direttamente nel portale clienti.
+            servizio 730 online (€50, listino €79), li carichi direttamente nel portale clienti.
           </p>
         </header>
 
@@ -146,7 +146,7 @@ export default function GuidaDocumentazione730() {
         <div className="mt-8 bg-zinc-50 border border-zinc-200 rounded-xl p-5 print:hidden">
           <p className="text-sm font-semibold mb-1">Ti serve aiuto col 730?</p>
           <p className="text-xs text-zinc-600 mb-4">
-            Il nostro servizio 730 online a €79 include compilazione, invio e
+            Il nostro servizio 730 online a €50 (listino €79) include compilazione, invio e
             conservazione documenti per 5 anni nel portale clienti.
           </p>
           <Link

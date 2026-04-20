@@ -35,7 +35,7 @@ const faqs = [
     items: [
       {
         q: "Quanto costa aprire una Partita IVA?",
-        a: "L'apertura della Partita IVA presso l'Agenzia delle Entrate e gratuita. Il nostro servizio di apertura, configurazione e consulenza sul codice ATECO e sul regime fiscale parte da 149 euro. Puoi acquistarlo online dalla sezione Servizi.",
+        a: "L'apertura della Partita IVA presso l'Agenzia delle Entrate e gratuita. Il nostro servizio di apertura, configurazione e consulenza sul codice ATECO e sul regime fiscale parte da 199 euro. Puoi acquistarlo online dalla sezione Servizi.",
       },
       {
         q: "Posso aprire la Partita IVA online?",
@@ -56,7 +56,7 @@ const faqs = [
       },
       {
         q: "Quanto costa la dichiarazione 730?",
-        a: "Il nostro servizio 730 online parte da 79 euro e include la verifica di tutte le detrazioni applicabili, la compilazione e l'invio telematico all'Agenzia delle Entrate.",
+        a: "Il nostro servizio 730 online costa 50 euro (prezzo di lancio, listino 79 euro) e include la verifica di tutte le detrazioni applicabili, la compilazione e l'invio telematico all'Agenzia delle Entrate.",
       },
       {
         q: "Quali sono le scadenze?",

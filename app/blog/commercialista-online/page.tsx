@@ -263,15 +263,15 @@ export default function ArticoloPage() {
                 <tbody className="text-zinc-700">
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Dichiarazione 730</td>
-                    <td className="py-3 pl-4">Da 79 euro</td>
+                    <td className="py-3 pl-4">Da 50 euro (listino 79)</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Apertura Partita IVA + consulenza</td>
-                    <td className="py-3 pl-4">Da 149 euro</td>
+                    <td className="py-3 pl-4">Da 199 euro</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Gestione annuale forfettario</td>
-                    <td className="py-3 pl-4">Da 500 euro/anno</td>
+                    <td className="py-3 pl-4">Indicativo 600-900 euro/anno</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Gestione annuale ordinario/semplificato</td>
@@ -321,7 +321,7 @@ export default function ArticoloPage() {
                 Cerchi un commercialista online a Parma?
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
-                A.T. Consulting Parma: lo studio con 20 anni di esperienza, la comodità di un servizio completamente online. 730 da 79 euro, Partita IVA da 149 euro.
+                A.T. Consulting Parma: lo studio con 20 anni di esperienza, la comodità di un servizio completamente online. 730 da 50 euro (listino 79), Partita IVA da 199 euro.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">

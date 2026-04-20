@@ -236,7 +236,7 @@ export default function ArticoloPage() {
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Consulenza commercialista per apertura</td>
-                    <td className="py-3 pl-4">Da 149 euro</td>
+                    <td className="py-3 pl-4">Da 199 euro</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Diritto camerale annuo (se dovuto)</td>
@@ -252,7 +252,7 @@ export default function ArticoloPage() {
                   </tr>
                   <tr>
                     <td className="py-3 pr-4">Gestione contabile annuale (commercialista)</td>
-                    <td className="py-3 pl-4">Da 500 euro/anno (forfettario)</td>
+                    <td className="py-3 pl-4">Indicativo 600-1.200 euro/anno (variabile per regime e volume)</td>
                   </tr>
                 </tbody>
               </table>
@@ -313,7 +313,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Supporto continuativo</strong> — Rimaniamo a disposizione per dubbi, scadenze e adempimenti successivi</span></li>
             </ul>
             <p className="mt-4">
-              Il servizio di apertura Partita IVA parte da <strong>149 euro</strong> e si completa in 2-5 giorni lavorativi.
+              Il servizio di apertura Partita IVA parte da <strong>199 euro</strong> e si completa in 2-5 giorni lavorativi.
             </p>
 
             {/* Link interni */}
@@ -333,7 +333,7 @@ export default function ArticoloPage() {
                 Vuoi aprire la Partita IVA senza pensieri?
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
-                Il nostro team di dottori commercialisti ti guida nella scelta del regime fiscale, del codice ATECO e gestisce tutta la pratica online. A partire da 149 euro, interamente da remoto.
+                Il nostro team di dottori commercialisti ti guida nella scelta del regime fiscale, del codice ATECO e gestisce tutta la pratica online. A partire da 199 euro, interamente da remoto.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">
