@@ -28,6 +28,15 @@ export const DEFAULT_PREZZI: Servizio[] = [
     slug: "piva-professionista",
   },
   {
+    id: "piva-prof-semp",
+    title: "Apertura P.IVA Professionista semplificata + contabilita annuale",
+    desc: "Apertura P.IVA regime semplificato/ordinario + contabilita annuale + IVA periodica + dichiarazione redditi + EFAT. Per professionisti con ricavi attesi oltre 85.000 euro o con spese rilevanti da portare in deduzione.",
+    price: 1099,
+    originalPrice: null,
+    active: true,
+    slug: "piva-professionista-semplificato",
+  },
+  {
     id: "piva-art",
     title: "Apertura P.IVA Artigiano/Commerciante",
     desc: "Apertura Partita IVA con iscrizione CCIAA, INPS artigiani/commercianti, SIA.",

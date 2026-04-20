@@ -166,11 +166,12 @@ export function calcolaPreventivo(input: InputPreventivo): RisultatoPreventivo {
   const disclaimer: string[] = [
     "Stima indicativa basata su dati pubblici 2026. I costi effettivi verranno comunicati in consulenza e via mandato puntuale.",
     "I costi vivi sono pagati direttamente agli enti (CCIAA, Comune, USL, INPS), non allo studio.",
+    "I costi vivi possono variare da provincia a provincia e da Comune a Comune, in base ai tariffari degli enti pubblici coinvolti (Camera di Commercio, SUAP/Comune, USL, Regione). Il range mostrato riflette le variazioni tipiche.",
   ];
 
   if (provincia) {
     disclaimer.push(
-      `I diritti CCIAA per la provincia di ${provincia.toUpperCase()} possono variare leggermente rispetto al range mostrato (±€20 tipico).`,
+      `Per la provincia di ${provincia.toUpperCase()} l'importo esatto dei diritti CCIAA e di eventuali SCIA comunali verrà verificato in consulenza.`,
     );
   }
 

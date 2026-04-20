@@ -273,6 +273,120 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
   },
+  "piva-professionista-semplificato": {
+    slug: "piva-professionista-semplificato",
+    prezzoId: "piva-prof-semp",
+    title: "Apertura P.IVA Professionista semplificata + contabilità annuale",
+    tagline:
+      "Bundle tutto incluso per professionisti in regime semplificato/ordinario: apertura P.IVA, IVA periodica, contabilità completa, dichiarazione redditi e fatturazione elettronica per l'intero anno. Indicato se prevedi ricavi oltre 85.000 euro o vuoi portare in deduzione spese rilevanti.",
+    metaDesc:
+      "P.IVA professionista regime semplificato/ordinario a 1.099 euro primo anno. Apertura + contabilità annuale + IVA periodica + dichiarazione redditi + EFAT inclusi. Dottori commercialisti a Parma.",
+    perChi: [
+      "Professionisti con ricavi previsti oltre 85.000 euro/anno",
+      "Chi ha spese rilevanti da dedurre (strumenti, affitti, collaboratori)",
+      "Chi ha superato la soglia forfettaria e deve passare al regime semplificato/ordinario",
+      "Professionisti che preferiscono detrazione analitica dei costi rispetto al coefficiente forfettario",
+    ],
+    bullets: [
+      "Apertura Partita IVA in regime semplificato/ordinario presso l'Agenzia delle Entrate",
+      "Consulenza iniziale: codice ATECO, cassa previdenziale, analisi convenienza regime",
+      "Iscrizione gestione separata INPS o cassa professionale",
+      "Contabilità annuale completa con registri IVA acquisti/vendite/corrispettivi",
+      "Liquidazioni IVA periodiche (trimestrali o mensili) e LIPE",
+      "Dichiarazione dei redditi annuale (Redditi PF) + Modello IVA annuale",
+      "Fatturazione elettronica EFAT Ranocchi inclusa il primo anno",
+      "Calcolo e predisposizione F24 IVA, IRPEF (2 acconti + saldo) e contributi INPS",
+      "Portale clienti con upload documenti, scadenzario, archivio 10 anni + 2 videocall l'anno",
+    ],
+    esclusi: [
+      "Contabilità ordinaria con doppia partita per volumi molto elevati: rivalutazione preventivo",
+      "Iscrizione CCIAA e INPS artigiani/commercianti (per attività artigianali serve il piano Artigiano/Commerciante)",
+      "Iscrizione casse private (Inarcassa, Forense, ENPAP, ecc.): gestibile su richiesta con maggiorazione",
+      "Contenzioso tributario, verifiche fiscali, consulenze straordinarie fuori scope",
+    ],
+    processTitle: "Dall'iscrizione alla P.IVA attiva, in 6 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
+      },
+      {
+        step: "2. Consulenza iniziale",
+        body: "Videocall con un commercialista per scelta ATECO, cassa previdenziale, analisi convenienza semplificato vs ordinario e pianificazione fiscale.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale nel portale. Scegli annuale o triennale con prezzo bloccato.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "Paghi 1.099 euro con Stripe o PayPal alla firma del mandato.",
+      },
+      {
+        step: "5. Apertura P.IVA",
+        body: "Entro 5 giorni lavorativi dalla firma la tua P.IVA semplificata è attiva. Registri IVA e EFAT configurati nel portale.",
+      },
+      {
+        step: "6. Gestione annuale",
+        body: "Registriamo fatture attive e passive, calcoliamo liquidazioni IVA periodiche, prepariamo F24, dichiarazioni di fine anno. 2 videocall di check all'anno.",
+      },
+    ],
+    priceBlurb:
+      "1.099 euro primo anno. Include apertura + contabilità + IVA + dichiarazione + EFAT. Rinnovo annuale con disdetta libera o triennale a prezzo bloccato. Paghi solo dopo aver firmato il mandato nel portale.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-semplificato",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 1.099 euro alla firma del mandato. Fatturazione elettronica automatica.",
+    closingBlurb:
+      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale per valutare la convenienza del regime semplificato, firmi il mandato e solo a quel punto versi i 1.099 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: true,
+    hidePostPaymentSection: true,
+    docs: [
+      "Carta d'identità o passaporto in corso di validità",
+      "Codice fiscale (tessera sanitaria)",
+      "Indirizzo sede operativa e domicilio fiscale",
+      "Descrizione dell'attività che vuoi svolgere",
+      "Stima ricavi e spese previsti per il primo anno (utile per la consulenza)",
+      "IBAN per eventuali pagamenti F24 via addebito diretto",
+    ],
+    deliveryDays: "entro 5 giorni lavorativi dalla firma del mandato nel portale",
+    faqs: [
+      {
+        q: "Quando conviene il regime semplificato rispetto al forfettario?",
+        a: "Quando prevedi ricavi oltre 85.000 euro/anno (limite forfettario) oppure quando hai spese deducibili alte che il coefficiente forfettario non riflette (es. strumenti, collaboratori, affitti studio). Nella consulenza iniziale facciamo una simulazione personalizzata prima che tu scelga il regime.",
+      },
+      {
+        q: "Qual è la differenza tra semplificato e ordinario?",
+        a: "Il regime semplificato ha registri meno complessi ed è il default fino a 500.000 euro di ricavi per servizi (400.000 per beni). Oltre queste soglie passi all'ordinario con doppia partita, bilancio e adempimenti più complessi. Il bundle a 1.099 euro copre il semplificato: se arrivi all'ordinario rifacciamo il preventivo in base al volume effettivo.",
+      },
+      {
+        q: "Cosa include il bundle a 1.099 euro?",
+        a: "Apertura P.IVA, consulenza iniziale, iscrizione INPS, contabilità completa con registri IVA, liquidazioni IVA periodiche (trimestrali/mensili), LIPE, dichiarazione Redditi PF + Modello IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno.",
+      },
+      {
+        q: "Posso scegliere tra liquidazione IVA trimestrale o mensile?",
+        a: "Puoi optare per la liquidazione trimestrale se i ricavi dell'anno precedente sono sotto 500.000 euro (servizi) o 400.000 (beni), pagando un interesse dell'1% trimestrale. Oltre queste soglie è obbligatoria mensile. Decidiamo insieme in consulenza.",
+      },
+      {
+        q: "Posso passare dal forfettario a questo bundle?",
+        a: "Sì. Se superi 85.000 euro di ricavi nel forfettario, dall'anno successivo devi passare al semplificato: gestiamo la transizione senza interruzione di servizio, mantenendo portale e storico. Ti contattiamo in tempo utile per firmare il nuovo mandato prima dell'inizio dell'anno fiscale.",
+      },
+      {
+        q: "Come si rinnova dopo il primo anno?",
+        a: "Formula annuale: rinnovo tacito a 1.099 euro (salvo aggiornamenti di listino comunicati 60 giorni prima), disdetta con 60 giorni di preavviso via PEC. Formula triennale: prezzo bloccato per 3 anni, nessun aumento. Se il volume cresce oltre i limiti del semplificato, preventivo aggiornato prima del rinnovo.",
+      },
+      {
+        q: "Sono iscritto a cassa privata (Inarcassa, Forense, ENPAP): va bene?",
+        a: "Sì, il bundle copre anche la gestione con cassa privata, ma l'iscrizione iniziale ha procedure specifiche per ogni cassa e richiede una maggiorazione una tantum da concordare. Ne parliamo nella consulenza iniziale prima della firma del mandato.",
+      },
+      {
+        q: "Quanto supporto è incluso?",
+        a: "Accesso illimitato al portale per domande scritte (risposta entro 1 giorno lavorativo), 2 videocall programmate all'anno (una post-apertura, una pre-dichiarazione), gestione scadenze IVA e IRPEF. Consulenze extra e verifiche straordinarie si concordano a parte.",
+      },
+    ],
+  },
   "piva-artigiano-commerciante": {
     slug: "piva-artigiano-commerciante",
     prezzoId: "piva-art",

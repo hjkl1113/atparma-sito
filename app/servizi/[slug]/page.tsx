@@ -12,6 +12,7 @@ type Autore = { author: "Pietro Franzosi" | "Aldo Ponzi"; authorAlbo: "Parma" | 
 const AUTORE_PER_SLUG: Record<string, Autore> = {
   "dichiarazione-730": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-professionista": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-professionista-semplificato": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-forfettario-efat": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-artigiano-commerciante": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
