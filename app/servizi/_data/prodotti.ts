@@ -67,8 +67,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Se hai già scaricato la precompilata con SPID/CIE, la carichi direttamente. Altrimenti firmi la delega e la scarichiamo noi via Entratel.",
       },
       {
-        step: "5. Revisione bozza",
-        body: "Ti mostriamo la bozza del 730 con tutte le detrazioni. Scegli il 5, 8 e 2 per mille e firmi l'impegno a trasmettere.",
+        step: "5. Revisione bozza e scelte",
+        body: "Ti mostriamo la bozza del 730 con tutte le detrazioni. Indichi se hai un sostituto d'imposta o chiedi rimborso su IBAN, scegli se pagare eventuali debiti in busta paga o con F24, destinazione 5/8/2 per mille. Firmi l'impegno a trasmettere.",
       },
       {
         step: "6. Saldo 40 euro",
@@ -94,7 +94,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Spese di istruzione (tasse universitarie, scuola paritaria, mensa)",
       "Polizze assicurative vita/infortuni, contributi previdenziali volontari",
     ],
-    deliveryDays: "entro 7 giorni lavorativi dalla consegna completa dei documenti",
+    deliveryDays: "in 7-10 giorni lavorativi dalla consegna completa dei documenti",
     faqs: [
       {
         q: "Posso fare il 730 da solo col precompilato?",
@@ -102,7 +102,15 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Quanto dura il processo?",
-        a: "Dalla consegna completa dei documenti al 730 inviato passano 7 giorni lavorativi. Puoi iniziare a caricare documenti subito dopo l'iscrizione al portale e la firma del mandato.",
+        a: "Dalla consegna completa dei documenti al 730 inviato passano 7-10 giorni lavorativi, margine operativo incluso per i picchi stagionali. Puoi iniziare a caricare documenti subito dopo l'iscrizione al portale e la firma del mandato.",
+      },
+      {
+        q: "Non ho un sostituto d'imposta (datore di lavoro o pensione). Posso comunque fare il 730?",
+        a: "Si. Se non hai un sostituto che possa erogarti il rimborso o trattenerti un debito, indichi nel portale l'IBAN a te intestato: eventuale rimborso arriva direttamente dall'Agenzia delle Entrate. Se emerge un debito, lo paghi tramite F24 (unica soluzione o rateizzato).",
+      },
+      {
+        q: "Ho un debito ma preferisco pagarlo con F24 invece che in busta paga. Si può?",
+        a: "Si. In fase di revisione bozza puoi scegliere se far trattenere il debito in busta paga (unica o fino a 5 rate) oppure pagarlo autonomamente con F24. Nel portale indichi la modalità preferita e prepariamo il modello corretto.",
       },
       {
         q: "Perché una caparra di 10 euro?",

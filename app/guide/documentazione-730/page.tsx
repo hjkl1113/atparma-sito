@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 
 const sezioni: { titolo: string; voci: string[] }[] = [
   {
+    titolo: "Precompilata 730 (opzionale, se già in tuo possesso)",
+    voci: [
+      "PDF della precompilata 730, se già scaricata con SPID/CIE dall'area riservata Agenzia delle Entrate",
+      "Se non l'hai scaricata, niente panico: firmi la delega alla consultazione nel portale e la scarichiamo noi via Entratel",
+    ],
+  },
+  {
     titolo: "Dati personali e anagrafici",
     voci: [
       "Codice fiscale del contribuente",
@@ -19,7 +26,6 @@ const sezioni: { titolo: string; voci: string[] }[] = [
       "Copia di un documento di identità in corso di validità",
       "IBAN per eventuale rimborso",
       "Visura catastale aggiornata degli immobili posseduti",
-      "Precompilata 730 (solo se già in tuo possesso, scaricata con SPID/CIE dall'Agenzia delle Entrate): caricarla direttamente nel portale evita la delega e velocizza il processo",
     ],
   },
   {
@@ -78,6 +84,16 @@ const sezioni: { titolo: string; voci: string[] }[] = [
       "Spese funebri",
       "Abbonamenti trasporto pubblico",
       "Erogazioni a partiti politici, ONLUS, istituzioni religiose",
+    ],
+  },
+  {
+    titolo: "Modalità rimborso o pagamento (importante)",
+    voci: [
+      "Hai un sostituto d'imposta (datore di lavoro o ente pensionistico)? In caso di rimborso ti arriva in busta paga o pensione, di solito da luglio a novembre",
+      "Senza sostituto d'imposta: indica l'IBAN intestato a te, il rimborso viene erogato direttamente dall'Agenzia delle Entrate",
+      "In caso di debito con sostituto: puoi scegliere la trattenuta in busta paga (unica o rateizzata fino a 5 rate) oppure chiedere il pagamento tramite F24",
+      "Senza sostituto e con debito: il pagamento si effettua esclusivamente con F24, unica soluzione o rateizzazione",
+      "Scelta destinazione 5, 8 e 2 per mille (ente beneficiario o firma in bianco per destinarli in base ai risultati nazionali)",
     ],
   },
 ];

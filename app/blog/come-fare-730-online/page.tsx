@@ -339,7 +339,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Paghi il saldo di 40 euro</strong>: il pagamento sblocca l&apos;invio telematico all&apos;Agenzia delle Entrate, ricevi la ricevuta nel portale</span></li>
             </ul>
             <p className="mt-4">
-              Il tutto si completa in 3-5 giorni lavorativi dalla ricezione dei documenti. Se hai domande o dubbi, il nostro team e raggiungibile via email, telefono o dal portale clienti.
+              Il tutto si completa in 7-10 giorni lavorativi dalla consegna completa dei documenti, margine incluso per i picchi stagionali. Gestiamo anche i casi particolari: clienti senza sostituto d&apos;imposta (rimborso via IBAN direttamente dall&apos;Agenzia) o che preferiscono pagare un eventuale debito con F24 anziche con trattenuta in busta paga. Se hai domande o dubbi, il nostro team e raggiungibile via email, telefono o dal portale clienti.
             </p>
 
             {/* CTA intermedio */}
