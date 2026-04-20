@@ -106,7 +106,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Non ho un sostituto d'imposta (datore di lavoro o pensione). Posso comunque fare il 730?",
-        a: "Si. Se non hai un sostituto che possa erogarti il rimborso o trattenerti un debito, indichi nel portale l'IBAN a te intestato: eventuale rimborso arriva direttamente dall'Agenzia delle Entrate. Se emerge un debito, lo paghi tramite F24 (unica soluzione o rateizzato).",
+        a: "Si. Il rimborso arriva direttamente dall'Agenzia delle Entrate sull'IBAN che indichi nel portale (tempi tipici 6-12 mesi). Se emerge un debito, il pagamento avviene obbligatoriamente con F24: puoi scegliere tra unica soluzione entro luglio, oppure rateizzazione fino a 6 rate mensili (giugno-novembre) se l'importo supera 257,52 euro. Le rate successive alla prima maturano interessi del 4% annuo.",
       },
       {
         q: "Ho un debito ma preferisco pagarlo con F24 invece che in busta paga. Si può?",
