@@ -207,6 +207,25 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   Dottori commercialisti iscritti all&apos;albo
                 </span>
               </div>
+
+              <div className="flex flex-wrap gap-2 mt-6">
+                <a
+                  href="#documenti"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-700 bg-white border border-zinc-200 rounded-full px-3.5 py-1.5 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  Documenti che ti servono
+                </a>
+                {prodotto.faqs.length > 0 && (
+                  <a
+                    href="#faq"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-700 bg-white border border-zinc-200 rounded-full px-3.5 py-1.5 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093M12 17h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    Domande frequenti
+                  </a>
+                )}
+              </div>
             </div>
 
             <aside className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-24">
@@ -321,7 +340,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               </ul>
             </div>
 
-            <div>
+            <div id="documenti" className="scroll-mt-28">
               <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
                 Documenti che ti servono
               </p>
@@ -414,7 +433,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
           </section>
           )}
 
-          <section className="mb-20">
+          <section id="faq" className="mb-20 scroll-mt-28">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
               Domande frequenti
             </p>
