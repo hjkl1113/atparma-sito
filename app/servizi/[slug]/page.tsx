@@ -208,23 +208,23 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                 </span>
               </div>
 
-              <div className="flex flex-wrap gap-2.5 mt-6">
+              <div className="flex flex-wrap gap-3 mt-8">
                 <a
                   href="#documenti"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 rounded-full px-4 py-2 hover:bg-[var(--color-accent)]/15 hover:border-[var(--color-accent)]/50 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-zinc-900 rounded-lg px-5 py-3 hover:bg-zinc-800 transition-colors shadow-sm"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   Documenti che ti servono
-                  <svg className="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                  <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
                 </a>
                 {prodotto.faqs.length > 0 && (
                   <a
                     href="#faq"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 rounded-full px-4 py-2 hover:bg-[var(--color-accent)]/15 hover:border-[var(--color-accent)]/50 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-900 bg-white border-2 border-zinc-900 rounded-lg px-5 py-3 hover:bg-zinc-50 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093M12 17h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     Domande frequenti
-                    <svg className="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                    <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
                   </a>
                 )}
               </div>
