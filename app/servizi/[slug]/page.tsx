@@ -10,7 +10,7 @@ import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/serviz
 type Autore = { author: "Pietro Franzosi" | "Aldo Ponzi"; authorAlbo: "Parma" | "Brescia" };
 
 const AUTORE_PER_SLUG: Record<string, Autore> = {
-  "dichiarazione-730": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "dichiarazione-730": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-professionista": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-forfettario-efat": { author: "Pietro Franzosi", authorAlbo: "Parma" },
