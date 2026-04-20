@@ -19,6 +19,7 @@ const sezioni: { titolo: string; voci: string[] }[] = [
       "Copia di un documento di identità in corso di validità",
       "IBAN per eventuale rimborso",
       "Visura catastale aggiornata degli immobili posseduti",
+      "Precompilata 730 (solo se già in tuo possesso, scaricata con SPID/CIE dall'Agenzia delle Entrate): caricarla direttamente nel portale evita la delega e velocizza il processo",
     ],
   },
   {
@@ -108,7 +109,8 @@ export default function GuidaDocumentazione730() {
           <p className="text-zinc-600 leading-relaxed">
             Tutti i documenti che servono per preparare il 730. Usa questa lista come
             traccia per raccogliere il materiale prima di iniziare. Se ci affidi il
-            servizio 730 online (€50, listino €79), li carichi direttamente nel portale clienti.
+            servizio 730 online (€50, listino €79), li carichi direttamente nel portale clienti
+            dopo aver firmato il mandato e versato una caparra di €10.
           </p>
         </header>
 

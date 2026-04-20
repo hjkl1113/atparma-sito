@@ -7,7 +7,12 @@ export interface ProdottoServizio {
   perChi: string[];
   bullets: string[];
   esclusi: string[];
+  processTitle?: string;
   process: { step: string; body: string }[];
+  priceBlurb?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaNote?: string;
   docs: string[];
   deliveryDays: string;
   faqs: { q: string; a: string }[];
@@ -43,24 +48,43 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Integrazioni di dichiarazioni di anni precedenti (preventivo separato)",
       "Dichiarazione IVS e ISEE (servizio dedicato CAF, non incluso)",
     ],
+    processTitle: "Dal mandato all'invio, in 7 passi",
     process: [
       {
-        step: "1. Paghi online",
-        body: "Scegli Stripe o PayPal. Ricevi email di conferma e accesso al portale clienti.",
+        step: "1. Iscrizione al portale",
+        body: "Ti registri e paghi la caparra di 10 euro (Stripe o PayPal). Attivi l'account e accedi alla checklist personalizzata.",
       },
       {
-        step: "2. Carichi i documenti",
-        body: "Dal portale carichi CU, spese mediche, bonifici bonus edilizi, atti di mutuo, ecc. Checklist guidata inclusa.",
+        step: "2. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale direttamente dal portale. Zero carta, zero passaggi in studio.",
       },
       {
-        step: "3. Noi compiliamo e ti chiamiamo",
-        body: "Verifichiamo il precompilato, aggiungiamo le detrazioni mancanti, ti chiamiamo per dubbi o integrazioni.",
+        step: "3. Carichi i documenti",
+        body: "CU, spese mediche, bonifici bonus edilizi, mutuo, spese istruzione. Checklist guidata con upload sicuro.",
       },
       {
-        step: "4. Inviamo il 730",
-        body: "Entro 7 giorni dalla consegna documenti completa, inviamo il 730 all'Agenzia delle Entrate. Ricevuta sul portale.",
+        step: "4. Precompilata",
+        body: "Se hai già scaricato la precompilata con SPID/CIE, la carichi direttamente. Altrimenti firmi la delega e la scarichiamo noi via Entratel.",
+      },
+      {
+        step: "5. Revisione bozza",
+        body: "Ti mostriamo la bozza del 730 con tutte le detrazioni. Scegli il 5, 8 e 2 per mille e firmi l'impegno a trasmettere.",
+      },
+      {
+        step: "6. Saldo 40 euro",
+        body: "Paghi il saldo solo dopo aver validato la bozza. Il pagamento sblocca l'invio telematico all'Agenzia delle Entrate.",
+      },
+      {
+        step: "7. Invio e ricevuta",
+        body: "Trasmettiamo il 730 all'ADE. Ricevuta nel portale e conservazione documenti per 5 anni.",
       },
     ],
+    priceBlurb:
+      "Caparra di 10 euro alla registrazione, saldo di 40 euro dopo la firma della bozza. Niente costi nascosti.",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/730",
+    ctaNote:
+      "Caparra 10 euro via Stripe o PayPal. Saldo dopo la validazione della bozza. Fattura elettronica automatica.",
     docs: [
       "Certificazione Unica (CU) del datore di lavoro o INPS",
       "Tessera sanitaria / codice fiscale (tuo e familiari a carico)",
@@ -78,7 +102,19 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Quanto dura il processo?",
-        a: "Dall'upload completo dei documenti al 730 inviato passano 7 giorni lavorativi. Puoi iniziare a caricare documenti già subito dopo il pagamento.",
+        a: "Dalla consegna completa dei documenti al 730 inviato passano 7 giorni lavorativi. Puoi iniziare a caricare documenti subito dopo l'iscrizione al portale e la firma del mandato.",
+      },
+      {
+        q: "Perché una caparra di 10 euro?",
+        a: "Paghi 10 euro alla registrazione per bloccare la pratica. I rimanenti 40 euro li versi solo dopo aver visto la bozza e aver firmato l'impegno a trasmettere. Totale 50 euro, come prezzo di listino (79 euro).",
+      },
+      {
+        q: "Posso vedere la bozza prima di pagare il saldo?",
+        a: "Si, sempre. Ti mostriamo la bozza completa con detrazioni, calcolo imposta e scelta del 5, 8 e 2 per mille. Solo dopo la tua validazione e firma dell'impegno a trasmettere ti chiediamo il saldo: il pagamento sblocca l'invio telematico.",
+      },
+      {
+        q: "Ho già scaricato la precompilata con SPID. Devo comunque firmare la delega?",
+        a: "No. Se ci carichi la precompilata scaricata da te nel portale, saltiamo la delega. Se invece non l'hai ancora scaricata, firmi la delega alla consultazione e la scarichiamo noi dall'Agenzia delle Entrate via Entratel.",
       },
       {
         q: "Cosa succede se mi accorgo di aver dimenticato una spesa?",

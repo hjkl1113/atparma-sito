@@ -220,14 +220,15 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                 {price !== null && <span className="text-sm text-zinc-500">una tantum</span>}
               </div>
               <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
-                Apertura + consulenza iniziale + 12 mesi di portale clienti. Niente canoni nascosti.
+                {prodotto.priceBlurb ??
+                  "Apertura + consulenza iniziale + 12 mesi di portale clienti. Niente canoni nascosti."}
               </p>
               {price !== null ? (
                 <Link
-                  href={`/servizi/${prodotto.slug}/checkout`}
+                  href={prodotto.ctaHref ?? `/servizi/${prodotto.slug}/checkout`}
                   className="block text-center px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-semibold"
                 >
-                  Acquista ora
+                  {prodotto.ctaLabel ?? "Acquista ora"}
                 </Link>
               ) : (
                 <Link
@@ -238,7 +239,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                 </Link>
               )}
               <p className="text-xs text-zinc-500 mt-3 text-center">
-                Carta di credito o PayPal. Fattura elettronica automatica.
+                {prodotto.ctaNote ?? "Carta di credito o PayPal. Fattura elettronica automatica."}
               </p>
             </aside>
           </div>
@@ -248,7 +249,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               Come funziona
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold mb-10 font-[family-name:var(--font-heading)]">
-              Dal pagamento alla P.IVA attiva, in 4 passi
+              {prodotto.processTitle ?? "Dal pagamento alla P.IVA attiva, in 4 passi"}
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {prodotto.process.map((step) => (
@@ -348,8 +349,8 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-zinc-900">Scarica la checklist completa (PDF)</p>
-                    <p className="text-xs text-zinc-600">Guida gratuita con tutti i documenti da preparare, stampabile.</p>
+                    <p className="text-sm font-semibold text-zinc-900">Compila la checklist e scaricala (PDF)</p>
+                    <p className="text-xs text-zinc-600">Segna le voci man mano che raccogli i documenti, poi stampa o salva in PDF.</p>
                   </div>
                   <svg className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -359,6 +360,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             </div>
           </section>
 
+          {prodotto.slug !== "dichiarazione-730" && (
           <section className="mb-20 bg-zinc-950 text-white rounded-3xl p-8 sm:p-12">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
               Dopo il pagamento, cosa succede
@@ -410,6 +412,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               ))}
             </ol>
           </section>
+          )}
 
           <section className="mb-20">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">

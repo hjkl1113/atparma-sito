@@ -332,11 +332,11 @@ export default function ArticoloPage() {
               Fare il 730 online con un commercialista e oggi semplice e veloce. Non serve andare in studio, non servono appuntamenti e non servono code. Ecco come funziona con A.T. Consulting Parma:
             </p>
             <ul className="space-y-2 ml-4">
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Acquisti il servizio online</strong> direttamente dal nostro sito, a partire da 50 euro (listino 79)</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Carichi i documenti</strong> nel portale clienti dedicato (CU, spese, documenti immobili)</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Il nostro team verifica tutto:</strong> controlliamo ogni voce, cerchiamo detrazioni mancanti, verifichiamo la coerenza dei dati</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Ti inviamo il riepilogo</strong> con il risultato della dichiarazione (rimborso o debito) prima dell&apos;invio</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Procediamo con l&apos;invio telematico</strong> all&apos;Agenzia delle Entrate e ti consegniamo la ricevuta</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Ti iscrivi al portale</strong> e versi la caparra di 10 euro (totale 50 euro, listino 79)</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Firmi il mandato</strong> digitalmente e carichi i documenti (CU, spese mediche, bonifici edilizi, mutuo)</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Precompilata:</strong> se l&apos;hai gia scaricata con SPID/CIE la carichi direttamente; altrimenti firmi la delega e la scarichiamo noi via Entratel</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Ti inviamo la bozza</strong> con il risultato (rimborso o debito), scegli il 5, 8 e 2 per mille e firmi l&apos;impegno a trasmettere</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Paghi il saldo di 40 euro</strong>: il pagamento sblocca l&apos;invio telematico all&apos;Agenzia delle Entrate, ricevi la ricevuta nel portale</span></li>
             </ul>
             <p className="mt-4">
               Il tutto si completa in 3-5 giorni lavorativi dalla ricezione dei documenti. Se hai domande o dubbi, il nostro team e raggiungibile via email, telefono o dal portale clienti.
