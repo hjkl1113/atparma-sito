@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GuidaPrintActions } from "../print-actions";
+import { GuidaActions } from "../print-actions";
 
 export const metadata: Metadata = {
   title: "Checklist documenti 730 — Guida gratuita | A.T. Consulting Parma",
@@ -98,6 +98,12 @@ const sezioni: { titolo: string; voci: string[] }[] = [
   },
 ];
 
+const INTRO_TESTO =
+  "Tutti i documenti che servono per preparare il 730. Usa questa lista come traccia per raccogliere il materiale prima di iniziare. Se ci affidi il servizio 730 online (50 euro, listino 79), li carichi direttamente nel portale clienti dopo aver firmato il mandato e versato una caparra di 10 euro.";
+
+const AVVERTENZA_TESTO =
+  "Avvertenza. Questa checklist è indicativa e copre le spese più comuni. Casi particolari (successioni, redditi esteri, credito d'imposta) possono richiedere documenti aggiuntivi: chiedi conferma al commercialista prima di inviare.";
+
 export default function GuidaDocumentazione730() {
   return (
     <main className="bg-white min-h-screen print:bg-white">
@@ -112,7 +118,13 @@ export default function GuidaDocumentazione730() {
             </svg>
             Torna al servizio 730
           </Link>
-          <GuidaPrintActions />
+          <GuidaActions
+            titolo="Checklist documenti per la dichiarazione 730"
+            intro={INTRO_TESTO}
+            sezioni={sezioni}
+            avvertenza={AVVERTENZA_TESTO}
+            fileName="checklist-730-atparma.pdf"
+          />
         </div>
 
         <header className="mb-10 pb-6 border-b border-zinc-200">
@@ -122,12 +134,7 @@ export default function GuidaDocumentazione730() {
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 font-[family-name:var(--font-heading)]">
             Checklist documenti per la dichiarazione 730
           </h1>
-          <p className="text-zinc-600 leading-relaxed">
-            Tutti i documenti che servono per preparare il 730. Usa questa lista come
-            traccia per raccogliere il materiale prima di iniziare. Se ci affidi il
-            servizio 730 online (€50, listino €79), li carichi direttamente nel portale clienti
-            dopo aver firmato il mandato e versato una caparra di €10.
-          </p>
+          <p className="text-zinc-600 leading-relaxed">{INTRO_TESTO}</p>
         </header>
 
         <div className="space-y-8 mb-10">
@@ -150,7 +157,7 @@ export default function GuidaDocumentazione730() {
 
         <footer className="pt-6 border-t border-zinc-200 text-xs text-zinc-500 leading-relaxed">
           <p className="mb-2">
-            <strong className="text-zinc-700">Avvertenza.</strong> Questa checklist e
+            <strong className="text-zinc-700">Avvertenza.</strong> Questa checklist è
             indicativa e copre le spese più comuni. Casi particolari (successioni,
             redditi esteri, credito d&apos;imposta) possono richiedere documenti aggiuntivi:
             chiedi conferma al commercialista prima di inviare.

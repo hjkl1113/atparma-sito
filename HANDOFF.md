@@ -52,6 +52,18 @@ Il sito e il portale devono convergere su questa architettura comune:
 3. `pending_product_unlocks` e `commerce_webhook_events` nel portale come foundation
 4. niente WooCommerce nel nuovo flusso
 
+## Prossima Sessione Portale — Architettura Clienti
+
+Decisione approvata: Cliente unico (persona fisica per CF) + profili servizio separati.
+
+- Anagrafica: `Cliente { cf, nome, cognome, email, tel }` con relazione 1:N verso `Profilo<Servizio>` (Profilo730, ProfiloPIVA, ProfiloContabilita).
+- Familiari a carico 730 modellati come altri `Cliente` collegati via relazione `nucleoFamiliare`.
+- Dashboard portale segmentata in tab in base ai profili attivi (un 730-only non vede tab fatture/scadenze P.IVA).
+- Retention differenziata per tipo profilo: 730 = 5 anni, P.IVA = 10 anni.
+- Un freelance con P.IVA che fa anche 730 familiare sta in un solo record `Cliente` con due profili collegati. Zero duplicati.
+
+Non implementare codice portale nel repo sito.
+
 ## File Chiave
 
 1. `app/pricing.tsx`

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GuidaPrintActions } from "../print-actions";
+import { GuidaActions } from "../print-actions";
 
 export const metadata: Metadata = {
   title: "Checklist apertura Partita IVA — Guida gratuita | A.T. Consulting Parma",
@@ -72,6 +72,12 @@ const sezioni: { titolo: string; voci: string[] }[] = [
   },
 ];
 
+const INTRO_TESTO =
+  "Tutto quello che ti serve per aprire la tua Partita IVA con A.T. Consulting Parma. Usa questa lista come traccia per raccogliere il materiale. Se ci affidi l'apertura, li carichi nel portale clienti dopo il pagamento e la procedura si avvia appena abbiamo tutti i pezzi.";
+
+const AVVERTENZA_TESTO =
+  "Avvertenza. Questa checklist copre i casi più comuni. Attività regolate (professioni ordinistiche, commercio alimentare, somministrazione) possono richiedere documenti specifici: il nostro team li verifica caso per caso durante la consulenza iniziale.";
+
 export default function GuidaDocumentazionePIVA() {
   return (
     <main className="bg-white min-h-screen print:bg-white">
@@ -86,7 +92,13 @@ export default function GuidaDocumentazionePIVA() {
             </svg>
             Torna ai servizi
           </Link>
-          <GuidaPrintActions />
+          <GuidaActions
+            titolo="Checklist documenti per l'apertura della Partita IVA"
+            intro={INTRO_TESTO}
+            sezioni={sezioni}
+            avvertenza={AVVERTENZA_TESTO}
+            fileName="checklist-apertura-piva-atparma.pdf"
+          />
         </div>
 
         <header className="mb-10 pb-6 border-b border-zinc-200">
@@ -96,12 +108,7 @@ export default function GuidaDocumentazionePIVA() {
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 font-[family-name:var(--font-heading)]">
             Checklist documenti per l&apos;apertura della Partita IVA
           </h1>
-          <p className="text-zinc-600 leading-relaxed">
-            Tutto quello che ti serve per aprire la tua Partita IVA con A.T. Consulting Parma.
-            Raccogli i documenti di questa checklist: li caricherai nel portale clienti
-            subito dopo il pagamento. La procedura di apertura si avvia appena abbiamo
-            tutti i pezzi.
-          </p>
+          <p className="text-zinc-600 leading-relaxed">{INTRO_TESTO}</p>
         </header>
 
         <div className="space-y-8 mb-10">
