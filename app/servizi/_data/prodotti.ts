@@ -154,7 +154,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Un solo bundle tutto incluso: apriamo la P.IVA forfettario, gestiamo contabilità, fatturazione elettronica e dichiarazione dei redditi per l'intero anno. Dottori commercialisti iscritti all'albo, portale clienti sempre attivo.",
     metaDesc:
-      "P.IVA forfettario + contabilità annuale a 449 euro (listino 549). Apertura, fatturazione elettronica EFAT, dichiarazione redditi, F24 inclusi. Impegno 3 anni. Dottori commercialisti a Parma.",
+      "P.IVA forfettario + contabilità annuale a 449 euro (listino 549). Apertura, fatturazione elettronica EFAT, dichiarazione redditi, F24 inclusi. Rinnovo annuale, prezzo bloccato 3 anni con formula triennale opzionale. Dottori commercialisti a Parma.",
     perChi: [
       "Freelance e professionisti forfettari con ricavi fino a 85.000 euro",
       "Consulenti, designer, sviluppatori, copywriter, traduttori",
@@ -188,8 +188,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Videocall gratuita con un commercialista: scelta ATECO, cassa previdenziale, simulazione imposte personalizzata.",
       },
       {
-        step: "3. Firma mandato triennale",
-        body: "Firmi digitalmente il mandato professionale per 3 anni direttamente dal portale. Zero carta.",
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale nel portale. Scegli tu: annuale (rinnovo tacito, disdetta 60 giorni) oppure triennale con prezzo bloccato 449 euro per tutti e 3 gli anni.",
       },
       {
         step: "4. Pagamento primo anno",
@@ -204,19 +204,19 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Fatturi dal portale (EFAT inclusa), registriamo tutto, calcoliamo F24 e prepariamo la dichiarazione dei redditi. 2 videocall/anno di check.",
       },
       {
-        step: "7. Rinnovo anno 2 e 3",
-        body: "Fattura annuale di rinnovo. Se hai superato 20 fatture/anno ti proponiamo il preventivo aggiornato per il nuovo anno.",
+        step: "7. Rinnovo",
+        body: "Formula annuale: fattura di rinnovo ogni anno, puoi disdire con 60 giorni di preavviso. Formula triennale: prezzo bloccato 449 euro per tutti e 3 gli anni. Oltre 20 fatture/anno: preventivo aggiornato prima del rinnovo, mai a sorpresa.",
       },
     ],
     priceBlurb:
-      "449 euro primo anno, contratto triennale. Paghi solo dopo aver firmato il mandato nel portale.",
+      "449 euro primo anno. Rinnovo annuale con disdetta libera; oppure formula triennale con prezzo bloccato 449 euro per 3 anni. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-forfettario",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 449 euro alla firma del mandato triennale. Fatturazione elettronica automatica.",
+      "Iscrizione portale gratuita. Pagamento 449 euro alla firma del mandato (annuale o triennale). Fatturazione elettronica automatica.",
     closingBlurb:
-      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato triennale e solo a quel punto versi i 449 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
+      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato (annuale o triennale a prezzo bloccato) e solo a quel punto versi i 449 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: true,
     hidePostPaymentSection: true,
@@ -234,12 +234,12 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         a: "Apertura P.IVA forfettaria, consulenza iniziale, iscrizione INPS, contabilità annuale fino a 20 fatture, dichiarazione dei redditi PF, fatturazione elettronica EFAT Ranocchi inclusa il primo anno, F24 calcolati e predisposti, portale clienti e 2 videocall di check nell'anno. Non è un servizio spot di sola apertura: è il commercialista unico per tutto l'anno.",
       },
       {
-        q: "Perché l'impegno è triennale?",
-        a: "Un commercialista forfettario lavora meglio quando segue il cliente su più anni: le scelte fatte all'apertura (ATECO, start-up 5%, cassa) hanno effetti che si vedono sulla dichiarazione dell'anno dopo. Il contratto triennale blocca il prezzo per tre anni e ci permette di offrirti 449 euro invece di un canone più alto o a consumo.",
+        q: "Posso scegliere tra annuale e triennale?",
+        a: "Sì, decidi tu al momento della firma del mandato. Annuale: rinnovo tacito a fine anno, puoi disdire con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 449 euro per tutti e 3 gli anni (garanzia contro aumenti di listino). Stessa copertura di servizio, cambia solo la durata dell'impegno reciproco.",
       },
       {
-        q: "Come si rinnova il secondo e terzo anno?",
-        a: "Automaticamente. A inizio di ogni anno solare riemettiamo la fattura annuale di 449 euro e continuiamo a gestire contabilità e scadenze. Se hai superato 20 fatture nell'anno precedente ti contattiamo con un preventivo maggiorato prima del rinnovo: nessuna sorpresa in fattura.",
+        q: "Come si rinnova dopo il primo anno?",
+        a: "Sul piano annuale: a inizio anno solare riemettiamo la fattura di 449 euro (salvo eventuale aggiornamento listino comunicato 60 giorni prima) e continuiamo a gestire contabilità e scadenze. Sul piano triennale: prezzo bloccato 449 euro, nessun aumento per 3 anni. In entrambi i casi, se superi 20 fatture l'anno precedente ti contattiamo con il preventivo aggiornato prima del rinnovo: nessuna sorpresa in fattura.",
       },
       {
         q: "Cosa succede se supero le 20 fatture nell'anno?",
@@ -333,7 +333,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Qual è la differenza rispetto al bundle Professionista forfettario a 449 euro?",
-        a: "Il bundle Professionista (449 euro primo anno) è pensato per l'attività intellettuale (consulenze, servizi non manuali) e include apertura + contabilità annuale + EFAT + dichiarazione redditi con impegno triennale. L'artigiano/commerciante ha invece attività manuale o di vendita e serve CCIAA + INPS specifica + SIA: cambiano sia la burocrazia sia i costi. Qui paghi una tantum l'apertura, la gestione annuale si concorda a parte.",
+        a: "Il bundle Professionista (449 euro primo anno, rinnovo annuale o triennale a prezzo bloccato) è pensato per l'attività intellettuale (consulenze, servizi non manuali) e include apertura + contabilità annuale + EFAT + dichiarazione redditi. L'artigiano/commerciante ha invece attività manuale o di vendita e serve CCIAA + INPS specifica + SIA: cambiano sia la burocrazia sia i costi. Qui paghi una tantum l'apertura, la gestione annuale si concorda a parte.",
       },
       {
         q: "Posso scegliere il regime forfettario?",

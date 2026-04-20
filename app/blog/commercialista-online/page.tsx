@@ -267,7 +267,7 @@ export default function ArticoloPage() {
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Apertura P.IVA Professionista + contabilità annuale</td>
-                    <td className="py-3 pl-4">Da 449 euro primo anno (bundle, impegno 3 anni)</td>
+                    <td className="py-3 pl-4">Da 449 euro primo anno (bundle, rinnovo annuale o triennale a prezzo bloccato)</td>
                   </tr>
                   <tr className="border-b border-zinc-100">
                     <td className="py-3 pr-4">Gestione annuale forfettario</td>

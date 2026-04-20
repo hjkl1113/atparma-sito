@@ -54,13 +54,15 @@ Il sito e il portale devono convergere su questa architettura comune:
 
 ## Dipendenze Portale — Bundle P.IVA Professionista Forfettario
 
-Il tab sito `/servizi/piva-professionista` ora redirige al portale per l'onboarding del bundle annuale €449 (impegno 3 anni, portale-first). Nel repo portale serve:
+Il tab sito `/servizi/piva-professionista` ora redirige al portale per l'onboarding del bundle €449 primo anno, portale-first. Nessun vincolo triennale imposto: mandato annuale default (rinnovo tacito, disdetta 60gg via PEC) oppure triennale opzionale con prezzo bloccato €449 per 3 anni come incentivo fedeltà.
 
-1. Endpoint `/onboarding/piva-professionista-forfettario` con workflow stateful 7-step (iscrizione → consulenza → mandato triennale → pagamento → apertura → gestione → rinnovo)
-2. Template PDF mandato professionale triennale forfettario + simulazione imposte personalizzata
-3. Firma elettronica remota (Namirial/Aruba) sul mandato
-4. Stripe checkout "€449 primo anno" con `metadata.contratto_triennale=true` e `metadata.service=piva-professionista-forfettario`
-5. Cron rinnovo anni 2 e 3 con controllo volumi fatture: se >20 → alert per rivalutazione preventivo maggiorato prima del rinnovo
+Nel repo portale serve:
+
+1. Endpoint `/onboarding/piva-professionista-forfettario` con workflow stateful 7-step (iscrizione → consulenza → scelta mandato annuale/triennale → pagamento → apertura → gestione → rinnovo)
+2. Due template PDF mandato professionale forfettario: annuale + triennale con clausola price-lock €449
+3. Firma elettronica remota (Namirial/Aruba) sul mandato scelto
+4. Stripe checkout "€449 primo anno" con `metadata.durata=annuale|triennale` e `metadata.service=piva-professionista-forfettario`
+5. Cron rinnovo: su piano annuale fattura €449 + eventuale aggiornamento listino con preavviso 60gg; su piano triennale fattura €449 bloccata. Entrambi con controllo volumi fatture: se >20 → alert per preventivo maggiorato prima del rinnovo
 6. Integrazione EFAT Ranocchi: onboarding automatico (anagrafica, logo, SDI) post-firma mandato
 7. Archivio documenti 10 anni nel portale + scadenzario contabile popolato automaticamente
 

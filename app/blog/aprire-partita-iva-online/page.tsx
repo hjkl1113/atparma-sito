@@ -313,7 +313,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Supporto continuativo</strong> — Rimaniamo a disposizione per dubbi, scadenze e adempimenti successivi</span></li>
             </ul>
             <p className="mt-4">
-              Il bundle Professionista forfettario (apertura + contabilità annuale + EFAT + dichiarazione redditi) parte da <strong>449 euro primo anno</strong> con impegno triennale. L&apos;apertura si completa in 2-5 giorni lavorativi dalla firma del mandato.
+              Il bundle Professionista forfettario (apertura + contabilità annuale + EFAT + dichiarazione redditi) parte da <strong>449 euro primo anno</strong>, rinnovo annuale o triennale a prezzo bloccato. L&apos;apertura si completa in 2-5 giorni lavorativi dalla firma del mandato.
             </p>
 
             {/* Link interni */}

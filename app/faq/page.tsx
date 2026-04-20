@@ -35,7 +35,7 @@ const faqs = [
     items: [
       {
         q: "Quanto costa aprire una Partita IVA?",
-        a: "L'apertura della Partita IVA presso l'Agenzia delle Entrate e gratuita. Il nostro bundle Professionista forfettario (apertura + contabilità annuale fino a 20 fatture + EFAT + dichiarazione redditi) parte da 449 euro primo anno con impegno triennale. Per artigiani/commercianti e forfettario solo-apertura abbiamo pacchetti dedicati a 690 euro. Vedi la sezione Servizi per scegliere.",
+        a: "L'apertura della Partita IVA presso l'Agenzia delle Entrate e gratuita. Il nostro bundle Professionista forfettario (apertura + contabilità annuale fino a 20 fatture + EFAT + dichiarazione redditi) parte da 449 euro primo anno: rinnovo annuale con disdetta libera, oppure formula triennale con prezzo bloccato per 3 anni. Per artigiani/commercianti e forfettario solo-apertura abbiamo pacchetti dedicati a 690 euro. Vedi la sezione Servizi per scegliere.",
       },
       {
         q: "Posso aprire la Partita IVA online?",
