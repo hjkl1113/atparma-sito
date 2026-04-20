@@ -184,8 +184,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
       },
       {
-        step: "2. Consulenza iniziale",
-        body: "Videocall gratuita con un commercialista: scelta ATECO, cassa previdenziale, simulazione imposte personalizzata.",
+        step: "2. Consulenza iniziale (opzionale)",
+        body: "Se preferisci, videocall gratuita con un commercialista per scelta ATECO, cassa previdenziale e simulazione imposte personalizzata. Puoi anche saltare questo passaggio se hai già le idee chiare.",
       },
       {
         step: "3. Firma del mandato",

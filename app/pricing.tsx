@@ -12,11 +12,11 @@ export function Pricing() {
       .then((r) => r.json())
       .then((data: Servizio[]) => {
         if (!Array.isArray(data)) return;
-        const slugById = new Map(DEFAULT_PREZZI.map((s) => [s.id, s.slug]));
-        const merged = data.map((s) => {
-          const slug = s.slug ?? slugById.get(s.id);
-          return slug ? { ...s, slug } : s;
-        });
+        const activeById = new Map(data.map((s) => [s.id, s.active]));
+        const merged = DEFAULT_PREZZI.map((s) => ({
+          ...s,
+          active: activeById.get(s.id) ?? s.active,
+        }));
         setPrezzi(merged);
       })
       .catch(() => {});
