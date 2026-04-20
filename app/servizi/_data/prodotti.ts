@@ -852,9 +852,18 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
 };
 
 export function getProdotto(slug: string): ProdottoServizio | undefined {
+  if (SLUG_ARCHIVIATI.has(slug)) return undefined;
   return PRODOTTI[slug];
 }
 
+/** Slug archiviati (prodotti rimossi dal listino attivo). Non generati in
+ *  static params e non accessibili via /servizi/[slug]. Redirect 301
+ *  configurato in next.config.ts. */
+const SLUG_ARCHIVIATI = new Set<string>([
+  "piva-forfettario",
+  "piva-forfettario-efat",
+]);
+
 export function getAllProdotti(): ProdottoServizio[] {
-  return Object.values(PRODOTTI);
+  return Object.values(PRODOTTI).filter((p) => !SLUG_ARCHIVIATI.has(p.slug));
 }

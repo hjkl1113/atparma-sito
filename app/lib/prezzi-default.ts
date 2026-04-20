@@ -64,21 +64,25 @@ export const DEFAULT_PREZZI: Servizio[] = [
     slug: "piva-artigiano-commerciante-semplificato",
   },
   {
+    // ARCHIVIATO 2026-04-21: sostituito dal bundle piva-prof (apertura + contabilità annuale).
+    // Lasciato con active:false per storico. Redirect 301 configurato in next.config.ts.
     id: "piva-forf",
     title: "P.IVA Forfettario",
     desc: "Apertura Partita IVA forfettaria con caricamento documenti tramite portale clienti.",
     price: 690,
     originalPrice: null,
-    active: true,
+    active: false,
     slug: "piva-forfettario",
   },
   {
+    // ARCHIVIATO 2026-04-21: sostituito dal bundle piva-prof (apertura + contabilità annuale + EFAT).
+    // Lasciato con active:false per storico. Redirect 301 configurato in next.config.ts.
     id: "piva-forf-gis",
     title: "P.IVA Forfettario + EFAT",
     desc: "Apertura + fatturazione elettronica GIS Ranocchi EFAT inclusa per un anno.",
     price: 750,
     originalPrice: null,
-    active: true,
+    active: false,
     slug: "piva-forfettario-efat",
   },
   {
