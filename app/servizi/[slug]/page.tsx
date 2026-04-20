@@ -521,7 +521,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   Richiedi preventivo
                 </Link>
               )}
-              {prodotto.showForfettarioCalculator !== false && (
+              {prodotto.showForfettarioCalculator !== false && !prodotto.calculatorHeroBanner && (
                 <Link
                   href="/calcolatori/forfettario"
                   className="px-8 py-4 border border-zinc-300 text-zinc-700 font-medium rounded-lg hover:bg-white transition-colors"
