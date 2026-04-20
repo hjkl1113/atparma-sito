@@ -24,7 +24,7 @@ Prezzi mappati da `app/lib/prezzi-default.ts` (fonte canonica).
 | # | Servizio | Prezzo attuale | Stato |
 |---|---|---|---|
 | 1 | Apertura P.IVA Professionista (no CCIAA) | **€199** | A listino |
-| 2 | Apertura P.IVA Artigiano/Commerciante (CCIAA + SCIA + INPS) | **€690** | A listino |
+| 2 | Apertura P.IVA Artigiano/Commerciante (CCIAA + SIA camerale + INPS) | **€690** | A listino |
 | 3 | Apertura P.IVA Forfettario (base) | **€690** | A listino |
 | 4 | P.IVA Forfettario + Fatturazione elettronica (EFAT GIS Ranocchi) | **€750** | A listino |
 | 5 | Dichiarazione 730 online | **€50 scontato da €79** (-37%) | A listino |

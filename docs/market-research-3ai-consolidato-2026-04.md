@@ -61,7 +61,7 @@
 - Mediana: **~€600**
 - Se Qwen verificato su Il Commercialista Online (€97+diritti) → esiste fascia ultra-low cost
 
-**Posizione AT Parma €690**: allineato fascia alta-premium (Fiscozen €799, Gemini top €750). **Difendibile** se la comunicazione evidenzia cosa include davvero (SCIA, SUAP, consulenza codice ATECO, gestione INPS artigiani dedicata).
+**Posizione AT Parma €690**: allineato fascia alta-premium (Fiscozen €799, Gemini top €750). **Difendibile** se la comunicazione evidenzia cosa include davvero (SIA iscrizione Albo Imprese Artigiane camerale, gestione SUAP base, consulenza codice ATECO, gestione INPS artigiani dedicata). SCIA comunale per attività regolate resta preventivo separato.
 
 ---
 

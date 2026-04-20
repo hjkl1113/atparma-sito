@@ -99,15 +99,20 @@ Sweet spot perfetto. Sopra il €39 CAF online (il cliente percepisce maggior va
 **Posizione AT Parma a €690**: allineato-alto ma difendibile. Siamo sopra la fascia digitale lean (€476-650 FlexTax/Fido/Quickfisco) ma vicini a Fiscozen (€799 con apertura + annuale).
 
 **Condizione per restare competitivi**: il prezzo regge solo se la comunicazione evidenzia che AT Parma **include realmente**:
-- Apertura P.IVA + CCIAA ComUnica + SCIA al SUAP/Comune (quando serve)
+- Apertura P.IVA + CCIAA ComUnica + SIA (iscrizione Albo Imprese Artigiane)
 - Iscrizione INPS artigiani/commercianti (gestione dedicata)
+- Gestione pratiche SUAP base
 - Consulenza codice ATECO artigianale/commerciale
 - Portale clienti 12 mesi
 - Simulazione contributi INPS
 
+**Non incluso nel €690** (preventivo separato): SCIA al Comune/SUAP per
+attività regolate (esercizio pubblico, estetista, parrucchiere,
+alimentaristi, ecc.), autorizzazioni ASL, HACCP.
+
 Oggi la pagina `/servizi/piva-artigiano-commerciante` elenca bene questi punti. ✅ Nessun cambio.
 
-**Decisione**: TENERE €690, migliorare solo copy della pagina prodotto per evidenziare "cosa NON include chi costa meno" (es. chi chiede €365 + €285 = €650 non fa SCIA, non fa consulenza codice ATECO).
+**Decisione**: TENERE €690, migliorare solo copy della pagina prodotto per evidenziare "cosa NON include chi costa meno" (es. chi chiede €365 + €285 = €650 non fa SIA camerale, non fa consulenza codice ATECO, non gestisce SUAP).
 
 **Azione**: revisione copy pagina prodotto, no cambio prezzo.
 
