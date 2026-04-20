@@ -95,7 +95,14 @@ export default function ServiziPage() {
                     <p className="text-zinc-600 text-sm leading-relaxed flex-1 mb-4">{p.desc}</p>
                     <div className="flex items-baseline justify-between">
                       <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
-                        {p.price !== null ? `€${p.price}` : "A preventivo"}
+                        {p.price !== null ? (
+                          <>
+                            €{p.price}
+                            <span className="ml-1 text-xs font-normal text-zinc-500">IVA incl.</span>
+                          </>
+                        ) : (
+                          "A preventivo"
+                        )}
                       </span>
                       {isLinkable ? (
                         <span className="text-xs text-[var(--color-accent)] font-medium inline-flex items-center gap-1">

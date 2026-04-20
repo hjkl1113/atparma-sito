@@ -110,9 +110,12 @@ export default async function CheckoutPage({
               </div>
               <div className="flex items-baseline justify-between pt-5">
                 <span className="text-sm font-semibold">Totale</span>
-                <span className="text-2xl font-bold font-[family-name:var(--font-heading)]">
-                  €{price}
-                </span>
+                <div className="text-right">
+                  <span className="text-2xl font-bold font-[family-name:var(--font-heading)]">
+                    €{price}
+                  </span>
+                  <p className="text-xs text-zinc-500">IVA inclusa</p>
+                </div>
               </div>
 
               <div className="mt-6 pt-6 border-t border-zinc-100 space-y-2">

@@ -474,6 +474,9 @@ function StepRisultato({
             valore={`da ${fmt(servizio.contabilitaAnnualeDa)}/anno`}
           />
         </div>
+        <p className="mt-3 text-xs text-zinc-500">
+          Prezzi IVA inclusa.
+        </p>
       </section>
 
       {/* Tributi e diritti pubblici */}
@@ -518,7 +521,8 @@ function StepRisultato({
           {fmt(totalePrimoAnno.min)} – {fmt(totalePrimoAnno.max)}
         </p>
         <p className="text-xs text-zinc-400 mt-2">
-          Include servizio AT Parma (apertura + 1 anno contabilità) + tributi e diritti pubblici
+          Onorario AT Parma IVA inclusa + tributi e diritti pubblici (dovuti agli enti,
+          non soggetti a IVA). Gli importi esatti saranno indicati nella bozza di mandato.
         </p>
       </section>
 

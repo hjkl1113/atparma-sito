@@ -235,12 +235,15 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium mb-2">
                 Prezzo chiaro, tutto incluso
               </p>
-              <div className="flex items-baseline gap-2 mb-4">
+              <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-4xl font-bold font-[family-name:var(--font-heading)]">
                   {price !== null ? `€${price}` : "A preventivo"}
                 </span>
                 {price !== null && <span className="text-sm text-zinc-500">{prodotto.priceSuffix ?? "una tantum"}</span>}
               </div>
+              {price !== null && (
+                <p className="text-xs text-zinc-500 mb-4">IVA inclusa</p>
+              )}
               <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
                 {prodotto.priceBlurb ??
                   "Apertura + consulenza iniziale + 12 mesi di portale clienti. Niente canoni nascosti."}

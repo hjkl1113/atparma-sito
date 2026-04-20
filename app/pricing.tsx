@@ -63,6 +63,7 @@ export function Pricing() {
                     <span className="text-3xl font-bold font-[family-name:var(--font-heading)]">
                       &euro;{p.price}
                     </span>
+                    <span className="ml-2 text-xs text-zinc-500">IVA inclusa</span>
                   </div>
                 ) : (
                   <span className="text-lg font-medium text-zinc-500">A preventivo</span>
