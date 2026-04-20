@@ -111,7 +111,7 @@ completo (non solo apertura AE):
 - CommercialistaOnline
 - IoApro
 - studi commercialisti online che offrono il pacchetto completo
-  CCIAA+INPS+SCIA
+  CCIAA+INPS+SIA camerale (+ eventuale SCIA comunale)
 
 Per ogni competitor:
 
