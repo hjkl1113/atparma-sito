@@ -449,16 +449,16 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               Pronto a partire?
             </h2>
             <p className="text-zinc-600 text-sm mb-8 max-w-xl mx-auto leading-relaxed">
-              Paghi ora, ricevi subito le credenziali del portale e carichi i documenti quando
-              vuoi. La tua P.IVA attiva {prodotto.deliveryDays}.
+              {prodotto.closingBlurb ??
+                `Paghi ora, ricevi subito le credenziali del portale e carichi i documenti quando vuoi. La tua P.IVA attiva ${prodotto.deliveryDays}.`}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               {price !== null ? (
                 <Link
-                  href={`/servizi/${prodotto.slug}/checkout`}
+                  href={prodotto.ctaHref ?? `/servizi/${prodotto.slug}/checkout`}
                   className="px-8 py-4 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors"
                 >
-                  Acquista a €{price}
+                  {prodotto.closingCtaLabel ?? `Acquista a €${price}`}
                 </Link>
               ) : (
                 <Link
@@ -468,12 +468,14 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   Richiedi preventivo
                 </Link>
               )}
-              <Link
-                href="/calcolatori/forfettario"
-                className="px-8 py-4 border border-zinc-300 text-zinc-700 font-medium rounded-lg hover:bg-white transition-colors"
-              >
-                Prima simula col calcolatore
-              </Link>
+              {prodotto.showForfettarioCalculator !== false && (
+                <Link
+                  href="/calcolatori/forfettario"
+                  className="px-8 py-4 border border-zinc-300 text-zinc-700 font-medium rounded-lg hover:bg-white transition-colors"
+                >
+                  Prima simula col calcolatore
+                </Link>
+              )}
             </div>
           </section>
         </div>

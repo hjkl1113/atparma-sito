@@ -13,6 +13,9 @@ export interface ProdottoServizio {
   ctaLabel?: string;
   ctaHref?: string;
   ctaNote?: string;
+  closingBlurb?: string;
+  closingCtaLabel?: string;
+  showForfettarioCalculator?: boolean;
   docs: string[];
   deliveryDays: string;
   faqs: { q: string; a: string }[];
@@ -85,6 +88,10 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ctaHref: "https://at-parma.vercel.app/onboarding/730",
     ctaNote:
       "Caparra 10 euro via Stripe o PayPal. Saldo dopo la validazione della bozza. Fattura elettronica automatica.",
+    closingBlurb:
+      "Iscriviti al portale e versa la caparra di 10 euro. Carichi i documenti quando vuoi, ti mostriamo la bozza e solo dopo la tua validazione versi i 40 euro di saldo per sbloccare l'invio. 730 trasmesso in 7-10 giorni lavorativi dalla consegna completa.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: false,
     docs: [
       "Certificazione Unica (CU) del datore di lavoro o INPS",
       "Tessera sanitaria / codice fiscale (tuo e familiari a carico)",
