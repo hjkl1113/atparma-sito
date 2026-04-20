@@ -201,7 +201,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "6. Gestione annuale",
-        body: "Fatturi dal portale (EFAT inclusa), registriamo tutto, calcoliamo F24 e prepariamo la dichiarazione dei redditi. 2 videocall/anno di check.",
+        body: "Fatturi tu direttamente da EFAT (inclusa il primo anno, self-serve). Registriamo tutto, calcoliamo F24 e prepariamo la dichiarazione dei redditi. 2 videocall/anno di check. Add-on opzionale: fatturazione assistita +99 euro/anno, crei la proforma dal portale e la segreteria invia allo SdI per te.",
       },
       {
         step: "7. Rinnovo",
@@ -209,7 +209,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     priceBlurb:
-      "449 euro primo anno. Rinnovo annuale con disdetta libera; oppure formula triennale con prezzo bloccato 449 euro per 3 anni. Paghi solo dopo aver firmato il mandato nel portale.",
+      "449 euro primo anno. Rinnovo annuale con disdetta libera, oppure triennale con prezzo bloccato 449 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-forfettario",
@@ -251,7 +251,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "La fatturazione elettronica EFAT è davvero inclusa?",
-        a: "Sì, il primo anno è inclusa nel prezzo (valore listino 50 euro/anno). Usiamo EFAT Ranocchi, lo stesso sistema che usiamo in studio: emetti fatture dal portale, vanno allo SdI in automatico. Dal secondo anno la rinnovate insieme al bundle.",
+        a: "Sì, il primo anno è inclusa nel prezzo (valore listino ~50 euro/anno). Usiamo EFAT Ranocchi: fatturi tu direttamente dal portale EFAT, la fattura va allo SdI. Dal secondo anno la licenza EFAT si rinnova insieme al bundle. Se non vuoi occuparti dell'invio, c'è l'add-on fatturazione assistita a 99 euro/anno (vedi domanda successiva).",
+      },
+      {
+        q: "Cos'è la fatturazione assistita (add-on +99 euro/anno)?",
+        a: "Add-on opzionale per chi non vuole occuparsi personalmente della fatturazione elettronica. Crei la proforma dal portale clienti.atparma.com in 30 secondi (cliente, articoli, aliquota) e la nostra segreteria la trasforma in fattura elettronica e la invia allo SdI entro il giorno lavorativo successivo. Fino a 20 fatture/anno incluse, poi preventivo. Attivabile in qualsiasi momento dal portale, pagamento contestuale al bundle annuale.",
       },
       {
         q: "Faccio anche il 730 per dipendenti di famiglia?",

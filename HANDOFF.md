@@ -63,8 +63,10 @@ Nel repo portale serve:
 3. Firma elettronica remota (Namirial/Aruba) sul mandato scelto
 4. Stripe checkout "€449 primo anno" con `metadata.durata=annuale|triennale` e `metadata.service=piva-professionista-forfettario`
 5. Cron rinnovo: su piano annuale fattura €449 + eventuale aggiornamento listino con preavviso 60gg; su piano triennale fattura €449 bloccata. Entrambi con controllo volumi fatture: se >20 → alert per preventivo maggiorato prima del rinnovo
-6. Integrazione EFAT Ranocchi: onboarding automatico (anagrafica, logo, SDI) post-firma mandato
+6. Integrazione EFAT Ranocchi: onboarding automatico (anagrafica, logo, SDI) post-firma mandato. Cliente fattura direttamente da EFAT (self-serve) salvo attivi l'add-on fatturazione assistita
 7. Archivio documenti 10 anni nel portale + scadenzario contabile popolato automaticamente
+8. **Add-on fatturazione assistita (+€99/anno)**: UI nel portale per creare proforma (cliente, articoli, aliquote, bolli) → output PDF + XML FatturaPA → notifica alla segreteria → segreteria rivede e invia allo SdI via EFAT (flusso semi-manuale MVP, stimato 30-60s per fattura). Fino a 20 fatture/anno incluse nell'add-on, oltre preventivo. Opt-in dal portale, pagamento contestuale al rinnovo bundle
+9. **Da verificare con Ranocchi prima di go-live portale**: esistenza API EFAT per auto-invio SdI (eliminerebbe touch manuale segreteria). Alternativa se API assenti: intermediario SdI diretto (Aruba Fatture PA, Acube, Fattura24) con EFAT come solo archivio
 
 Non chiudere il flusso sito finché questi step portale non sono online (oggi il link punta già al portale, ma l'endpoint onboarding deve esistere entro go-live).
 
