@@ -220,6 +220,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato (annuale o triennale a prezzo bloccato) e solo a quel punto versi i 449 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: true,
+    calculatorHeroBanner: true,
     hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
