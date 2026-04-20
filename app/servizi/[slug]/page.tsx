@@ -265,6 +265,38 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             </aside>
           </div>
 
+          {prodotto.calculatorHeroBanner && (
+            <section className="mb-20 bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)] rounded-3xl p-8 sm:p-10 text-white">
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m-6 4h6m-6 4h4m-9 4h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs tracking-[0.2em] uppercase text-white/80 font-medium mb-2">
+                    Prima di acquistare
+                  </p>
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-3 font-[family-name:var(--font-heading)]">
+                    Verifica se il forfettario ti conviene davvero
+                  </h2>
+                  <p className="text-white/90 leading-relaxed mb-5 max-w-2xl">
+                    In 30 secondi simuli imposte nette, contributi INPS e reddito annuale con il tuo fatturato e codice ATECO. Così acquisti con i numeri in mano, non a scatola chiusa.
+                  </p>
+                  <Link
+                    href="/calcolatori/forfettario"
+                    className="inline-flex items-center gap-2 bg-white text-[var(--color-accent)] font-semibold rounded-lg px-6 py-3 hover:bg-white/95 transition-colors"
+                  >
+                    Apri il calcolatore forfettario
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          )}
+
           <section className="mb-20">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
               Come funziona

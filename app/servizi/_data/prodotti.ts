@@ -17,6 +17,7 @@ export interface ProdottoServizio {
   closingBlurb?: string;
   closingCtaLabel?: string;
   showForfettarioCalculator?: boolean;
+  calculatorHeroBanner?: boolean;
   hidePostPaymentSection?: boolean;
   docs: string[];
   deliveryDays: string;
@@ -401,6 +402,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Entro 5 giorni lavorativi la tua P.IVA e attiva. Ricevi tutti i documenti sul portale con il calendario scadenze già impostato.",
       },
     ],
+    calculatorHeroBanner: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale (tessera sanitaria)",
