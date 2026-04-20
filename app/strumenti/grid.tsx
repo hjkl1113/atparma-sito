@@ -60,6 +60,15 @@ const TOOLS: ToolItem[] = [
     pubblico: ["libero-professionista", "commercialista"],
     icon: "S",
   },
+  {
+    titolo: "Preventivo P.IVA artigiano/commerciante",
+    href: "/strumenti/preventivo-artigiano-commerciante",
+    descrizione:
+      "Stima indicativa in 5 step: onorario studio + costi vivi (CCIAA, SIA, SCIA, USL, HACCP). Trasparenza totale, offerta puntuale via mandato.",
+    tag: "Preventivo P.IVA",
+    pubblico: ["privato", "libero-professionista"],
+    icon: "PA",
+  },
 ];
 
 const FILTRI: { id: Pubblico | "tutti"; label: string }[] = [
