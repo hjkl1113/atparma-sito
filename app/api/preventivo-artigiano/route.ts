@@ -142,8 +142,8 @@ export async function POST(request: Request) {
             ${fmt(totale.min)} – ${fmt(totale.max)}
           </p>
           <p style="margin:8px 0 0;font-size:12px;color:#6b7280;">
-            Include onorario AT Parma (apertura + 1 anno contabilità) + costi vivi
-            verso enti terzi (CCIAA, bolli, eventuali SCIA/USL).
+            Include onorario AT Parma (apertura + 1 anno contabilità) + tributi e
+            diritti pubblici verso gli enti competenti (CCIAA, bolli, eventuali SCIA/USL).
           </p>
         </div>
 

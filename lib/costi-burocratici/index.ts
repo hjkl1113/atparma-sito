@@ -52,11 +52,11 @@ export interface RisultatoPreventivo {
     contabilitaAnnualeDa: number;
     regimeLabel: string;
   };
-  /** Elenco voci costi vivi applicabili */
+  /** Elenco voci tributi e diritti pubblici applicabili */
   costiVivi: VoceOutput[];
-  /** Totale costi vivi (min, max) */
+  /** Totale tributi e diritti pubblici (min, max) */
   totaleCostiVivi: { min: number; max: number };
-  /** Totale primo anno completo: servizio AT Parma + costi vivi */
+  /** Totale primo anno completo: servizio AT Parma + tributi e diritti pubblici */
   totalePrimoAnno: { min: number; max: number };
   /** Info INPS da comunicare separatamente al cliente */
   contributiINPS: {
@@ -81,7 +81,7 @@ export function calcolaPreventivo(input: InputPreventivo): RisultatoPreventivo {
     ? "Contabilità forfettario"
     : "Contabilità semplificata/ordinaria";
 
-  // Costi vivi — sempre presenti
+  // Tributi e diritti pubblici — voci sempre presenti
   const costiVivi: VoceOutput[] = [];
 
   // CCIAA bolli + diritti
@@ -164,14 +164,14 @@ export function calcolaPreventivo(input: InputPreventivo): RisultatoPreventivo {
 
   // Disclaimer
   const disclaimer: string[] = [
-    "Stima indicativa basata su dati pubblici 2026. I costi effettivi verranno comunicati in consulenza e via mandato puntuale.",
-    "I costi vivi sono pagati direttamente agli enti (CCIAA, Comune, USL, INPS), non allo studio.",
-    "I costi vivi possono variare da provincia a provincia e da Comune a Comune, in base ai tariffari degli enti pubblici coinvolti (Camera di Commercio, SUAP/Comune, USL, Regione). Il range mostrato riflette le variazioni tipiche.",
+    "Stima indicativa basata su dati pubblici 2026. Gli importi esatti saranno indicati in sede di invio della bozza di mandato.",
+    "I tributi e diritti pubblici sono pagati direttamente agli enti competenti (CCIAA, Comune, USL, INPS), non allo studio.",
+    "Gli importi possono variare da provincia a provincia e da Comune a Comune, in base ai tariffari degli enti pubblici coinvolti (Camera di Commercio, SUAP/Comune, USL, Regione). Il range mostrato riflette le variazioni tipiche.",
   ];
 
   if (provincia) {
     disclaimer.push(
-      `Per la provincia di ${provincia.toUpperCase()} l'importo esatto dei diritti CCIAA e di eventuali SCIA comunali verrà verificato in consulenza.`,
+      `Per la provincia di ${provincia.toUpperCase()} l'importo esatto dei diritti CCIAA e di eventuali SCIA comunali sarà indicato nella bozza di mandato.`,
     );
   }
 

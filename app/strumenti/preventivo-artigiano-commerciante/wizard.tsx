@@ -335,7 +335,7 @@ function StepCaratteristiche({
         Caratteristiche della tua attività
       </h2>
       <p className="text-sm text-zinc-600 mb-6">
-        Seleziona tutte le opzioni che si applicano. Incidono sui costi vivi di apertura.
+        Seleziona tutte le opzioni che si applicano. Incidono sui tributi e diritti pubblici di apertura.
       </p>
 
       <div className="space-y-3">
@@ -476,14 +476,15 @@ function StepRisultato({
         </div>
       </section>
 
-      {/* Costi vivi */}
+      {/* Tributi e diritti pubblici */}
       <section className="mb-6 p-5 bg-white rounded-xl border border-zinc-200">
         <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-700 mb-1">
-          Costi vivi (paghi direttamente agli enti)
+          Tributi e diritti pubblici
         </h3>
         <p className="text-xs text-zinc-500 mb-4">
-          Questi importi NON sono onorario dello studio: li paghi a CCIAA,
-          Comune, USL e altri enti competenti.
+          Importi dovuti direttamente agli enti competenti (CCIAA, Comune, USL
+          e altri), non allo studio. Gli importi esatti saranno indicati nella
+          bozza di mandato.
         </p>
         <div className="space-y-2 text-sm text-zinc-700">
           {costiVivi.map((v) => (
@@ -499,7 +500,7 @@ function StepRisultato({
           ))}
         </div>
         <div className="mt-4 pt-3 border-t border-zinc-200 flex items-baseline justify-between text-sm font-semibold">
-          <span>Totale costi vivi</span>
+          <span>Totale tributi e diritti pubblici</span>
           <span>
             {totaleCostiVivi.min === totaleCostiVivi.max
               ? fmt(totaleCostiVivi.min)
@@ -517,7 +518,7 @@ function StepRisultato({
           {fmt(totalePrimoAnno.min)} – {fmt(totalePrimoAnno.max)}
         </p>
         <p className="text-xs text-zinc-400 mt-2">
-          Include servizio AT Parma (apertura + 1 anno contabilità) + costi vivi
+          Include servizio AT Parma (apertura + 1 anno contabilità) + tributi e diritti pubblici
         </p>
       </section>
 

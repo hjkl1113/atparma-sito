@@ -6,12 +6,12 @@ import { PreventivoWizard } from "./wizard";
 export const metadata: Metadata = {
   title: "Preventivo apertura P.IVA artigiano o commerciante | A.T. Consulting Parma",
   description:
-    "Calcola in 2 minuti il preventivo indicativo per aprire P.IVA artigiano o commerciante in Italia nel 2026. Onorario studio + costi vivi CCIAA, SIA, SCIA, USL. Stima trasparente, offerta puntuale via mandato.",
+    "Calcola in 2 minuti il preventivo indicativo per aprire P.IVA artigiano o commerciante in Italia nel 2026. Onorario studio + tributi e diritti pubblici (CCIAA, SIA, SCIA, USL). Stima trasparente, offerta puntuale via mandato.",
   alternates: { canonical: "/strumenti/preventivo-artigiano-commerciante" },
   openGraph: {
     title: "Quanto costa aprire P.IVA artigiano o commerciante nel 2026",
     description:
-      "Preventivo indicativo onorario + costi vivi (CCIAA, bolli, SIA, SCIA, USL). Trasparenza totale, offerta puntuale via mandato digitale.",
+      "Preventivo indicativo onorario + tributi e diritti pubblici (CCIAA, bolli, SIA, SCIA, USL). Trasparenza totale, offerta puntuale via mandato digitale.",
     url: "https://www.atparma.com/strumenti/preventivo-artigiano-commerciante",
     type: "website",
   },
@@ -33,10 +33,10 @@ export default function PreventivoArtigianoPage() {
             </h1>
             <p className="text-zinc-600 leading-relaxed text-lg">
               In 5 step calcoli il preventivo indicativo per l&apos;apertura: onorario
-              A.T. Consulting Parma + <strong>tutti i costi vivi</strong>{" "}
-              (diritti CCIAA, bolli, SIA camerale, SCIA comunale se applicabile,
-              USL per attività alimentari). Trasparenza totale. L&apos;offerta
-              puntuale arriva poi via mandato digitale.
+              A.T. Consulting Parma + <strong>tributi e diritti pubblici</strong>{" "}
+              (CCIAA, bolli ComUnica, SIA camerale, SCIA comunale se applicabile,
+              USL/HACCP per attività alimentari). Gli importi esatti saranno
+              indicati in sede di invio della bozza di mandato.
             </p>
           </div>
 

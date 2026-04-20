@@ -64,7 +64,7 @@ const TOOLS: ToolItem[] = [
     titolo: "Preventivo P.IVA artigiano/commerciante",
     href: "/strumenti/preventivo-artigiano-commerciante",
     descrizione:
-      "Stima indicativa in 5 step: onorario studio + costi vivi (CCIAA, SIA, SCIA, USL, HACCP). Trasparenza totale, offerta puntuale via mandato.",
+      "Stima indicativa in 5 step: onorario studio + tributi e diritti pubblici (CCIAA, SIA, SCIA, USL, HACCP). Trasparenza totale, offerta puntuale via mandato.",
     tag: "Preventivo P.IVA",
     pubblico: ["privato", "libero-professionista"],
     icon: "PA",
