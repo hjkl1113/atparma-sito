@@ -20,7 +20,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
   },
   {
     id: "piva-prof",
-    title: "P.IVA Professionista forfettario + contabilita",
+    title: "Apertura P.IVA Professionista forfettario + contabilita annuale",
     desc: "Apertura P.IVA forfettario + contabilita annuale fino a 20 fatture + dichiarazione redditi + EFAT. Rinnovo annuale, prezzo bloccato 3 anni se scegli la formula triennale.",
     price: 449,
     originalPrice: 549,
