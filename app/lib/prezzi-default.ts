@@ -64,6 +64,42 @@ export const DEFAULT_PREZZI: Servizio[] = [
     slug: "piva-artigiano-commerciante-semplificato",
   },
   {
+    id: "cont-prof-forf",
+    title: "Contabilita annuale P.IVA Professionista forfettario",
+    desc: "Gestione contabile annuale per chi ha gia aperto P.IVA forfettaria e vuole cambiare commercialista. Fino a 20 fatture, redditi PF, EFAT inclusa. Rinnovo annuale.",
+    price: 349,
+    originalPrice: null,
+    active: true,
+    slug: "contabilita-professionista-forfettario",
+  },
+  {
+    id: "cont-prof-semp",
+    title: "Contabilita annuale P.IVA Professionista semplificata",
+    desc: "Gestione contabile annuale con IVA periodica e redditi PF per chi ha gia P.IVA in regime semplificato o ordinario. EFAT inclusa. Rinnovo annuale.",
+    price: 899,
+    originalPrice: null,
+    active: true,
+    slug: "contabilita-professionista-semplificata",
+  },
+  {
+    id: "cont-art-forf",
+    title: "Contabilita annuale P.IVA Artigiano/Commerciante forfettario",
+    desc: "Gestione contabile forfettaria + INPS artigiani/commercianti + adempimenti CCIAA annuali + redditi PF + EFAT. Per chi ha gia P.IVA attiva. Rinnovo annuale.",
+    price: 599,
+    originalPrice: null,
+    active: true,
+    slug: "contabilita-artigiano-forfettario",
+  },
+  {
+    id: "cont-art-semp",
+    title: "Contabilita annuale P.IVA Artigiano/Commerciante semplificata",
+    desc: "Gestione contabile semplificata/ordinaria + IVA periodica + INPS artigiani + CCIAA + redditi PF + EFAT. Per chi ha gia P.IVA oltre 85.000 euro. Rinnovo annuale.",
+    price: 1190,
+    originalPrice: null,
+    active: true,
+    slug: "contabilita-artigiano-semplificata",
+  },
+  {
     // ARCHIVIATO 2026-04-21: sostituito dal bundle piva-prof (apertura + contabilità annuale).
     // Lasciato con active:false per storico. Redirect 301 configurato in next.config.ts.
     id: "piva-forf",

@@ -19,6 +19,10 @@ const AUTORE_PER_SLUG: Record<string, Autore> = {
   "piva-artigiano-commerciante": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-artigiano-commerciante-forfettario": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-artigiano-commerciante-semplificato": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
+  "contabilita-professionista-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "contabilita-professionista-semplificata": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "contabilita-artigiano-forfettario": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
+  "contabilita-artigiano-semplificata": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
 };
 
 const ULTIMA_REVISIONE = "2026-04-19";

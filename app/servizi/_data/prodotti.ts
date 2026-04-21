@@ -849,6 +849,446 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
   },
+  "contabilita-professionista-forfettario": {
+    slug: "contabilita-professionista-forfettario",
+    prezzoId: "cont-prof-forf",
+    title: "Contabilità annuale P.IVA Professionista forfettario",
+    tagline:
+      "Hai già la P.IVA forfettaria e vuoi cambiare commercialista? Gestiamo contabilità, F24, dichiarazione dei redditi e fatturazione elettronica per tutto l'anno. Portale clienti, dottori commercialisti iscritti all'albo.",
+    metaDesc:
+      "Contabilità annuale P.IVA forfettario a 349 euro: gestione fatture, F24, dichiarazione redditi PF, EFAT inclusa. Per chi ha già P.IVA attiva e vuole cambiare commercialista. Rinnovo annuale o triennale price-lock.",
+    perChi: [
+      "Freelance e professionisti forfettari con P.IVA già aperta che vogliono cambiare commercialista",
+      "Chi ha iniziato con un CAF o un commercialista tradizionale e cerca un servizio digitale con portale",
+      "Professionisti stanchi di pagare tariffe opache o di non ricevere aggiornamenti chiari",
+      "Forfettari fino a 85.000 euro con massimo 20 fatture/anno",
+    ],
+    bullets: [
+      "Subentro gestito: recuperiamo documenti e storico dal commercialista precedente con la tua delega",
+      "Contabilità annuale completa fino a 20 fatture/anno, registri cronologici",
+      "Dichiarazione dei redditi annuale (Redditi PF) con invio telematico",
+      "Fatturazione elettronica EFAT Ranocchi inclusa per 12 mesi (valore ~50 euro)",
+      "Calcolo e predisposizione F24: 2 acconti IRPEF + saldo + contributi INPS",
+      "Gestione scadenzario: INPS gestione separata o cassa privata, bolli, rinnovi",
+      "Portale clienti con upload documenti, archivio 10 anni, notifiche scadenze",
+      "2 videocall l'anno incluse (una post-subentro, una pre-dichiarazione)",
+    ],
+    esclusi: [
+      "Apertura P.IVA (se non hai ancora aperto, scegli il bundle Apertura + contabilità a 449 euro)",
+      "Volumi oltre 20 fatture/anno: rivalutazione preventivo dall'anno successivo",
+      "Iscrizione casse private (Inarcassa, Forense, ENPAP): maggiorazione una tantum da concordare",
+      "Contenzioso tributario, verifiche fiscali, consulenze straordinarie fuori scope",
+    ],
+    processTitle: "Dal subentro alla prima dichiarazione, in 6 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase, nessun vincolo.",
+      },
+      {
+        step: "2. Check-up iniziale (opzionale)",
+        body: "Se preferisci, videocall gratuita: analizziamo il tuo storico, eventuali scadenze pendenti e ti confermiamo il preventivo. Puoi anche saltare e andare direttamente al mandato.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale. Scegli: annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 349 euro per tutti e 3 gli anni.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "Paghi 349 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento per attivare il servizio.",
+      },
+      {
+        step: "5. Takeover",
+        body: "Recuperiamo documentazione dal commercialista precedente con la tua delega, attiviamo EFAT con i tuoi dati, subentriamo nel cassetto fiscale. Ci pensiamo noi: tu resti tranquillo.",
+      },
+      {
+        step: "6. Gestione annuale e rinnovo",
+        body: "Fatturi da EFAT (self-serve), registriamo tutto, calcoliamo F24 e prepariamo la dichiarazione dei redditi. A fine anno: rinnovo automatico al prezzo concordato. Oltre 20 fatture/anno: preventivo aggiornato prima del rinnovo.",
+      },
+    ],
+    priceBlurb:
+      "349 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 349 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo la firma del mandato nel portale.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-professionista-forfettario",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 349 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+    closingBlurb:
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 349 euro del primo anno. Ci occupiamo del subentro dal tuo commercialista precedente con la tua delega: tu non muovi un documento.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: true,
+    calculatorHeroBanner: true,
+    hidePostPaymentSection: true,
+    docs: [
+      "Codice fiscale e dati P.IVA già attiva",
+      "Copia ultimo modello Redditi PF presentato (se disponibile)",
+      "Elenco fatture emesse dell'anno in corso (se già iniziato l'esercizio)",
+      "Dati cassa previdenziale (INPS gestione separata o cassa privata)",
+      "IBAN per pagamenti F24 via addebito diretto",
+    ],
+    deliveryDays: "subentro completato entro 10 giorni lavorativi dalla firma del mandato",
+    faqs: [
+      {
+        q: "Come avviene il subentro dal commercialista precedente?",
+        a: "Firmi una delega nel portale, noi contattiamo il commercialista precedente per ricevere copia dei documenti fiscali degli ultimi esercizi (dichiarazioni, registri, corrispondenza con l'Agenzia). È un passaggio standard e deontologico: il tuo vecchio commercialista è tenuto a consegnare i documenti entro tempi ragionevoli. Se ci sono ritardi o contestazioni ti assistiamo.",
+      },
+      {
+        q: "Cosa include il servizio a 349 euro?",
+        a: "Contabilità annuale forfettaria fino a 20 fatture, dichiarazione Redditi PF con invio telematico, fatturazione elettronica EFAT inclusa 12 mesi, F24 calcolati (acconti + saldo IRPEF + contributi INPS), gestione scadenzario, portale clienti, 2 videocall di check. Non è un servizio spot: è il commercialista unico per tutto l'anno.",
+      },
+      {
+        q: "Posso scegliere tra annuale e triennale?",
+        a: "Sì. Annuale: rinnovo tacito a fine anno, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 349 euro per tutti e 3 gli anni, garanzia contro aumenti di listino. Stessa copertura di servizio, cambia solo la durata dell'impegno.",
+      },
+      {
+        q: "Ho cambiato commercialista a metà anno: gestite anche il parziale?",
+        a: "Sì, ma è opportuno fare un check-up gratuito iniziale: valutiamo quanto lavoro è già stato fatto dal commercialista precedente (F24 trasmessi, fatture registrate, eventuali dichiarazioni pendenti) per capire da dove ripartire e se il prezzo standard copre tutto o se serve un adeguamento puntuale per il solo primo periodo.",
+      },
+      {
+        q: "Cosa succede se supero le 20 fatture l'anno?",
+        a: "Niente blocco durante l'anno: gestiamo tutto regolarmente. Dall'anno successivo applichiamo un preventivo maggiorato proporzionale al volume, comunicato prima del rinnovo. Nessuna sorpresa in fattura.",
+      },
+      {
+        q: "E se supero gli 85.000 euro di ricavi?",
+        a: "Esci dal forfettario dall'anno successivo e passi al regime semplificato o ordinario. Ti proponiamo il bundle Contabilità professionista semplificata (899 euro/anno) con la continuità del servizio. Ti avvisiamo per tempo per pianificare.",
+      },
+      {
+        q: "EFAT Ranocchi è davvero inclusa?",
+        a: "Sì, il primo anno la licenza EFAT è inclusa (valore listino ~50 euro/anno). Dal secondo anno si rinnova insieme al bundle. Se non vuoi occuparti dell'invio puoi attivare l'add-on fatturazione assistita a 99 euro/anno: crei la proforma dal portale, la segreteria invia allo SdI per te.",
+      },
+      {
+        q: "Sono iscritto a cassa privata (Inarcassa, Forense, ENPAP): va bene?",
+        a: "Sì, il bundle copre la gestione forfettaria con cassa privata. L'iscrizione iniziale e le specificità di ogni cassa richiedono una maggiorazione una tantum che concordiamo nel check-up. La gestione annuale rientra nel prezzo standard.",
+      },
+    ],
+  },
+  "contabilita-professionista-semplificata": {
+    slug: "contabilita-professionista-semplificata",
+    prezzoId: "cont-prof-semp",
+    title: "Contabilità annuale P.IVA Professionista semplificata",
+    tagline:
+      "Hai già una P.IVA in regime semplificato o ordinario e vuoi cambiare commercialista? Gestiamo contabilità completa, IVA periodica, dichiarazione redditi e fatturazione elettronica. Portale clienti, dottori commercialisti iscritti all'albo.",
+    metaDesc:
+      "Contabilità annuale P.IVA semplificata/ordinaria a 899 euro: IVA periodica, F24, Redditi PF, EFAT inclusa. Per professionisti con P.IVA già aperta che cercano un commercialista digitale.",
+    perChi: [
+      "Professionisti con P.IVA in regime semplificato o ordinario che vogliono cambiare commercialista",
+      "Consulenti e liberi professionisti oltre 85.000 euro di ricavi",
+      "Chi ha spese rilevanti da portare in deduzione e non può stare in forfettario",
+      "Chi cerca un commercialista digitale con portale e fatturazione elettronica inclusa",
+    ],
+    bullets: [
+      "Subentro gestito: recuperiamo documenti e storico dal commercialista precedente con la tua delega",
+      "Contabilità annuale semplificata (o ordinaria se richiesto): registri IVA, cronologico, cespiti",
+      "Liquidazioni IVA periodiche (mensili o trimestrali a seconda del regime)",
+      "Dichiarazione Redditi PF + Dichiarazione IVA annuale con invio telematico",
+      "Fatturazione elettronica EFAT Ranocchi inclusa per 12 mesi",
+      "Calcolo e predisposizione F24: IVA periodica, IRPEF, addizionali, contributi INPS",
+      "Gestione LIPE trimestrali, esterometro se dovuto",
+      "Portale clienti, archivio 10 anni, 2 videocall di check incluse",
+    ],
+    esclusi: [
+      "Apertura P.IVA (se non hai aperto, scegli il bundle Apertura + contabilità a 1099 euro)",
+      "Dipendenti e collaboratori (gestione paghe): preventivo separato",
+      "Contenzioso tributario, verifiche fiscali, bilanci societari complessi",
+      "Iscrizione casse private: maggiorazione una tantum da concordare",
+    ],
+    processTitle: "Dal subentro alla prima dichiarazione, in 6 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
+      },
+      {
+        step: "2. Check-up iniziale (opzionale)",
+        body: "Videocall gratuita con un commercialista: analizziamo il tuo storico, scadenze IVA pendenti e confermiamo il preventivo. Puoi anche saltare e firmare direttamente il mandato.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 899 euro per 3 anni.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "Paghi 899 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento.",
+      },
+      {
+        step: "5. Takeover",
+        body: "Con la tua delega recuperiamo documenti dal commercialista precedente (dichiarazioni, registri IVA, LIPE, cespiti), subentriamo nel cassetto fiscale e attiviamo EFAT. Tu resti tranquillo.",
+      },
+      {
+        step: "6. Gestione annuale e rinnovo",
+        body: "Gestiamo IVA periodica, LIPE, F24, dichiarazioni. Fatturi da EFAT (self-serve). A fine anno: rinnovo al prezzo concordato. Se la complessità cresce (esterometro, dipendenti) aggiorniamo il preventivo prima del rinnovo.",
+      },
+    ],
+    priceBlurb:
+      "899 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 899 euro per 3 anni. Paghi solo dopo la firma del mandato nel portale.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-professionista-semplificata",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 899 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+    closingBlurb:
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 899 euro del primo anno. Ci occupiamo del subentro completo: recupero documenti, cassetto fiscale, EFAT.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: false,
+    hidePostPaymentSection: true,
+    docs: [
+      "Codice fiscale e dati P.IVA già attiva",
+      "Ultimo modello Redditi PF + Dichiarazione IVA presentati",
+      "Elenco fatture emesse e ricevute dell'anno in corso",
+      "Registri IVA e cespiti aggiornati (forniti dal commercialista precedente con delega)",
+      "IBAN per pagamenti F24 via addebito diretto",
+    ],
+    deliveryDays: "subentro completato entro 15 giorni lavorativi dalla firma del mandato",
+    faqs: [
+      {
+        q: "Cosa include il servizio a 899 euro?",
+        a: "Contabilità annuale semplificata (o ordinaria se necessaria), liquidazioni IVA periodiche, LIPE trimestrali, F24 completi, Dichiarazione Redditi PF e IVA annuale, EFAT inclusa 12 mesi, portale clienti, 2 videocall di check. È il commercialista unico per tutto l'anno.",
+      },
+      {
+        q: "Semplificato o ordinario: cambia qualcosa?",
+        a: "Il prezzo è uguale per entrambi i regimi. La differenza è nei registri (ordinario ha partita doppia, più rigoroso). Nel check-up iniziale valutiamo qual è il regime più adatto in base ai tuoi ricavi, costi e natura dell'attività.",
+      },
+      {
+        q: "Posso scegliere tra annuale e triennale?",
+        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 899 euro per 3 anni, garanzia contro aumenti di listino. Stessa copertura, cambia solo l'impegno.",
+      },
+      {
+        q: "Ho dipendenti: è incluso?",
+        a: "No, la gestione paghe (cedolini, F24 dipendenti, UNIEMENS) è un servizio a parte con prezzo per dipendente/mese. Se hai collaboratori facciamo un preventivo dedicato nel check-up iniziale.",
+      },
+      {
+        q: "Come avviene il subentro dal commercialista precedente?",
+        a: "Firmi delega nel portale, noi contattiamo il vecchio commercialista per ricevere registri IVA, cronologico, cespiti, dichiarazioni e corrispondenza con l'Agenzia. Il passaggio è standard e deontologico: il vecchio commercialista è tenuto a consegnare entro tempi ragionevoli.",
+      },
+      {
+        q: "E la fatturazione elettronica EFAT?",
+        a: "Inclusa 12 mesi (valore ~50 euro). Dal secondo anno si rinnova insieme al bundle. Add-on opzionale: fatturazione assistita +99 euro/anno, la segreteria invia le tue fatture allo SdI (fino a 20/anno).",
+      },
+      {
+        q: "Cosa succede se rientro sotto 85.000 euro e voglio tornare al forfettario?",
+        a: "Se sei uscito dal forfettario per superamento soglia, puoi rientrare solo dopo un triennio di permanenza nel regime ordinario/semplificato (vincolo triennale del forfettario). Valutiamo insieme se conviene e in caso ti trasferiamo al bundle Contabilità forfettario a 349 euro.",
+      },
+    ],
+  },
+  "contabilita-artigiano-forfettario": {
+    slug: "contabilita-artigiano-forfettario",
+    prezzoId: "cont-art-forf",
+    title: "Contabilità annuale P.IVA Artigiano/Commerciante forfettario",
+    tagline:
+      "Hai già la P.IVA artigiana o commerciale in forfettario e vuoi cambiare commercialista? Gestiamo contabilità, INPS artigiani, adempimenti CCIAA, dichiarazione redditi e fatturazione elettronica per tutto l'anno.",
+    metaDesc:
+      "Contabilità annuale artigiano/commerciante forfettario a 599 euro: INPS artigiani, CCIAA, F24, Redditi PF, EFAT inclusa. Per chi ha P.IVA attiva e vuole cambiare commercialista.",
+    perChi: [
+      "Artigiani e commercianti forfettari con P.IVA già aperta che vogliono cambiare commercialista",
+      "Elettricisti, idraulici, estetiste, parrucchieri, negozianti, ambulanti in forfettario",
+      "Chi è stanco del commercialista tradizionale e cerca portale + fatturazione elettronica inclusa",
+      "Forfettari fino a 85.000 euro con massimo 20 fatture/anno",
+    ],
+    bullets: [
+      "Subentro gestito: recuperiamo documenti dal commercialista precedente con la tua delega",
+      "Contabilità annuale forfettaria fino a 20 fatture/anno, registri cronologici",
+      "Gestione INPS artigiani/commercianti: 4 F24 trimestrali + conguaglio su reddito eccedente il minimale",
+      "Adempimenti CCIAA: diritto annuale, comunicazioni variazioni registro imprese",
+      "Dichiarazione Redditi PF con invio telematico",
+      "Fatturazione elettronica EFAT Ranocchi inclusa per 12 mesi",
+      "Portale clienti, archivio 10 anni, calendario scadenze personalizzato",
+      "2 videocall l'anno incluse",
+    ],
+    esclusi: [
+      "Apertura P.IVA (se non hai ancora aperto, scegli il bundle Apertura + contabilità a 1190 euro)",
+      "Gestione dipendenti (cedolini, UNIEMENS, INAIL): preventivo a parte",
+      "Volumi oltre 20 fatture/anno: rivalutazione preventivo dall'anno successivo",
+      "Contenzioso tributario, verifiche fiscali, consulenze straordinarie",
+    ],
+    processTitle: "Dal subentro alla prima dichiarazione, in 6 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
+      },
+      {
+        step: "2. Check-up iniziale (opzionale)",
+        body: "Videocall gratuita: analizziamo storico, scadenze INPS artigiani pendenti, CCIAA e confermiamo il preventivo. Puoi anche saltare e firmare direttamente.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 599 euro per 3 anni.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "Paghi 599 euro con Stripe o PayPal alla firma del mandato. Unico passaggio di pagamento.",
+      },
+      {
+        step: "5. Takeover",
+        body: "Con la tua delega recuperiamo documenti dal vecchio commercialista, subentriamo nel cassetto fiscale, attiviamo EFAT e prendiamo in carico INPS artigiani e CCIAA. Tu resti tranquillo.",
+      },
+      {
+        step: "6. Gestione annuale e rinnovo",
+        body: "Gestiamo contabilità, F24 INPS trimestrali, diritto CCIAA, dichiarazione redditi. Fatturi da EFAT (self-serve). A fine anno: rinnovo al prezzo concordato. Oltre 20 fatture: preventivo aggiornato prima del rinnovo.",
+      },
+    ],
+    priceBlurb:
+      "599 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 599 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-artigiano-forfettario",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 599 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+    closingBlurb:
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 599 euro del primo anno. Ci occupiamo del subentro completo: documenti, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: true,
+    calculatorHeroBanner: true,
+    hidePostPaymentSection: true,
+    docs: [
+      "Codice fiscale e dati P.IVA già attiva",
+      "Copia ultimo modello Redditi PF presentato",
+      "Elenco fatture emesse dell'anno in corso",
+      "Posizione INPS artigiani/commercianti (numero matricola)",
+      "Eventuale documentazione CCIAA (visura aggiornata)",
+      "IBAN per pagamenti F24 via addebito diretto",
+    ],
+    deliveryDays: "subentro completato entro 10 giorni lavorativi dalla firma del mandato",
+    faqs: [
+      {
+        q: "Perché costa 599 euro e il professionista forfettario 349?",
+        a: "La gestione artigiano/commerciante aggiunge tre adempimenti ricorrenti rispetto al professionista: 4 F24 trimestrali INPS artigiani con conguaglio a fine anno, diritto annuale CCIAA con eventuali variazioni registro imprese, e controllo minimale/massimale contributivo. È un carico di lavoro stabilmente superiore, non un sovrapprezzo arbitrario.",
+      },
+      {
+        q: "Ho dipendenti in negozio o in bottega: è incluso?",
+        a: "No, la gestione paghe (cedolini, F24 dipendenti, UNIEMENS, INAIL) è un servizio a parte con prezzo per dipendente/mese. Nel check-up iniziale facciamo un preventivo dedicato.",
+      },
+      {
+        q: "Come avviene il subentro dal commercialista precedente?",
+        a: "Firmi delega nel portale, noi contattiamo il vecchio commercialista per ricevere registri, dichiarazioni, F24 INPS storici e corrispondenza CCIAA. Il passaggio è standard: il vecchio commercialista è tenuto a consegnare entro tempi ragionevoli.",
+      },
+      {
+        q: "Posso scegliere tra annuale e triennale?",
+        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 599 euro per 3 anni, garanzia contro aumenti. Stessa copertura di servizio.",
+      },
+      {
+        q: "Cosa succede se supero le 20 fatture o gli 85.000 euro?",
+        a: "Oltre 20 fatture/anno: rivalutiamo il preventivo dall'anno successivo, mai a sorpresa. Oltre 85.000 euro di ricavi: esci dal forfettario e passi al regime semplificato (bundle Contabilità artigiano semplificata a 1190 euro/anno). Ti avvisiamo per tempo.",
+      },
+      {
+        q: "EFAT è inclusa davvero?",
+        a: "Sì, primo anno incluso (valore ~50 euro/anno). Dal secondo anno si rinnova insieme al bundle. Add-on fatturazione assistita +99 euro/anno: la segreteria invia allo SdI per te (fino a 20 fatture/anno).",
+      },
+      {
+        q: "Lavoro nell'edilizia / estetica / altro settore regolamentato: gestite SCIA, autorizzazioni sanitarie?",
+        a: "La gestione ordinaria del bundle copre INPS, CCIAA, fisco. Variazioni SCIA, autorizzazioni USL, iscrizioni albi settoriali sono servizi puntuali che preventiviamo a parte quando servono (non sono adempimenti ricorrenti).",
+      },
+    ],
+  },
+  "contabilita-artigiano-semplificata": {
+    slug: "contabilita-artigiano-semplificata",
+    prezzoId: "cont-art-semp",
+    title: "Contabilità annuale P.IVA Artigiano/Commerciante semplificata",
+    tagline:
+      "Hai già la P.IVA artigiana o commerciale in regime semplificato/ordinario e vuoi cambiare commercialista? Gestiamo contabilità completa, IVA periodica, INPS artigiani, CCIAA, dichiarazione redditi e fatturazione elettronica.",
+    metaDesc:
+      "Contabilità annuale artigiano/commerciante semplificata a 1190 euro: IVA periodica, INPS artigiani, CCIAA, F24, Redditi PF, EFAT inclusa. Per P.IVA già attiva oltre 85.000 euro.",
+    perChi: [
+      "Artigiani e commercianti in regime semplificato o ordinario con P.IVA già aperta",
+      "Negozianti, ristoratori, laboratori artigianali oltre 85.000 euro di ricavi",
+      "Chi ha spese rilevanti da dedurre (locazioni, materie prime, mezzi)",
+      "Chi cerca un commercialista digitale con portale e fatturazione elettronica inclusa",
+    ],
+    bullets: [
+      "Subentro gestito: recuperiamo documenti e storico dal commercialista precedente con delega",
+      "Contabilità annuale semplificata (o ordinaria se richiesto): registri IVA, cronologico, cespiti",
+      "Liquidazioni IVA periodiche (mensili o trimestrali), LIPE trimestrali, esterometro se dovuto",
+      "Gestione INPS artigiani/commercianti: 4 F24 trimestrali + conguaglio",
+      "Adempimenti CCIAA: diritto annuale, variazioni registro imprese",
+      "Dichiarazione Redditi PF + Dichiarazione IVA annuale con invio telematico",
+      "Fatturazione elettronica EFAT Ranocchi inclusa per 12 mesi",
+      "Portale clienti, archivio 10 anni, 2 videocall di check incluse",
+    ],
+    esclusi: [
+      "Apertura P.IVA (se non hai aperto, scegli il bundle Apertura + contabilità a 1690 euro)",
+      "Gestione dipendenti (paghe, UNIEMENS, INAIL): preventivo per dipendente/mese",
+      "Contenzioso tributario, verifiche fiscali, bilanci societari complessi",
+      "SCIA, autorizzazioni USL, iscrizioni albi settoriali: preventivo puntuale",
+    ],
+    processTitle: "Dal subentro alla prima dichiarazione, in 6 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
+      },
+      {
+        step: "2. Check-up iniziale (opzionale)",
+        body: "Videocall gratuita: analizziamo storico, scadenze IVA e INPS pendenti, CCIAA, confermiamo il preventivo. Puoi anche saltare e firmare direttamente.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 1190 euro per 3 anni.",
+      },
+      {
+        step: "4. Pagamento primo anno",
+        body: "Paghi 1190 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento.",
+      },
+      {
+        step: "5. Takeover",
+        body: "Con la tua delega recuperiamo documenti dal vecchio commercialista (registri IVA, cespiti, F24 INPS, dichiarazioni), subentriamo nel cassetto fiscale e attiviamo EFAT.",
+      },
+      {
+        step: "6. Gestione annuale e rinnovo",
+        body: "Gestiamo IVA periodica, LIPE, F24 INPS artigiani, CCIAA, dichiarazioni. Fatturi da EFAT. A fine anno: rinnovo al prezzo concordato. Se la complessità cresce aggiorniamo preventivo prima del rinnovo.",
+      },
+    ],
+    priceBlurb:
+      "1190 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 1190 euro per 3 anni. Paghi solo dopo la firma del mandato nel portale.",
+    priceSuffix: "primo anno",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-artigiano-semplificata",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 1190 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+    closingBlurb:
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 1190 euro del primo anno. Ci occupiamo del subentro completo: registri IVA, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
+    closingCtaLabel: "Inizia sul portale",
+    showForfettarioCalculator: false,
+    hidePostPaymentSection: true,
+    docs: [
+      "Codice fiscale e dati P.IVA già attiva",
+      "Ultimo modello Redditi PF + Dichiarazione IVA presentati",
+      "Elenco fatture emesse e ricevute dell'anno in corso",
+      "Registri IVA, cronologico, cespiti aggiornati (forniti con delega dal commercialista precedente)",
+      "Posizione INPS artigiani/commercianti e visura CCIAA aggiornata",
+      "IBAN per pagamenti F24 via addebito diretto",
+    ],
+    deliveryDays: "subentro completato entro 15 giorni lavorativi dalla firma del mandato",
+    faqs: [
+      {
+        q: "Cosa include il servizio a 1190 euro?",
+        a: "Contabilità semplificata (o ordinaria), IVA periodica, LIPE, F24 completi, INPS artigiani trimestrali, CCIAA annuale, Redditi PF + Dichiarazione IVA, EFAT inclusa 12 mesi, portale clienti, 2 videocall di check. È il commercialista unico per tutto l'anno.",
+      },
+      {
+        q: "Semplificato o ordinario: cambia qualcosa?",
+        a: "Il prezzo è uguale per entrambi i regimi. L'ordinario ha partita doppia e bilancio d'esercizio, più rigoroso ma richiesto solo se superi soglie precise o se sei società di capitali. Nel check-up valutiamo il regime corretto.",
+      },
+      {
+        q: "Ho dipendenti: gestite voi le paghe?",
+        a: "La gestione paghe (cedolini, F24 dipendenti, UNIEMENS, INAIL, CU) è un servizio a parte con prezzo per dipendente/mese. Facciamo un preventivo dedicato nel check-up iniziale in base al numero e alla tipologia contrattuale.",
+      },
+      {
+        q: "Come avviene il subentro dal commercialista precedente?",
+        a: "Firmi delega nel portale, noi contattiamo il vecchio commercialista per ricevere tutti i documenti: registri IVA, cronologico, cespiti, dichiarazioni, F24 INPS/CCIAA storici. Il passaggio è standard e deontologico.",
+      },
+      {
+        q: "Posso scegliere tra annuale e triennale?",
+        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 1190 euro per 3 anni, garanzia contro aumenti di listino.",
+      },
+      {
+        q: "E se rientro sotto gli 85.000 euro e voglio tornare al forfettario?",
+        a: "Se sei uscito dal forfettario per superamento soglia, puoi rientrare solo dopo un triennio nel regime semplificato/ordinario (vincolo triennale). Valutiamo insieme la convenienza e ti trasferiamo al bundle Contabilità artigiano forfettario a 599 euro/anno.",
+      },
+      {
+        q: "Gestite anche SCIA, autorizzazioni USL, variazioni CCIAA straordinarie?",
+        a: "Il bundle copre l'ordinaria: IVA, INPS, CCIAA, fisco. Pratiche puntuali (SCIA per nuova attività, autorizzazioni sanitarie, variazioni straordinarie registro imprese) le preventiviamo a parte quando servono.",
+      },
+    ],
+  },
 };
 
 export function getProdotto(slug: string): ProdottoServizio | undefined {
