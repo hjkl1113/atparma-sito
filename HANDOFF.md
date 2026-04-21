@@ -1,6 +1,6 @@
 # Handoff
 
-Ultimo aggiornamento: `2026-04-13 19:48`
+Ultimo aggiornamento: `2026-04-21 18:05`
 
 ## Leggere Per Prime
 
@@ -69,6 +69,40 @@ Nel repo portale serve:
 9. **Da verificare con Ranocchi prima di go-live portale**: esistenza API EFAT per auto-invio SdI (eliminerebbe touch manuale segreteria). Alternativa se API assenti: intermediario SdI diretto (Aruba Fatture PA, Acube, Fattura24) con EFAT come solo archivio
 
 Non chiudere il flusso sito finché questi step portale non sono online (oggi il link punta già al portale, ma l'endpoint onboarding deve esistere entro go-live).
+
+## Dipendenze Portale — 4 Bundle Contabilità Annuale (subentro)
+
+Aggiunti 2026-04-21 nel catalogo sito 4 bundle per clienti con P.IVA già aperta che vogliono cambiare commercialista. Portale-first: nessun checkout sito, tutto il flusso nel portale.
+
+Slug sito → endpoint portale richiesto:
+
+1. `/servizi/contabilita-professionista-forfettario` (€349) → `/onboarding/contabilita-professionista-forfettario`
+2. `/servizi/contabilita-professionista-semplificata` (€899) → `/onboarding/contabilita-professionista-semplificata`
+3. `/servizi/contabilita-artigiano-forfettario` (€599) → `/onboarding/contabilita-artigiano-forfettario`
+4. `/servizi/contabilita-artigiano-semplificata` (€1190) → `/onboarding/contabilita-artigiano-semplificata`
+
+Workflow stateful 6-step per ciascuno:
+
+1. Iscrizione portale (zero caparra)
+2. Check-up iniziale gratuito opzionale (videocall con commercialista, analisi storico, scadenze pendenti)
+3. Firma mandato professionale — annuale default (rinnovo tacito, disdetta 60gg PEC) oppure triennale price-lock opzionale
+4. Stripe/PayPal checkout al prezzo del bundle con `metadata.service=contabilita-{prof,art}-{forfettario,semplificata}` e `metadata.durata=annuale|triennale`
+5. **Takeover gestito dalla segreteria**: con delega del cliente, contatto al commercialista precedente per recupero documenti (dichiarazioni, registri IVA, cespiti, F24 INPS/CCIAA, corrispondenza AdE). Subentro nel cassetto fiscale. Attivazione EFAT Ranocchi con onboarding anagrafica/logo/SDI. Entro 10-15 giorni lavorativi dalla firma mandato.
+6. Gestione annuale + rinnovo (cron identico ai bundle apertura): rilevamento volumi fatture >20 → alert per preventivo maggiorato prima del rinnovo; triennale → prezzo bloccato per 3 anni; annuale → riemissione fattura con eventuale aggiornamento listino notificato 60gg prima.
+
+Nel repo portale servono:
+
+1. Quattro endpoint `/onboarding/contabilita-*` con workflow stateful 6-step descritto sopra
+2. Template PDF mandato professionale "contabilità annuale subentro" nelle 4 varianti (prof forf, prof semp, art forf, art semp) × 2 durate (annuale/triennale)
+3. Modulo delega al commercialista precedente (PDF firmabile nel portale) per recupero documenti
+4. Flusso segreteria "takeover queue": cruscotto interno per tracciare richieste documenti al commercialista precedente, ricezione, onboarding EFAT, conferma al cliente
+5. Stripe checkout parametrizzato per i 4 prezzi (349/899/599/1190) con metadata corretti
+6. Cron rinnovo identico ai bundle apertura con i nuovi prezzi e le soglie volume per forfettari (>20 fatture)
+7. Add-on fatturazione assistita (+€99/anno) già definito per il bundle P.IVA professionista: stesso add-on applicabile ai 4 bundle contabilità (UI proforma + flusso segreteria → SdI)
+
+Autori assegnati lato sito (mirror nel portale):
+- `contabilita-professionista-*` → Pietro Franzosi (albo Parma)
+- `contabilita-artigiano-*` → Aldo Ponzi (albo Brescia)
 
 ## Prossima Sessione Portale — Architettura Clienti
 
