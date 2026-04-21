@@ -418,24 +418,40 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Dichiarazione dei redditi annuale (da preventivare)",
       "Consulenza lavoro per assunzioni dipendenti (servizio dedicato)",
     ],
+    processTitle: "Dall'iscrizione al portale alla P.IVA attiva, in 5 passi",
     process: [
       {
-        step: "1. Paghi online",
-        body: "Stripe o PayPal. Ricevi email di conferma e credenziali portale clienti.",
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Zero caparra, zero impegno fino alla firma del mandato.",
       },
       {
-        step: "2. Consulenza dedicata",
-        body: "Un commercialista ti chiama: scelta codice ATECO, verifica requisiti artigiano/commerciante, pianificazione CCIAA.",
+        step: "2. Consulenza iniziale",
+        body: "Videocall con un commercialista: scelta codice ATECO, verifica requisiti artigiano/commerciante, pianificazione CCIAA, SCIA necessarie per la tua attività.",
       },
       {
-        step: "3. Carichi documenti",
-        body: "Dal portale: documenti identità, sede operativa, contratto di locazione, eventuali licenze.",
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia.",
       },
       {
-        step: "4. Apertura e iscrizioni",
-        body: "Entro 10 giorni lavorativi: P.IVA attiva, iscrizione CCIAA completata, INPS attivo. Tutti i documenti sul portale.",
+        step: "4. Pagamento",
+        body: "Paghi 690 euro direttamente nel portale con Stripe o PayPal. I tributi pubblici (bolli CCIAA, diritti, eventuale SCIA comunale) li paghi direttamente agli enti, secondo bozza mandato.",
+      },
+      {
+        step: "5. Apertura e iscrizioni",
+        body: "Entro 10 giorni lavorativi: P.IVA attiva, CCIAA completata con ComUnica, INPS artigiani/commercianti attivo, SIA se richiesta. Tutti i documenti sul portale.",
       },
     ],
+    priceBlurb:
+      "690 euro onorario apertura. Include P.IVA + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. La contabilità annuale si concorda a parte.",
+    priceSuffix: "apertura",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 690 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
+    closingBlurb:
+      "Iscriviti gratis al portale, facciamo insieme la verifica qualifica artigiana/commerciale e la consulenza iniziale. Firmi il mandato con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia. P.IVA attiva entro 10 giorni lavorativi dalla firma.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
       "Codice fiscale",

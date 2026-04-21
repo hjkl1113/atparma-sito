@@ -1,6 +1,6 @@
 # Handoff
 
-Ultimo aggiornamento: `2026-04-21 18:05`
+Ultimo aggiornamento: `2026-04-21 19:40`
 
 ## Leggere Per Prime
 
@@ -103,6 +103,70 @@ Nel repo portale servono:
 Autori assegnati lato sito (mirror nel portale):
 - `contabilita-professionista-*` → Pietro Franzosi (albo Parma)
 - `contabilita-artigiano-*` → Aldo Ponzi (albo Brescia)
+
+## Dipendenze Portale — Apertura Artigiano/Commerciante sola (€690)
+
+Dal 2026-04-21 anche il tab `piva-artigiano-commerciante` (apertura sola, senza contabilità annuale) è portale-first. Nessun checkout sito: CTA → `https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante`.
+
+Workflow stateful 5-step nel portale:
+
+1. Iscrizione portale (zero caparra)
+2. Consulenza iniziale videocall (verifica ATECO, qualifica artigiano/commerciante, SCIA necessarie)
+3. Firma mandato professionale apertura artigiano/commerciante (solo apertura, non include contabilità)
+4. Stripe/PayPal checkout €690 con `metadata.service=piva-artigiano-commerciante`
+5. Apertura + CCIAA (ComUnica) + INPS artigiani/commercianti + SIA entro 10gg lavorativi
+
+Nel repo portale serve:
+1. Endpoint `/onboarding/piva-artigiano-commerciante`
+2. Template PDF mandato "apertura artigiano/commerciante" (senza clausola contabilità annuale — da rinnovare o upgrade a bundle `piva-artigiano-commerciante-forfettario`/`-semplificato` se il cliente poi vuole anche la gestione)
+3. Calcolatore tributi pubblici per provincia (bolli CCIAA, diritto annuale, SIA, SCIA comunale) da includere nella bozza mandato
+4. Stripe checkout €690 con `metadata.service=piva-artigiano-commerciante` e `metadata.durata=none` (apertura una tantum)
+
+Nota: questo tab è l'unico bundle apertura "pure" rimasto (senza contabilità annuale inclusa). Usato da chi ha già commercialista per la gestione oppure è indeciso e vuole solo partire.
+
+## Strategia Pagamenti Portale
+
+Decisione 2026-04-21: i pagamenti del portale (bundle nuovi + rinnovi + add-on) usano **Stripe Checkout hosted + webhook + save PM per rinnovo**. Coerente col sito, nessun nuovo stack da introdurre.
+
+### Flusso pagamento iniziale (firma mandato)
+
+1. Cliente firma il mandato nel portale (firma digitale remota Namirial/Aruba)
+2. Schermata "Conferma e paga" con riepilogo servizio + importo + durata (annuale/triennale dove previsto)
+3. Server portale crea Stripe Checkout Session via API con:
+   - `mode: "payment"`
+   - `customer: portale.stripeCustomerId` (stesso customer per tutti i servizi del cliente)
+   - `payment_method_types: ["card", "klarna"]` se importo ≥ €400, altrimenti `["card"]`
+   - `metadata: { service, durata, clienteId, mandatoId }`
+   - `payment_intent_data.setup_future_usage: "off_session"` per salvare il PM per rinnovi futuri
+4. Redirect a `checkout.stripe.com` (hosted, PCI a carico Stripe)
+5. Return al portale su successo: stato "pending conferma webhook"
+6. Webhook `checkout.session.completed` attiva la pratica (avvia onboarding EFAT, sblocca la tab servizio, email conferma al cliente via Brevo)
+
+### Flusso rinnovi automatici
+
+1. Cron 30gg prima della scadenza mandato annuale:
+   - Email anteprima con importo e aggiornamento listino (se previsto)
+   - Invio `PaymentIntent` off_session sul PM salvato con `off_session: true, confirm: true`
+2. Successo: fattura generata, scadenza mandato prolungata, email conferma
+3. Fallimento (carta scaduta, fondi insufficienti):
+   - Retry automatico dopo 3gg e 7gg (2 tentativi)
+   - Email al cliente con link "Aggiorna metodo di pagamento" (Stripe Billing Portal o checkout one-shot)
+   - Se nessun pagamento entro la scadenza mandato: sospensione servizio e alert segreteria
+
+### PayPal parallelo
+
+- Mantenere flusso PayPal attuale con `enable-funding=paylater` per clienti che preferiscono rateizzare via PayPal Pay Later (3 rate senza interessi)
+- Niente rinnovo automatico PayPal (l'API PayPal Subscriptions è più fragile): per clienti PayPal i rinnovi restano one-shot (email 30gg prima con link al checkout)
+
+### SEPA SDD (fase 2)
+
+- Post go-live, valutare SEPA SDD per clienti ricorrenti che preferiscono addebito diretto
+- Costo inferiore a carte, ma setup più complesso (mandato SDD, gestione insoluti/storni)
+- Non blocca il go-live, si aggiunge quando volumi lo giustificano
+
+### BNPL sito (già implementato)
+
+Il sito ha già Klarna (Stripe) + PayPal Pay Later abilitati automaticamente per importi ≥ €400. In pratica oggi il sito non ha bundle ≥ €400 (tutti sono portale-first), ma la logica resta per eventuali servizi one-shot futuri.
 
 ## Prossima Sessione Portale — Architettura Clienti
 
