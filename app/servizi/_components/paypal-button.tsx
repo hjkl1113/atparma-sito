@@ -129,7 +129,7 @@ export function PayPalButton({
     } else {
       const script = document.createElement("script");
       const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "sb";
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=EUR&intent=capture`;
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=EUR&intent=capture&enable-funding=paylater`;
       script.setAttribute("data-namespace", "paypal_sdk");
       script.onload = () => renderButton();
       script.onerror = () => setStatus("error");

@@ -65,9 +65,11 @@ export async function POST(request: Request) {
       vatNumber: parsedIdentity.data.vatNumber || "",
     };
 
+    const enableBnpl = item.price >= 400;
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      payment_method_types: ["card"],
+      payment_method_types: enableBnpl ? ["card", "klarna"] : ["card"],
       billing_address_collection: "required",
       client_reference_id: item.id,
       customer_creation: "always",
