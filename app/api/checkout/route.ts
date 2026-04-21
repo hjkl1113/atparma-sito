@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { list } from "@vercel/blob";
 import { parseCheckoutIdentity } from "@/app/lib/checkout";
+import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
 
 export const runtime = "nodejs";
 
@@ -11,20 +12,6 @@ function getStripe() {
   }
   return new Stripe(process.env.STRIPE_SECRET_KEY);
 }
-
-interface Servizio {
-  id: string;
-  title: string;
-  desc: string;
-  price: number | null;
-  originalPrice: number | null;
-  active: boolean;
-}
-
-const DEFAULT_PREZZI: Servizio[] = [
-  { id: "730", title: "Dichiarazione 730", desc: "Compilazione e invio della dichiarazione dei redditi modello 730.", price: 79, originalPrice: null, active: true },
-  { id: "piva", title: "Apertura Partita IVA", desc: "Apertura e configurazione della Partita IVA per la tua attività.", price: 149, originalPrice: null, active: true },
-];
 
 async function getPrezzi(): Promise<Servizio[]> {
   try {

@@ -722,9 +722,9 @@ function StepRisultato({
           </h3>
           <p className="text-sm text-zinc-300 mb-4">
             €{regime === "forfettario" ? "1.190" : "1.690"} primo anno (listino €
-            {regime === "forfettario" ? "1.289" : "1.889"}). Tutto incluso:
-            apertura + CCIAA + SIA + INPS + 12 mesi contabilità + EFAT. Tributi e
-            diritti pubblici a parte.
+            {regime === "forfettario" ? "1.209" : "1.809"}). Tutto incluso:
+            apertura + CCIAA + SIA + INPS + 12 mesi contabilità + EFAT. Un solo
+            mandato, rinnovo annuale. Tributi e diritti pubblici a parte.
           </p>
           <Link
             href={

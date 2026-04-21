@@ -1,3 +1,5 @@
+export type PriceFormat = "fisso" | "da" | "preventivo";
+
 export interface ProdottoServizio {
   slug: string;
   prezzoId: string;
@@ -9,6 +11,7 @@ export interface ProdottoServizio {
   esclusi: string[];
   processTitle?: string;
   process: { step: string; body: string }[];
+  priceFormat?: PriceFormat;
   priceBlurb?: string;
   priceSuffix?: string;
   ctaLabel?: string;
@@ -331,8 +334,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Registriamo fatture attive e passive, calcoliamo liquidazioni IVA periodiche, prepariamo F24, dichiarazioni di fine anno. 2 videocall di check all'anno.",
       },
     ],
+    priceFormat: "da",
     priceBlurb:
-      "1.099 euro primo anno. Include apertura + contabilità + IVA + dichiarazione + EFAT. Rinnovo annuale con disdetta libera o triennale a prezzo bloccato. Paghi solo dopo aver firmato il mandato nel portale.",
+      "1.099 euro primo anno per casi standard. Include apertura + contabilità + IVA + dichiarazione + EFAT. Rinnovo annuale con disdetta libera o triennale a prezzo bloccato. Se il tuo caso include dipendenti, volumi elevati o complessità particolari, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-semplificato",
@@ -394,7 +398,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Per chi apre un'attività artigianale o commerciale: apertura Partita IVA con iscrizione CCIAA, INPS artigiani/commercianti e SIA. Tutto incluso, tutto online.",
     metaDesc:
-      "P.IVA artigiani e commercianti a 690 euro: apertura + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Commercialista online.",
+      "P.IVA artigiani e commercianti a 610 euro: apertura + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Rimborsi spese e tributi pubblici separati. Commercialista online.",
     perChi: [
       "Artigiani (elettricisti, idraulici, parrucchieri, estetiste, riparatori)",
       "Commercianti (negozi fisici, e-commerce, ristorazione, ambulanti)",
@@ -434,7 +438,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "4. Pagamento",
-        body: "Paghi 690 euro direttamente nel portale con Stripe o PayPal. I tributi pubblici (bolli CCIAA, diritti, eventuale SCIA comunale) li paghi direttamente agli enti, secondo bozza mandato.",
+        body: "Paghi 610 euro direttamente nel portale con Stripe o PayPal. Rimborsi spese e tributi pubblici (bolli CCIAA, diritti, eventuale SCIA comunale) li paghi direttamente agli enti o a parte come rimborso, secondo bozza mandato.",
       },
       {
         step: "5. Apertura e iscrizioni",
@@ -442,12 +446,12 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     priceBlurb:
-      "690 euro onorario apertura. Include P.IVA + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. La contabilità annuale si concorda a parte.",
+      "610 euro onorario apertura (500 + IVA). Include P.IVA + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Rimborsi spese e tributi pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. La contabilità annuale si concorda a parte.",
     priceSuffix: "apertura",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 690 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
+      "Iscrizione portale gratuita. Pagamento 610 euro alla firma del mandato. Rimborsi spese e tributi pubblici a parte.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo insieme la verifica qualifica artigiana/commerciale e la consulenza iniziale. Firmi il mandato con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia. P.IVA attiva entro 10 giorni lavorativi dalla firma.",
     closingCtaLabel: "Inizia sul portale",
@@ -492,7 +496,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Bundle tutto incluso per chi apre un'attività artigianale o commerciale in regime forfettario: apertura P.IVA, CCIAA, SIA, INPS artigiani/commercianti e 12 mesi di contabilità annuale con fatturazione elettronica EFAT.",
     metaDesc:
-      "Artigiano o Commerciante forfettario con bundle primo anno a 1.190 euro (listino 1.289). Apertura + CCIAA + SIA + INPS + contabilità annuale + EFAT inclusi. Rinnovo annuale. Dottori commercialisti a Parma.",
+      "Artigiano o Commerciante forfettario con bundle primo anno a 1.190 euro (listino 1.209). Apertura + CCIAA + SIA + INPS + contabilità annuale + EFAT inclusi. Un solo mandato, rinnovo annuale. Dottori commercialisti a Parma.",
     perChi: [
       "Artigiani (elettricisti, idraulici, parrucchieri, estetiste, riparatori) con ricavi attesi sotto 85.000 euro",
       "Commercianti (negozi, e-commerce, ambulanti) in regime forfettario",
@@ -545,8 +549,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Fatturazione EFAT attiva, contabilità gestita, F24 calcolati, dichiarazione dei redditi predisposta. 2 videocall/anno di check.",
       },
     ],
+    priceFormat: "da",
     priceBlurb:
-      "1.190 euro primo anno (listino 1.289, sconto bundle). Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità forfettario + EFAT. Rinnovo annuale. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato.",
+      "1.190 euro primo anno per casi standard (listino teorico 1.209 come apertura + contabilità separate). Un solo mandato, una fattura, rinnovo annuale con prezzo predicibile. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità forfettario + EFAT. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture/anno o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante-forfettario",
@@ -569,7 +574,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     faqs: [
       {
         q: "Cosa include il bundle a 1.190 euro?",
-        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, iscrizione INPS artigiani/commercianti, 12 mesi di contabilità forfettario (fino a 20 fatture), dichiarazione redditi (Redditi PF con LM), fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Il listino teorico (apertura 690 + contabilità 599) è 1.289: risparmi 99 euro col bundle.",
+        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, iscrizione INPS artigiani/commercianti, 12 mesi di contabilità forfettario (fino a 20 fatture), dichiarazione redditi (Redditi PF con LM), fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Il valore del bundle non sta nello sconto (il listino teorico apertura 610 + contabilità 599 è 1.209, bundle 1.190): sta nell'avere un solo mandato, una sola fattura, rinnovo annuale con prezzo predicibile e nessuna frammentazione tra aperture e gestione.",
       },
       {
         q: "Cosa NON include?",
@@ -589,7 +594,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Cosa succede se supero gli 85.000 euro di ricavi?",
-        a: "Esci dal forfettario dall'anno successivo e passi al semplificato/ordinario. Il bundle artigiano semplificato (1.690 euro primo anno, listino 1.889) copre la transizione senza interruzione di servizio, mantenendo portale e storico.",
+        a: "Esci dal forfettario dall'anno successivo e passi al semplificato/ordinario. Il bundle artigiano semplificato (1.690 euro primo anno, listino teorico 1.809) copre la transizione senza interruzione di servizio, mantenendo portale e storico.",
       },
     ],
   },
@@ -600,7 +605,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Bundle per chi apre un'attività artigianale o commerciale con ricavi previsti oltre 85.000 euro o con spese rilevanti da dedurre: apertura P.IVA, CCIAA, SIA, INPS, 12 mesi di contabilità semplificata con IVA periodica.",
     metaDesc:
-      "Artigiano o Commerciante regime semplificato con bundle primo anno a 1.690 euro (listino 1.889). Apertura + CCIAA + SIA + INPS + contabilità annuale + IVA + EFAT inclusi. Dottori commercialisti a Parma.",
+      "Artigiano o Commerciante regime semplificato con bundle primo anno a 1.690 euro (listino 1.809). Apertura + CCIAA + SIA + INPS + contabilità annuale + IVA + EFAT inclusi. Dottori commercialisti a Parma.",
     perChi: [
       "Artigiani con ricavi previsti oltre 85.000 euro/anno",
       "Commercianti con volumi rilevanti (negozi medi, ristoranti, e-commerce strutturati)",
@@ -654,8 +659,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Registrazioni, liquidazioni IVA, F24, dichiarazioni. 2 videocall/anno di check.",
       },
     ],
+    priceFormat: "da",
     priceBlurb:
-      "1.690 euro primo anno (listino 1.889, sconto bundle). Apertura + CCIAA + SIA + INPS + 12 mesi contabilità semplificata + IVA + EFAT. Tributi pubblici dovuti agli enti a parte, importi esatti nella bozza di mandato.",
+      "1.690 euro primo anno per casi standard (listino teorico 1.809 come apertura + contabilità separate). Un solo mandato, rinnovo annuale. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità semplificata + IVA + EFAT. Tributi pubblici dovuti agli enti a parte, importi esatti nella bozza di mandato. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso o volumi elevati, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante-semplificato",
@@ -678,7 +684,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     faqs: [
       {
         q: "Cosa include il bundle a 1.690 euro?",
-        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, INPS artigiani/commercianti, 12 mesi contabilità semplificata con registri IVA, liquidazioni IVA periodiche, LIPE, dichiarazione Redditi PF + IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Listino teorico (690+1.199) 1.889: risparmi 199 euro col bundle.",
+        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, INPS artigiani/commercianti, 12 mesi contabilità semplificata con registri IVA, liquidazioni IVA periodiche, LIPE, dichiarazione Redditi PF + IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Listino teorico (apertura 610 + contabilità 1.199) è 1.809, bundle 1.690: risparmi 119 euro, ma il valore principale è avere un solo mandato e rinnovo annuale predicibile.",
       },
       {
         q: "Quando conviene il semplificato rispetto al forfettario?",
@@ -1035,8 +1041,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Gestiamo IVA periodica, LIPE, F24, dichiarazioni. Fatturi da EFAT (self-serve). A fine anno: rinnovo al prezzo concordato. Se la complessità cresce (esterometro, dipendenti) aggiorniamo il preventivo prima del rinnovo.",
       },
     ],
+    priceFormat: "da",
     priceBlurb:
-      "899 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 899 euro per 3 anni. Paghi solo dopo la firma del mandato nel portale.",
+      "899 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 899 euro per 3 anni. Se il tuo caso include dipendenti, volumi elevati, ristrutturazione pregressa di registri IVA o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-professionista-semplificata",
@@ -1143,8 +1150,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Gestiamo contabilità, F24 INPS trimestrali, diritto CCIAA, dichiarazione redditi. Fatturi da EFAT (self-serve). A fine anno: rinnovo al prezzo concordato. Oltre 20 fatture: preventivo aggiornato prima del rinnovo.",
       },
     ],
+    priceFormat: "da",
     priceBlurb:
-      "599 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 599 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale.",
+      "599 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 599 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture, subentro critico o arretrati da sistemare, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-artigiano-forfettario",
@@ -1253,8 +1261,9 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         body: "Gestiamo IVA periodica, LIPE, F24 INPS artigiani, CCIAA, dichiarazioni. Fatturi da EFAT. A fine anno: rinnovo al prezzo concordato. Se la complessità cresce aggiorniamo preventivo prima del rinnovo.",
       },
     ],
+    priceFormat: "da",
     priceBlurb:
-      "1190 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 1190 euro per 3 anni. Paghi solo dopo la firma del mandato nel portale.",
+      "1.190 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 1.190 euro per 3 anni. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso, volumi elevati o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-artigiano-semplificata",

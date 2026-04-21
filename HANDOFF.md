@@ -1,6 +1,23 @@
 # Handoff
 
-Ultimo aggiornamento: `2026-04-21 19:40`
+Ultimo aggiornamento: `2026-04-21 sera (WIP — ripresa a casa)`
+
+## WIP Pricing — Riprendere Stasera
+
+Sessione interrotta a metà del piano P3 riposizionamento pricing. Nuova matrice prezzi condivisa dall'utente (2026-04-21) che ridisegna 7 SKU su 11. **Non ancora approvata, non ancora implementata.** Vedi memoria `project_atparma_pricing_matrix.md` per dettaglio completo.
+
+Stato:
+- P3 parziale committato (`piva-art` €690 → €610, framing "spese vive separate", formato `priceFormat "fisso"/"da"/"preventivo"` su 6 servizi)
+- Rendering "a partire da €X" in `app/pricing.tsx`, `app/servizi/page.tsx`, `app/servizi/[slug]/page.tsx` NON ancora fatto
+- P2 claim "20 anni" → "Oltre 20 anni" in `app/page.tsx:319` e `app/blog/commercialista-online/page.tsx:324` NON ancora fatto
+- P5 copy premium NON ancora fatto
+
+Decisioni pendenti (3 opzioni proposte all'utente):
+- A. Stop totale + re-plan
+- B. Chiudo P3 parziale (compatibile con matrice) + piano nuovo dedicato per matrice completa [raccomandata]
+- C. Estendo P3 alla matrice completa adesso
+
+Ripartire leggendo `project_atparma_pricing_matrix.md` in memory, non partire implementando.
 
 ## Leggere Per Prime
 
