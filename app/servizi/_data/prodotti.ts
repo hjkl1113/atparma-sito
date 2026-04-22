@@ -477,7 +477,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Posso scegliere il regime forfettario?",
-        a: "Si, se rispetti i requisiti (ricavi sotto 85.000 euro, niente redditi da lavoro dipendente oltre 30.000 euro, ecc.). In consulenza valutiamo insieme.",
+        a: "Si, se rispetti i requisiti (ricavi sotto 85.000 euro, niente redditi da lavoro dipendente o pensione oltre 35.000 euro lordi nell'anno precedente con rapporto ancora in essere, spese per dipendenti entro 20.000 euro, ecc.). In consulenza valutiamo insieme.",
       },
       {
         q: "Quanto pago di INPS l'anno?",
@@ -582,7 +582,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Devo verificare se posso fare forfettario?",
-        a: "Sì: il forfettario ha requisiti di legge stringenti (ricavi sotto 85.000 euro, no lavoro dipendente sopra 30.000 euro, no partecipazioni societarie dominanti, no committente ex datore di lavoro). Puoi fare una prima verifica col tool online, la conferma definitiva la facciamo in consulenza prima di firmare il mandato.",
+        a: "Sì: il forfettario ha requisiti di legge stringenti (ricavi sotto 85.000 euro, no redditi da lavoro dipendente o pensione sopra 35.000 euro lordi nell'anno precedente se il rapporto è ancora in essere, spese per dipendenti entro 20.000 euro, no partecipazioni societarie dominanti, no committente ex datore di lavoro). Puoi fare una prima verifica col tool online, la conferma definitiva la facciamo in consulenza prima di firmare il mandato.",
       },
       {
         q: "Come si rinnova dopo il primo anno?",

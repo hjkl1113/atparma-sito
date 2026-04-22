@@ -139,7 +139,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Ricavi o compensi non superiori a <strong>85.000 euro</strong> nell&apos;anno precedente</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Spese per dipendenti e collaboratori non superiori a 20.000 euro lordi</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Nessuna partecipazione in società di persone, associazioni professionali o SRL con controllo</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Non aver percepito nell&apos;anno precedente redditi da lavoro dipendente superiori a 30.000 euro (salvo cessazione del rapporto)</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Non aver percepito nell&apos;anno precedente redditi da lavoro dipendente o pensione superiori a 35.000 euro lordi, se il rapporto è ancora in essere (il limite non si applica se il rapporto di lavoro è cessato nell&apos;anno precedente)</span></li>
             </ul>
             <p className="font-semibold text-zinc-900 mt-6">Vantaggi principali:</p>
             <ul className="space-y-2 ml-4">

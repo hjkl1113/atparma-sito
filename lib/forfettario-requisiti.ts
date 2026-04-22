@@ -6,7 +6,7 @@
  * comuni. Il controllo definitivo deve farlo il commercialista sulla
  * situazione specifica del cliente.
  *
- * Ultima verifica: 2026-04-20. Review semestrale via GitHub Actions.
+ * Ultima verifica: 2026-04-22. Review semestrale via GitHub Actions.
  */
 
 export type RequisitiRispostaId =
@@ -34,10 +34,10 @@ export const REQUISITI_ESCLUSIONE: RequisitoForfettario[] = [
   {
     id: "dipendenteRedditoAlto",
     domanda:
-      "Hai (o avrai contemporaneamente) un lavoro dipendente o assimilato con reddito oltre 30.000 euro all'anno?",
+      "Nell'anno precedente hai percepito redditi da lavoro dipendente o pensione oltre 35.000 euro lordi, con rapporto ancora in essere?",
     dettaglio:
-      "Il forfettario è precluso a chi, nell'anno precedente, ha percepito redditi di lavoro dipendente o pensioni oltre 30.000 euro lordi. Sotto questa soglia si può cumulare.",
-    riferimento: "L. 190/2014 art. 1 c. 57 lett. d-ter)",
+      "Il forfettario è precluso a chi, nell'anno precedente, ha percepito redditi di lavoro dipendente o pensioni oltre 35.000 euro lordi, a condizione che il rapporto sia ancora in essere. Se il rapporto di lavoro è cessato nell'anno precedente la soglia non si applica. Sotto i 35.000 euro si può cumulare con la P.IVA forfettaria.",
+    riferimento: "L. 190/2014 art. 1 c. 57 lett. d-ter) — soglia aggiornata L. 197/2022",
   },
   {
     id: "socioDominante",
