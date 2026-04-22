@@ -35,14 +35,14 @@ export interface VoceOutput {
 }
 
 /** Listino AT Parma — valori "a partire da". Allineato a `app/lib/prezzi-default.ts`
- *  e al nuovo modello bundle introdotto nel commit d5bd976 (Mac, 2026-04-20). */
+ *  (matrice pricing ibrida 2026-04-22, commit 384ea74). */
 export const AT_PARMA_LISTINO_ARTIGIANO = {
   /** Apertura artigiano/commerciante una tantum (include CCIAA + SIA + INPS + SUAP base) */
-  aperturaDa: 690,
+  aperturaDa: 610,
   /** Contabilità forfettario annuale — a partire da (ricorrente) */
-  contabilitaForfettarioDa: 599,
+  contabilitaForfettarioDa: 610,
   /** Contabilità non forfettario (semplificata/ordinaria) annuale — a partire da */
-  contabilitaNonForfettarioDa: 1199,
+  contabilitaNonForfettarioDa: 1464,
 } as const;
 
 export interface RisultatoPreventivo {

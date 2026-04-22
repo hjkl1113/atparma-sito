@@ -121,14 +121,14 @@ Non chiudere il flusso sito finché questi step portale non sono online (oggi il
 
 ## Dipendenze Portale — 4 Bundle Contabilità Annuale (subentro)
 
-Aggiunti 2026-04-21 nel catalogo sito 4 bundle per clienti con P.IVA già aperta che vogliono cambiare commercialista. Portale-first: nessun checkout sito, tutto il flusso nel portale.
+Aggiunti 2026-04-21 nel catalogo sito 4 bundle per clienti con P.IVA già aperta che vogliono cambiare commercialista. Portale-first: nessun checkout sito, tutto il flusso nel portale. **Prezzi aggiornati alla matrice pricing ibrida 2026-04-22.**
 
 Slug sito → endpoint portale richiesto:
 
-1. `/servizi/contabilita-professionista-forfettario` (€349) → `/onboarding/contabilita-professionista-forfettario`
-2. `/servizi/contabilita-professionista-semplificata` (€899) → `/onboarding/contabilita-professionista-semplificata`
-3. `/servizi/contabilita-artigiano-forfettario` (€599) → `/onboarding/contabilita-artigiano-forfettario`
-4. `/servizi/contabilita-artigiano-semplificata` (€1190) → `/onboarding/contabilita-artigiano-semplificata`
+1. `/servizi/contabilita-professionista-forfettario` (€449) → `/onboarding/contabilita-professionista-forfettario`
+2. `/servizi/contabilita-professionista-semplificata` (da €1.464) → `/onboarding/contabilita-professionista-semplificata`
+3. `/servizi/contabilita-artigiano-forfettario` (da €610) → `/onboarding/contabilita-artigiano-forfettario`
+4. `/servizi/contabilita-artigiano-semplificata` (da €1.464) → `/onboarding/contabilita-artigiano-semplificata`
 
 Workflow stateful 6-step per ciascuno:
 
@@ -145,7 +145,7 @@ Nel repo portale servono:
 2. Template PDF mandato professionale "contabilità annuale subentro" nelle 4 varianti (prof forf, prof semp, art forf, art semp) × 2 durate (annuale/triennale)
 3. Modulo delega al commercialista precedente (PDF firmabile nel portale) per recupero documenti
 4. Flusso segreteria "takeover queue": cruscotto interno per tracciare richieste documenti al commercialista precedente, ricezione, onboarding EFAT, conferma al cliente
-5. Stripe checkout parametrizzato per i 4 prezzi (349/899/599/1190) con metadata corretti
+5. Stripe checkout parametrizzato per i 4 prezzi (449/1464/610/1464) con metadata corretti
 6. Cron rinnovo identico ai bundle apertura con i nuovi prezzi e le soglie volume per forfettari (>20 fatture)
 7. Add-on fatturazione assistita (+€99/anno) già definito per il bundle P.IVA professionista: stesso add-on applicabile ai 4 bundle contabilità (UI proforma + flusso segreteria → SdI)
 
