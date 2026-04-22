@@ -21,6 +21,10 @@ interface Props {
   prezzoSemplificato: number;
   /** Contesto: cambia solo il copy. "professionista" o "artigiano". */
   contesto?: "professionista" | "artigiano";
+  /** Slug della pagina prodotto corrente. Se coincide con la destinazione
+   *  suggerita (forfettario o semplificato), il CTA scrolla all'acquisto
+   *  invece di fare redirect inutile sulla stessa URL. */
+  currentSlug?: string;
   /** Callback opzionale quando l'utente ha completato la verifica.
    *  Usato dal wizard preventivo per preselezionare il regime. */
   onEsito?: (esito: EsitoVerifica) => void;
@@ -32,6 +36,7 @@ export function VerificaRequisitiForfettario({
   slugSemplificato,
   prezzoSemplificato,
   contesto = "professionista",
+  currentSlug,
   onEsito,
 }: Props) {
   const [risposte, setRisposte] = useState<Partial<Record<RequisitiRispostaId, boolean>>>({});
@@ -157,13 +162,27 @@ export function VerificaRequisitiForfettario({
           )}
 
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href={esito.idoneo ? `/servizi/${slugForfettario}` : `/servizi/${slugSemplificato}`}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-accent-dark)] transition-colors"
-            >
-              Vedi il bundle {esito.idoneo ? "forfettario" : "semplificato"}{" "}
-              (€{esito.idoneo ? prezzoForfettario : prezzoSemplificato})
-            </Link>
+            {(() => {
+              const destSlug = esito.idoneo ? slugForfettario : slugSemplificato;
+              const destPrezzo = esito.idoneo ? prezzoForfettario : prezzoSemplificato;
+              const destLabel = esito.idoneo ? "forfettario" : "semplificato";
+              const isStessaPagina = currentSlug === destSlug;
+              return isStessaPagina ? (
+                <a
+                  href="#acquista"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-accent-dark)] transition-colors"
+                >
+                  Prosegui con l&apos;acquisto (€{destPrezzo}) ↓
+                </a>
+              ) : (
+                <Link
+                  href={`/servizi/${destSlug}`}
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-accent-dark)] transition-colors"
+                >
+                  Vedi il bundle {destLabel} (€{destPrezzo})
+                </Link>
+              );
+            })()}
             <button
               onClick={reset}
               className="px-6 py-3 border border-zinc-300 text-zinc-700 rounded-lg text-sm hover:bg-zinc-50 transition-colors"

@@ -238,7 +238,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               </div>
             </div>
 
-            <aside className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-24">
+            <aside id="acquista" className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-24 scroll-mt-24">
               <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium mb-2">
                 Prezzo chiaro, tutto incluso
               </p>
@@ -321,6 +321,7 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                 slugSemplificato="piva-professionista-semplificato"
                 prezzoSemplificato={1099}
                 contesto="professionista"
+                currentSlug={prodotto.slug}
               />
             </section>
           )}
