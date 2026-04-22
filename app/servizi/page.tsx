@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
+import { getProdotto } from "@/app/servizi/_data/prodotti";
 
 export const metadata: Metadata = {
   title: "Servizi — Commercialista online Parma | A.T. Consulting Parma",
@@ -87,6 +88,8 @@ export default function ServiziPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {DEFAULT_PREZZI.filter((p) => p.active).map((p) => {
                 const isLinkable = Boolean(p.slug);
+                const prodotto = p.slug ? getProdotto(p.slug) : undefined;
+                const isDa = prodotto?.priceFormat === "da";
                 const Card = (
                   <div className="h-full bg-white rounded-2xl border border-zinc-200 shadow-sm p-6 flex flex-col hover:border-zinc-300 hover:shadow-md transition-all">
                     <h3 className="font-semibold mb-2 font-[family-name:var(--font-heading)]">
@@ -97,6 +100,7 @@ export default function ServiziPage() {
                       <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
                         {p.price !== null ? (
                           <>
+                            {isDa && <span className="mr-1 text-xs font-normal text-zinc-500">da</span>}
                             €{p.price}
                             <span className="ml-1 text-xs font-normal text-zinc-500">IVA incl.</span>
                           </>

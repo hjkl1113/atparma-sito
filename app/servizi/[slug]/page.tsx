@@ -242,6 +242,9 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium mb-2">
                 Prezzo chiaro, tutto incluso
               </p>
+              {prodotto.priceFormat === "da" && price !== null && (
+                <p className="text-xs text-zinc-500 mb-0.5">a partire da</p>
+              )}
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-4xl font-bold font-[family-name:var(--font-heading)]">
                   {price !== null ? `€${price}` : "A preventivo"}

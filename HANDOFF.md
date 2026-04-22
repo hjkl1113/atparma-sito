@@ -121,7 +121,7 @@ Autori assegnati lato sito (mirror nel portale):
 - `contabilita-professionista-*` → Pietro Franzosi (albo Parma)
 - `contabilita-artigiano-*` → Aldo Ponzi (albo Brescia)
 
-## Dipendenze Portale — Apertura Artigiano/Commerciante sola (€690)
+## Dipendenze Portale — Apertura Artigiano/Commerciante sola (€610)
 
 Dal 2026-04-21 anche il tab `piva-artigiano-commerciante` (apertura sola, senza contabilità annuale) è portale-first. Nessun checkout sito: CTA → `https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante`.
 
@@ -130,14 +130,14 @@ Workflow stateful 5-step nel portale:
 1. Iscrizione portale (zero caparra)
 2. Consulenza iniziale videocall (verifica ATECO, qualifica artigiano/commerciante, SCIA necessarie)
 3. Firma mandato professionale apertura artigiano/commerciante (solo apertura, non include contabilità)
-4. Stripe/PayPal checkout €690 con `metadata.service=piva-artigiano-commerciante`
+4. Stripe/PayPal checkout €610 (onorario studio 500 + IVA) con `metadata.service=piva-artigiano-commerciante`. Rimborsi spese e tributi pubblici (CCIAA, SIA, SCIA, USL, bolli) gestiti a parte — stima nel wizard preventivo, importo esatto nella bozza di mandato
 5. Apertura + CCIAA (ComUnica) + INPS artigiani/commercianti + SIA entro 10gg lavorativi
 
 Nel repo portale serve:
 1. Endpoint `/onboarding/piva-artigiano-commerciante`
 2. Template PDF mandato "apertura artigiano/commerciante" (senza clausola contabilità annuale — da rinnovare o upgrade a bundle `piva-artigiano-commerciante-forfettario`/`-semplificato` se il cliente poi vuole anche la gestione)
 3. Calcolatore tributi pubblici per provincia (bolli CCIAA, diritto annuale, SIA, SCIA comunale) da includere nella bozza mandato
-4. Stripe checkout €690 con `metadata.service=piva-artigiano-commerciante` e `metadata.durata=none` (apertura una tantum)
+4. Stripe checkout €610 con `metadata.service=piva-artigiano-commerciante` e `metadata.durata=none` (apertura una tantum, rimborsi spese fuori transazione)
 
 Nota: questo tab è l'unico bundle apertura "pure" rimasto (senza contabilità annuale inclusa). Usato da chi ha già commercialista per la gestione oppure è indeciso e vuole solo partire.
 

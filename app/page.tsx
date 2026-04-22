@@ -316,8 +316,8 @@ const vantaggi = [
     desc: "Tutto sul portale: documenti, firme, scadenze e pagamenti",
   },
   {
-    title: "20 anni di esperienza",
-    desc: "Da Parma al servizio di tutta Italia",
+    title: "Oltre 20 anni di esperienza",
+    desc: "Dal 2005 al servizio di imprese e professionisti in tutta Italia",
   },
 ];
 

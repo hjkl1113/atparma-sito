@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
+import { getProdotto } from "@/app/servizi/_data/prodotti";
 
 export function Pricing() {
   const [prezzi, setPrezzi] = useState<Servizio[]>(DEFAULT_PREZZI);
@@ -38,7 +39,10 @@ export function Pricing() {
           appena completi il pagamento.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
-          {visibili.map((p) => (
+          {visibili.map((p) => {
+            const prodotto = p.slug ? getProdotto(p.slug) : undefined;
+            const isDa = prodotto?.priceFormat === "da";
+            return (
             <div
               key={p.id}
               className="bg-white rounded-2xl p-8 border border-zinc-200 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all flex flex-col"
@@ -59,6 +63,9 @@ export function Pricing() {
                           -{Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)}%
                         </span>
                       </div>
+                    )}
+                    {isDa && (
+                      <span className="block text-xs text-zinc-500 mb-0.5">a partire da</span>
                     )}
                     <span className="text-3xl font-bold font-[family-name:var(--font-heading)]">
                       &euro;{p.price}
@@ -85,7 +92,8 @@ export function Pricing() {
                 </a>
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-16 bg-white border border-zinc-200 rounded-2xl p-8 shadow-sm">

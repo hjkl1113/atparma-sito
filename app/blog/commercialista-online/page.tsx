@@ -321,7 +321,7 @@ export default function ArticoloPage() {
                 Cerchi un commercialista online a Parma?
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
-                A.T. Consulting Parma: lo studio con 20 anni di esperienza, la comodità di un servizio completamente online. 730 da 50 euro (listino 79), bundle P.IVA Professionista forfettario da 449 euro primo anno (apertura + contabilità annuale).
+                A.T. Consulting Parma: lo studio con oltre 20 anni di esperienza (dal 2005), la comodità di un servizio completamente online. 730 da 50 euro (listino 79), bundle P.IVA Professionista forfettario da 449 euro primo anno (apertura + contabilità annuale).
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">
