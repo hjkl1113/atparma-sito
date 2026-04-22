@@ -1,7 +1,7 @@
 ================================================================================
 REPORT UNIFICATO — AT PARMA
 Sito www.atparma.com + Portale clienti.atparma.com
-Data: 2026-04-14 | Versione: 1.0
+Data: 2026-04-22 | Versione: 1.9
 ================================================================================
 
 --------------------------------------------------------------------------------
@@ -25,18 +25,44 @@ PORTALE (clienti.atparma.com)
 2. STRUTTURA PREZZI DEFINITIVA
 --------------------------------------------------------------------------------
 
-SERVIZI SUL SITO
-- Dichiarazione 730: EUR 79
-- Apertura P.IVA Professionista: EUR 150
-- Apertura P.IVA Artigiano/Commerciante (SIA, INPS, CCIAA): EUR 500
-- Apertura P.IVA Forfettario (caricamento documenti via portale): EUR 500
-- Apertura P.IVA Forfettario + GIS Ranocchi (EFAT fatturazione): EUR 550/anno
+LISTINO SITO (applicato 2026-04-22, matrice ibrida Report GPT-5.4 + consenso 4-AI)
+
+Dichiarazioni Redditi
+- Dichiarazione 730 standard: EUR 50 (promo, listino 79) - fisso
+- Dichiarazione 730 avanzata: da EUR 98 - da (redditi esteri, RW, superbonus pluriennali)
+- Modello Redditi PF (UPF) base: EUR 98 - fisso (ex P.IVA cessata, fondiari, assimilati)
+- Modello Redditi PF (UPF) avanzato: da EUR 198 - da (RW/RT/RM, esteri, IVIE/IVAFE)
+
+Professionista (gestione separata INPS / cassa privata)
+- Apertura Professionista sola: EUR 183 - fisso (una tantum, senza vincoli annuali)
+- Apertura Prof forfettario + contabilita 12 mesi: EUR 549 - fisso
+- Apertura Prof semplificata + contabilita 12 mesi: da EUR 1.647 - da
+- Contabilita annuale Prof forfettario: EUR 449 - fisso
+- Contabilita annuale Prof semplificata: da EUR 1.464 - da
+
+Artigiani e Commercianti (INPS artigiani, CCIAA, SIA)
+- Apertura Artigiano/Commerciante sola: EUR 610 - fisso (tributi pubblici a parte)
+- Apertura Artigiano forfettario + contabilita 12 mesi: da EUR 1.220 - da
+- Apertura Artigiano semplificata + contabilita 12 mesi: da EUR 2.074 - da
+- Contabilita annuale Artigiano forfettario: da EUR 610 - da
+- Contabilita annuale Artigiano semplificata: da EUR 1.464 - da
+
+Altro
 - Consulenza su misura: A preventivo
 
-SERVIZI RICORRENTI (portale)
-- Gestione contabilita forfettaria: da definire
-- Gestione 730: EUR 79 (una tantum)
-- Gestione forfettario + EFAT: EUR 550/anno
+PRINCIPI APPLICATI
+- Source-of-truth: app/lib/prezzi-default.ts (code-first, admin blob solo active)
+- Formato "fisso" su servizi prevedibili, "da" su semplificato/artigiani/dichiarazioni complesse
+- Tributi pubblici separati dall'onorario studio su tutte le tipologie artigiano/commerciante
+- originalPrice EU Omnibus attivo solo dove il prezzo promo e' inferiore al listino (730)
+- Disclaimer detrazioni IRPEF nel calcolatore forfettario gratuito (CTA contatti, no calcolo preciso)
+
+WIP RIPOSIZIONAMENTO 3 MACRO-SEZIONI (in corso)
+- Macro 1: Dichiarazioni Redditi (730 + UPF, navigazione checklist)
+- Macro 2: Professionista (wizard convenienza + prodotti)
+- Macro 3: Artigiani e Commercianti (wizard esistente + prodotti)
+- Pendente: refactor pagina /servizi, 3 landing sezionali, home, redirect 301, valutazione cont-prof-forf 449->499
+- Deferred: crisi da sovraindebitamento (PF + aziende)
 
 --------------------------------------------------------------------------------
 3. CATALOGO PRODOTTI DIGITALI
