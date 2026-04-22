@@ -1,6 +1,28 @@
 # Handoff
 
-Ultimo aggiornamento: `2026-04-22 (nuova matrice pricing ibrida applicata)`
+Ultimo aggiornamento: `2026-04-22 (UPF + disclaimer detrazioni + copy fix apertura prof)`
+
+## WIP — Riposizionamento macro-sezioni /servizi
+
+Riposizionamento in corso verso 3 macro-sezioni: Dichiarazioni Redditi, Professionista, Artigiani/Commercianti. La navigazione si apre per checklist dentro ogni macro invece che in griglia piatta.
+
+**Fatto in questa sessione (2026-04-22):**
+
+- **UPF prezzi e prodotti (2 nuovi SKU)**:
+  - `upf-base` €98 fisso — dichiarazione Modello Redditi PF per casi lineari (ex P.IVA cessata, redditi fondiari, redditi assimilati)
+  - `upf-avanzato` da €198 — UPF con quadri RW/RT/RM, redditi esteri, IVIE/IVAFE, strascichi P.IVA pluriennali
+  - Aggiunti in `app/lib/prezzi-default.ts` e `app/servizi/_data/prodotti.ts` con FAQ, process, docs completi
+- **Disclaimer detrazioni IRPEF nel calcolatore forfettario**: sotto il verdetto c'è ora una riga che segnala che il calcolo non include detrazioni (mutui, spese mediche, bonus edilizi) con CTA contatti. Scelta strategica: non estendere il calcolatore gratuito con campi detrazioni per non regalare il calcolo preciso che è il valore della consulenza.
+- **Copy fix `apertura-professionista-sola`**: rimossa positioning "per chi ha già un commercialista" — riposizionato come servizio una tantum aperto a tutti, senza vincoli di mandato annuale. Toccati tagline, metaDesc, perChi, FAQ in `prodotti.ts` e desc in `prezzi-default.ts`.
+
+**Da fare nelle prossime sessioni:**
+
+- Refactor pagina `/servizi` → 3 macro-card invece di listing piatto
+- Tre landing `/servizi/dichiarazioni`, `/servizi/professionista`, `/servizi/artigiano-commerciante` con checklist/wizard interni
+- Home page: refactor griglia servizi in 3 macro-card
+- Redirect 301 slug vecchi → nuovi URL sezionali
+- Valutazione cont-prof-forf €449 → €499 (ridurre delta vs bundle €549 da €100 a €50) — da decidere dopo aver visto la struttura a 3 sezioni
+- Enfasi "crisi da sovraindebitamento" (PF + aziende) — rimandato esplicitamente dall'utente
 
 ## Nuova Matrice Pricing — Applicata 2026-04-22
 

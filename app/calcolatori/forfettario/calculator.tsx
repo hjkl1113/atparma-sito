@@ -299,6 +299,18 @@ export function Calculator() {
                 ? "I due regimi producono un netto simile. Scegli in base a previsioni di crescita, credibilita bancaria e gestione IVA."
                 : `Con i dati inseriti il ${verdetto === "forfettario" ? "forfettario" : "regime ordinario"} ti fa risparmiare circa ${formatEuro(diff)}/anno di imposte e contributi.`}
           </p>
+          <p className="mt-3 text-xs text-zinc-600 leading-relaxed border-t border-current/10 pt-3">
+            <strong className="text-zinc-800">Attenzione detrazioni.</strong> Il calcolo non include detrazioni IRPEF
+            (mutui, spese mediche, ristrutturazioni, bonus edilizi, figli a carico): se ne hai di rilevanti,
+            il regime ordinario può convenire di più di quanto mostrato.{" "}
+            <Link
+              href="/contatti"
+              className="text-[var(--color-accent)] font-medium hover:underline"
+            >
+              Contattaci per un check-up preciso
+            </Link>
+            .
+          </p>
         </div>
 
         {/* Confronto */}

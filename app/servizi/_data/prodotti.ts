@@ -1262,19 +1262,230 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
   },
+  "dichiarazione-upf-base": {
+    slug: "dichiarazione-upf-base",
+    prezzoId: "upf-base",
+    title: "Modello Redditi PF (UPF) — base",
+    tagline:
+      "Dichiarazione Modello Redditi Persone Fisiche per chi non può usare il 730. Compilazione e invio telematico all'Agenzia delle Entrate da dottori commercialisti iscritti all'albo.",
+    metaDesc:
+      "Modello Redditi PF (UPF) a 98 euro: dichiarazione per ex P.IVA cessate, redditi fondiari, redditi assimilati che escludono il 730. Dottori commercialisti a Parma.",
+    perChi: [
+      "Ex titolari di P.IVA cessata nell'anno (senza strascichi pluriennali complessi)",
+      "Chi ha redditi fondiari da più immobili che il 730 non riesce a gestire correttamente",
+      "Chi ha redditi assimilati che escludono l'uso del 730",
+      "Eredi che devono presentare la dichiarazione per conto del de cuius",
+      "Chi ha perso il sostituto d'imposta durante l'anno e non può usare il 730",
+    ],
+    bullets: [
+      "Compilazione Modello Redditi PF con tutti i quadri necessari (RA, RB, RC, RP, RN)",
+      "Gestione redditi fondiari multipli (più immobili, comproprietà, usufrutti)",
+      "Calcolo IRPEF netta con scaglioni e addizionali regionali/comunali",
+      "Verifica detrazioni applicabili (mediche, mutuo, ristrutturazioni, carichi familiari)",
+      "Calcolo rate F24 e saldo/acconti imposte",
+      "Invio telematico all'Agenzia delle Entrate con ricevuta",
+      "Archivio documenti nel portale clienti per 5 anni (retention fiscale)",
+      "Spiegazione chiara del risultato via portale o videocall",
+    ],
+    esclusi: [
+      "Quadri avanzati RW (monitoraggio fiscale estero), RT (plusvalenze), RM (redditi a tassazione separata): servizio UPF avanzato",
+      "Dichiarazioni per titolari di P.IVA attiva nell'anno (serve contabilità annuale)",
+      "Contenzioso tributario e risposta a lettere di compliance (preventivo dedicato)",
+      "Dichiarazioni integrative o ravvedimento operoso per anni precedenti (preventivo separato)",
+    ],
+    processTitle: "Dal mandato all'invio, in 6 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
+      },
+      {
+        step: "2. Check-up iniziale",
+        body: "Videocall breve per confermare che UPF base copre il tuo caso (senza quadri avanzati RW/RT/RM). Se emergono quadri avanzati ti indirizziamo su UPF avanzato con onorario concordato.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale direttamente dal portale.",
+      },
+      {
+        step: "4. Raccolta documenti",
+        body: "Checklist guidata: CU, redditi fondiari, documenti detrazioni. Upload sicuro nel portale.",
+      },
+      {
+        step: "5. Compilazione e bozza",
+        body: "Compiliamo i quadri e ti mostriamo la bozza con riepilogo di IRPEF, addizionali, crediti e rate F24.",
+      },
+      {
+        step: "6. Invio telematico",
+        body: "Inviamo telematicamente all'Agenzia delle Entrate, ti consegniamo ricevuta e copia firmata archiviata nel portale.",
+      },
+    ],
+    priceFormat: "fisso",
+    priceBlurb:
+      "98 euro IVA inclusa per UPF base lineare. Se il check-up rileva quadri avanzati (RW per conti esteri, RT per plusvalenze, redditi esteri complessi) ti indirizziamo su UPF avanzato, con onorario concordato prima della firma del mandato.",
+    priceSuffix: "dichiarazione",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/dichiarazione-upf-base",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 98 euro alla firma del mandato.",
+    closingBlurb:
+      "Iscriviti al portale, facciamo il check-up per confermare che UPF base copre il tuo caso, firmi il mandato e lavoriamo la dichiarazione. Invio telematico e archivio documenti inclusi.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
+    docs: [
+      "CU dei sostituti d'imposta (se presenti)",
+      "Visure catastali aggiornate e contratti di locazione per immobili",
+      "Documentazione spese detraibili (mediche, mutuo, ristrutturazioni, istruzione, figli)",
+      "Eventuali F24 già versati per acconti anno in corso",
+      "Codice fiscale e documento d'identità",
+    ],
+    deliveryDays: "entro 10-15 giorni lavorativi dall'arrivo documentazione completa",
+    faqs: [
+      {
+        q: "Qual è la differenza tra 730 e Modello Redditi PF (UPF)?",
+        a: "Il 730 è riservato a lavoratori dipendenti e pensionati con situazione fiscale lineare. Il Modello Redditi PF (UPF) serve invece quando hai cessato la P.IVA nell'anno, hai redditi fondiari complessi, hai perso il sostituto d'imposta, o hai quadri che il 730 non gestisce. Il risultato fiscale è analogo, cambia il modello e il canale di invio.",
+      },
+      {
+        q: "Perché UPF base costa 98 euro e il 730 solo 50 euro?",
+        a: "Il Modello Redditi PF richiede più quadri, calcoli di saldo/acconti separati (non c'è sostituto d'imposta che trattiene), più controlli incrociati con anagrafiche diverse. Il tempo di lavorazione è superiore al 730 standard, l'onorario riflette questa differenza.",
+      },
+      {
+        q: "Se ho quadro RW per conti esteri?",
+        a: "Ti serve UPF avanzato (da 198 euro). Il quadro RW per monitoraggio fiscale estero, RT per plusvalenze finanziarie, RM per redditi a tassazione separata richiedono competenze e tempi diversi. Il check-up iniziale ti indirizza sul servizio corretto.",
+      },
+      {
+        q: "Posso passare dal 730 a UPF se mi accorgo che mi serve UPF?",
+        a: "Sì, prima della firma del mandato si cambia direzione senza costi aggiuntivi. Dopo la firma, la differenza di onorario la recuperiamo su eventuali integrazioni.",
+      },
+      {
+        q: "Gestite anche dichiarazioni per eredi?",
+        a: "Sì, la dichiarazione dei redditi del de cuius rientra in UPF. Se il caso richiede quadri avanzati (eredità di P.IVA, immobili esteri) ti indirizziamo su UPF avanzato con preventivo concordato.",
+      },
+    ],
+  },
+  "dichiarazione-upf-avanzato": {
+    slug: "dichiarazione-upf-avanzato",
+    prezzoId: "upf-avanzato",
+    title: "Modello Redditi PF (UPF) — avanzata",
+    tagline:
+      "UPF con quadri complessi: RW per conti e cripto esteri, RT plusvalenze, redditi esteri con credito d'imposta, IVIE/IVAFE, P.IVA cessata con strascichi pluriennali. Onorario tarato sulla complessità reale.",
+    metaDesc:
+      "UPF avanzato da 198 euro: quadri RW, RT, redditi esteri, IVIE/IVAFE, P.IVA cessata con strascichi. Dottori commercialisti a Parma per casi complessi.",
+    perChi: [
+      "Chi detiene conti correnti, dossier titoli o cripto-attività su exchange esteri (quadro RW)",
+      "Chi ha plusvalenze da strumenti finanziari, partecipazioni o cripto (quadro RT)",
+      "Chi ha redditi prodotti all'estero con credito d'imposta (convenzioni doppie imposizioni)",
+      "Chi possiede immobili all'estero (calcolo IVIE e IVAFE)",
+      "Ex titolari di P.IVA cessata con strascichi pluriennali (beni strumentali, rateazioni, crediti IVA)",
+    ],
+    bullets: [
+      "Compilazione quadri RA, RB, RC, RP, RN (base UPF) + quadri avanzati necessari",
+      "Quadro RW per monitoraggio fiscale di asset esteri (bancari, finanziari, immobiliari, cripto)",
+      "Quadro RT per plusvalenze finanziarie e partecipazioni estere",
+      "Calcolo IVIE e IVAFE su immobili e prodotti finanziari detenuti all'estero",
+      "Credito d'imposta estero per redditi prodotti fuori Italia (convenzioni contro doppie imposizioni)",
+      "Gestione strascichi P.IVA cessata (cessione beni strumentali, rate pluriennali, crediti IVA residui)",
+      "Invio telematico all'Agenzia delle Entrate con ricevuta",
+      "Archivio documenti nel portale clienti per 5 anni",
+    ],
+    esclusi: [
+      "Dichiarazioni per titolari di P.IVA attiva (serve contabilità annuale)",
+      "Dichiarazioni IMU, TARI (preventivo dedicato)",
+      "Contenzioso tributario, risposta a lettere di compliance (preventivo puntuale)",
+      "Dichiarazioni integrative anni precedenti (ravvedimento operoso separato)",
+    ],
+    processTitle: "Dal mandato all'invio, in 7 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri e paghi la caparra di 10 euro (Stripe o PayPal). Attivi l'account e accedi alla checklist personalizzata.",
+      },
+      {
+        step: "2. Check-up iniziale",
+        body: "Videocall di inquadramento: mappiamo i quadri necessari (RW, RT, esteri, IVIE/IVAFE) e confermiamo l'onorario finale prima della firma del mandato.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale con importo concordato.",
+      },
+      {
+        step: "4. Raccolta documenti",
+        body: "Checklist guidata: CU, redditi esteri, estratti conto esteri, dossier titoli, visure immobili esteri, documentazione trading/cripto.",
+      },
+      {
+        step: "5. Compilazione e bozza",
+        body: "Compiliamo i quadri avanzati, calcoliamo IVIE/IVAFE, credito d'imposta estero, gestiamo strascichi P.IVA. Ti mostriamo la bozza con riepilogo dettagliato.",
+      },
+      {
+        step: "6. Revisione e scelte",
+        body: "Verifica finale dei quadri e conferma delle scelte rilevanti (rate F24, 5/8/2 per mille). Firmi l'impegno a trasmettere.",
+      },
+      {
+        step: "7. Invio telematico",
+        body: "Inviamo telematicamente all'Agenzia delle Entrate, ti consegniamo ricevuta e copia firmata archiviata nel portale.",
+      },
+    ],
+    priceFormat: "da",
+    priceBlurb:
+      "198 euro è il punto di partenza per UPF avanzato standard (es. RW con un conto estero, una sola plusvalenza, un immobile estero). Se hai più asset esteri in Paesi diversi, cumulo di RW + RT + redditi esteri complessi, strascichi P.IVA pluriennali, l'onorario finale lo definiamo nel check-up iniziale prima della firma del mandato. Nessuna sorpresa dopo.",
+    priceSuffix: "dichiarazione",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/dichiarazione-upf-avanzato",
+    ctaNote:
+      "Caparra 10 euro all'iscrizione portale. Saldo onorario concordato alla firma del mandato.",
+    closingBlurb:
+      "Iscriviti al portale, facciamo insieme il check-up iniziale per mappare la complessità del tuo caso. Firmi il mandato con onorario concordato e lavoriamo la dichiarazione con i quadri avanzati gestiti correttamente.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
+    docs: [
+      "CU Italia ed eventuali CU estere (o certificazioni redditi esteri equivalenti)",
+      "Estratti conto bancari esteri e dossier titoli esteri al 31/12",
+      "Rogiti e visure immobili all'estero per IVIE",
+      "Documentazione cripto: export exchange, wallet address, operazioni",
+      "Documentazione trading: CU broker, estratti operazioni, plusvalenze realizzate",
+      "Per ex P.IVA cessata: libro beni strumentali, eventuali crediti IVA residui",
+    ],
+    deliveryDays: "entro 15-20 giorni lavorativi dall'arrivo documentazione completa",
+    faqs: [
+      {
+        q: "Qual è la differenza tra UPF base e UPF avanzato?",
+        a: "UPF base (98 euro) copre casi lineari: ex P.IVA cessata senza strascichi, redditi fondiari, redditi assimilati. UPF avanzato (da 198 euro) serve quando devi compilare quadri RW (monitoraggio fiscale estero), RT (plusvalenze), RM (tassazione separata), gestire redditi esteri con credito d'imposta, calcolare IVIE/IVAFE. Il tempo analitico è superiore, l'onorario riflette questa differenza.",
+      },
+      {
+        q: "Perché il prezzo è 'da 198 euro' e non fisso?",
+        a: "La complessità effettiva la vediamo nel check-up iniziale: un quadro RW con un conto estero è diverso da tre conti in tre Paesi diversi, una plusvalenza su un broker è diversa da cumulo RT multi-broker + cripto + partecipazioni estere. L'onorario finale te lo confermiamo prima della firma del mandato.",
+      },
+      {
+        q: "Gestite il quadro RW per cripto-attività?",
+        a: "Sì, il quadro RW copre cripto-attività detenute su wallet o exchange esteri. Calcoliamo le plusvalenze realizzate (quadro RT) e compiliamo il monitoraggio fiscale. È uno dei casi tipici di UPF avanzato.",
+      },
+      {
+        q: "Ho un immobile all'estero: quanto incide sul prezzo?",
+        a: "Un immobile singolo con documentazione pulita (rogito, visura catastale estera, valore catastale o di mercato) rientra nel base da 198 euro. Più immobili in Paesi diversi, documentazione da ricostruire o valutazione di mercato da integrare alzano l'onorario: lo confermiamo nel check-up.",
+      },
+      {
+        q: "Ho cessato la P.IVA a giugno: serve UPF avanzato?",
+        a: "Dipende. Se la cessazione è stata pulita (no beni strumentali da cedere, no crediti IVA residui, no ratei pluriennali) UPF base può bastare. Se ci sono strascichi (cessione beni, crediti IVA, rate superbonus ereditate) serve UPF avanzato. Il check-up iniziale ti indirizza.",
+      },
+      {
+        q: "Rischio sanzioni se non dichiaro conti esteri nel RW?",
+        a: "Sì, e sono pesanti: dal 3% al 15% degli importi non dichiarati per Paesi collaborativi, fino al 30% per Paesi black list. Anche per saldi minimi. UPF avanzato copre la compilazione corretta del RW per evitare questi rischi.",
+      },
+    ],
+  },
   "apertura-professionista-sola": {
     slug: "apertura-professionista-sola",
     prezzoId: "apertura-prof-sola",
     title: "Apertura P.IVA Professionista (solo apertura)",
     tagline:
-      "Apertura Partita IVA professionista (gestione separata INPS o cassa privata) senza contabilità annuale. Per chi ha già un commercialista per la gestione e vuole solo l'apertura fatta bene, senza vincoli di mandato annuale.",
+      "Apertura Partita IVA professionista (gestione separata INPS o cassa privata) come servizio una tantum. Scelta codice ATECO, regime fiscale e cassa previdenziale. Senza contabilità annuale inclusa e senza rinnovo tacito.",
     metaDesc:
-      "Apertura P.IVA professionista a 183 euro, senza contabilità annuale. Solo apertura + iscrizione INPS/cassa. Per chi ha già un commercialista. Dottori commercialisti a Parma.",
+      "Apertura P.IVA professionista a 183 euro, servizio una tantum. Scelta codice ATECO, regime forfettario/semplificato, iscrizione INPS/cassa. Dottori commercialisti a Parma.",
     perChi: [
-      "Professionisti che hanno già un commercialista per la gestione annuale e vogliono solo l'apertura",
-      "Chi vuole aprire oggi per iniziare a fatturare e valutare con calma il commercialista per la gestione",
+      "Chi vuole aprire oggi per iniziare a fatturare e decidere con calma a chi affidare la gestione annuale",
       "Chi preferisce separare l'apertura (servizio una tantum) dalla contabilità annuale",
-      "Chi ha ricevuto l'apertura come parte di un altro studio ma preferisce farla con noi",
+      "Chi ha un altro studio per la gestione ma vuole farsi aprire la P.IVA correttamente da noi",
+      "Chi vuole l'apertura fatta con attenzione al regime e alla cassa corretti, senza vincoli di mandato annuale",
     ],
     bullets: [
       "Apertura Partita IVA presso l'Agenzia delle Entrate",
@@ -1336,7 +1547,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     faqs: [
       {
         q: "Perché scegliere solo apertura senza contabilità?",
-        a: "Se hai già un commercialista di fiducia per la gestione annuale e vuoi solo l'apertura fatta bene, oppure se vuoi aprire oggi per iniziare a fatturare senza aspettare di aver scelto il commercialista definitivo. Nessun vincolo, nessun rinnovo tacito.",
+        a: "È la scelta giusta se vuoi aprire oggi per iniziare a fatturare senza vincoli di mandato annuale: firmi una tantum, paghi una tantum, P.IVA attiva. Successivamente puoi decidere con calma se affidarci anche la contabilità o rivolgerti altrove. Nessun rinnovo tacito.",
       },
       {
         q: "Posso passare alla contabilità con voi in un secondo momento?",

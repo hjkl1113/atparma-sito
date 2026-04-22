@@ -2,7 +2,7 @@
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
 **Data:** 2026-04-22
-**Versione:** 1.8
+**Versione:** 1.9
 
 ---
 
@@ -30,6 +30,8 @@ Matrice ibrida tra Report GPT-5.4 e consenso 4-AI (Claude + OpenAI + Qwen + Gemi
 |---|---:|---|
 | Dichiarazione 730 | €50 (listino 79) | fisso (promo) |
 | Dichiarazione 730 avanzata | da €98 | da |
+| Modello Redditi PF (UPF) base | €98 | fisso |
+| Modello Redditi PF (UPF) avanzata | da €198 | da |
 | Apertura Professionista sola (no contabilità) | €183 | fisso |
 | Apertura Prof forfettario + contabilità 12 mesi | €549 | fisso |
 | Apertura Prof semplificata + contabilità 12 mesi | da €1.647 | da |
@@ -50,6 +52,24 @@ Matrice ibrida tra Report GPT-5.4 e consenso 4-AI (Claude + OpenAI + Qwen + Gemi
 - Tributi e diritti pubblici sempre separati dall'onorario studio nelle tipologie artigiano/commerciante.
 - CTA "check-up guidato" non bloccante su tutte le 5 pagine artigiano, linkata al wizard esistente `/strumenti/preventivo-artigiano-commerciante`.
 - Anchor `originalPrice` EU Omnibus attivi solo dove il prezzo promozionale è effettivamente inferiore al listino (730).
+
+### 2.3 Roadmap macro-sezioni /servizi (in corso)
+
+Riposizionamento strategico verso studio vero con portale di qualità, non più canale online head-to-head vs Fiscozen/LexDo. Tre macro-sezioni, navigazione checklist-driven:
+
+1. **Dichiarazioni Redditi** — 730 (€50), 730 avanzato (da €98), UPF base (€98), UPF avanzato (da €198). Checklist per guidare la scelta.
+2. **Professionista** — wizard convenienza forfettario vs ordinario (esistente, con disclaimer detrazioni IRPEF aggiunto 2026-04-22) → apertura sola (€183), bundle forfettario (€549), bundle semplificato (da €1.647), contabilità standalone.
+3. **Artigiani e Commercianti** — wizard esistente → apertura sola (€610), bundle forfettario (da €1.220), bundle semplificato (da €2.074), contabilità standalone.
+
+**Step completato 2026-04-22:** UPF prezzi e prodotti (2 nuovi SKU), disclaimer detrazioni IRPEF nel calcolatore forfettario, copy fix apertura-prof-sola (rimossa positioning "per chi ha già un commercialista" → riposizionato come servizio una tantum aperto a tutti).
+
+**Step successivi (non ancora implementati):**
+- Refactor pagina /servizi → 3 macro-card che linkano a 3 landing dedicate
+- Tre landing `/servizi/dichiarazioni`, `/servizi/professionista`, `/servizi/artigiano-commerciante` con wizard/checklist interne
+- Home page: griglia pricing → 3 macro-card
+- Redirect 301 slug vecchi → nuove URL sezionali
+- Valutazione cont-prof-forf €449 → €499 (per ridurre delta vs bundle €549 a €50, da decidere dopo aver testato struttura)
+- Enfasi "crisi da sovraindebitamento" (PF + aziende) — deferred esplicitamente dall'utente
 
 ---
 
