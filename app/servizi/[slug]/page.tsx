@@ -14,8 +14,6 @@ const AUTORE_PER_SLUG: Record<string, Autore> = {
   "dichiarazione-730": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-professionista": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-professionista-semplificato": { author: "Pietro Franzosi", authorAlbo: "Parma" },
-  "piva-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
-  "piva-forfettario-efat": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-artigiano-commerciante": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-artigiano-commerciante-forfettario": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-artigiano-commerciante-semplificato": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
