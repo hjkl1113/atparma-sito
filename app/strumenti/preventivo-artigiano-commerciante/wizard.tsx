@@ -428,14 +428,14 @@ function StepRegime({
           onClick={() => setRegime("forfettario")}
           title="Regime forfettario"
           desc="Tassazione al 5% (primi 5 anni) o 15%. Per ricavi fino €85.000/anno. Meno adempimenti."
-          note="Contabilità annuale da €599"
+          note="Contabilità annuale da €610"
         />
         <OptionCard
           selected={regime === "non-forfettario"}
           onClick={() => setRegime("non-forfettario")}
           title="Regime semplificato/ordinario"
           desc="Per ricavi previsti sopra €85.000 o per chi ha costi alti. IVA periodica, registri completi."
-          note="Contabilità annuale da €1.199"
+          note="Contabilità annuale da €1.464"
         />
       </div>
 
@@ -721,10 +721,10 @@ function StepRisultato({
               : "Apertura Artigiano/Commerciante semplificato + contabilità annuale"}
           </h3>
           <p className="text-sm text-zinc-300 mb-4">
-            €{regime === "forfettario" ? "1.190" : "1.690"} primo anno (listino €
-            {regime === "forfettario" ? "1.209" : "1.809"}). Tutto incluso:
-            apertura + CCIAA + SIA + INPS + 12 mesi contabilità + EFAT. Un solo
-            mandato, rinnovo annuale. Tributi e diritti pubblici a parte.
+            €{regime === "forfettario" ? "1.220" : "2.074"} primo anno. Tutto
+            incluso: apertura + CCIAA + SIA + INPS + 12 mesi contabilità + EFAT.
+            Un solo mandato, rinnovo annuale. Tributi e diritti pubblici a
+            parte.
           </p>
           <Link
             href={

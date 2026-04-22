@@ -1,8 +1,8 @@
 # REPORT UNIFICATO — AT PARMA
 ## Sito www.atparma.com + Portale clienti.atparma.com
 
-**Data:** 2026-04-19
-**Versione:** 1.7
+**Data:** 2026-04-22
+**Versione:** 1.8
 
 ---
 
@@ -20,26 +20,36 @@
 
 ---
 
-## 2. STRUTTURA PREZZI DEFINITIVA
+## 2. STRUTTURA PREZZI DEFINITIVA (2026-04-22)
 
-### 2.1 Servizi sul sito
+Matrice ibrida tra Report GPT-5.4 e consenso 4-AI (Claude + OpenAI + Qwen + Gemini). Premium dove regge (semplificato, artigiani); mercato sui segmenti price-sensitive (forfettario professionista). Tributi pubblici separati dall'onorario studio su tutte le tipologie artigiano/commerciante.
 
-| Servizio | Prezzo | Stato |
-|---|---|---|
-| Dichiarazione 730 | €79 | Confermato |
-| Apertura P.IVA Professionista | €150 | NUOVO |
-| Apertura P.IVA Artigiano/Commerciante (SIA, INPS, CCIAA) | €500 | NUOVO |
-| Apertura P.IVA Forfettario (caricamento documenti via portale) | €500 | NUOVO |
-| Apertura P.IVA Forfettario + GIS Ranocchi (programma EFAT fatturazione) | €550/anno | NUOVO |
-| Consulenza su misura | A preventivo | OK |
+### 2.1 Listino sito
 
-### 2.2 Servizi ricorrenti (portale)
+| Servizio | Prezzo | Formato |
+|---|---:|---|
+| Dichiarazione 730 | €50 (listino 79) | fisso (promo) |
+| Dichiarazione 730 avanzata | da €98 | da |
+| Apertura Professionista sola (no contabilità) | €183 | fisso |
+| Apertura Prof forfettario + contabilità 12 mesi | €549 | fisso |
+| Apertura Prof semplificata + contabilità 12 mesi | da €1.647 | da |
+| Apertura Artigiano/Commerciante sola | €610 | fisso |
+| Apertura Artigiano forfettario + contabilità 12 mesi | da €1.220 | da |
+| Apertura Artigiano semplificata + contabilità 12 mesi | da €2.074 | da |
+| Contabilità annuale Prof forfettario | €449 | fisso |
+| Contabilità annuale Prof semplificata | da €1.464 | da |
+| Contabilità annuale Artigiano forfettario | da €610 | da |
+| Contabilità annuale Artigiano semplificata | da €1.464 | da |
+| Consulenza su misura | A preventivo | preventivo |
 
-| Servizio | Prezzo |
-|---|---|
-| Gestione contabilità forfettaria | da definire |
-| Gestione 730 | €79 (una tantum) |
-| Gestione forfettario + EFAT | €550/anno |
+### 2.2 Princìpi applicati
+
+- Source-of-truth prezzi: `app/lib/prezzi-default.ts` (code-first, admin blob sovrascrive solo `active`).
+- Formato `fisso` quando il servizio è prevedibile (730 base, aperture sole, bundle forfettario prof).
+- Formato `da` quando la complessità reale sposta il preventivo (semplificato, artigiani, 730 avanzato).
+- Tributi e diritti pubblici sempre separati dall'onorario studio nelle tipologie artigiano/commerciante.
+- CTA "check-up guidato" non bloccante su tutte le 5 pagine artigiano, linkata al wizard esistente `/strumenti/preventivo-artigiano-commerciante`.
+- Anchor `originalPrice` EU Omnibus attivi solo dove il prezzo promozionale è effettivamente inferiore al listino (730).
 
 ---
 

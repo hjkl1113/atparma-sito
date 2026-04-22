@@ -145,7 +145,7 @@ export default function GuidaDocumentazionePIVA() {
         <div className="mt-8 bg-zinc-50 border border-zinc-200 rounded-xl p-5 print:hidden">
           <p className="text-sm font-semibold mb-1">Pronto ad aprire la Partita IVA?</p>
           <p className="text-xs text-zinc-600 mb-4">
-            Scegli il pacchetto che fa per te: Professionista forfettario + contabilità annuale (€449 primo anno), Apertura Artigiano/Commerciante (€610, onorario studio + rimborsi spese a parte), oppure i bundle all-inclusive apertura + contabilità annuale per artigiani/commercianti.
+            Scegli il pacchetto che fa per te: Professionista forfettario + contabilità annuale (€549 primo anno), Apertura Artigiano/Commerciante (€610, onorario studio + rimborsi spese a parte), oppure i bundle all-inclusive apertura + contabilità annuale per artigiani/commercianti.
           </p>
           <Link
             href="/servizi"

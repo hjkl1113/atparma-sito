@@ -158,7 +158,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Un solo bundle tutto incluso: apriamo la P.IVA forfettario, gestiamo contabilità, fatturazione elettronica e dichiarazione dei redditi per l'intero anno. Dottori commercialisti iscritti all'albo, portale clienti sempre attivo.",
     metaDesc:
-      "P.IVA forfettario + contabilità annuale a 449 euro (listino 549). Apertura, fatturazione elettronica EFAT, dichiarazione redditi, F24 inclusi. Rinnovo annuale, prezzo bloccato 3 anni con formula triennale opzionale. Dottori commercialisti a Parma.",
+      "P.IVA forfettario + contabilità annuale a 549 euro primo anno. Apertura, fatturazione elettronica EFAT, dichiarazione redditi, F24 inclusi. Rinnovo annuale, prezzo bloccato 3 anni con formula triennale opzionale. Dottori commercialisti a Parma.",
     perChi: [
       "Freelance e professionisti forfettari con ricavi fino a 85.000 euro",
       "Consulenti, designer, sviluppatori, copywriter, traduttori",
@@ -193,11 +193,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Firma del mandato",
-        body: "Firmi digitalmente il mandato professionale nel portale. Scegli tu: annuale (rinnovo tacito, disdetta 60 giorni) oppure triennale con prezzo bloccato 449 euro per tutti e 3 gli anni.",
+        body: "Firmi digitalmente il mandato professionale nel portale. Scegli tu: annuale (rinnovo tacito, disdetta 60 giorni) oppure triennale con prezzo bloccato 549 euro per tutti e 3 gli anni.",
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 449 euro con Stripe o PayPal alla firma del mandato. È l'unico passaggio di pagamento per l'apertura.",
+        body: "Paghi 549 euro con Stripe o PayPal alla firma del mandato. È l'unico passaggio di pagamento per l'apertura.",
       },
       {
         step: "5. Apertura P.IVA",
@@ -209,18 +209,18 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "7. Rinnovo",
-        body: "Formula annuale: fattura di rinnovo ogni anno, puoi disdire con 60 giorni di preavviso. Formula triennale: prezzo bloccato 449 euro per tutti e 3 gli anni. Oltre 20 fatture/anno: preventivo aggiornato prima del rinnovo, mai a sorpresa.",
+        body: "Formula annuale: fattura di rinnovo ogni anno, puoi disdire con 60 giorni di preavviso. Formula triennale: prezzo bloccato 549 euro per tutti e 3 gli anni. Oltre 20 fatture/anno: preventivo aggiornato prima del rinnovo, mai a sorpresa.",
       },
     ],
     priceBlurb:
-      "449 euro primo anno. Rinnovo annuale con disdetta libera, oppure triennale con prezzo bloccato 449 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo aver firmato il mandato nel portale.",
+      "549 euro primo anno. Rinnovo annuale con disdetta libera, oppure triennale con prezzo bloccato 549 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-forfettario",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 449 euro alla firma del mandato (annuale o triennale). Fatturazione elettronica automatica.",
+      "Iscrizione portale gratuita. Pagamento 549 euro alla firma del mandato (annuale o triennale). Fatturazione elettronica automatica.",
     closingBlurb:
-      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato (annuale o triennale a prezzo bloccato) e solo a quel punto versi i 449 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
+      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato (annuale o triennale a prezzo bloccato) e solo a quel punto versi i 549 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: true,
     calculatorHeroBanner: true,
@@ -235,16 +235,16 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "entro 5 giorni lavorativi dalla firma del mandato nel portale",
     faqs: [
       {
-        q: "Cosa include esattamente il bundle a 449 euro?",
+        q: "Cosa include esattamente il bundle a 549 euro?",
         a: "Apertura P.IVA forfettaria, consulenza iniziale, iscrizione INPS, contabilità annuale fino a 20 fatture, dichiarazione dei redditi PF, fatturazione elettronica EFAT Ranocchi inclusa il primo anno, F24 calcolati e predisposti, portale clienti e 2 videocall di check nell'anno. Non è un servizio spot di sola apertura: è il commercialista unico per tutto l'anno.",
       },
       {
         q: "Posso scegliere tra annuale e triennale?",
-        a: "Sì, decidi tu al momento della firma del mandato. Annuale: rinnovo tacito a fine anno, puoi disdire con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 449 euro per tutti e 3 gli anni (garanzia contro aumenti di listino). Stessa copertura di servizio, cambia solo la durata dell'impegno reciproco.",
+        a: "Sì, decidi tu al momento della firma del mandato. Annuale: rinnovo tacito a fine anno, puoi disdire con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 549 euro per tutti e 3 gli anni (garanzia contro aumenti di listino). Stessa copertura di servizio, cambia solo la durata dell'impegno reciproco.",
       },
       {
         q: "Come si rinnova dopo il primo anno?",
-        a: "Sul piano annuale: a inizio anno solare riemettiamo la fattura di 449 euro (salvo eventuale aggiornamento listino comunicato 60 giorni prima) e continuiamo a gestire contabilità e scadenze. Sul piano triennale: prezzo bloccato 449 euro, nessun aumento per 3 anni. In entrambi i casi, se superi 20 fatture l'anno precedente ti contattiamo con il preventivo aggiornato prima del rinnovo: nessuna sorpresa in fattura.",
+        a: "Sul piano annuale: a inizio anno solare riemettiamo la fattura di 549 euro (salvo eventuale aggiornamento listino comunicato 60 giorni prima) e continuiamo a gestire contabilità e scadenze. Sul piano triennale: prezzo bloccato 549 euro, nessun aumento per 3 anni. In entrambi i casi, se superi 20 fatture l'anno precedente ti contattiamo con il preventivo aggiornato prima del rinnovo: nessuna sorpresa in fattura.",
       },
       {
         q: "Cosa succede se supero le 20 fatture nell'anno?",
@@ -252,7 +252,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Cosa succede se supero gli 85.000 euro di ricavi?",
-        a: "Esci automaticamente dal forfettario dall'anno successivo e passi al regime semplificato o ordinario. Il bundle a 449 euro copre il forfettario: se superi la soglia facciamo un nuovo preventivo dedicato al regime superiore (gestione più complessa, IVA ordinaria, registri). Ti avvisiamo in tempo per pianificare.",
+        a: "Esci automaticamente dal forfettario dall'anno successivo e passi al regime semplificato o ordinario. Il bundle a 549 euro copre il forfettario: se superi la soglia facciamo un nuovo preventivo dedicato al regime superiore (gestione più complessa, IVA ordinaria, registri). Ti avvisiamo in tempo per pianificare.",
       },
       {
         q: "La fatturazione elettronica EFAT è davvero inclusa?",
@@ -283,7 +283,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Bundle tutto incluso per professionisti in regime semplificato/ordinario: apertura P.IVA, IVA periodica, contabilità completa, dichiarazione redditi e fatturazione elettronica per l'intero anno. Indicato se prevedi ricavi oltre 85.000 euro o vuoi portare in deduzione spese rilevanti.",
     metaDesc:
-      "P.IVA professionista regime semplificato/ordinario a 1.099 euro primo anno. Apertura + contabilità annuale + IVA periodica + dichiarazione redditi + EFAT inclusi. Dottori commercialisti a Parma.",
+      "P.IVA professionista regime semplificato/ordinario a 1.647 euro primo anno. Apertura + contabilità annuale + IVA periodica + dichiarazione redditi + EFAT inclusi. Dottori commercialisti a Parma.",
     perChi: [
       "Professionisti con ricavi previsti oltre 85.000 euro/anno",
       "Chi ha spese rilevanti da dedurre (strumenti, affitti, collaboratori)",
@@ -323,7 +323,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 1.099 euro con Stripe o PayPal alla firma del mandato.",
+        body: "Paghi 1.647 euro con Stripe o PayPal alla firma del mandato.",
       },
       {
         step: "5. Apertura P.IVA",
@@ -336,14 +336,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "da",
     priceBlurb:
-      "1.099 euro primo anno per casi standard. Include apertura + contabilità + IVA + dichiarazione + EFAT. Rinnovo annuale con disdetta libera o triennale a prezzo bloccato. Se il tuo caso include dipendenti, volumi elevati o complessità particolari, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo aver firmato il mandato nel portale.",
+      "1.647 euro primo anno per casi standard. Include apertura + contabilità + IVA + dichiarazione + EFAT. Rinnovo annuale con disdetta libera o triennale a prezzo bloccato. Se il tuo caso include dipendenti, volumi elevati o complessità particolari, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-professionista-semplificato",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1.099 euro alla firma del mandato. Fatturazione elettronica automatica.",
+      "Iscrizione portale gratuita. Pagamento 1.647 euro alla firma del mandato. Fatturazione elettronica automatica.",
     closingBlurb:
-      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale per valutare la convenienza del regime semplificato, firmi il mandato e solo a quel punto versi i 1.099 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
+      "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale per valutare la convenienza del regime semplificato, firmi il mandato e solo a quel punto versi i 1.647 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: true,
     hidePostPaymentSection: true,
@@ -363,10 +363,10 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Qual è la differenza tra semplificato e ordinario?",
-        a: "Il regime semplificato ha registri meno complessi ed è il default fino a 500.000 euro di ricavi per servizi (400.000 per beni). Oltre queste soglie passi all'ordinario con doppia partita, bilancio e adempimenti più complessi. Il bundle a 1.099 euro copre il semplificato: se arrivi all'ordinario rifacciamo il preventivo in base al volume effettivo.",
+        a: "Il regime semplificato ha registri meno complessi ed è il default fino a 500.000 euro di ricavi per servizi (400.000 per beni). Oltre queste soglie passi all'ordinario con doppia partita, bilancio e adempimenti più complessi. Il bundle a 1.647 euro copre il semplificato: se arrivi all'ordinario rifacciamo il preventivo in base al volume effettivo.",
       },
       {
-        q: "Cosa include il bundle a 1.099 euro?",
+        q: "Cosa include il bundle a 1.647 euro?",
         a: "Apertura P.IVA, consulenza iniziale, iscrizione INPS, contabilità completa con registri IVA, liquidazioni IVA periodiche (trimestrali/mensili), LIPE, dichiarazione Redditi PF + Modello IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno.",
       },
       {
@@ -379,7 +379,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Come si rinnova dopo il primo anno?",
-        a: "Formula annuale: rinnovo tacito a 1.099 euro (salvo aggiornamenti di listino comunicati 60 giorni prima), disdetta con 60 giorni di preavviso via PEC. Formula triennale: prezzo bloccato per 3 anni, nessun aumento. Se il volume cresce oltre i limiti del semplificato, preventivo aggiornato prima del rinnovo.",
+        a: "Formula annuale: rinnovo tacito a 1.647 euro (salvo aggiornamenti di listino comunicati 60 giorni prima), disdetta con 60 giorni di preavviso via PEC. Formula triennale: prezzo bloccato per 3 anni, nessun aumento. Se il volume cresce oltre i limiti del semplificato, preventivo aggiornato prima del rinnovo.",
       },
       {
         q: "Sono iscritto a cassa privata (Inarcassa, Forense, ENPAP): va bene?",
@@ -472,8 +472,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         a: "Generalmente no: l'attività prevalente determina l'iscrizione INPS. In casi specifici (es. artigiano che vende anche prodotti) si valuta caso per caso. Ne parliamo in consulenza.",
       },
       {
-        q: "Qual è la differenza rispetto al bundle Professionista forfettario a 449 euro?",
-        a: "Il bundle Professionista (449 euro primo anno, rinnovo annuale o triennale a prezzo bloccato) è pensato per l'attività intellettuale (consulenze, servizi non manuali) e include apertura + contabilità annuale + EFAT + dichiarazione redditi. L'artigiano/commerciante ha invece attività manuale o di vendita e serve CCIAA + INPS specifica + SIA: cambiano sia la burocrazia sia i costi. Qui paghi una tantum l'apertura, la gestione annuale si concorda a parte.",
+        q: "Qual è la differenza rispetto al bundle Professionista forfettario a 549 euro?",
+        a: "Il bundle Professionista (549 euro primo anno, rinnovo annuale o triennale a prezzo bloccato) è pensato per l'attività intellettuale (consulenze, servizi non manuali) e include apertura + contabilità annuale + EFAT + dichiarazione redditi. L'artigiano/commerciante ha invece attività manuale o di vendita e serve CCIAA + INPS specifica + SIA: cambiano sia la burocrazia sia i costi. Qui paghi una tantum l'apertura, la gestione annuale si concorda a parte.",
       },
       {
         q: "Posso scegliere il regime forfettario?",
@@ -496,7 +496,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Bundle tutto incluso per chi apre un'attività artigianale o commerciale in regime forfettario: apertura P.IVA, CCIAA, SIA, INPS artigiani/commercianti e 12 mesi di contabilità annuale con fatturazione elettronica EFAT.",
     metaDesc:
-      "Artigiano o Commerciante forfettario con bundle primo anno a 1.190 euro (listino 1.209). Apertura + CCIAA + SIA + INPS + contabilità annuale + EFAT inclusi. Un solo mandato, rinnovo annuale. Dottori commercialisti a Parma.",
+      "Artigiano o Commerciante forfettario con bundle primo anno a 1.220 euro. Apertura + CCIAA + SIA + INPS + contabilità annuale + EFAT inclusi. Un solo mandato, rinnovo annuale. Onorario studio, tributi pubblici a parte. Dottori commercialisti a Parma.",
     perChi: [
       "Artigiani (elettricisti, idraulici, parrucchieri, estetiste, riparatori) con ricavi attesi sotto 85.000 euro",
       "Commercianti (negozi, e-commerce, ambulanti) in regime forfettario",
@@ -538,7 +538,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 1.190 euro con Stripe o PayPal. I tributi e diritti pubblici li paghi direttamente agli enti competenti, secondo bozza mandato.",
+        body: "Paghi 1.220 euro con Stripe o PayPal. I tributi e diritti pubblici li paghi direttamente agli enti competenti, secondo bozza mandato.",
       },
       {
         step: "5. Apertura e iscrizioni",
@@ -551,12 +551,12 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "da",
     priceBlurb:
-      "1.190 euro primo anno per casi standard (listino teorico 1.209 come apertura + contabilità separate). Un solo mandato, una fattura, rinnovo annuale con prezzo predicibile. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità forfettario + EFAT. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture/anno o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
+      "1.220 euro primo anno per casi standard. Un solo mandato, una fattura, rinnovo annuale con prezzo predicibile. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità forfettario + EFAT. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture/anno o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante-forfettario",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1.190 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
+      "Iscrizione portale gratuita. Pagamento 1.220 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo insieme la verifica dei requisiti forfettario e la consulenza iniziale. Firmi il mandato con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia. P.IVA attiva entro 10 giorni lavorativi.",
     closingCtaLabel: "Inizia sul portale",
@@ -573,8 +573,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "entro 10 giorni lavorativi (CCIAA + INPS richiedono tempi propri)",
     faqs: [
       {
-        q: "Cosa include il bundle a 1.190 euro?",
-        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, iscrizione INPS artigiani/commercianti, 12 mesi di contabilità forfettario (fino a 20 fatture), dichiarazione redditi (Redditi PF con LM), fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Il valore del bundle non sta nello sconto (il listino teorico apertura 610 + contabilità 599 è 1.209, bundle 1.190): sta nell'avere un solo mandato, una sola fattura, rinnovo annuale con prezzo predicibile e nessuna frammentazione tra aperture e gestione.",
+        q: "Cosa include il bundle a 1.220 euro?",
+        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, iscrizione INPS artigiani/commercianti, 12 mesi di contabilità forfettario (fino a 20 fatture), dichiarazione redditi (Redditi PF con LM), fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Il valore del bundle sta nell'avere un solo mandato, una sola fattura, rinnovo annuale con prezzo predicibile e nessuna frammentazione tra aperture e gestione.",
       },
       {
         q: "Cosa NON include?",
@@ -586,7 +586,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Come si rinnova dopo il primo anno?",
-        a: "Dal secondo anno paghi solo la contabilità annuale (599 euro forfettario, listino attuale), non ripeti apertura e iscrizioni che sono definitive. Il rinnovo è tacito, disdetta con 60 giorni di preavviso via PEC.",
+        a: "Dal secondo anno paghi solo la contabilità annuale (610 euro forfettario, listino attuale), non ripeti apertura e iscrizioni che sono definitive. Il rinnovo è tacito, disdetta con 60 giorni di preavviso via PEC.",
       },
       {
         q: "Quanto pago di INPS all'anno?",
@@ -594,7 +594,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Cosa succede se supero gli 85.000 euro di ricavi?",
-        a: "Esci dal forfettario dall'anno successivo e passi al semplificato/ordinario. Il bundle artigiano semplificato (1.690 euro primo anno, listino teorico 1.809) copre la transizione senza interruzione di servizio, mantenendo portale e storico.",
+        a: "Esci dal forfettario dall'anno successivo e passi al semplificato/ordinario. Il bundle artigiano semplificato (2.074 euro primo anno) copre la transizione senza interruzione di servizio, mantenendo portale e storico.",
       },
     ],
   },
@@ -605,7 +605,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Bundle per chi apre un'attività artigianale o commerciale con ricavi previsti oltre 85.000 euro o con spese rilevanti da dedurre: apertura P.IVA, CCIAA, SIA, INPS, 12 mesi di contabilità semplificata con IVA periodica.",
     metaDesc:
-      "Artigiano o Commerciante regime semplificato con bundle primo anno a 1.690 euro (listino 1.809). Apertura + CCIAA + SIA + INPS + contabilità annuale + IVA + EFAT inclusi. Dottori commercialisti a Parma.",
+      "Artigiano o Commerciante regime semplificato con bundle primo anno a 2.074 euro. Apertura + CCIAA + SIA + INPS + contabilità annuale + IVA + EFAT inclusi. Onorario studio, tributi pubblici a parte. Dottori commercialisti a Parma.",
     perChi: [
       "Artigiani con ricavi previsti oltre 85.000 euro/anno",
       "Commercianti con volumi rilevanti (negozi medi, ristoranti, e-commerce strutturati)",
@@ -648,7 +648,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "4. Pagamento primo anno",
-        body: "1.690 euro con Stripe o PayPal. Tributi pubblici pagati direttamente agli enti.",
+        body: "2.074 euro con Stripe o PayPal. Tributi pubblici pagati direttamente agli enti.",
       },
       {
         step: "5. Apertura e iscrizioni",
@@ -661,12 +661,12 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "da",
     priceBlurb:
-      "1.690 euro primo anno per casi standard (listino teorico 1.809 come apertura + contabilità separate). Un solo mandato, rinnovo annuale. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità semplificata + IVA + EFAT. Tributi pubblici dovuti agli enti a parte, importi esatti nella bozza di mandato. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso o volumi elevati, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
+      "2.074 euro primo anno per casi standard. Un solo mandato, rinnovo annuale. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità semplificata + IVA + EFAT. Tributi pubblici dovuti agli enti a parte, importi esatti nella bozza di mandato. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso o volumi elevati, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/piva-artigiano-commerciante-semplificato",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1.690 euro alla firma del mandato.",
+      "Iscrizione portale gratuita. Pagamento 2.074 euro alla firma del mandato.",
     closingBlurb:
       "Iscriviti al portale, verifichiamo insieme convenienza semplificato vs ordinario. Firmi il mandato con dettaglio esatto onorario + tributi pubblici. P.IVA attiva entro 10 giorni lavorativi.",
     closingCtaLabel: "Inizia sul portale",
@@ -683,8 +683,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "entro 10 giorni lavorativi (CCIAA + INPS richiedono tempi propri)",
     faqs: [
       {
-        q: "Cosa include il bundle a 1.690 euro?",
-        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, INPS artigiani/commercianti, 12 mesi contabilità semplificata con registri IVA, liquidazioni IVA periodiche, LIPE, dichiarazione Redditi PF + IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Listino teorico (apertura 610 + contabilità 1.199) è 1.809, bundle 1.690: risparmi 119 euro, ma il valore principale è avere un solo mandato e rinnovo annuale predicibile.",
+        q: "Cosa include il bundle a 2.074 euro?",
+        a: "Apertura P.IVA, CCIAA via ComUnica, SIA, INPS artigiani/commercianti, 12 mesi contabilità semplificata con registri IVA, liquidazioni IVA periodiche, LIPE, dichiarazione Redditi PF + IVA annuale, fatturazione elettronica EFAT, F24 calcolati, portale clienti con 2 videocall/anno. Il valore del bundle sta nell'avere un solo mandato e rinnovo annuale predicibile, senza frammentare apertura e gestione.",
       },
       {
         q: "Quando conviene il semplificato rispetto al forfettario?",
@@ -700,7 +700,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Come si rinnova?",
-        a: "Dal secondo anno paghi solo la contabilità annuale semplificata (1.199 euro listino attuale). Rinnovo tacito, disdetta 60 giorni preavviso via PEC.",
+        a: "Dal secondo anno paghi solo la contabilità annuale semplificata (1.464 euro listino attuale). Rinnovo tacito, disdetta 60 giorni preavviso via PEC.",
       },
       {
         q: "Posso passare dal forfettario a questo bundle?",
@@ -715,7 +715,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Hai già la P.IVA forfettaria e vuoi cambiare commercialista? Gestiamo contabilità, F24, dichiarazione dei redditi e fatturazione elettronica per tutto l'anno. Portale clienti, dottori commercialisti iscritti all'albo.",
     metaDesc:
-      "Contabilità annuale P.IVA forfettario a 349 euro: gestione fatture, F24, dichiarazione redditi PF, EFAT inclusa. Per chi ha già P.IVA attiva e vuole cambiare commercialista. Rinnovo annuale o triennale price-lock.",
+      "Contabilità annuale P.IVA forfettario a 449 euro: gestione fatture, F24, dichiarazione redditi PF, EFAT inclusa. Per chi ha già P.IVA attiva e vuole cambiare commercialista. Rinnovo annuale o triennale price-lock.",
     perChi: [
       "Freelance e professionisti forfettari con P.IVA già aperta che vogliono cambiare commercialista",
       "Chi ha iniziato con un CAF o un commercialista tradizionale e cerca un servizio digitale con portale",
@@ -733,7 +733,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "2 videocall l'anno incluse (una post-subentro, una pre-dichiarazione)",
     ],
     esclusi: [
-      "Apertura P.IVA (se non hai ancora aperto, scegli il bundle Apertura + contabilità a 449 euro)",
+      "Apertura P.IVA (se non hai ancora aperto, scegli il bundle Apertura + contabilità a 549 euro)",
       "Volumi oltre 20 fatture/anno: rivalutazione preventivo dall'anno successivo",
       "Iscrizione casse private (Inarcassa, Forense, ENPAP): maggiorazione una tantum da concordare",
       "Contenzioso tributario, verifiche fiscali, consulenze straordinarie fuori scope",
@@ -750,11 +750,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Firma del mandato",
-        body: "Firmi digitalmente il mandato professionale. Scegli: annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 349 euro per tutti e 3 gli anni.",
+        body: "Firmi digitalmente il mandato professionale. Scegli: annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 449 euro per tutti e 3 gli anni.",
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 349 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento per attivare il servizio.",
+        body: "Paghi 449 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento per attivare il servizio.",
       },
       {
         step: "5. Takeover",
@@ -766,14 +766,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     priceBlurb:
-      "349 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 349 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo la firma del mandato nel portale.",
+      "449 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 449 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-professionista-forfettario",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 349 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Iscrizione portale gratuita. Pagamento 449 euro alla firma del mandato. Subentro gestito dalla segreteria.",
     closingBlurb:
-      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 349 euro del primo anno. Ci occupiamo del subentro dal tuo commercialista precedente con la tua delega: tu non muovi un documento.",
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 449 euro del primo anno. Ci occupiamo del subentro dal tuo commercialista precedente con la tua delega: tu non muovi un documento.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: true,
     calculatorHeroBanner: true,
@@ -792,12 +792,12 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
         a: "Firmi una delega nel portale, noi contattiamo il commercialista precedente per ricevere copia dei documenti fiscali degli ultimi esercizi (dichiarazioni, registri, corrispondenza con l'Agenzia). È un passaggio standard e deontologico: il tuo vecchio commercialista è tenuto a consegnare i documenti entro tempi ragionevoli. Se ci sono ritardi o contestazioni ti assistiamo.",
       },
       {
-        q: "Cosa include il servizio a 349 euro?",
+        q: "Cosa include il servizio a 449 euro?",
         a: "Contabilità annuale forfettaria fino a 20 fatture, dichiarazione Redditi PF con invio telematico, fatturazione elettronica EFAT inclusa 12 mesi, F24 calcolati (acconti + saldo IRPEF + contributi INPS), gestione scadenzario, portale clienti, 2 videocall di check. Non è un servizio spot: è il commercialista unico per tutto l'anno.",
       },
       {
         q: "Posso scegliere tra annuale e triennale?",
-        a: "Sì. Annuale: rinnovo tacito a fine anno, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 349 euro per tutti e 3 gli anni, garanzia contro aumenti di listino. Stessa copertura di servizio, cambia solo la durata dell'impegno.",
+        a: "Sì. Annuale: rinnovo tacito a fine anno, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 449 euro per tutti e 3 gli anni, garanzia contro aumenti di listino. Stessa copertura di servizio, cambia solo la durata dell'impegno.",
       },
       {
         q: "Ho cambiato commercialista a metà anno: gestite anche il parziale?",
@@ -809,7 +809,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "E se supero gli 85.000 euro di ricavi?",
-        a: "Esci dal forfettario dall'anno successivo e passi al regime semplificato o ordinario. Ti proponiamo il bundle Contabilità professionista semplificata (899 euro/anno) con la continuità del servizio. Ti avvisiamo per tempo per pianificare.",
+        a: "Esci dal forfettario dall'anno successivo e passi al regime semplificato o ordinario. Ti proponiamo il bundle Contabilità professionista semplificata (da 1.464 euro/anno per casi standard) con la continuità del servizio. Ti avvisiamo per tempo per pianificare.",
       },
       {
         q: "EFAT Ranocchi è davvero inclusa?",
@@ -828,7 +828,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Hai già una P.IVA in regime semplificato o ordinario e vuoi cambiare commercialista? Gestiamo contabilità completa, IVA periodica, dichiarazione redditi e fatturazione elettronica. Portale clienti, dottori commercialisti iscritti all'albo.",
     metaDesc:
-      "Contabilità annuale P.IVA semplificata/ordinaria a 899 euro: IVA periodica, F24, Redditi PF, EFAT inclusa. Per professionisti con P.IVA già aperta che cercano un commercialista digitale.",
+      "Contabilità annuale P.IVA semplificata/ordinaria da 1.464 euro per casi standard: IVA periodica, F24, Redditi PF, EFAT inclusa. Per professionisti con P.IVA già aperta che cercano un commercialista digitale.",
     perChi: [
       "Professionisti con P.IVA in regime semplificato o ordinario che vogliono cambiare commercialista",
       "Consulenti e liberi professionisti oltre 85.000 euro di ricavi",
@@ -846,7 +846,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Portale clienti, archivio 10 anni, 2 videocall di check incluse",
     ],
     esclusi: [
-      "Apertura P.IVA (se non hai aperto, scegli il bundle Apertura + contabilità a 1099 euro)",
+      "Apertura P.IVA (se non hai aperto, scegli il bundle Apertura + contabilità a 1.647 euro primo anno)",
       "Dipendenti e collaboratori (gestione paghe): preventivo separato",
       "Contenzioso tributario, verifiche fiscali, bilanci societari complessi",
       "Iscrizione casse private: maggiorazione una tantum da concordare",
@@ -863,11 +863,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Firma del mandato",
-        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 899 euro per 3 anni.",
+        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato (concordato al check-up preventivo) per 3 anni.",
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 899 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento.",
+        body: "Paghi il prezzo concordato (da 1.464 euro per casi standard) con Stripe o PayPal alla firma. Unico passaggio di pagamento.",
       },
       {
         step: "5. Takeover",
@@ -880,14 +880,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "da",
     priceBlurb:
-      "899 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 899 euro per 3 anni. Se il tuo caso include dipendenti, volumi elevati, ristrutturazione pregressa di registri IVA o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
+      "Da 1.464 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato per 3 anni. Se il tuo caso include dipendenti, volumi elevati, ristrutturazione pregressa di registri IVA o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-professionista-semplificata",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 899 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Iscrizione portale gratuita. Pagamento alla firma del mandato (da 1.464 euro per casi standard). Subentro gestito dalla segreteria.",
     closingBlurb:
-      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 899 euro del primo anno. Ci occupiamo del subentro completo: recupero documenti, cassetto fiscale, EFAT.",
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi il primo anno (da 1.464 euro per casi standard). Ci occupiamo del subentro completo: recupero documenti, cassetto fiscale, EFAT.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: false,
     hidePostPaymentSection: true,
@@ -901,8 +901,8 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "subentro completato entro 15 giorni lavorativi dalla firma del mandato",
     faqs: [
       {
-        q: "Cosa include il servizio a 899 euro?",
-        a: "Contabilità annuale semplificata (o ordinaria se necessaria), liquidazioni IVA periodiche, LIPE trimestrali, F24 completi, Dichiarazione Redditi PF e IVA annuale, EFAT inclusa 12 mesi, portale clienti, 2 videocall di check. È il commercialista unico per tutto l'anno.",
+        q: "Cosa include il servizio da 1.464 euro?",
+        a: "Contabilità annuale semplificata (o ordinaria se necessaria), liquidazioni IVA periodiche, LIPE trimestrali, F24 completi, Dichiarazione Redditi PF e IVA annuale, EFAT inclusa 12 mesi, portale clienti, 2 videocall di check. È il commercialista unico per tutto l'anno. Prezzo base per casi standard: se il tuo caso ha dipendenti, volumi elevati o subentro critico, il prezzo finale si concorda al check-up preventivo.",
       },
       {
         q: "Semplificato o ordinario: cambia qualcosa?",
@@ -910,7 +910,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Posso scegliere tra annuale e triennale?",
-        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 899 euro per 3 anni, garanzia contro aumenti di listino. Stessa copertura, cambia solo l'impegno.",
+        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato (concordato al check-up preventivo) per 3 anni, garanzia contro aumenti di listino. Stessa copertura, cambia solo l'impegno.",
       },
       {
         q: "Ho dipendenti: è incluso?",
@@ -926,7 +926,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Cosa succede se rientro sotto 85.000 euro e voglio tornare al forfettario?",
-        a: "Se sei uscito dal forfettario per superamento soglia, puoi rientrare solo dopo un triennio di permanenza nel regime ordinario/semplificato (vincolo triennale del forfettario). Valutiamo insieme se conviene e in caso ti trasferiamo al bundle Contabilità forfettario a 349 euro.",
+        a: "Se sei uscito dal forfettario per superamento soglia, puoi rientrare solo dopo un triennio di permanenza nel regime ordinario/semplificato (vincolo triennale del forfettario). Valutiamo insieme se conviene e in caso ti trasferiamo al bundle Contabilità forfettario a 449 euro.",
       },
     ],
   },
@@ -937,7 +937,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Hai già la P.IVA artigiana o commerciale in forfettario e vuoi cambiare commercialista? Gestiamo contabilità, INPS artigiani, adempimenti CCIAA, dichiarazione redditi e fatturazione elettronica per tutto l'anno.",
     metaDesc:
-      "Contabilità annuale artigiano/commerciante forfettario a 599 euro: INPS artigiani, CCIAA, F24, Redditi PF, EFAT inclusa. Per chi ha P.IVA attiva e vuole cambiare commercialista.",
+      "Contabilità annuale artigiano/commerciante forfettario a 610 euro: INPS artigiani, CCIAA, F24, Redditi PF, EFAT inclusa. Per chi ha P.IVA attiva e vuole cambiare commercialista.",
     perChi: [
       "Artigiani e commercianti forfettari con P.IVA già aperta che vogliono cambiare commercialista",
       "Elettricisti, idraulici, estetiste, parrucchieri, negozianti, ambulanti in forfettario",
@@ -955,7 +955,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "2 videocall l'anno incluse",
     ],
     esclusi: [
-      "Apertura P.IVA (se non hai ancora aperto, scegli il bundle Apertura + contabilità a 1190 euro)",
+      "Apertura P.IVA (se non hai ancora aperto, scegli il bundle Apertura + contabilità a 1.220 euro)",
       "Gestione dipendenti (cedolini, UNIEMENS, INAIL): preventivo a parte",
       "Volumi oltre 20 fatture/anno: rivalutazione preventivo dall'anno successivo",
       "Contenzioso tributario, verifiche fiscali, consulenze straordinarie",
@@ -972,11 +972,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Firma del mandato",
-        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 599 euro per 3 anni.",
+        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 610 euro per 3 anni.",
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 599 euro con Stripe o PayPal alla firma del mandato. Unico passaggio di pagamento.",
+        body: "Paghi 610 euro con Stripe o PayPal alla firma del mandato. Unico passaggio di pagamento.",
       },
       {
         step: "5. Takeover",
@@ -989,14 +989,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "da",
     priceBlurb:
-      "599 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 599 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture, subentro critico o arretrati da sistemare, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
+      "610 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 610 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture, subentro critico o arretrati da sistemare, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-artigiano-forfettario",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 599 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Iscrizione portale gratuita. Pagamento 610 euro alla firma del mandato. Subentro gestito dalla segreteria.",
     closingBlurb:
-      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 599 euro del primo anno. Ci occupiamo del subentro completo: documenti, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 610 euro del primo anno. Ci occupiamo del subentro completo: documenti, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: true,
     calculatorHeroBanner: true,
@@ -1012,7 +1012,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "subentro completato entro 10 giorni lavorativi dalla firma del mandato",
     faqs: [
       {
-        q: "Perché costa 599 euro e il professionista forfettario 349?",
+        q: "Perché costa 610 euro e il professionista forfettario 449?",
         a: "La gestione artigiano/commerciante aggiunge tre adempimenti ricorrenti rispetto al professionista: 4 F24 trimestrali INPS artigiani con conguaglio a fine anno, diritto annuale CCIAA con eventuali variazioni registro imprese, e controllo minimale/massimale contributivo. È un carico di lavoro stabilmente superiore, non un sovrapprezzo arbitrario.",
       },
       {
@@ -1025,11 +1025,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Posso scegliere tra annuale e triennale?",
-        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 599 euro per 3 anni, garanzia contro aumenti. Stessa copertura di servizio.",
+        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 610 euro per 3 anni, garanzia contro aumenti. Stessa copertura di servizio.",
       },
       {
         q: "Cosa succede se supero le 20 fatture o gli 85.000 euro?",
-        a: "Oltre 20 fatture/anno: rivalutiamo il preventivo dall'anno successivo, mai a sorpresa. Oltre 85.000 euro di ricavi: esci dal forfettario e passi al regime semplificato (bundle Contabilità artigiano semplificata a 1190 euro/anno). Ti avvisiamo per tempo.",
+        a: "Oltre 20 fatture/anno: rivalutiamo il preventivo dall'anno successivo, mai a sorpresa. Oltre 85.000 euro di ricavi: esci dal forfettario e passi al regime semplificato (bundle Contabilità artigiano semplificata da 1.464 euro/anno). Ti avvisiamo per tempo.",
       },
       {
         q: "EFAT è inclusa davvero?",
@@ -1048,7 +1048,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     tagline:
       "Hai già la P.IVA artigiana o commerciale in regime semplificato/ordinario e vuoi cambiare commercialista? Gestiamo contabilità completa, IVA periodica, INPS artigiani, CCIAA, dichiarazione redditi e fatturazione elettronica.",
     metaDesc:
-      "Contabilità annuale artigiano/commerciante semplificata a 1190 euro: IVA periodica, INPS artigiani, CCIAA, F24, Redditi PF, EFAT inclusa. Per P.IVA già attiva oltre 85.000 euro.",
+      "Contabilità annuale artigiano/commerciante semplificata da 1.464 euro: IVA periodica, INPS artigiani, CCIAA, F24, Redditi PF, EFAT inclusa. Per P.IVA già attiva oltre 85.000 euro.",
     perChi: [
       "Artigiani e commercianti in regime semplificato o ordinario con P.IVA già aperta",
       "Negozianti, ristoratori, laboratori artigianali oltre 85.000 euro di ricavi",
@@ -1066,7 +1066,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       "Portale clienti, archivio 10 anni, 2 videocall di check incluse",
     ],
     esclusi: [
-      "Apertura P.IVA (se non hai aperto, scegli il bundle Apertura + contabilità a 1690 euro)",
+      "Apertura P.IVA (se non hai aperto, scegli il bundle Apertura + contabilità a 2.074 euro)",
       "Gestione dipendenti (paghe, UNIEMENS, INAIL): preventivo per dipendente/mese",
       "Contenzioso tributario, verifiche fiscali, bilanci societari complessi",
       "SCIA, autorizzazioni USL, iscrizioni albi settoriali: preventivo puntuale",
@@ -1083,11 +1083,11 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         step: "3. Firma del mandato",
-        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 1190 euro per 3 anni.",
+        body: "Firmi digitalmente il mandato. Annuale (rinnovo tacito, disdetta 60 giorni via PEC) oppure triennale con prezzo bloccato 1.464 euro per 3 anni.",
       },
       {
         step: "4. Pagamento primo anno",
-        body: "Paghi 1190 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento.",
+        body: "Paghi 1.464 euro con Stripe o PayPal alla firma. Unico passaggio di pagamento.",
       },
       {
         step: "5. Takeover",
@@ -1100,14 +1100,14 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "da",
     priceBlurb:
-      "1.190 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 1.190 euro per 3 anni. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso, volumi elevati o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
+      "1.464 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 1.464 euro per 3 anni. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso, volumi elevati o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Inizia sul portale",
     ctaHref: "https://at-parma.vercel.app/onboarding/contabilita-artigiano-semplificata",
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1190 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Iscrizione portale gratuita. Pagamento 1.464 euro alla firma del mandato. Subentro gestito dalla segreteria.",
     closingBlurb:
-      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 1190 euro del primo anno. Ci occupiamo del subentro completo: registri IVA, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
+      "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 1.464 euro del primo anno. Ci occupiamo del subentro completo: registri IVA, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
     closingCtaLabel: "Inizia sul portale",
     showForfettarioCalculator: false,
     hidePostPaymentSection: true,
@@ -1122,7 +1122,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     deliveryDays: "subentro completato entro 15 giorni lavorativi dalla firma del mandato",
     faqs: [
       {
-        q: "Cosa include il servizio a 1190 euro?",
+        q: "Cosa include il servizio a 1.464 euro?",
         a: "Contabilità semplificata (o ordinaria), IVA periodica, LIPE, F24 completi, INPS artigiani trimestrali, CCIAA annuale, Redditi PF + Dichiarazione IVA, EFAT inclusa 12 mesi, portale clienti, 2 videocall di check. È il commercialista unico per tutto l'anno.",
       },
       {
@@ -1139,15 +1139,220 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
       {
         q: "Posso scegliere tra annuale e triennale?",
-        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 1190 euro per 3 anni, garanzia contro aumenti di listino.",
+        a: "Sì. Annuale: rinnovo tacito, disdetta con 60 giorni di preavviso via PEC. Triennale: prezzo bloccato 1.464 euro per 3 anni, garanzia contro aumenti di listino.",
       },
       {
         q: "E se rientro sotto gli 85.000 euro e voglio tornare al forfettario?",
-        a: "Se sei uscito dal forfettario per superamento soglia, puoi rientrare solo dopo un triennio nel regime semplificato/ordinario (vincolo triennale). Valutiamo insieme la convenienza e ti trasferiamo al bundle Contabilità artigiano forfettario a 599 euro/anno.",
+        a: "Se sei uscito dal forfettario per superamento soglia, puoi rientrare solo dopo un triennio nel regime semplificato/ordinario (vincolo triennale). Valutiamo insieme la convenienza e ti trasferiamo al bundle Contabilità artigiano forfettario a 610 euro/anno.",
       },
       {
         q: "Gestite anche SCIA, autorizzazioni USL, variazioni CCIAA straordinarie?",
         a: "Il bundle copre l'ordinaria: IVA, INPS, CCIAA, fisco. Pratiche puntuali (SCIA per nuova attività, autorizzazioni sanitarie, variazioni straordinarie registro imprese) le preventiviamo a parte quando servono.",
+      },
+    ],
+  },
+  "dichiarazione-730-avanzato": {
+    slug: "dichiarazione-730-avanzato",
+    prezzoId: "730-avanzato",
+    title: "Dichiarazione 730 avanzata",
+    tagline:
+      "730 per casi complessi che richiedono attenzione analitica: redditi esteri, ristrutturazioni/superbonus con storici pluriennali, bonus multipli, immobili all'estero, redditi da trading. Onorario tarato sulla complessità reale.",
+    metaDesc:
+      "730 avanzato da 98 euro per casi complessi: redditi esteri, superbonus/ristrutturazioni pluriennali, bonus multipli, trading. Dottori commercialisti a Parma.",
+    perChi: [
+      "Chi ha redditi prodotti all'estero (lavoro, dividendi, pensioni estere) o credito d'imposta estero",
+      "Chi ha superbonus, bonus ristrutturazioni o ecobonus con storici pluriennali da ricostruire",
+      "Chi cumula più bonus edilizi/arredi/verde con soglie distinte da gestire",
+      "Chi possiede immobili all'estero (quadro RW, IVIE, IVAFE)",
+      "Chi ha redditi da trading, partecipazioni estere, cripto o strumenti finanziari esteri",
+    ],
+    bullets: [
+      "Controllo completo del 730 precompilato e integrazione dei quadri mancanti",
+      "Gestione quadro RW per monitoraggio fiscale immobili e asset esteri",
+      "Calcolo IVIE e IVAFE su immobili e prodotti finanziari detenuti all'estero",
+      "Ricostruzione storico bonus edilizi pluriennali (rate superbonus, ristrutturazioni, ecobonus)",
+      "Credito d'imposta estero per redditi prodotti fuori Italia (convenzioni contro doppie imposizioni)",
+      "Gestione redditi da trading e plusvalenze finanziarie estere",
+      "Invio telematico all'Agenzia delle Entrate con ricevuta",
+      "Archivio documenti nel portale clienti per 5 anni",
+      "Assistenza integrazione documentale e spiegazione risultato via portale o videocall",
+    ],
+    esclusi: [
+      "Modello Redditi PF per titolari di Partita IVA (servizio a parte)",
+      "Dichiarazioni IMU, TARI (preventivo dedicato)",
+      "Integrazioni dichiarazioni anni precedenti (ravvedimento operoso separato)",
+      "Contenzioso tributario, risposta a lettere di compliance (preventivo puntuale)",
+    ],
+    processTitle: "Dal mandato all'invio, in 7 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri e paghi la caparra di 10 euro (Stripe o PayPal). Attivi l'account e accedi alla checklist personalizzata.",
+      },
+      {
+        step: "2. Check-up iniziale",
+        body: "Videocall di inquadramento: mappiamo i quadri complessi (RW, esteri, bonus pluriennali) e confermiamo l'onorario finale prima della firma mandato.",
+      },
+      {
+        step: "3. Firma del mandato",
+        body: "Firmi digitalmente il mandato professionale direttamente dal portale con importo concordato.",
+      },
+      {
+        step: "4. Raccolta documenti",
+        body: "Checklist guidata per redditi esteri, CU estere, estratti conto esteri, storici bonus edilizi, documenti trading. Upload sicuro.",
+      },
+      {
+        step: "5. Lavorazione e bozza",
+        body: "Compiliamo i quadri, calcoliamo IVIE/IVAFE, credito d'imposta estero, ricostruiamo storici bonus pluriennali. Ti mostriamo la bozza con riepilogo dettagliato.",
+      },
+      {
+        step: "6. Revisione e scelte",
+        body: "Ti mostriamo il risultato con le scelte rilevanti (sostituto d'imposta, 5/8/2 per mille, rate F24). Firmi l'impegno a trasmettere.",
+      },
+      {
+        step: "7. Invio telematico",
+        body: "Inviamo telematicamente all'Agenzia delle Entrate, ti consegniamo ricevuta e copia firmata archiviata nel portale.",
+      },
+    ],
+    priceFormat: "da",
+    priceBlurb:
+      "98 euro è il punto di partenza per un 730 avanzato standard (es. quadro RW semplice, 1-2 bonus pluriennali). Se hai molti quadri esteri, più immobili all'estero, storici bonus articolati su più cantieri, l'onorario finale lo definiamo nel check-up iniziale prima della firma del mandato. Nessuna sorpresa dopo.",
+    priceSuffix: "dichiarazione",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/dichiarazione-730-avanzato",
+    ctaNote:
+      "Caparra 10 euro all'iscrizione portale. Saldo onorario concordato alla firma del mandato.",
+    closingBlurb:
+      "Iscriviti al portale, facciamo insieme il check-up iniziale per mappare la complessità del tuo caso. Firmi il mandato con onorario concordato e lavoriamo la dichiarazione con i quadri avanzati gestiti correttamente.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
+    docs: [
+      "CU Italia ed eventuali CU estere (o certificazioni redditi esteri equivalenti)",
+      "Estratti conto bancari esteri e dossier titoli esteri al 31/12",
+      "Rogiti e visure immobili all'estero per IVIE",
+      "Storico bonus edilizi: fatture, bonifici parlanti, asseverazioni tecniche, comunicazioni ENEA",
+      "Documentazione redditi da trading (CU broker o estratti operazioni)",
+      "Visura catastale aggiornata per immobili italiani",
+    ],
+    deliveryDays: "entro 15-20 giorni lavorativi dall'arrivo documentazione completa",
+    faqs: [
+      {
+        q: "Qual è la differenza tra 730 standard e 730 avanzato?",
+        a: "Il 730 standard (50 euro) copre casi lineari: dipendenti/pensionati con spese mediche, mutuo, figli, bonus edilizi con storico semplice. Il 730 avanzato serve quando devi compilare quadri dedicati (RW per monitoraggio fiscale estero, IVIE/IVAFE, credito d'imposta estero) o ricostruire storici bonus edilizi pluriennali complessi. Il tempo analitico richiesto è superiore, l'onorario riflette questa differenza.",
+      },
+      {
+        q: "Perché il prezzo è 'da 98 euro' e non fisso?",
+        a: "Perché la complessità effettiva la vediamo solo nel check-up iniziale: un quadro RW con un conto estero è diverso da tre conti in tre Paesi diversi, un superbonus con un'asseverazione è diverso da cumulo ristrutturazioni + ecobonus + sismabonus con più cantieri. L'onorario finale te lo confermiamo prima della firma del mandato, mai a sorpresa dopo.",
+      },
+      {
+        q: "Se ho solo spese mediche e bonus ristrutturazione semplice?",
+        a: "Basta il 730 standard a 50 euro. Il 730 avanzato è per chi ha quadri esteri o storici bonus articolati che richiedono ricostruzione analitica.",
+      },
+      {
+        q: "Gestite anche il quadro RW per cripto?",
+        a: "Sì, il quadro RW copre cripto-attività detenute su wallet o exchange esteri, con calcolo plusvalenze e monitoraggio fiscale. È uno dei casi tipici del 730 avanzato.",
+      },
+      {
+        q: "Ho un immobile all'estero: quanto incide sul prezzo?",
+        a: "Un immobile singolo con documentazione pulita rientra nel base 98 euro. Più immobili, o documentazione da ricostruire con catasto estero non disponibile, alzano l'onorario: lo confermiamo nel check-up.",
+      },
+      {
+        q: "Posso usare la precompilata dell'Agenzia anche in questi casi?",
+        a: "La precompilata non copre i quadri avanzati (RW, IVIE, IVAFE, crediti esteri): sono quadri che devi compilare manualmente. Il rischio fai-da-te su questi quadri è alto (sanzioni da 3% a 15% sugli importi non dichiarati per RW). Il 730 avanzato esiste proprio per evitare questi errori.",
+      },
+    ],
+  },
+  "apertura-professionista-sola": {
+    slug: "apertura-professionista-sola",
+    prezzoId: "apertura-prof-sola",
+    title: "Apertura P.IVA Professionista (solo apertura)",
+    tagline:
+      "Apertura Partita IVA professionista (gestione separata INPS o cassa privata) senza contabilità annuale. Per chi ha già un commercialista per la gestione e vuole solo l'apertura fatta bene, senza vincoli di mandato annuale.",
+    metaDesc:
+      "Apertura P.IVA professionista a 183 euro, senza contabilità annuale. Solo apertura + iscrizione INPS/cassa. Per chi ha già un commercialista. Dottori commercialisti a Parma.",
+    perChi: [
+      "Professionisti che hanno già un commercialista per la gestione annuale e vogliono solo l'apertura",
+      "Chi vuole aprire oggi per iniziare a fatturare e valutare con calma il commercialista per la gestione",
+      "Chi preferisce separare l'apertura (servizio una tantum) dalla contabilità annuale",
+      "Chi ha ricevuto l'apertura come parte di un altro studio ma preferisce farla con noi",
+    ],
+    bullets: [
+      "Apertura Partita IVA presso l'Agenzia delle Entrate",
+      "Consulenza iniziale: scelta codice ATECO, regime fiscale (forfettario o semplificato), cassa previdenziale",
+      "Iscrizione gestione separata INPS o cassa privata (Inarcassa, Forense, ENPAP, ecc.)",
+      "Verifica requisiti forfettario se applicabile",
+      "Attivazione cassetto fiscale e codici di accesso",
+      "Documentazione completa archiviata nel portale clienti",
+    ],
+    esclusi: [
+      "Contabilità annuale (registrazioni, F24, dichiarazioni, IVA periodica): servizio separato",
+      "Fatturazione elettronica EFAT: da attivare con contabilità annuale o acquistabile a parte",
+      "Supporto post-apertura oltre la conferma documentazione: richiede mandato di contabilità",
+      "Iscrizione CCIAA e INPS artigiani/commercianti (per attività artigianali/commerciali serve bundle Artigiano)",
+    ],
+    processTitle: "Dall'iscrizione alla P.IVA attiva, in 5 passi",
+    process: [
+      {
+        step: "1. Iscrizione al portale",
+        body: "Ti registri gratis su clienti.atparma.com. Nessun pagamento in questa fase.",
+      },
+      {
+        step: "2. Consulenza iniziale",
+        body: "Videocall con un commercialista: scelta codice ATECO corretto, verifica convenienza forfettario vs semplificato, iscrizione INPS o cassa privata corretta.",
+      },
+      {
+        step: "3. Firma del mandato una tantum",
+        body: "Firmi digitalmente il mandato per la sola apertura. Nessun vincolo di contabilità annuale, nessun rinnovo tacito.",
+      },
+      {
+        step: "4. Pagamento",
+        body: "Paghi 183 euro con Stripe o PayPal alla firma del mandato. Unico passaggio di pagamento.",
+      },
+      {
+        step: "5. Apertura",
+        body: "Entro 5 giorni lavorativi la P.IVA è attiva e iscritta a INPS/cassa. Documentazione completa nel portale.",
+      },
+    ],
+    priceFormat: "fisso",
+    priceBlurb:
+      "183 euro una tantum per l'apertura completa. Nessun abbonamento, nessun rinnovo. Se successivamente decidi di affidarci anche la contabilità annuale, il prezzo pieno del bundle contabilità è disponibile sul portale. Nessun obbligo.",
+    priceSuffix: "una tantum",
+    ctaLabel: "Inizia sul portale",
+    ctaHref: "https://at-parma.vercel.app/onboarding/apertura-professionista-sola",
+    ctaNote:
+      "Iscrizione portale gratuita. Pagamento 183 euro alla firma del mandato. Servizio una tantum senza vincoli.",
+    closingBlurb:
+      "Iscriviti gratis al portale, facciamo la consulenza iniziale per verificare il regime corretto e la cassa previdenziale giusta, firmi il mandato una tantum e versi 183 euro. P.IVA attiva entro 5 giorni lavorativi, senza impegno per la gestione annuale.",
+    closingCtaLabel: "Inizia sul portale",
+    hidePostPaymentSection: true,
+    docs: [
+      "Carta d'identità o passaporto in corso di validità",
+      "Codice fiscale (tessera sanitaria)",
+      "Indirizzo sede operativa e domicilio fiscale",
+      "Descrizione dell'attività che vuoi svolgere",
+      "Eventuali iscrizioni ad albi professionali",
+    ],
+    deliveryDays: "entro 5 giorni lavorativi dalla firma del mandato nel portale",
+    faqs: [
+      {
+        q: "Perché scegliere solo apertura senza contabilità?",
+        a: "Se hai già un commercialista di fiducia per la gestione annuale e vuoi solo l'apertura fatta bene, oppure se vuoi aprire oggi per iniziare a fatturare senza aspettare di aver scelto il commercialista definitivo. Nessun vincolo, nessun rinnovo tacito.",
+      },
+      {
+        q: "Posso passare alla contabilità con voi in un secondo momento?",
+        a: "Sì, in qualunque momento puoi aprire un mandato di contabilità (bundle forfettario a 549 euro o semplificato da 1.647 euro). L'apertura già fatta non viene riconteggiata.",
+      },
+      {
+        q: "È disponibile anche per artigiani/commercianti?",
+        a: "No, questo servizio è dedicato ai soli professionisti (gestione separata INPS o cassa privata). Per artigiani/commercianti l'apertura richiede CCIAA, SIA, INPS artigiani ed è gestita con un bundle dedicato (apertura artigiano/commerciante a 610 euro).",
+      },
+      {
+        q: "Cosa include il prezzo 183 euro?",
+        a: "L'onorario dello studio per l'apertura completa: dichiarazione di inizio attività all'Agenzia delle Entrate, iscrizione INPS gestione separata o cassa privata (onorario, maggiorazioni per casse con procedure specifiche a parte), consulenza iniziale per scelta regime e ATECO, attivazione cassetto fiscale. Non include adempimenti successivi (quelli sono il ruolo del commercialista che gestirà la contabilità annuale).",
+      },
+      {
+        q: "Il forfettario ha davvero requisiti stringenti?",
+        a: "Sì, il forfettario ha requisiti di legge stringenti (ricavi sotto 85.000 euro, no redditi da lavoro dipendente sopra 35.000 euro lordi, no partecipazioni dominanti, no committente ex datore di lavoro). Nella consulenza iniziale verifichiamo se sei effettivamente idoneo prima dell'apertura.",
       },
     ],
   },

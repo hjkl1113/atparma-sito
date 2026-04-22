@@ -315,12 +315,41 @@ function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             <section className="mb-20">
               <VerificaRequisitiForfettario
                 slugForfettario="piva-professionista"
-                prezzoForfettario={449}
+                prezzoForfettario={549}
                 slugSemplificato="piva-professionista-semplificato"
-                prezzoSemplificato={1099}
+                prezzoSemplificato={1647}
                 contesto="professionista"
                 currentSlug={prodotto.slug}
               />
+            </section>
+          )}
+
+          {(prodotto.slug === "piva-artigiano-commerciante" ||
+            prodotto.slug === "piva-artigiano-commerciante-forfettario" ||
+            prodotto.slug === "piva-artigiano-commerciante-semplificato" ||
+            prodotto.slug === "contabilita-artigiano-forfettario" ||
+            prodotto.slug === "contabilita-artigiano-semplificata") && (
+            <section className="mb-20">
+              <div className="bg-zinc-50 rounded-2xl border border-zinc-200 p-6 sm:p-8">
+                <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-2">
+                  Non sei sicuro? Fai il check-up
+                </p>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 font-[family-name:var(--font-heading)]">
+                  Il tuo caso è standard o richiede un preventivo dedicato?
+                </h3>
+                <p className="text-sm text-zinc-600 mb-5 leading-relaxed">
+                  Dipendenti, SCIA, autorizzazioni USL/HACCP, volumi elevati, subentro complesso: sono gli elementi che spostano il preventivo oltre il prezzo base. Il check-up guidato ti restituisce una stima dei tributi pubblici per provincia e segnala gli elementi fuori scope prima della firma del mandato.
+                </p>
+                <Link
+                  href="/strumenti/preventivo-artigiano-commerciante"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-300 bg-white text-zinc-900 rounded-lg text-sm font-semibold hover:bg-zinc-50 transition-colors"
+                >
+                  Avvia il check-up guidato →
+                </Link>
+                <p className="text-xs text-zinc-500 mt-3">
+                  Il check-up non è obbligatorio: se conosci già il tuo scenario puoi andare direttamente al portale.
+                </p>
+              </div>
             </section>
           )}
 

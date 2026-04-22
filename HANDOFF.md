@@ -1,23 +1,33 @@
 # Handoff
 
-Ultimo aggiornamento: `2026-04-21 sera (WIP — ripresa a casa)`
+Ultimo aggiornamento: `2026-04-22 (nuova matrice pricing ibrida applicata)`
 
-## WIP Pricing — Riprendere Stasera
+## Nuova Matrice Pricing — Applicata 2026-04-22
 
-Sessione interrotta a metà del piano P3 riposizionamento pricing. Nuova matrice prezzi condivisa dall'utente (2026-04-21) che ridisegna 7 SKU su 11. **Non ancora approvata, non ancora implementata.** Vedi memoria `project_atparma_pricing_matrix.md` per dettaglio completo.
+Sintesi ibrida tra Report GPT-5.4 (2026-04-21) e consenso 4-AI (market-research 2026-04-19): premium dove regge (semplificato, artigiani), allineata al mercato sui segmenti price-sensitive (forfettario professionista). Tributi pubblici separati dall'onorario studio su tutte le tipologie artigiano/commerciante.
 
-Stato:
-- P3 parziale committato (`piva-art` €690 → €610, framing "spese vive separate", formato `priceFormat "fisso"/"da"/"preventivo"` su 6 servizi)
-- Rendering "a partire da €X" in `app/pricing.tsx`, `app/servizi/page.tsx`, `app/servizi/[slug]/page.tsx` NON ancora fatto
-- P2 claim "20 anni" → "Oltre 20 anni" in `app/page.tsx:319` e `app/blog/commercialista-online/page.tsx:324` NON ancora fatto
-- P5 copy premium NON ancora fatto
+| Servizio | Vecchio | Nuovo | Formato |
+|---|---:|---:|---|
+| 730 standard | €50 | €50 | fisso (promo, listino 79) |
+| 730 avanzato (nuovo) | — | €98 | da |
+| Apertura Professionista sola (nuovo) | — | €183 | fisso |
+| Apertura Prof forfettario + contabilità | €449 | €549 | fisso |
+| Apertura Prof semplificata + contabilità | €1.099 | €1.647 | da |
+| Apertura Artigiano/Commerciante sola | €610 | €610 | fisso |
+| Apertura Artigiano forfettario + contabilità | €1.190 | €1.220 | da |
+| Apertura Artigiano semplificata + contabilità | €1.690 | €2.074 | da |
+| Contabilità Prof forfettario | €349 | €449 | fisso |
+| Contabilità Prof semplificata | €899 | €1.464 | da |
+| Contabilità Artigiano forfettario | €599 | €610 | da |
+| Contabilità Artigiano semplificata | €1.190 | €1.464 | da |
 
-Decisioni pendenti (3 opzioni proposte all'utente):
-- A. Stop totale + re-plan
-- B. Chiudo P3 parziale (compatibile con matrice) + piano nuovo dedicato per matrice completa [raccomandata]
-- C. Estendo P3 alla matrice completa adesso
-
-Ripartire leggendo `project_atparma_pricing_matrix.md` in memory, non partire implementando.
+Implementazione applicata in sessione 2026-04-22:
+- `app/lib/prezzi-default.ts`: nuovo listino completo (13 entries)
+- `app/servizi/_data/prodotti.ts`: aggiornati testi prodotti + 2 nuovi (730 avanzato, apertura prof sola)
+- `app/servizi/[slug]/page.tsx`: VerificaRequisitiForfettario aggiornato (549/1647) + CTA check-up wizard su 5 pagine artigiano
+- `app/strumenti/preventivo-artigiano-commerciante/wizard.tsx`: note contabilità annuale + bundle primo anno aggiornati
+- `app/blog/aprire-partita-iva-online`, `app/blog/commercialista-online`, `app/guide/documentazione-partita-iva`, `app/faq`: "da 449" → "da 549" (bundle Prof forfettario)
+- `originalPrice` EU Omnibus: rimossi riferimenti su bundle Prof forfettario e artigiano (erano ≤ nuovo prezzo)
 
 ## Leggere Per Prime
 
@@ -71,15 +81,15 @@ Il sito e il portale devono convergere su questa architettura comune:
 
 ## Dipendenze Portale — Bundle P.IVA Professionista Forfettario
 
-Il tab sito `/servizi/piva-professionista` ora redirige al portale per l'onboarding del bundle €449 primo anno, portale-first. Nessun vincolo triennale imposto: mandato annuale default (rinnovo tacito, disdetta 60gg via PEC) oppure triennale opzionale con prezzo bloccato €449 per 3 anni come incentivo fedeltà.
+Il tab sito `/servizi/piva-professionista` ora redirige al portale per l'onboarding del bundle €549 primo anno, portale-first. Nessun vincolo triennale imposto: mandato annuale default (rinnovo tacito, disdetta 60gg via PEC) oppure triennale opzionale con prezzo bloccato €549 per 3 anni come incentivo fedeltà.
 
 Nel repo portale serve:
 
 1. Endpoint `/onboarding/piva-professionista-forfettario` con workflow stateful 7-step (iscrizione → consulenza → scelta mandato annuale/triennale → pagamento → apertura → gestione → rinnovo)
-2. Due template PDF mandato professionale forfettario: annuale + triennale con clausola price-lock €449
+2. Due template PDF mandato professionale forfettario: annuale + triennale con clausola price-lock €549
 3. Firma elettronica remota (Namirial/Aruba) sul mandato scelto
-4. Stripe checkout "€449 primo anno" con `metadata.durata=annuale|triennale` e `metadata.service=piva-professionista-forfettario`
-5. Cron rinnovo: su piano annuale fattura €449 + eventuale aggiornamento listino con preavviso 60gg; su piano triennale fattura €449 bloccata. Entrambi con controllo volumi fatture: se >20 → alert per preventivo maggiorato prima del rinnovo
+4. Stripe checkout "€549 primo anno" con `metadata.durata=annuale|triennale` e `metadata.service=piva-professionista-forfettario`
+5. Cron rinnovo: su piano annuale fattura €549 + eventuale aggiornamento listino con preavviso 60gg; su piano triennale fattura €549 bloccata. Entrambi con controllo volumi fatture: se >20 → alert per preventivo maggiorato prima del rinnovo
 6. Integrazione EFAT Ranocchi: onboarding automatico (anagrafica, logo, SDI) post-firma mandato. Cliente fattura direttamente da EFAT (self-serve) salvo attivi l'add-on fatturazione assistita
 7. Archivio documenti 10 anni nel portale + scadenzario contabile popolato automaticamente
 8. **Add-on fatturazione assistita (+€99/anno)**: UI nel portale per creare proforma (cliente, articoli, aliquote, bolli) → output PDF + XML FatturaPA → notifica alla segreteria → segreteria rivede e invia allo SdI via EFAT (flusso semi-manuale MVP, stimato 30-60s per fattura). Fino a 20 fatture/anno incluse nell'add-on, oltre preventivo. Opt-in dal portale, pagamento contestuale al rinnovo bundle
