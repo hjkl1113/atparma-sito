@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { list } from "@vercel/blob";
 import { parseCheckoutIdentity } from "@/app/lib/checkout";
-import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
+import { getPrezzi } from "@/app/lib/prezzi";
 
 export const runtime = "nodejs";
 
@@ -11,17 +10,6 @@ function getStripe() {
     throw new Error("STRIPE_SECRET_KEY non configurata");
   }
   return new Stripe(process.env.STRIPE_SECRET_KEY);
-}
-
-async function getPrezzi(): Promise<Servizio[]> {
-  try {
-    const { blobs } = await list({ prefix: "prezzi.json" });
-    if (blobs.length === 0) return DEFAULT_PREZZI;
-    const res = await fetch(blobs[0].url);
-    return await res.json();
-  } catch {
-    return DEFAULT_PREZZI;
-  }
 }
 
 export async function POST(request: Request) {

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { put, list } from "@vercel/blob";
-import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
+import type { Servizio } from "@/app/lib/prezzi-default";
+import { BLOB_NAME, getPrezzi } from "@/app/lib/prezzi";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -9,25 +10,6 @@ export const revalidate = 0;
 async function listAllBlobs() {
   const { blobs } = await list({ prefix: "prezzi" });
   return blobs.map((b) => ({ url: b.url, pathname: b.pathname, uploadedAt: b.uploadedAt }));
-}
-
-const BLOB_NAME = "prezzi.json";
-
-async function getPrezzi(): Promise<Servizio[]> {
-  try {
-    const { blobs } = await list({ prefix: BLOB_NAME });
-    if (blobs.length === 0) return DEFAULT_PREZZI;
-    // Usa downloadUrl che bypassa la CDN cache
-    const downloadUrl = blobs[0].downloadUrl || blobs[0].url;
-    const res = await fetch(`${downloadUrl}?t=${Date.now()}`, {
-      cache: "no-store",
-      next: { revalidate: 0 },
-    });
-    return await res.json();
-  } catch (err) {
-    console.error("Errore lettura prezzi:", err);
-    return DEFAULT_PREZZI;
-  }
 }
 
 // GET — legge i prezzi (pubblico)

@@ -5,8 +5,11 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ProductCredentials } from "@/components/product-credentials";
 import { VerificaRequisitiForfettario } from "@/components/verifica-requisiti-forfettario";
-import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
+import { getPrezzi } from "@/app/lib/prezzi";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 type Autore = { author: "Pietro Franzosi" | "Aldo Ponzi"; authorAlbo: "Parma" | "Brescia" };
 
@@ -143,8 +146,9 @@ function getGuidaSlug(prezzoId: string): string | null {
   return null;
 }
 
-function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
-  const prezzo = DEFAULT_PREZZI.find((p) => p.id === prodotto.prezzoId);
+async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
+  const prezzi = await getPrezzi();
+  const prezzo = prezzi.find((p) => p.id === prodotto.prezzoId);
   const price = prezzo?.price ?? null;
   const guidaSlug = getGuidaSlug(prodotto.prezzoId);
 

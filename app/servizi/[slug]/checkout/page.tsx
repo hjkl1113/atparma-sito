@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MobileMenu } from "@/components/mobile-menu";
-import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
+import { getPrezzi } from "@/app/lib/prezzi";
 import { getAllProdotti, getProdotto } from "@/app/servizi/_data/prodotti";
 import { CheckoutForm } from "@/app/servizi/_components/checkout-form";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export function generateStaticParams() {
   return getAllProdotti().map((p) => ({ slug: p.slug }));
@@ -35,7 +38,8 @@ export default async function CheckoutPage({
   const prodotto = getProdotto(slug);
   if (!prodotto) notFound();
 
-  const prezzo = DEFAULT_PREZZI.find((p) => p.id === prodotto.prezzoId);
+  const prezzi = await getPrezzi();
+  const prezzo = prezzi.find((p) => p.id === prodotto.prezzoId);
   const price = prezzo?.price;
   if (!price) notFound();
 

@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
+import { getPrezzi } from "@/app/lib/prezzi";
 import { getProdotto } from "@/app/servizi/_data/prodotti";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Servizi — Commercialista online Parma | A.T. Consulting Parma",
@@ -59,7 +62,9 @@ const servizi = [
   },
 ];
 
-export default function ServiziPage() {
+export default async function ServiziPage() {
+  const prezzi = await getPrezzi();
+
   return (
     <>
       <SiteHeader current="servizi" />
@@ -86,7 +91,7 @@ export default function ServiziPage() {
               apre appena completi il pagamento.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {DEFAULT_PREZZI.filter((p) => p.active).map((p) => {
+              {prezzi.filter((p) => p.active).map((p) => {
                 const isLinkable = Boolean(p.slug);
                 const prodotto = p.slug ? getProdotto(p.slug) : undefined;
                 const isDa = prodotto?.priceFormat === "da";

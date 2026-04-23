@@ -3,24 +3,20 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
+import { mergePrezziWithDefaults } from "@/app/lib/prezzi";
 import { getProdotto } from "@/app/servizi/_data/prodotti";
 
 export function Pricing() {
   const [prezzi, setPrezzi] = useState<Servizio[]>(DEFAULT_PREZZI);
 
   useEffect(() => {
-    fetch("/api/prezzi", { cache: "no-store" })
-      .then((r) => r.json())
-      .then((data: Servizio[]) => {
-        if (!Array.isArray(data)) return;
-        const activeById = new Map(data.map((s) => [s.id, s.active]));
-        const merged = DEFAULT_PREZZI.map((s) => ({
-          ...s,
-          active: activeById.get(s.id) ?? s.active,
-        }));
-        setPrezzi(merged);
-      })
-      .catch(() => {});
+      fetch("/api/prezzi", { cache: "no-store" })
+        .then((r) => r.json())
+        .then((data: Servizio[]) => {
+          if (!Array.isArray(data)) return;
+          setPrezzi(mergePrezziWithDefaults(data));
+        })
+        .catch(() => {});
   }, []);
 
   const visibili = prezzi.filter((p) => p.active);
