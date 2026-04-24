@@ -87,6 +87,7 @@ Verdetto sintetico:
 | Privacy pubblica | presente | `app/privacy/page.tsx` |
 | Cookie banner | presente | `components/cookie-banner.tsx` |
 | Trust/Sicurezza | presenti | `app/sicurezza/page.tsx`, `docs/MARKETING-TRUST-SIGNALS.md` |
+| Macro-sezioni servizi | presenti | `app/servizi/dichiarazioni/page.tsx`, `app/servizi/professionista/page.tsx`, `app/servizi/artigiani-commercianti/page.tsx` |
 
 ### Pricing reale nel codice
 
@@ -128,12 +129,13 @@ Il sito punta gia' molti servizi a CTA esterne di onboarding portale.
 
 Verifica nel codice:
 
-- `app/servizi/_data/prodotti.ts` contiene 14 `ctaHref` verso `https://at-parma.vercel.app/onboarding/...`
+- `app/servizi/_data/prodotti.ts` contiene 14 `ctaHref` verso `https://clienti.atparma.com/login?next=/onboarding?service=...`
 
-Problema:
+Problema residuo:
 
-- il dominio usato e' il deploy Vercel, non `https://clienti.atparma.com`
-- il portale non espone route dinamiche `/onboarding/[slug]` verificate nel codice
+- il dominio production del portale e' stato riallineato nel sito
+- il passaggio di contesto `service` resta dipendente da un funnel portale non ancora congelato in modo canonico end-to-end
+- il portale non espone comunque route dinamiche `/onboarding/[slug]` verificate nei file canonici del repo
 
 ### Giudizio sintetico sul sito
 

@@ -61,7 +61,8 @@ WIP RIPOSIZIONAMENTO 3 MACRO-SEZIONI (in corso)
 - Macro 1: Dichiarazioni Redditi (730 + UPF, navigazione checklist)
 - Macro 2: Professionista (wizard convenienza + prodotti)
 - Macro 3: Artigiani e Commercianti (wizard esistente + prodotti)
-- Pendente: refactor pagina /servizi, 3 landing sezionali, home, redirect 301, valutazione cont-prof-forf 449->499
+- Completato: refactor pagina /servizi, 3 landing sezionali, home area-first, alias redirect `/servizi/artigiano-commerciante` -> `/servizi/artigiani-commercianti`
+- Pendente: eventuale affinamento copy/SEO delle landing e valutazione cont-prof-forf 449->499
 - Deferred: crisi da sovraindebitamento (PF + aziende)
 
 --------------------------------------------------------------------------------

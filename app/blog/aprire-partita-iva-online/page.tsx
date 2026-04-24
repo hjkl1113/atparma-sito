@@ -70,7 +70,7 @@ export default function ArticoloPage() {
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">
             <p>
-              <strong>Aprire la Partita IVA online nel 2026</strong> e un processo che puoi gestire interamente da casa, senza recarti in nessun ufficio. Che tu sia un freelance, un professionista, un artigiano o un aspirante imprenditore, questa guida completa ti accompagna in ogni passaggio: dalla scelta del regime fiscale al codice ATECO, dai costi reali alle scadenze, fino agli errori da evitare assolutamente.
+              <strong>Aprire la Partita IVA online nel 2026</strong> è un processo che puoi gestire interamente da casa, senza recarti in nessun ufficio. Che tu sia un freelance, un professionista, un artigiano o un aspirante imprenditore, questa guida completa ti accompagna in ogni passaggio: dalla scelta del regime fiscale al codice ATECO, dai costi reali alle scadenze, fino agli errori da evitare assolutamente.
             </p>
             <p>
               Se stai valutando di metterti in proprio o di regolarizzare un&apos;attività che svolgi già, qui trovi tutte le informazioni aggiornate per il 2026.
@@ -98,7 +98,7 @@ export default function ArticoloPage() {
               Quando serve la Partita IVA (e quando no)
             </h2>
             <p>
-              La <strong>Partita IVA e obbligatoria</strong> quando svolgi un&apos;attività economica in modo <strong>abituale e continuativo</strong>, indipendentemente dall&apos;importo che guadagni. Questo e un punto fondamentale: non esiste una soglia minima di reddito sotto la quale puoi lavorare senza Partita IVA in modo regolare.
+              La <strong>Partita IVA è obbligatoria</strong> quando svolgi un&apos;attività economica in modo <strong>abituale e continuativo</strong>, indipendentemente dall&apos;importo che guadagni. Questo è un punto fondamentale: non esiste una soglia minima di reddito sotto la quale puoi lavorare senza Partita IVA in modo regolare.
             </p>
             <p>
               Hai bisogno della Partita IVA se:
@@ -116,10 +116,10 @@ export default function ArticoloPage() {
               Prestazione occasionale vs Partita IVA: il vero confine
             </h2>
             <p>
-              La <strong>prestazione occasionale</strong> (art. 2222 del Codice Civile) e consentita solo quando l&apos;attività e realmente saltuaria, non organizzata e non abituale. Il limite dei 5.000 euro annui che si sente spesso citare riguarda solo la soglia oltre la quale scattano i contributi previdenziali INPS — non e il confine tra lavoro occasionale e Partita IVA.
+              La <strong>prestazione occasionale</strong> (art. 2222 del Codice Civile) è consentita solo quando l&apos;attività è realmente saltuaria, non organizzata e non abituale. Il limite dei 5.000 euro annui che si sente spesso citare riguarda solo la soglia oltre la quale scattano i contributi previdenziali INPS: non è il confine tra lavoro occasionale e Partita IVA.
             </p>
             <p>
-              In pratica: se emetti ricevute di prestazione occasionale ogni mese, anche per importi piccoli, stai svolgendo un&apos;attività abituale e rischi una sanzione. Il criterio discriminante e la <strong>frequenza e l&apos;organizzazione</strong>, non l&apos;importo.
+              In pratica: se emetti ricevute di prestazione occasionale ogni mese, anche per importi piccoli, stai svolgendo un&apos;attività abituale e rischi una sanzione. Il criterio discriminante è la <strong>frequenza e l&apos;organizzazione</strong>, non l&apos;importo.
             </p>
             <div className="bg-zinc-50 rounded-xl p-6 my-6 border border-zinc-100">
               <p className="text-sm text-zinc-900">
@@ -132,7 +132,7 @@ export default function ArticoloPage() {
               Regime forfettario 2026: requisiti, vantaggi e limiti
             </h2>
             <p>
-              Il <strong>regime forfettario</strong> e il regime fiscale agevolato più utilizzato in Italia per chi apre una nuova Partita IVA. Ecco come funziona nel 2026:
+              Il <strong>regime forfettario</strong> è il regime fiscale agevolato più utilizzato in Italia per chi apre una nuova Partita IVA. Ecco come funziona nel 2026:
             </p>
             <p className="font-semibold text-zinc-900 mt-4">Requisiti per accedere:</p>
             <ul className="space-y-2 ml-4">
@@ -169,7 +169,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Lavori con clienti esteri e hai bisogno di gestire l&apos;IVA intracomunitaria</span></li>
             </ul>
             <p className="mt-4">
-              Nel regime ordinario paghi l&apos;IRPEF a scaglioni (dal 23% al 43%), ma puoi dedurre tutti i costi documentati dell&apos;attività. La scelta tra forfettario e ordinario va fatta con un&apos;analisi personalizzata — e una delle cose più importanti da discutere con il commercialista prima di aprire la Partita IVA.
+              Nel regime ordinario paghi l&apos;IRPEF a scaglioni (dal 23% al 43%), ma puoi dedurre tutti i costi documentati dell&apos;attività. La scelta tra forfettario e ordinario va fatta con un&apos;analisi personalizzata ed è una delle cose più importanti da discutere con il commercialista prima di aprire la Partita IVA.
             </p>
 
             {/* Codice ATECO */}
@@ -177,7 +177,7 @@ export default function ArticoloPage() {
               Come scegliere il codice ATECO giusto
             </h2>
             <p>
-              Il <strong>codice ATECO</strong> e un codice alfanumerico che identifica la tua attività economica. La scelta del codice ATECO non e un dettaglio burocratico — ha conseguenze concrete e importanti:
+              Il <strong>codice ATECO</strong> è un codice alfanumerico che identifica la tua attività economica. La scelta del codice ATECO non è un dettaglio burocratico: ha conseguenze concrete e importanti.
             </p>
             <ul className="space-y-2 ml-4">
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Determina il <strong>coefficiente di redditività</strong> nel regime forfettario (e quindi quante tasse paghi)</span></li>
@@ -187,11 +187,11 @@ export default function ArticoloPage() {
             </ul>
             <div className="bg-zinc-50 rounded-xl p-6 my-6 border border-zinc-100">
               <p className="text-sm text-zinc-900">
-                <strong>Esempio:</strong> un consulente marketing con codice ATECO 73.11.02 ha un coefficiente di redditività del 78%. Se fattura 40.000 euro, il reddito imponibile e 31.200 euro. Con il codice 62.02.00 (consulenza informatica, coefficiente 67%), lo stesso fatturato genera un reddito di 26.800 euro — con un risparmio di oltre 200 euro di tasse. Su 5 anni, la differenza può superare i 1.000 euro.
+                <strong>Esempio:</strong> un consulente marketing con codice ATECO 73.11.02 ha un coefficiente di redditività del 78%. Se fattura 40.000 euro, il reddito imponibile è 31.200 euro. Con il codice 62.02.00 (consulenza informatica, coefficiente 67%), lo stesso fatturato genera un reddito di 26.800 euro, con un risparmio di oltre 200 euro di tasse. Su 5 anni, la differenza può superare i 1.000 euro.
               </p>
             </div>
             <p>
-              Non e un passaggio da fare da soli. Un errore nel codice ATECO si può correggere, ma costa tempo e burocrazia. Meglio scegliere bene dall&apos;inizio.
+              Non è un passaggio da fare da soli. Un errore nel codice ATECO si può correggere, ma costa tempo e burocrazia. Meglio scegliere bene dall&apos;inizio.
             </p>
 
             {/* Procedura */}
@@ -202,9 +202,9 @@ export default function ArticoloPage() {
               Ecco i passaggi completi per aprire la Partita IVA nel 2026:
             </p>
             <ul className="space-y-3 ml-4">
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Analisi preliminare:</strong> definisci l&apos;attività, scegli il regime fiscale e il codice ATECO. Questa e la fase in cui un commercialista fa la differenza maggiore.</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Compilazione del modello AA9/12</strong> (per persone fisiche) o AA7/10 (per società). Il modello e disponibile sul sito dell&apos;Agenzia delle Entrate.</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Invio telematico all&apos;Agenzia delle Entrate</strong> tramite i servizi online (Fisconline/Entratel) o tramite il commercialista. L&apos;attribuzione del numero di Partita IVA e immediata.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Analisi preliminare:</strong> definisci l&apos;attività, scegli il regime fiscale e il codice ATECO. Questa è la fase in cui un commercialista fa la differenza maggiore.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Compilazione del modello AA9/12</strong> (per persone fisiche) o AA7/10 (per società). Il modello è disponibile sul sito dell&apos;Agenzia delle Entrate.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Invio telematico all&apos;Agenzia delle Entrate</strong> tramite i servizi online (Fisconline/Entratel) o tramite il commercialista. L&apos;attribuzione del numero di Partita IVA è immediata.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Iscrizione INPS:</strong> alla Gestione Separata (per professionisti senza cassa) o alla Gestione Artigiani/Commercianti (per attività artigianali o commerciali).</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Iscrizione alla Camera di Commercio</strong> (solo per attività commerciali e artigianali, non per professionisti).</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">6.</span> <span><strong>Eventuale SCIA al Comune</strong> (Segnalazione Certificata di Inizio Attività), se richiesta per il tipo di attività.</span></li>
@@ -258,7 +258,7 @@ export default function ArticoloPage() {
               </table>
             </div>
             <p>
-              Il costo maggiore non e l&apos;apertura in se, ma la <strong>gestione annuale</strong>: contributi INPS, imposte e compenso del commercialista. E fondamentale avere un quadro chiaro di questi costi prima di iniziare.
+              Il costo maggiore non è l&apos;apertura in sé, ma la <strong>gestione annuale</strong>: contributi INPS, imposte e compenso del commercialista. È fondamentale avere un quadro chiaro di questi costi prima di iniziare.
             </p>
 
             {/* INPS */}
@@ -282,7 +282,7 @@ export default function ArticoloPage() {
             </ul>
             <div className="bg-zinc-50 rounded-xl p-6 my-6 border border-zinc-100">
               <p className="text-sm text-zinc-900">
-                <strong>Attenzione:</strong> la riduzione del 35% per forfettari e artigiani/commercianti va richiesta esplicitamente all&apos;INPS. Non e automatica. Molti contribuenti non la richiedono e pagano più del necessario per anni.
+                <strong>Attenzione:</strong> la riduzione del 35% per forfettari e artigiani/commercianti va richiesta esplicitamente all&apos;INPS. Non è automatica. Molti contribuenti non la richiedono e pagano più del necessario per anni.
               </p>
             </div>
 
@@ -294,8 +294,8 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Scegliere il codice ATECO sbagliato</strong> — Può costare centinaia di euro in più di tasse ogni anno, e correggerlo richiede tempo e burocrazia.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Non valutare i costi INPS</strong> — Molti neopartitari scoprono i contributi previdenziali solo al primo F24. Nel regime artigiani/commercianti, si pagano anche con reddito zero.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Scegliere il forfettario quando non conviene</strong> — Se i tuoi costi reali sono alti, il regime ordinario potrebbe farti pagare meno. Serve un&apos;analisi preventiva.</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Dimenticare la PEC</strong> — E obbligatoria per tutte le Partite IVA. Se non la attivi, rischi sanzioni.</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Non richiedere la riduzione INPS del 35%</strong> — Per i forfettari in gestione artigiani/commercianti, e un risparmio di oltre 1.400 euro all&apos;anno che va chiesto esplicitamente.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Dimenticare la PEC</strong> — È obbligatoria per tutte le Partite IVA. Se non la attivi, rischi sanzioni.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Non richiedere la riduzione INPS del 35%</strong> — Per i forfettari in gestione artigiani/commercianti, è un risparmio di oltre 1.400 euro all&apos;anno che va chiesto esplicitamente.</span></li>
             </ul>
 
             {/* Aprire online */}

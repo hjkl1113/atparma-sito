@@ -70,7 +70,7 @@ export default function ArticoloPage() {
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">
             <p>
-              Il <strong>modello 730</strong> e la dichiarazione dei redditi più utilizzata in Italia: ogni anno oltre 20 milioni di contribuenti la presentano per comunicare i propri redditi, detrarre le spese sostenute e ottenere eventuali rimborsi IRPEF direttamente in busta paga o sulla pensione. Se stai cercando di capire <strong>come fare il 730 online nel 2026</strong>, sei nel posto giusto.
+              Il <strong>modello 730</strong> è la dichiarazione dei redditi più utilizzata in Italia: ogni anno oltre 20 milioni di contribuenti la presentano per comunicare i propri redditi, detrarre le spese sostenute e ottenere eventuali rimborsi IRPEF direttamente in busta paga o sulla pensione. Se stai cercando di capire <strong>come fare il 730 online nel 2026</strong>, sei nel posto giusto.
             </p>
             <p>
               In questa guida completa ti spieghiamo chi deve presentarlo, quali sono le scadenze aggiornate al 2026, quali documenti preparare, come funziona il 730 precompilato, quali sono le detrazioni che la maggior parte dei contribuenti dimentica, e quando conviene affidarsi a un commercialista online piuttosto che procedere in autonomia.
@@ -80,7 +80,7 @@ export default function ArticoloPage() {
             <div className="bg-zinc-50 rounded-xl p-6 my-8 border border-zinc-100">
               <p className="font-semibold text-zinc-900 text-sm mb-3">Indice della guida</p>
               <ul className="space-y-1 text-sm">
-                <li><a href="#cos-e-il-730" className="text-[var(--color-accent)] hover:underline">Cos&apos;e il modello 730 e a cosa serve</a></li>
+                <li><a href="#cos-e-il-730" className="text-[var(--color-accent)] hover:underline">Cos&apos;è il modello 730 e a cosa serve</a></li>
                 <li><a href="#chi-deve-presentare" className="text-[var(--color-accent)] hover:underline">Chi deve presentare il 730 nel 2026</a></li>
                 <li><a href="#chi-non-puo" className="text-[var(--color-accent)] hover:underline">Chi non può usare il 730</a></li>
                 <li><a href="#scadenze-2026" className="text-[var(--color-accent)] hover:underline">Scadenze 730 nel 2026</a></li>
@@ -95,12 +95,12 @@ export default function ArticoloPage() {
               </ul>
             </div>
 
-            {/* Cos'e il 730 */}
+            {/* Cos'è il 730 */}
             <h2 id="cos-e-il-730" className="text-xl font-semibold text-zinc-900 mt-10 mb-4 font-[family-name:var(--font-heading)]">
-              Cos&apos;e il modello 730 e a cosa serve
+              Cos&apos;è il modello 730 e a cosa serve
             </h2>
             <p>
-              Il modello 730 e una dichiarazione dei redditi semplificata introdotta per lavoratori dipendenti e pensionati. A differenza del modello Redditi PF (ex Unico), il 730 ha un vantaggio fondamentale: il conguaglio — che sia un rimborso o un addebito — viene effettuato direttamente dal sostituto d&apos;imposta (il datore di lavoro o l&apos;ente pensionistico) nella busta paga o nella pensione, senza dover attendere i tempi lunghi dell&apos;Agenzia delle Entrate.
+              Il modello 730 è una dichiarazione dei redditi semplificata introdotta per lavoratori dipendenti e pensionati. A differenza del modello Redditi PF (ex Unico), il 730 ha un vantaggio fondamentale: il conguaglio, che sia un rimborso o un addebito, viene effettuato direttamente dal sostituto d&apos;imposta (il datore di lavoro o l&apos;ente pensionistico) nella busta paga o nella pensione, senza dover attendere i tempi lunghi dell&apos;Agenzia delle Entrate.
             </p>
             <p>
               Questo significa che se hai diritto a un rimborso, lo ricevi già a partire da luglio (per i dipendenti) o da agosto-settembre (per i pensionati), proporzionalmente alla data di presentazione della dichiarazione.
@@ -111,16 +111,16 @@ export default function ArticoloPage() {
               Chi deve presentare il 730 nel 2026
             </h2>
             <p>
-              La presentazione del 730 e <strong>obbligatoria</strong> in diversi casi. In altri e facoltativa, ma comunque conveniente perché permette di recuperare imposte pagate in eccesso. Ecco i casi principali:
+              La presentazione del 730 è <strong>obbligatoria</strong> in diversi casi. In altri è facoltativa, ma comunque conveniente perché permette di recuperare imposte pagate in eccesso. Ecco i casi principali:
             </p>
-            <p><strong>E obbligatorio presentare il 730 se:</strong></p>
+            <p><strong>È obbligatorio presentare il 730 se:</strong></p>
             <ul className="space-y-2 ml-4">
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Hai avuto <strong>più di un datore di lavoro</strong> nel corso del 2025 e le ritenute non sono state ricalcolate</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Hai percepito <strong>redditi da immobili</strong> (affitti, cedolare secca)</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Devi restituire <strong>bonus o agevolazioni</strong> percepiti indebitamente (es. bonus Renzi/trattamento integrativo)</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Hai percepito <strong>indennità INPS</strong> (cassa integrazione, disoccupazione NASpI) senza conguaglio</span></li>
             </ul>
-            <p className="mt-4"><strong>E facoltativo ma conviene se:</strong></p>
+            <p className="mt-4"><strong>È facoltativo, ma conviene se:</strong></p>
             <ul className="space-y-2 ml-4">
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Hai sostenuto <strong>spese detraibili</strong> (mediche, mutuo, ristrutturazioni, istruzione)</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span>Hai versato <strong>contributi deducibili</strong> (previdenza complementare, colf e badanti)</span></li>
@@ -180,7 +180,7 @@ export default function ArticoloPage() {
               Precompilato o commercialista? Il confronto onesto
             </h2>
             <p>
-              E la domanda che si pongono milioni di italiani ogni anno. La risposta dipende dalla complessità della tua situazione fiscale.
+              È la domanda che si pongono milioni di italiani ogni anno. La risposta dipende dalla complessità della tua situazione fiscale.
             </p>
             <div className="overflow-x-auto my-6">
               <table className="w-full text-sm border-collapse">
@@ -288,7 +288,7 @@ export default function ArticoloPage() {
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">7.</span> <span><strong>Previdenza complementare</strong> — I contributi versati sono deducibili fino a 5.164,57 euro. Un risparmio fiscale che può valere oltre 2.000 euro.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">8.</span> <span><strong>Spese per studenti fuori sede</strong> — Canone di affitto detraibile al 19% fino a 2.633 euro per studenti universitari che studiano a oltre 100 km da casa.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">9.</span> <span><strong>Bonus mobili</strong> — Detrazione del 50% fino a 5.000 euro per l&apos;acquisto di mobili ed elettrodomestici (classe A+ o superiore) legati a una ristrutturazione.</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">10.</span> <span><strong>Assicurazioni rischio calamità</strong> — I premi per polizze contro eventi calamitosi sugli immobili sono detraibili al 19%, senza franchigià.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">10.</span> <span><strong>Assicurazioni rischio calamità</strong> — I premi per polizze contro eventi calamitosi sugli immobili sono detraibili al 19%, senza franchigia.</span></li>
             </ul>
 
             {/* Errori comuni */}
@@ -299,7 +299,7 @@ export default function ArticoloPage() {
               Un errore nel 730 può costare caro: sanzioni, interessi di mora, o semplicemente un rimborso inferiore a quello che ti spettava. Ecco gli errori più frequenti:
             </p>
             <ul className="space-y-2 ml-4">
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Non dichiarare tutti i CU:</strong> se hai cambiato lavoro durante l&apos;anno, devi inserire tutte le Certificazioni Uniche. Dimenticarne una e una delle cause più comuni di avviso di accertamento.</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Non dichiarare tutti i CU:</strong> se hai cambiato lavoro durante l&apos;anno, devi inserire tutte le Certificazioni Uniche. Dimenticarne una è una delle cause più comuni di avviso di accertamento.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Confondere detrazioni e deduzioni:</strong> le detrazioni riducono l&apos;imposta, le deduzioni riducono il reddito. Un errore nella classificazione altera il calcolo.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Dimenticare familiari a carico:</strong> ogni familiare a carico (reddito sotto 2.840,51 euro, o 4.000 euro per i figli fino a 24 anni) da diritto a detrazioni aggiuntive.</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Non riportare i crediti dall&apos;anno precedente:</strong> se nel 730 dell&apos;anno scorso avevi un credito non rimborsato, va riportato. Il precompilato spesso lo fa, ma va verificato.</span></li>
@@ -329,17 +329,17 @@ export default function ArticoloPage() {
               Come fare il 730 online con un commercialista
             </h2>
             <p>
-              Fare il 730 online con un commercialista e oggi semplice e veloce. Non serve andare in studio, non servono appuntamenti e non servono code. Ecco come funziona con A.T. Consulting Parma:
+              Fare il 730 online con un commercialista è oggi semplice e veloce. Non serve andare in studio, non servono appuntamenti e non servono code. Ecco come funziona con A.T. Consulting Parma:
             </p>
             <ul className="space-y-2 ml-4">
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">1.</span> <span><strong>Ti iscrivi al portale</strong> e versi la caparra di 10 euro (totale 50 euro, listino 79)</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">2.</span> <span><strong>Firmi il mandato</strong> digitalmente e carichi i documenti (CU, spese mediche, bonifici edilizi, mutuo)</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Precompilata:</strong> se l&apos;hai gia scaricata con SPID/CIE la carichi direttamente; altrimenti firmi la delega e la scarichiamo noi via Entratel</span></li>
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Ti inviamo la bozza</strong> con il risultato (rimborso o debito), scegli il 5, 8 e 2 per mille e firmi l&apos;impegno a trasmettere</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">3.</span> <span><strong>Precompilata:</strong> se l&apos;hai già scaricata con SPID/CIE la carichi direttamente; altrimenti firmi la delega e la scarichiamo noi via Entratel</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">4.</span> <span><strong>Ti inviamo la bozza</strong> con il risultato (rimborso o debito), scegli il 5, l&apos;8 e il 2 per mille e firmi l&apos;impegno a trasmettere</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">5.</span> <span><strong>Paghi il saldo di 40 euro</strong>: il pagamento sblocca l&apos;invio telematico all&apos;Agenzia delle Entrate, ricevi la ricevuta nel portale</span></li>
             </ul>
             <p className="mt-4">
-              Il tutto si completa in 7-10 giorni lavorativi dalla consegna completa dei documenti, margine incluso per i picchi stagionali. Gestiamo anche i casi particolari: clienti senza sostituto d&apos;imposta (rimborso via IBAN direttamente dall&apos;Agenzia) o che preferiscono pagare un eventuale debito con F24 anziche con trattenuta in busta paga. Se hai domande o dubbi, il nostro team e raggiungibile via email, telefono o dal portale clienti.
+              Il tutto si completa in 7-10 giorni lavorativi dalla consegna completa dei documenti, margine incluso per i picchi stagionali. Gestiamo anche i casi particolari: clienti senza sostituto d&apos;imposta (rimborso via IBAN direttamente dall&apos;Agenzia) o che preferiscono pagare un eventuale debito con F24 anziché con trattenuta in busta paga. Se hai domande o dubbi, il nostro team è raggiungibile via email, telefono o dal portale clienti.
             </p>
 
             {/* CTA intermedio */}

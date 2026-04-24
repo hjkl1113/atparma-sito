@@ -15,6 +15,7 @@
 ### Sito
 - catalogo servizi attivo
 - pagine prodotto
+- landing macro-sezioni servizi (`/servizi/dichiarazioni`, `/servizi/professionista`, `/servizi/artigiani-commercianti`)
 - Stripe + PayPal
 - privacy / sicurezza / cookie banner
 - tool gratuiti e contenuti di funnel
@@ -41,7 +42,7 @@
 |---|---|
 | Prezzi sito | source-of-truth non unificata |
 | Checkout sito | post-acquisto ancora manuale verso il portale |
-| CTA portale-first | dominio/rotte non allineati al portale reale |
+| CTA portale-first | dominio sito riallineato, ma funnel service-based ancora non congelato end-to-end |
 | Pagamenti portale | memoria decisionale non congelata |
 | Compliance | vari gate ancora aperti |
 
@@ -50,7 +51,7 @@
 1. **Ponte sito -> portale non chiuso**
    - webhook sito non crea account/client nel portale
    - onboarding servizio-specifici del portale non trovati nel codice
-   - CTA sito ancora puntano a `at-parma.vercel.app/onboarding/*`
+   - CTA sito puntano a `clienti.atparma.com/login?next=/onboarding?service=...`, ma il flusso service-based del portale non e' ancora memoria canonica chiusa
 
 2. **Source-of-truth prezzi del sito non pulita**
    - `app/lib/prezzi-default.ts` = catalogo reale di fatto

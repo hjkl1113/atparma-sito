@@ -4,6 +4,7 @@ import { Pricing } from "./pricing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
+import { getAllMacroSezioni } from "@/app/servizi/_data/macro-sezioni";
 
 function Hero() {
   return (
@@ -150,49 +151,43 @@ function AreaClienti() {
   );
 }
 
-const servizi = [
-  {
-    num: "01",
-    title: "Consulenza fiscale",
-    desc: "Dichiarazioni, pianificazione fiscale, IVA, imposte dirette e indirette. Assistenza nelle verifiche e nei contenziosi tributari.",
-  },
-  {
-    num: "02",
-    title: "Crisi di impresa",
-    desc: "Gestione delle procedure concorsuali, piani di risanamento, composizione negoziata della crisi e assistenza nelle ristrutturazioni.",
-  },
-  {
-    num: "03",
-    title: "Consulenza finanziaria",
-    desc: "Accesso al credito, finanza agevolata, business plan, valutazione d'azienda e supporto nelle operazioni di M&A.",
-  },
-];
+const servizi = getAllMacroSezioni();
 
 function Servizi() {
   return (
     <section id="servizi" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3 text-center">
-          Le nostre aree di specializzazione
+          Servizi online per area
         </p>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-16 font-[family-name:var(--font-heading)]">
-          Cosa facciamo
+          Parti dal percorso giusto
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {servizi.map((s) => (
-            <div
-              key={s.num}
-              className="group p-8 rounded-2xl border border-zinc-100 hover:border-zinc-200 hover:shadow-lg transition-all duration-300"
+            <Link
+              key={s.slug}
+              href={`/servizi/${s.slug}`}
+              className="group block p-8 rounded-2xl border border-zinc-100 hover:border-zinc-200 hover:shadow-lg transition-all duration-300"
             >
-              <span className="text-4xl font-bold text-zinc-200 font-[family-name:var(--font-heading)] group-hover:text-[var(--color-accent)] transition-colors">
-                {s.num}
-              </span>
-              <h3 className="text-xl font-semibold mt-4 mb-3 font-[family-name:var(--font-heading)]">
+              <h3 className="text-xl font-semibold mb-3 font-[family-name:var(--font-heading)]">
                 {s.title}
               </h3>
-              <p className="text-zinc-600 leading-relaxed text-sm">{s.desc}</p>
-            </div>
+              <p className="text-zinc-600 leading-relaxed text-sm mb-5">{s.shortDescription}</p>
+              <span className="text-xs text-[var(--color-accent)] font-medium inline-flex items-center gap-1">
+                Apri area <span aria-hidden>&rarr;</span>
+              </span>
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/servizi#consulenze-specialistiche"
+            className="text-sm text-zinc-500 hover:text-zinc-900 underline underline-offset-4 transition-colors"
+          >
+            Per crisi d&apos;impresa, finanza agevolata e incarichi complessi vedi le consulenze specialistiche
+          </Link>
         </div>
       </div>
     </section>

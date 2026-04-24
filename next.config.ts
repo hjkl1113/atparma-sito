@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      {
+        source: "/servizi/artigiano-commerciante",
+        destination: "/servizi/artigiani-commercianti",
+        permanent: true,
+      },
       // Prodotti archiviati 2026-04-21: ora coperti dal bundle Professionista
       {
         source: "/servizi/piva-forfettario",
