@@ -5,6 +5,12 @@ import { useState, useEffect } from "react";
 import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
 import { mergePrezziWithDefaults } from "@/app/lib/prezzi";
 import { getProdotto } from "@/app/servizi/_data/prodotti";
+import {
+  computeNetRounded,
+  formatEur,
+  getScontoAnticipato,
+  isRateizzabile,
+} from "@/app/lib/pricing-utils";
 
 export function Pricing() {
   const [prezzi, setPrezzi] = useState<Servizio[]>(DEFAULT_PREZZI);
@@ -53,7 +59,7 @@ export function Pricing() {
                     {p.originalPrice && (
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-lg line-through text-zinc-400">
-                          &euro;{p.originalPrice}
+                          {formatEur(p.originalPrice)}
                         </span>
                         <span className="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
                           -{Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)}%
@@ -64,9 +70,31 @@ export function Pricing() {
                       <span className="block text-xs text-zinc-500 mb-0.5">a partire da</span>
                     )}
                     <span className="text-3xl font-bold font-[family-name:var(--font-heading)]">
-                      &euro;{p.price}
+                      {formatEur(p.price)}
                     </span>
                     <span className="ml-2 text-xs text-zinc-500">IVA inclusa</span>
+                    {computeNetRounded(p.price) !== null && (
+                      <p className="text-xs text-zinc-500 mt-1">
+                        {computeNetRounded(p.price)}€ + IVA 22%
+                      </p>
+                    )}
+                    {(isRateizzabile(p.price) || getScontoAnticipato(p.price)) && (
+                      <div className="flex flex-wrap gap-1.5 mt-3">
+                        {isRateizzabile(p.price) && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-zinc-100 text-zinc-700 px-2 py-0.5 rounded-full">
+                            Rate 30% + 3 trimestri
+                          </span>
+                        )}
+                        {(() => {
+                          const s = getScontoAnticipato(p.price!);
+                          return s ? (
+                            <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                              -{s.pct}% pagamento anticipato
+                            </span>
+                          ) : null;
+                        })()}
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <span className="text-lg font-medium text-zinc-500">A preventivo</span>

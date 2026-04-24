@@ -61,8 +61,8 @@ export const MACRO_SEZIONI: Record<MacroSezioneSlug, MacroSezioneServizi> = {
     productSlugs: [
       "apertura-professionista-sola",
       "piva-professionista",
-      "piva-professionista-semplificato",
       "contabilita-professionista-forfettario",
+      "piva-professionista-semplificato",
       "contabilita-professionista-semplificata",
     ],
     tool: {
@@ -91,8 +91,8 @@ export const MACRO_SEZIONI: Record<MacroSezioneSlug, MacroSezioneServizi> = {
     productSlugs: [
       "piva-artigiano-commerciante",
       "piva-artigiano-commerciante-forfettario",
-      "piva-artigiano-commerciante-semplificato",
       "contabilita-artigiano-forfettario",
+      "piva-artigiano-commerciante-semplificato",
       "contabilita-artigiano-semplificata",
     ],
     tool: {

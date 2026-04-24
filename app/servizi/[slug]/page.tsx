@@ -7,6 +7,13 @@ import { ProductCredentials } from "@/components/product-credentials";
 import { VerificaRequisitiForfettario } from "@/components/verifica-requisiti-forfettario";
 import { getPrezzi } from "@/app/lib/prezzi";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
+import {
+  computeNetRounded,
+  formatEur,
+  getScontoAnticipato,
+  isRateizzabile,
+} from "@/app/lib/pricing-utils";
+import { PaymentPolicyBox } from "@/app/servizi/_components/payment-policy-box";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -249,12 +256,34 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               )}
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-4xl font-bold font-[family-name:var(--font-heading)]">
-                  {price !== null ? `€${price}` : "A preventivo"}
+                  {price !== null ? formatEur(price) : "A preventivo"}
                 </span>
                 {price !== null && <span className="text-sm text-zinc-500">{prodotto.priceSuffix ?? "una tantum"}</span>}
               </div>
               {price !== null && (
-                <p className="text-xs text-zinc-500 mb-4">IVA inclusa</p>
+                <div className="mb-4">
+                  <p className="text-xs text-zinc-500">IVA inclusa</p>
+                  {computeNetRounded(price) !== null && (
+                    <p className="text-xs text-zinc-500">{computeNetRounded(price)}€ + IVA 22%</p>
+                  )}
+                </div>
+              )}
+              {price !== null && (isRateizzabile(price) || getScontoAnticipato(price)) && (
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {isRateizzabile(price) && (
+                    <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-zinc-100 text-zinc-700 px-2.5 py-1 rounded-full">
+                      Rate 30% + 3 trimestri
+                    </span>
+                  )}
+                  {(() => {
+                    const s = getScontoAnticipato(price);
+                    return s ? (
+                      <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-green-50 text-green-700 px-2.5 py-1 rounded-full">
+                        -{s.pct}% pagamento anticipato ({formatEur(s.final)})
+                      </span>
+                    ) : null;
+                  })()}
+                </div>
               )}
               <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
                 {prodotto.priceBlurb ??
@@ -321,7 +350,7 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                 slugForfettario="piva-professionista"
                 prezzoForfettario={549}
                 slugSemplificato="piva-professionista-semplificato"
-                prezzoSemplificato={1647}
+                prezzoSemplificato={1610.40}
                 contesto="professionista"
                 currentSlug={prodotto.slug}
               />
@@ -589,6 +618,12 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             />
           </section>
 
+          {price !== null && (isRateizzabile(price) || getScontoAnticipato(price)) && (
+            <section className="mb-12">
+              <PaymentPolicyBox />
+            </section>
+          )}
+
           <section className="bg-[var(--color-surface)] rounded-3xl p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 font-[family-name:var(--font-heading)]">
               Pronto a partire?
@@ -603,7 +638,7 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   href={prodotto.ctaHref ?? `/servizi/${prodotto.slug}/checkout`}
                   className="px-8 py-4 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors"
                 >
-                  {prodotto.closingCtaLabel ?? `Acquista a €${price}`}
+                  {prodotto.closingCtaLabel ?? `Acquista a ${formatEur(price)}`}
                 </Link>
               ) : (
                 <Link

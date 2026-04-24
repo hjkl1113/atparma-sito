@@ -5,16 +5,10 @@ export const BLOB_NAME = "prezzi.json";
 
 export function mergePrezziWithDefaults(prezzi: Servizio[]) {
   const incomingById = new Map(prezzi.map((servizio) => [servizio.id, servizio]));
-  const mergedDefaults = DEFAULT_PREZZI.map((servizio) => ({
-    ...servizio,
-    ...(incomingById.get(servizio.id) ?? {}),
-  }));
-
-  const extraServices = prezzi.filter(
-    (servizio) => !DEFAULT_PREZZI.some((defaultService) => defaultService.id === servizio.id),
-  );
-
-  return [...mergedDefaults, ...extraServices];
+  return DEFAULT_PREZZI.map((servizio) => {
+    const incoming = incomingById.get(servizio.id);
+    return incoming ? { ...servizio, active: incoming.active } : servizio;
+  });
 }
 
 export async function getPrezzi(): Promise<Servizio[]> {

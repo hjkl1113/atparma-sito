@@ -1,7 +1,7 @@
 # REPORT — VALIDAZIONE PROGETTO AT PARMA
 
-**Data:** 2026-04-22  
-**Versione:** 2.0  
+**Data:** 2026-04-24  
+**Versione:** 2.1  
 **Scopo:** fotografia tecnica e operativa aggiornata del sistema `sito + portale`, pensata per chi deve validare il progetto prima di nuovo sviluppo.
 
 ## Legenda
@@ -11,6 +11,14 @@
 - `Documentato ma non verificato`
 - `Pianificato`
 - `Superato / legacy`
+
+## Changelog 2026-04-24
+
+- **Pricing source-of-truth unificata (strict)**: `mergePrezziWithDefaults` in `app/lib/prezzi.ts` ora scarta qualsiasi servizio non presente in `app/lib/prezzi-default.ts`. Il blob Vercel `prezzi.json` puo' solo sovrascrivere `active` (on/off). Risolve i 4 problemi pre-esistenti: blob desincronizzato, servizi fantasma, prezzo `piva-prof` divergente, desc obsolete.
+- **Matrice pricing professionisti coerente**: netti tondi 120/330/1200 in `app/lib/prezzi-default.ts`. Apertura sola 146,40€; bundle forf 549€; solo contab. forf 402,60€; bundle semplif 1.610,40€; solo contab. semplif 1.464€.
+- **Ordine card professionisti riordinato**: `macro-sezioni.ts` → [apertura-sola, bundle-forf, solo-forf, bundle-semplif, solo-semplif].
+- **Ordine card artigiani/commercianti riordinato**: `macro-sezioni.ts` → [piva-art, bundle-art-forf, solo-cont-art-forf, bundle-art-semp, solo-cont-art-semp]. Prezzi artigiani INVARIATI in attesa di revisione utente.
+- **Policy pagamento studio-wide**: constanti in `app/lib/pricing-utils.ts`, UI con breakdown `netto + IVA 22%` (solo se netto intero), badge "Rate 30% + 3 trimestri" su pratiche >500€ IVA incl., badge "-5%" fascia 500-1000€, badge "-10%" oltre 1000€. Box informativo `PaymentPolicyBox` su pagine macro-area e schede prodotto.
 
 ## Executive Summary
 
@@ -30,7 +38,7 @@ Verdetto sintetico:
 
 | Area | Stato | Nota |
 |---|---|---|
-| Sito | giallo | forte su offerta e UX, ma pricing/source-of-truth non pulita |
+| Sito | verde | pricing source-of-truth unificata (strict policy 2026-04-24), matrice professionisti coerente, policy pagamento studio-wide |
 | Portale | giallo-verde | base molto solida, ma onboarding pubblici e pagamenti non chiusi |
 | Integrazione | rosso | vero collo di bottiglia del sistema |
 | Pagamenti | giallo | sito one-shot ok, portale in transizione decisionale |

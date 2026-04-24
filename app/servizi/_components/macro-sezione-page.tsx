@@ -5,6 +5,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { getPrezzi } from "@/app/lib/prezzi";
 import { getProdotto } from "@/app/servizi/_data/prodotti";
 import { getMacroSezione, type MacroSezioneSlug } from "@/app/servizi/_data/macro-sezioni";
+import {
+  computeNetRounded,
+  formatEur,
+  getScontoAnticipato,
+  isRateizzabile,
+} from "@/app/lib/pricing-utils";
+import { PaymentPolicyBox } from "@/app/servizi/_components/payment-policy-box";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -153,32 +160,62 @@ export async function MacroSezionePage({ sectionSlug }: { sectionSlug: MacroSezi
               Parti dall&apos;area giusta, poi entra nella scheda prodotto piu&apos; adatta al tuo caso. La scheda prodotto resta il punto corretto per dettagli, documenti e attivazione del percorso nel portale.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {prodotti.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/servizi/${item.slug}`}
-                  className="block h-full rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-zinc-300 hover:shadow-md"
-                >
-                  <h3 className="font-semibold mb-2 font-[family-name:var(--font-heading)]">{item.title}</h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-4 min-h-[4.5rem]">{item.desc}</p>
-                  <div className="flex items-end justify-between gap-4">
-                    <div>
+              {prodotti.map((item) => {
+                const netRounded = item.price !== null ? computeNetRounded(item.price) : null;
+                const rate = item.price !== null && isRateizzabile(item.price);
+                const sconto = item.price !== null ? getScontoAnticipato(item.price) : null;
+                return (
+                  <Link
+                    key={item.slug}
+                    href={`/servizi/${item.slug}`}
+                    className="block h-full rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-zinc-300 hover:shadow-md"
+                  >
+                    <h3 className="font-semibold mb-2 font-[family-name:var(--font-heading)]">{item.title}</h3>
+                    <p className="text-zinc-600 text-sm leading-relaxed mb-4 min-h-[4.5rem]">{item.desc}</p>
+                    <div className="mb-3">
                       {item.price === null ? (
                         <span className="text-sm font-medium text-zinc-500">A preventivo</span>
                       ) : (
-                        <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
-                          {item.priceFormat === "da" ? "da " : ""}
-                          €{item.price}
-                        </span>
+                        <>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-xl font-bold font-[family-name:var(--font-heading)]">
+                              {item.priceFormat === "da" ? "da " : ""}
+                              {formatEur(item.price)}
+                            </span>
+                            <span className="text-[11px] text-zinc-500">IVA inclusa</span>
+                          </div>
+                          {netRounded !== null && (
+                            <p className="text-xs text-zinc-500 mt-0.5">
+                              {netRounded}€ + IVA 22%
+                            </p>
+                          )}
+                        </>
                       )}
                     </div>
-                    <span className="text-xs text-[var(--color-accent)] font-medium inline-flex items-center gap-1">
-                      Apri scheda <span aria-hidden>&rarr;</span>
-                    </span>
-                  </div>
-                </Link>
-              ))}
+                    {(rate || sconto) && (
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {rate && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-zinc-100 text-zinc-700 px-2 py-0.5 rounded-full">
+                            Rate 30% + 3 trimestri
+                          </span>
+                        )}
+                        {sconto && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
+                            -{sconto.pct}% pagamento anticipato
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    <div className="flex items-end justify-end">
+                      <span className="text-xs text-[var(--color-accent)] font-medium inline-flex items-center gap-1">
+                        Apri scheda <span aria-hidden>&rarr;</span>
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
+            <PaymentPolicyBox className="mt-10" />
           </section>
         </div>
       </main>
