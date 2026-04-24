@@ -9,6 +9,13 @@ import {
   type CheckoutFormData,
 } from "@/app/lib/checkout-utils";
 import { PayPalButton } from "@/app/servizi/_components/paypal-button";
+import {
+  formatEur,
+  getScontoAnticipato,
+  isRateizzabile,
+} from "@/app/lib/pricing-utils";
+
+type PaymentMode = "full" | "rate";
 
 export function CheckoutForm({
   serviceId,
@@ -22,6 +29,19 @@ export function CheckoutForm({
   const [data, setData] = useState<CheckoutFormData>(EMPTY_CHECKOUT_DATA);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const sconto = getScontoAnticipato(price);
+  const canRate = isRateizzabile(price);
+  const canChoose = !!(sconto || canRate);
+
+  const [paymentMode, setPaymentMode] = useState<PaymentMode>("full");
+
+  const acconto = Math.round(price * 0.30 * 100) / 100;
+  const saldoResiduo = price - acconto;
+  const trancheTrimestrale = Math.round((saldoResiduo / 3) * 100) / 100;
+
+  const importoStripe =
+    paymentMode === "rate" ? acconto : sconto ? sconto.final : price;
 
   function updateField(field: keyof CheckoutFormData, value: string) {
     setData((prev) => {
@@ -45,7 +65,7 @@ export function CheckoutForm({
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ servizio: serviceId, ...data }),
+        body: JSON.stringify({ servizio: serviceId, ...data, paymentMode }),
       });
       const json = await res.json();
       if (json.url) {
@@ -129,6 +149,80 @@ export function CheckoutForm({
         {error ? <p className="text-xs text-red-500">{error}</p> : null}
       </div>
 
+      {canChoose && (
+        <div className="mt-8 pt-6 border-t border-zinc-100 space-y-3">
+          <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium">
+            Modalita di pagamento
+          </p>
+          {sconto && (
+            <label
+              className={`block rounded-xl border p-4 cursor-pointer transition-colors ${
+                paymentMode === "full"
+                  ? "border-[var(--color-accent)] bg-[var(--color-accent)]/5"
+                  : "border-zinc-200 hover:border-zinc-300"
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <input
+                  type="radio"
+                  name="paymentMode"
+                  value="full"
+                  checked={paymentMode === "full"}
+                  onChange={() => setPaymentMode("full")}
+                  className="mt-1"
+                />
+                <div className="flex-1">
+                  <div className="flex items-baseline justify-between gap-2 mb-1">
+                    <span className="text-sm font-semibold text-zinc-900">
+                      Paga subito in unica soluzione
+                    </span>
+                    <span className="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+                      -{sconto.pct}%
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    Saldi alla firma con carta di credito: {formatEur(sconto.final)} invece di {formatEur(price)}.
+                    Risparmi {formatEur(price - sconto.final)}.
+                  </p>
+                </div>
+              </div>
+            </label>
+          )}
+          {canRate && (
+            <label
+              className={`block rounded-xl border p-4 cursor-pointer transition-colors ${
+                paymentMode === "rate"
+                  ? "border-[var(--color-accent)] bg-[var(--color-accent)]/5"
+                  : "border-zinc-200 hover:border-zinc-300"
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <input
+                  type="radio"
+                  name="paymentMode"
+                  value="rate"
+                  checked={paymentMode === "rate"}
+                  onChange={() => setPaymentMode("rate")}
+                  className="mt-1"
+                />
+                <div className="flex-1">
+                  <div className="flex items-baseline justify-between gap-2 mb-1">
+                    <span className="text-sm font-semibold text-zinc-900">
+                      Rateizza: 30% ora + 3 tranche trimestrali
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    Oggi paghi {formatEur(acconto)} (acconto mandato). Poi 3 tranche da
+                    circa {formatEur(trancheTrimestrale)} ogni 3 mesi per un totale di {formatEur(price)}.
+                    Le proforme trimestrali arrivano sul portale clienti.
+                  </p>
+                </div>
+              </div>
+            </label>
+          )}
+        </div>
+      )}
+
       <div className="mt-8 pt-6 border-t border-zinc-100 space-y-3">
         <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium">
           Scegli come pagare
@@ -138,19 +232,35 @@ export function CheckoutForm({
           disabled={loading}
           className="block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {loading ? "Caricamento..." : `Paga €${price} con carta`}
+          {loading
+            ? "Caricamento..."
+            : paymentMode === "rate"
+              ? `Paga acconto ${formatEur(acconto)} con carta`
+              : sconto
+                ? `Paga ${formatEur(sconto.final)} con carta (-${sconto.pct}%)`
+                : `Paga ${formatEur(price)} con carta`}
         </button>
-        <PayPalButton
-          serviceId={serviceId}
-          serviceTitle={serviceTitle}
-          price={price}
-          checkoutData={data}
-          onValidationError={(message) => setError(message)}
-        />
+        {paymentMode === "full" && !sconto && (
+          <PayPalButton
+            serviceId={serviceId}
+            serviceTitle={serviceTitle}
+            price={price}
+            checkoutData={data}
+            onValidationError={(message) => setError(message)}
+          />
+        )}
         <p className="text-xs text-zinc-500 text-center leading-relaxed pt-2">
-          Stripe e PayPal gestiscono il pagamento in modo sicuro. Ricevi subito la fattura
-          elettronica e le credenziali del portale clienti.
+          {canChoose
+            ? "Sconti e rateizzazione sono disponibili solo con pagamento Stripe (carta di credito)."
+            : "Stripe e PayPal gestiscono il pagamento in modo sicuro. Ricevi subito la fattura elettronica e le credenziali del portale clienti."}
         </p>
+        {paymentMode === "rate" && (
+          <p className="text-xs text-zinc-600 bg-zinc-50 border border-zinc-200 rounded-lg p-3 leading-relaxed">
+            <strong>Importo oggi: {formatEur(acconto)}</strong> · Saldo residuo: {formatEur(saldoResiduo)} · Totale
+            mandato: {formatEur(importoStripe + saldoResiduo)}. Le tranche successive saranno fatturate tramite
+            proforma trimestrali sul portale.
+          </p>
+        )}
       </div>
     </div>
   );

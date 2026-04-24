@@ -34,9 +34,10 @@ export function PaymentPolicyBox({ className = "" }: { className?: string }) {
         </li>
       </ul>
       <p className="text-xs text-zinc-500 mt-4 leading-relaxed">
-        Gli sconti sono alternativi alla rateizzazione e vanno richiesti in fase di
-        firma. Importi IVA inclusa. Tributi e diritti pubblici (quando applicabili)
-        restano separati dall&apos;onorario studio.
+        La scelta tra pagamento anticipato scontato e rateizzazione avviene direttamente
+        al checkout con carta di credito. Gli sconti sono alternativi alla rateizzazione.
+        Importi IVA inclusa. Tributi e diritti pubblici (quando applicabili) restano
+        separati dall&apos;onorario studio.
       </p>
     </aside>
   );

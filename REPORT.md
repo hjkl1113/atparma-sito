@@ -19,6 +19,7 @@
 - **Ordine card professionisti riordinato**: `macro-sezioni.ts` → [apertura-sola, bundle-forf, solo-forf, bundle-semplif, solo-semplif].
 - **Ordine card artigiani/commercianti riordinato**: `macro-sezioni.ts` → [piva-art, bundle-art-forf, solo-cont-art-forf, bundle-art-semp, solo-cont-art-semp]. Prezzi artigiani INVARIATI in attesa di revisione utente.
 - **Policy pagamento studio-wide**: constanti in `app/lib/pricing-utils.ts`, UI con breakdown `netto + IVA 22%` (solo se netto intero), badge "Rate 30% + 3 trimestri" su pratiche >500€ IVA incl., badge "-5%" fascia 500-1000€, badge "-10%" oltre 1000€. Box informativo `PaymentPolicyBox` su pagine macro-area e schede prodotto.
+- **Checkout con scelta paymentMode**: `/api/checkout` accetta `paymentMode: "full" | "rate"`. Coupon Stripe `SCONTO_ANT_5` e `SCONTO_ANT_10` creati via API (percent_off, duration=once). Il `CheckoutForm` propone 2 radio card quando eligibile: "Paga subito in unica soluzione (-X%)" o "Rateizza: 30% ora + 3 tranche trimestrali". La modalita `rate` crea una Stripe session con line_item al 30% dell'importo totale, metadata `paymentMode/acconto/saldoResiduo` per notifica segreteria. Le 3 tranche successive si gestiscono manualmente via proforma/Fatture in Cloud (automazione SEPA Direct Debit in backlog come "Opzione B"). PayPal nascosto quando c'e' sconto eligibile (PayPal non applica coupon Stripe lato server).
 
 ## Executive Summary
 
