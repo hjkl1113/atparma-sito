@@ -6,6 +6,7 @@ export interface Servizio {
   originalPrice: number | null;
   active: boolean;
   slug?: string;
+  priceFormat?: "fisso" | "da" | "preventivo";
 }
 
 export const DEFAULT_PREZZI: Servizio[] = [
