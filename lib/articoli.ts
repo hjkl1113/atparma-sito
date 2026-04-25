@@ -8,6 +8,30 @@ export interface Articolo {
 
 export const articoli: Articolo[] = [
   {
+    slug: "regime-forfettario-2026",
+    titolo: "Regime forfettario 2026: guida completa",
+    excerpt:
+      "Tutto quello che serve sapere sul regime forfettario nel 2026: requisiti di accesso, coefficienti di redditività, imposta sostitutiva 5% e 15%, contributi, cause di esclusione ed esempi numerici concreti.",
+    immagine: "/images/parma-duomo-aerial.jpg",
+    data: "2026-04-25",
+  },
+  {
+    slug: "quanto-costa-commercialista-online",
+    titolo: "Quanto costa un commercialista online nel 2026?",
+    excerpt:
+      "Tariffe medie 2026 per Partita IVA, dichiarazioni e consulenza fiscale online. La differenza reale tra studio tradizionale, piattaforme software e dottore commercialista online vero.",
+    immagine: "/images/parma-duomo-aerial.jpg",
+    data: "2026-04-25",
+  },
+  {
+    slug: "730-precompilato-conviene",
+    titolo: "730 precompilato: conviene farlo da soli?",
+    excerpt:
+      "Il 730 precompilato sembra pronto, ma spesso non lo è. Detrazioni dimenticate, errori di calcolo, casi che non gestisce. Quando affidarsi a un commercialista vale più dei 50 euro che spendi.",
+    immagine: "/images/parma-duomo-aerial.jpg",
+    data: "2026-04-25",
+  },
+  {
     slug: "commercialista-online",
     titolo: "Commercialista online: come sceglierlo e perché conviene",
     excerpt:
