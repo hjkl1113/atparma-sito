@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { parseCheckoutIdentity } from "@/app/lib/checkout";
 import { getPrezzi } from "@/app/lib/prezzi";
+import type { Servizio } from "@/app/lib/prezzi-default";
 import { getScontoAnticipato, isRateizzabile } from "@/app/lib/pricing-utils";
 
 export const runtime = "nodejs";
@@ -13,6 +14,37 @@ const COUPON_BY_PCT: Record<number, string> = {
 
 const RATE_FRACTION = 0.30;
 
+/**
+ * Fallback per i nuovi serviceId IMU non ancora presenti in DEFAULT_PREZZI
+ * (file in WIP pricing M, non si tocca finche' non chiude). A WIP chiuso si
+ * migrano in app/lib/prezzi-default.ts e questa mappa va rimossa.
+ */
+const FALLBACK_SERVICES: Record<string, Servizio> = {
+  "calcolo-imu": {
+    id: "calcolo-imu",
+    title: "Calcolo IMU professionale",
+    desc: "Calcolo IMU acconto giugno e saldo dicembre per 1 immobile, F24 pronti, opzione delega F24 con addebito Entratel inclusa.",
+    price: 39,
+    originalPrice: null,
+    active: true,
+    slug: "calcolo-imu",
+    priceFormat: "fisso",
+  },
+  "calcolo-imu-multi": {
+    id: "calcolo-imu-multi",
+    title: "Calcolo IMU professionale — multi-immobile",
+    desc: "Calcolo IMU acconto giugno e saldo dicembre per 2-5 immobili, F24 pronti, opzione delega F24 con addebito Entratel inclusa.",
+    price: 69,
+    originalPrice: null,
+    active: true,
+    slug: "calcolo-imu",
+    priceFormat: "fisso",
+  },
+};
+
+/** Metodi di pagamento F24 accettabili in metadata Stripe (solo per IMU). */
+const ALLOWED_PAYMENT_METHODS = new Set(["self", "entratel"]);
+
 function getStripe() {
   if (!process.env.STRIPE_SECRET_KEY) {
     throw new Error("STRIPE_SECRET_KEY non configurata");
@@ -23,17 +55,21 @@ function getStripe() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { servizio, paymentMode: rawMode } = body;
+    const { servizio, paymentMode: rawMode, paymentMethod: rawPaymentMethod } = body;
     const paymentMode: "full" | "rate" = rawMode === "rate" ? "rate" : "full";
+    const paymentMethod = typeof rawPaymentMethod === "string" && ALLOWED_PAYMENT_METHODS.has(rawPaymentMethod)
+      ? rawPaymentMethod
+      : null;
     const parsedIdentity = parseCheckoutIdentity(body);
     if (!parsedIdentity.data) {
       return NextResponse.json({ error: parsedIdentity.error }, { status: 400 });
     }
 
     const prezzi = await getPrezzi();
-    const item = prezzi.find((p) => p.id === servizio && p.active && p.price);
+    const fromCatalog = prezzi.find((p) => p.id === servizio && p.active && p.price);
+    const item: Servizio | undefined = fromCatalog ?? FALLBACK_SERVICES[servizio as string];
 
-    if (!item || !item.price) {
+    if (!item || !item.price || !item.active) {
       return NextResponse.json({ error: "Servizio non valido" }, { status: 400 });
     }
 
@@ -81,6 +117,7 @@ export async function POST(request: Request) {
         scontoPct: String(sconto.pct),
         prezzoScontato: sconto.final.toFixed(2),
       }),
+      ...(paymentMethod && { paymentMethod }),
     };
 
     const enableBnpl = paymentMode === "full" && item.price >= 400;

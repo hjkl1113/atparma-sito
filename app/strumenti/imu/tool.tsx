@@ -275,22 +275,37 @@ export function Tool() {
           )}
 
           {modo === "privato" ? (
-            <div className="bg-zinc-900 text-white rounded-2xl p-6 sm:p-8">
-              <h3 className="text-xl font-bold mb-2 font-[family-name:var(--font-heading)]">
-                Serve aiuto con F24 e versamenti?
+            <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-2xl p-6 sm:p-8">
+              <p className="text-xs tracking-[0.2em] uppercase text-emerald-100 font-medium mb-3">
+                Vuoi che lo facciamo noi?
+              </p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 font-[family-name:var(--font-heading)]">
+                Calcolo IMU professionale a €39 — F24 pronto, addebito automatico Entratel incluso
               </h3>
-              <p className="text-zinc-300 text-sm mb-6 leading-relaxed">
-                Prepariamo F24 IMU, gestiamo acconto e saldo, controlliamo ravvedimenti per
-                ritardi. Dottori commercialisti iscritti all&apos;albo.
+              <p className="text-emerald-50 text-sm mb-5 leading-relaxed">
+                Calcoliamo acconto giugno + saldo dicembre da dottori commercialisti iscritti
+                all&apos;Albo. Verifichiamo aliquote del Comune e agevolazioni, prepariamo F24, e con
+                la <strong>delega F24 Entratel inclusa</strong> ce ne occupiamo direttamente noi:
+                fornisci IBAN, firmi una delega, l&apos;Agenzia delle Entrate addebita alle scadenze.
+                Stesso prezzo di un cappuccino in più rispetto al fai-da-te.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/contatti"
-                  className="px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium text-sm hover:bg-[var(--color-accent-dark)] transition-colors text-center"
+                  href="/servizi/calcolo-imu"
+                  className="px-6 py-3 bg-white text-emerald-700 rounded-lg font-semibold text-sm hover:bg-emerald-50 transition-colors text-center"
                 >
-                  Contattaci
+                  Scopri il servizio €39
+                </Link>
+                <Link
+                  href="/servizi/calcolo-imu/checkout"
+                  className="px-6 py-3 bg-emerald-800 text-white rounded-lg font-medium text-sm hover:bg-emerald-900 transition-colors text-center"
+                >
+                  Acquista ora
                 </Link>
               </div>
+              <p className="text-xs text-emerald-100/80 mt-4">
+                €39 singolo immobile &middot; €69 da 2 a 5 immobili &middot; un acquisto = anno completo (acconto + saldo)
+              </p>
             </div>
           ) : (
             <ProfessionistaCTA />
