@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
+import { sendPaymentConfirmationEmail } from "@/lib/email-customer";
+
 export const runtime = "nodejs";
 
 function getStripe() {
@@ -144,6 +146,16 @@ export async function POST(request: Request) {
         taxCode,
         vatNumber,
       );
+
+      // Email di conferma al cliente (best-effort: non blocca il webhook se Brevo è giù).
+      // Vedi REPORT.md punto 4 "TESTI PRONTI".
+      await sendPaymentConfirmationEmail({
+        customerName,
+        customerEmail,
+        serviceTitle: servizio,
+        amountEur: amount,
+        transactionId: session.id,
+      });
     }
 
     return NextResponse.json({ received: true });

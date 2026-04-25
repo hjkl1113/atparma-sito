@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { sendPaymentConfirmationEmail } from "@/lib/email-customer";
+
 export const runtime = "nodejs";
 
 type PayPalOrder = {
@@ -159,6 +161,16 @@ export async function POST(request: Request) {
           </div>
         `,
       }),
+    });
+
+    // Email di conferma al cliente (best-effort: non blocca il flusso se Brevo è giù).
+    // Vedi REPORT.md punto 4 "TESTI PRONTI".
+    await sendPaymentConfirmationEmail({
+      customerName: verifiedName,
+      customerEmail: verifiedEmail,
+      serviceTitle: verifiedService,
+      amountEur: amount,
+      transactionId: verifiedOrder.id || orderId,
     });
 
     return NextResponse.json({ success: true });
