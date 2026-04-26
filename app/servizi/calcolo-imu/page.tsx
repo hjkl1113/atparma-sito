@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: "https://www.atparma.com/og?slug=calcolo-imu", width: 1200, height: 630, alt: "Calcolo IMU professionale online" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.atparma.com/og?slug=calcolo-imu"],
+  },
 };
 
 const STEPS = [

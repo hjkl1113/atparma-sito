@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     authors: ["A.T. Consulting Parma"],
     images: [{ url: "https://www.atparma.com/og?slug=quanto-costa-commercialista-online", width: 1200, height: 630, alt: "Quanto costa commercialista online 2026" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.atparma.com/og?slug=quanto-costa-commercialista-online"],
+  },
 };
 
 export default function ArticoloPage() {

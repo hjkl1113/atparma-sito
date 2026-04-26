@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     authors: ["A.T. Consulting Parma"],
     images: [{ url: "https://www.atparma.com/og?slug=ravvedimento-cripto-quadro-rw", width: 1200, height: 630, alt: "Ravvedimento cripto quadro RW" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.atparma.com/og?slug=ravvedimento-cripto-quadro-rw"],
+  },
 };
 
 export default function ArticoloPage() {

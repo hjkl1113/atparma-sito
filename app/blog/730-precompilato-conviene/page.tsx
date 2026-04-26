@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     authors: ["A.T. Consulting Parma"],
     images: [{ url: "https://www.atparma.com/og?slug=730-precompilato-conviene", width: 1200, height: 630, alt: "730 precompilato 2026" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.atparma.com/og?slug=730-precompilato-conviene"],
+  },
 };
 
 export default function ArticoloPage() {

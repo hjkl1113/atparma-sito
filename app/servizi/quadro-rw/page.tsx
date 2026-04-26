@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: "https://www.atparma.com/og?slug=quadro-rw", width: 1200, height: 630, alt: "Quadro RW 2026" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.atparma.com/og?slug=quadro-rw"],
+  },
 };
 
 const CASI_OBBLIGO = [
