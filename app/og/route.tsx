@@ -90,7 +90,10 @@ export async function GET(req: Request) {
       width: 1200,
       height: 630,
       headers: {
-        "Cache-Control": "public, max-age=31536000, immutable",
+        // 5 min browser, 1 day stale-while-revalidate sul CDN: cambi al
+        // template OG diventano visibili rapidamente senza richiedere
+        // hard refresh agli utenti che hanno cachato la vecchia versione.
+        "Cache-Control": "public, max-age=300, stale-while-revalidate=86400",
       },
     },
   );
