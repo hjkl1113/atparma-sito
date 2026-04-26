@@ -38,7 +38,7 @@ export default function BlogPage() {
                 href={`/blog/${a.slug}`}
                 className="group grid md:grid-cols-[280px_1fr] gap-6 p-6 rounded-2xl border border-zinc-100 hover:border-zinc-200 hover:shadow-lg transition-all"
               >
-                <div className="relative h-48 md:h-full rounded-xl overflow-hidden">
+                <div className="relative aspect-[1200/630] md:aspect-auto md:h-44 rounded-xl overflow-hidden">
                   <Image
                     src={a.immagine}
                     alt={a.titolo}

@@ -6,17 +6,10 @@ export const runtime = "edge";
 /**
  * GET /og?slug=<slug>
  *
- * Genera al volo un'immagine OG (1200x630) per gli articoli blog e per le
- * landing servizi creati 25-26 aprile. Ogni slug ha un tema (titolo + eyebrow
- * + gradiente) definito in lib/og-theme.ts. Slug non mappato => fallback
- * theme `default`.
- *
- * URL usato come:
- *   - openGraph.images[].url (URL assoluto in metadata)
- *   - <Image src=...> hero in pagina (path relativo + unoptimized)
- *   - lib/articoli.ts immagine listing (path relativo)
- *
- * Cache lato Vercel: payload statico per slug, header immutable + lunga.
+ * Genera al volo un'immagine OG (1200x630) per articoli blog e landing
+ * servizi. Palette unificata navy → blue: differenziazione affidata al
+ * titolo, non al colore. Resta leggibile anche a thumbnail (280px) per
+ * uso come hero card in /blog e home.
  */
 export async function GET(req: Request) {
   const slug = new URL(req.url).searchParams.get("slug") ?? "";
@@ -31,73 +24,65 @@ export async function GET(req: Request) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "80px",
-          backgroundImage: `linear-gradient(135deg, ${theme.from} 0%, ${theme.to} 100%)`,
+          padding: "90px 90px 80px",
+          backgroundImage: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)",
           color: "#ffffff",
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
-        {/* Eyebrow + titolo */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+        {/* Brand AT in alto a sinistra */}
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <div
             style={{
-              fontSize: "22px",
+              width: "64px",
+              height: "64px",
+              borderRadius: "14px",
+              background: "rgba(255,255,255,0.14)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "30px",
+              fontWeight: 700,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            AT
+          </div>
+          <div
+            style={{
+              fontSize: "30px",
+              fontWeight: 600,
+              opacity: 0.95,
+            }}
+          >
+            A.T. Consulting Parma
+          </div>
+        </div>
+
+        {/* Eyebrow + titolo enorme */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "26px" }}>
+          <div
+            style={{
+              fontSize: "30px",
               textTransform: "uppercase",
-              letterSpacing: "0.2em",
-              opacity: 0.85,
-              fontWeight: 500,
+              letterSpacing: "0.25em",
+              opacity: 0.7,
+              fontWeight: 600,
             }}
           >
             {theme.eyebrow}
           </div>
           <div
             style={{
-              fontSize: "76px",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              maxWidth: "1000px",
+              fontSize: "104px",
+              fontWeight: 800,
+              lineHeight: 1.05,
+              letterSpacing: "-0.025em",
+              maxWidth: "1020px",
             }}
           >
             {theme.titolo}
           </div>
-        </div>
-
-        {/* Footer brand */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            borderTop: "1px solid rgba(255,255,255,0.25)",
-            paddingTop: "28px",
-            fontSize: "26px",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <div
-              style={{
-                width: "44px",
-                height: "44px",
-                borderRadius: "8px",
-                background: "rgba(255,255,255,0.18)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "24px",
-                fontWeight: 700,
-              }}
-            >
-              AT
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontWeight: 600 }}>A.T. Consulting Parma</div>
-              <div style={{ fontSize: "18px", opacity: 0.8 }}>
-                Dottori Commercialisti iscritti all&apos;Albo
-              </div>
-            </div>
-          </div>
-          <div style={{ fontSize: "20px", opacity: 0.85 }}>atparma.com</div>
         </div>
       </div>
     ),
