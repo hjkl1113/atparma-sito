@@ -23,18 +23,18 @@ export async function GET(req: Request) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          // Padding generoso (120px) per compensare il crop laterale che
-          // subisce l'OG quando viene mostrata in card 280x176 (aspect 1.6)
-          // con object-cover invece dell'aspect 1200/630 nativo (1.9).
-          padding: "100px 120px 90px",
+          // Layout sequenziale (no space-between) per evitare collisioni
+          // quando il titolo è a 3 righe: brand, gap fisso, eyebrow, titolo.
+          // Padding laterale 120px compensa il crop di ~28px per lato che
+          // subisce l'OG in card 280x176 (aspect 1.6) con object-cover.
+          padding: "75px 120px",
           backgroundImage: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)",
           color: "#ffffff",
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
         {/* Brand AT in alto a sinistra */}
-        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px", marginBottom: "70px" }}>
           <div
             style={{
               width: "64px",
@@ -62,30 +62,31 @@ export async function GET(req: Request) {
           </div>
         </div>
 
-        {/* Eyebrow + titolo enorme */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "26px" }}>
-          <div
-            style={{
-              fontSize: "30px",
-              textTransform: "uppercase",
-              letterSpacing: "0.25em",
-              opacity: 0.7,
-              fontWeight: 600,
-            }}
-          >
-            {theme.eyebrow}
-          </div>
-          <div
-            style={{
-              fontSize: "104px",
-              fontWeight: 800,
-              lineHeight: 1.05,
-              letterSpacing: "-0.025em",
-              maxWidth: "960px",
-            }}
-          >
-            {theme.titolo}
-          </div>
+        {/* Eyebrow */}
+        <div
+          style={{
+            fontSize: "30px",
+            textTransform: "uppercase",
+            letterSpacing: "0.25em",
+            opacity: 0.7,
+            fontWeight: 600,
+            marginBottom: "26px",
+          }}
+        >
+          {theme.eyebrow}
+        </div>
+
+        {/* Titolo enorme */}
+        <div
+          style={{
+            fontSize: "92px",
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: "-0.025em",
+            maxWidth: "960px",
+          }}
+        >
+          {theme.titolo}
         </div>
       </div>
     ),
