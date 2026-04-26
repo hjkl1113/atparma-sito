@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Conti esteri, criptovalute, immobili all'estero, broker stranieri: tutto va dichiarato nel quadro RW. Sanzioni fino al 15% del valore non dichiarato.",
     type: "website",
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Quadro RW 2026" }],
+    images: [{ url: "https://www.atparma.com/og?slug=quadro-rw", width: 1200, height: 630, alt: "Quadro RW 2026" }],
   },
 };
 

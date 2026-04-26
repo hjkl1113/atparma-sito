@@ -43,6 +43,7 @@ export default function BlogPage() {
                     src={a.immagine}
                     alt={a.titolo}
                     fill
+                    unoptimized
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

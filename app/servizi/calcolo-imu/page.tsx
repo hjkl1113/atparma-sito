@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Calcolo IMU acconto e saldo da dottori commercialisti, F24 pronto, opzione delega F24 con addebito Entratel inclusa.",
     type: "website",
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Calcolo IMU professionale online" }],
+    images: [{ url: "https://www.atparma.com/og?slug=calcolo-imu", width: 1200, height: 630, alt: "Calcolo IMU professionale online" }],
   },
 };
 

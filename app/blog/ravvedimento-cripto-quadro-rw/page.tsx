@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-04-26T00:00:00Z",
     authors: ["A.T. Consulting Parma"],
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Ravvedimento cripto quadro RW" }],
+    images: [{ url: "https://www.atparma.com/og?slug=ravvedimento-cripto-quadro-rw", width: 1200, height: 630, alt: "Ravvedimento cripto quadro RW" }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function ArticoloPage() {
             headline: "Ravvedimento operoso cripto: come sanare le omissioni passate del quadro RW",
             description:
               "Hai cripto su Binance, Coinbase, MetaMask mai dichiarate? Il ravvedimento operoso riduce le sanzioni fino all'89%. Guida pratica con esempi numerici, scadenze, lettere di compliance AdE.",
-            image: "https://www.atparma.com/images/parma-duomo-aerial.jpg",
+            image: "https://www.atparma.com/og?slug=ravvedimento-cripto-quadro-rw",
             datePublished: "2026-04-26",
             dateModified: "2026-04-26",
             author: {
@@ -68,7 +68,7 @@ export default function ArticoloPage() {
           </h1>
 
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
-            <Image src="/images/parma-duomo-aerial.jpg" alt="Ravvedimento cripto quadro RW" fill className="object-cover" priority />
+            <Image src="/og?slug=ravvedimento-cripto-quadro-rw" alt="Ravvedimento cripto quadro RW" fill unoptimized className="object-cover" priority />
           </div>
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">

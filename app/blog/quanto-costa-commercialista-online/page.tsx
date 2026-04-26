@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-04-25T00:00:00Z",
     authors: ["A.T. Consulting Parma"],
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Quanto costa commercialista online 2026" }],
+    images: [{ url: "https://www.atparma.com/og?slug=quanto-costa-commercialista-online", width: 1200, height: 630, alt: "Quanto costa commercialista online 2026" }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function ArticoloPage() {
             headline: "Quanto costa un commercialista online nel 2026?",
             description:
               "Guida ai prezzi reali di un commercialista online nel 2026: tariffe medie per Partita IVA, dichiarazioni, consulenza. Differenze tra studio tradizionale, piattaforme e dottore commercialista online vero.",
-            image: "https://www.atparma.com/images/parma-duomo-aerial.jpg",
+            image: "https://www.atparma.com/og?slug=quanto-costa-commercialista-online",
             datePublished: "2026-04-25",
             dateModified: "2026-04-25",
             author: {
@@ -69,7 +69,7 @@ export default function ArticoloPage() {
 
           {/* TODO: sostituire con immagine dedicata generata per questo articolo. */}
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
-            <Image src="/images/parma-duomo-aerial.jpg" alt="Quanto costa commercialista online 2026" fill className="object-cover" priority />
+            <Image src="/og?slug=quanto-costa-commercialista-online" alt="Quanto costa commercialista online 2026" fill unoptimized className="object-cover" priority />
           </div>
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">

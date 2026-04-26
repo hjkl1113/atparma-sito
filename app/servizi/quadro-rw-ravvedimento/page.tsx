@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Cripto, conti esteri, immobili omessi: il ravvedimento riduce le sanzioni del 87% rispetto all'accertamento AdE. Preventivo dedicato.",
     type: "website",
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Ravvedimento operoso quadro RW" }],
+    images: [{ url: "https://www.atparma.com/og?slug=quadro-rw-ravvedimento", width: 1200, height: 630, alt: "Ravvedimento operoso quadro RW" }],
   },
 };
 

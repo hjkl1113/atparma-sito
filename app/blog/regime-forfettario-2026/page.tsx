@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-04-25T00:00:00Z",
     authors: ["A.T. Consulting Parma"],
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Regime forfettario 2026" }],
+    images: [{ url: "https://www.atparma.com/og?slug=regime-forfettario-2026", width: 1200, height: 630, alt: "Regime forfettario 2026" }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function ArticoloPage() {
             headline: "Regime forfettario 2026: guida completa",
             description:
               "Guida aggiornata al regime forfettario 2026: requisiti, coefficienti di redditività, imposta sostitutiva 5% e 15%, contributi, cause di esclusione, esempi numerici. Quando conviene davvero.",
-            image: "https://www.atparma.com/images/parma-duomo-aerial.jpg",
+            image: "https://www.atparma.com/og?slug=regime-forfettario-2026",
             datePublished: "2026-04-25",
             dateModified: "2026-04-25",
             author: {
@@ -69,7 +69,7 @@ export default function ArticoloPage() {
 
           {/* TODO: sostituire con immagine dedicata generata per questo articolo. */}
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
-            <Image src="/images/parma-duomo-aerial.jpg" alt="Regime forfettario 2026" fill className="object-cover" priority />
+            <Image src="/og?slug=regime-forfettario-2026" alt="Regime forfettario 2026" fill unoptimized className="object-cover" priority />
           </div>
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">

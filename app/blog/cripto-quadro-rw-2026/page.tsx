@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-04-26T00:00:00Z",
     authors: ["A.T. Consulting Parma"],
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "Cripto-attività dichiarazione 2026" }],
+    images: [{ url: "https://www.atparma.com/og?slug=cripto-quadro-rw-2026", width: 1200, height: 630, alt: "Cripto-attività dichiarazione 2026" }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function ArticoloPage() {
             headline: "Cripto-attività in dichiarazione 2026: guida completa al quadro RW",
             description:
               "Guida completa alla dichiarazione delle cripto-attività nel 2026: chi è obbligato, niente soglia, imposta sostitutiva 0,2%, plusvalenze 26%, exchange esteri, wallet privati, NFT, stablecoin, DeFi, permute cripto-cripto.",
-            image: "https://www.atparma.com/images/parma-duomo-aerial.jpg",
+            image: "https://www.atparma.com/og?slug=cripto-quadro-rw-2026",
             datePublished: "2026-04-26",
             dateModified: "2026-04-26",
             author: {
@@ -68,7 +68,7 @@ export default function ArticoloPage() {
           </h1>
 
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
-            <Image src="/images/parma-duomo-aerial.jpg" alt="Cripto-attività dichiarazione 2026" fill className="object-cover" priority />
+            <Image src="/og?slug=cripto-quadro-rw-2026" alt="Cripto-attività dichiarazione 2026" fill unoptimized className="object-cover" priority />
           </div>
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">

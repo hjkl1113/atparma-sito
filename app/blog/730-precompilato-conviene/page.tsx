@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-04-25T00:00:00Z",
     authors: ["A.T. Consulting Parma"],
-    images: [{ url: "/images/parma-duomo-aerial.jpg", width: 1200, height: 630, alt: "730 precompilato 2026" }],
+    images: [{ url: "https://www.atparma.com/og?slug=730-precompilato-conviene", width: 1200, height: 630, alt: "730 precompilato 2026" }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function ArticoloPage() {
             headline: "730 precompilato: conviene farlo da soli? Guida 2026",
             description:
               "Il 730 precompilato sembra pronto, ma spesso non lo è. Detrazioni dimenticate, errori di calcolo, casi che non gestisce: quando affidarsi a un dottore commercialista conviene davvero.",
-            image: "https://www.atparma.com/images/parma-duomo-aerial.jpg",
+            image: "https://www.atparma.com/og?slug=730-precompilato-conviene",
             datePublished: "2026-04-25",
             dateModified: "2026-04-25",
             author: {
@@ -69,7 +69,7 @@ export default function ArticoloPage() {
 
           {/* TODO: sostituire con immagine dedicata generata per questo articolo. */}
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
-            <Image src="/images/parma-duomo-aerial.jpg" alt="730 precompilato 2026" fill className="object-cover" priority />
+            <Image src="/og?slug=730-precompilato-conviene" alt="730 precompilato 2026" fill unoptimized className="object-cover" priority />
           </div>
 
           <div className="prose-custom space-y-6 text-zinc-700 leading-relaxed">

@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Autorizza il route handler /og?slug=... come sorgente per next/image
+  // (OG images dinamiche generate da app/og/route.tsx). Senza questo, le
+  // pagine che usano <Image src="/og?slug=..."> falliscono il prerender
+  // perché Next blocca per default i query string non whitelisted.
+  images: {
+    localPatterns: [
+      { pathname: "/og", search: "" },
+      { pathname: "/og", search: "?**" },
+    ],
+  },
   async redirects() {
     return [
       {
