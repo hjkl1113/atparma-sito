@@ -90,11 +90,25 @@ Account proprietario: Gmail personale di Alessandro (`alessandro.sicuri@gmail.co
 - Sitemap dinamico sito (5 min, low-priority — non block-ship per indicizzazione)
 - Author bio + JSON-LD Person sotto articoli blog (E-E-A-T per ranking YMYL fiscale)
 
+## Decisione strategica 26/04 sera — automazioni SaaS
+
+**n8n.atparma.com → DORMIENTE.** Era nel vecchio progetto, oggi nessun workflow live. Decisione: lo tengo come istanza riservata a futuro AI batch (Ollama+Qwen per digest normativi / classificazione documenti), non più nel critical path.
+
+**Stack PROFESSIO SaaS = code-first sul portale Next.js già esistente:**
+- Vercel Cron (workflow schedulati) + Server Actions (event-driven) + Webhook handlers
+- Inngest se servirà durable workflow (OCR batch, email massa) — non urgente
+- Multi-tenancy già risolta da Prisma `studioId` filter
+
+**Niente migration n8n→code da fare.** Quando arriva il 2° cliente PROFESSIO il code è già pronto.
+
+Razionale completo nella memory `project_automation_strategy.md` (su Mac non accessibile, le memory sono machine-local — questa nota duplica le decisioni chiave per riferimento cross-PC).
+
 ## Riferimenti
 
 - Sito: `app/og/route.tsx` (template OG da riusare per logo/copertina)
 - Sito: `app/layout.tsx` JSON-LD AccountingService (da correggere image/logo)
 - Portale: nessun lavoro pending stasera, working tree clean
+- Portale: cron Vercel attivi `/api/cron/reminders`, `/api/cron/quote-expiry` (più 2 da verificare)
 
 ---
 
