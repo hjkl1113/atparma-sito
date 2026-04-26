@@ -3,26 +3,23 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
-import { mergePrezziWithDefaults } from "@/app/lib/prezzi";
-import { getProdotto } from "@/app/servizi/_data/prodotti";
-import {
-  computeNetRounded,
-  formatEur,
-  getScontoAnticipato,
-  isRateizzabile,
-} from "@/app/lib/pricing-utils";
 
 export function Pricing() {
   const [prezzi, setPrezzi] = useState<Servizio[]>(DEFAULT_PREZZI);
 
   useEffect(() => {
-      fetch("/api/prezzi", { cache: "no-store" })
-        .then((r) => r.json())
-        .then((data: Servizio[]) => {
-          if (!Array.isArray(data)) return;
-          setPrezzi(mergePrezziWithDefaults(data));
-        })
-        .catch(() => {});
+    fetch("/api/prezzi", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data: Servizio[]) => {
+        if (!Array.isArray(data)) return;
+        const activeById = new Map(data.map((s) => [s.id, s.active]));
+        const merged = DEFAULT_PREZZI.map((s) => ({
+          ...s,
+          active: activeById.get(s.id) ?? s.active,
+        }));
+        setPrezzi(merged);
+      })
+      .catch(() => {});
   }, []);
 
   const visibili = prezzi.filter((p) => p.active);
@@ -41,10 +38,7 @@ export function Pricing() {
           appena completi il pagamento.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
-          {visibili.map((p) => {
-            const prodotto = p.slug ? getProdotto(p.slug) : undefined;
-            const isDa = prodotto?.priceFormat === "da";
-            return (
+          {visibili.map((p) => (
             <div
               key={p.id}
               className="bg-white rounded-2xl p-8 border border-zinc-200 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all flex flex-col"
@@ -59,42 +53,20 @@ export function Pricing() {
                     {p.originalPrice && (
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-lg line-through text-zinc-400">
-                          {formatEur(p.originalPrice)}
+                          &euro;{p.originalPrice}
                         </span>
                         <span className="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
                           -{Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)}%
                         </span>
                       </div>
                     )}
-                    {isDa && (
-                      <span className="block text-xs text-zinc-500 mb-0.5">a partire da</span>
+                    {p.priceFormat === "da" && (
+                      <span className="block text-xs text-zinc-500 mb-1">A partire da</span>
                     )}
                     <span className="text-3xl font-bold font-[family-name:var(--font-heading)]">
-                      {formatEur(p.price)}
+                      &euro;{p.price}
                     </span>
                     <span className="ml-2 text-xs text-zinc-500">IVA inclusa</span>
-                    {computeNetRounded(p.price) !== null && (
-                      <p className="text-xs text-zinc-500 mt-1">
-                        {computeNetRounded(p.price)}€ + IVA 22%
-                      </p>
-                    )}
-                    {(isRateizzabile(p.price) || getScontoAnticipato(p.price)) && (
-                      <div className="flex flex-wrap gap-1.5 mt-3">
-                        {isRateizzabile(p.price) && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-zinc-100 text-zinc-700 px-2 py-0.5 rounded-full">
-                            Rate 30% + 3 trimestri
-                          </span>
-                        )}
-                        {(() => {
-                          const s = getScontoAnticipato(p.price!);
-                          return s ? (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-medium bg-green-50 text-green-700 px-2 py-0.5 rounded-full">
-                              -{s.pct}% pagamento anticipato
-                            </span>
-                          ) : null;
-                        })()}
-                      </div>
-                    )}
                   </div>
                 ) : (
                   <span className="text-lg font-medium text-zinc-500">A preventivo</span>
@@ -116,8 +88,7 @@ export function Pricing() {
                 </a>
               )}
             </div>
-            );
-          })}
+          ))}
         </div>
 
         <div className="mt-16 bg-white border border-zinc-200 rounded-2xl p-8 shadow-sm">

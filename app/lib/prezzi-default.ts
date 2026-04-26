@@ -1,3 +1,5 @@
+export type PriceFormat = "fisso" | "da" | "preventivo";
+
 export interface Servizio {
   id: string;
   title: string;
@@ -6,7 +8,7 @@ export interface Servizio {
   originalPrice: number | null;
   active: boolean;
   slug?: string;
-  priceFormat?: "fisso" | "da" | "preventivo";
+  priceFormat?: PriceFormat;
 }
 
 export const DEFAULT_PREZZI: Servizio[] = [
@@ -72,6 +74,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     originalPrice: null,
     active: true,
     slug: "piva-professionista-semplificato",
+    priceFormat: "da",
   },
   {
     id: "piva-art",
@@ -90,6 +93,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     originalPrice: null,
     active: true,
     slug: "piva-artigiano-commerciante-forfettario",
+    priceFormat: "da",
   },
   {
     id: "piva-art-semp",
@@ -99,6 +103,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     originalPrice: null,
     active: true,
     slug: "piva-artigiano-commerciante-semplificato",
+    priceFormat: "da",
   },
   {
     id: "cont-prof-forf",
@@ -117,6 +122,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     originalPrice: null,
     active: true,
     slug: "contabilita-professionista-semplificata",
+    priceFormat: "da",
   },
   {
     id: "cont-art-forf",
@@ -126,6 +132,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     originalPrice: null,
     active: true,
     slug: "contabilita-artigiano-forfettario",
+    priceFormat: "da",
   },
   {
     id: "cont-art-semp",
@@ -135,6 +142,7 @@ export const DEFAULT_PREZZI: Servizio[] = [
     originalPrice: null,
     active: true,
     slug: "contabilita-artigiano-semplificata",
+    priceFormat: "da",
   },
   {
     id: "consulenza",

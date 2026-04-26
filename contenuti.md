@@ -61,7 +61,7 @@ A.T. Consulting Parma nasce dall'esperienza pluriennale nel supporto a imprese e
 - Esperienza specifica nella crisi di impresa e nelle ristrutturazioni
 - Presenza costante: non solo a scadenza, ma tutto l'anno
 - Strumenti digitali per la gestione documentale e le scadenze
-- 20 anni di esperienza: da Parma al servizio di imprese e professionisti in tutta Italia
+- Oltre 20 anni di esperienza: da Parma al servizio di imprese e professionisti in tutta Italia
 
 ## CTA URGENZE
 **Titolo:** Hai una questione urgente?

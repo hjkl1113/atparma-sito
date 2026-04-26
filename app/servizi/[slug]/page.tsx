@@ -5,18 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ProductCredentials } from "@/components/product-credentials";
 import { VerificaRequisitiForfettario } from "@/components/verifica-requisiti-forfettario";
-import { getPrezzi } from "@/app/lib/prezzi";
+import { DEFAULT_PREZZI } from "@/app/lib/prezzi-default";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
-import {
-  computeNetRounded,
-  formatEur,
-  getScontoAnticipato,
-  isRateizzabile,
-} from "@/app/lib/pricing-utils";
-import { PaymentPolicyBox } from "@/app/servizi/_components/payment-policy-box";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 type Autore = { author: "Pietro Franzosi" | "Aldo Ponzi"; authorAlbo: "Parma" | "Brescia" };
 
@@ -24,6 +14,8 @@ const AUTORE_PER_SLUG: Record<string, Autore> = {
   "dichiarazione-730": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-professionista": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-professionista-semplificato": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-forfettario": { author: "Pietro Franzosi", authorAlbo: "Parma" },
+  "piva-forfettario-efat": { author: "Pietro Franzosi", authorAlbo: "Parma" },
   "piva-artigiano-commerciante": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-artigiano-commerciante-forfettario": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
   "piva-artigiano-commerciante-semplificato": { author: "Aldo Ponzi", authorAlbo: "Brescia" },
@@ -153,9 +145,8 @@ function getGuidaSlug(prezzoId: string): string | null {
   return null;
 }
 
-async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
-  const prezzi = await getPrezzi();
-  const prezzo = prezzi.find((p) => p.id === prodotto.prezzoId);
+function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
+  const prezzo = DEFAULT_PREZZI.find((p) => p.id === prodotto.prezzoId);
   const price = prezzo?.price ?? null;
   const guidaSlug = getGuidaSlug(prodotto.prezzoId);
 
@@ -247,43 +238,21 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               </div>
             </div>
 
-            <aside id="acquista" className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-24 scroll-mt-24">
+            <aside className="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-24">
               <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium mb-2">
                 Prezzo chiaro, tutto incluso
               </p>
               {prodotto.priceFormat === "da" && price !== null && (
-                <p className="text-xs text-zinc-500 mb-0.5">a partire da</p>
+                <p className="text-xs text-zinc-500 mb-1">A partire da</p>
               )}
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-4xl font-bold font-[family-name:var(--font-heading)]">
-                  {price !== null ? formatEur(price) : "A preventivo"}
+                  {price !== null ? `€${price}` : "A preventivo"}
                 </span>
                 {price !== null && <span className="text-sm text-zinc-500">{prodotto.priceSuffix ?? "una tantum"}</span>}
               </div>
               {price !== null && (
-                <div className="mb-4">
-                  <p className="text-xs text-zinc-500">IVA inclusa</p>
-                  {computeNetRounded(price) !== null && (
-                    <p className="text-xs text-zinc-500">{computeNetRounded(price)}€ + IVA 22%</p>
-                  )}
-                </div>
-              )}
-              {price !== null && (isRateizzabile(price) || getScontoAnticipato(price)) && (
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                  {isRateizzabile(price) && (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-zinc-100 text-zinc-700 px-2.5 py-1 rounded-full">
-                      Rate 30% + 3 trimestri
-                    </span>
-                  )}
-                  {(() => {
-                    const s = getScontoAnticipato(price);
-                    return s ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-green-50 text-green-700 px-2.5 py-1 rounded-full">
-                        -{s.pct}% pagamento anticipato ({formatEur(s.final)})
-                      </span>
-                    ) : null;
-                  })()}
-                </div>
+                <p className="text-xs text-zinc-500 mb-4">IVA inclusa</p>
               )}
               <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
                 {prodotto.priceBlurb ??
@@ -348,41 +317,11 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             <section className="mb-20">
               <VerificaRequisitiForfettario
                 slugForfettario="piva-professionista"
-                prezzoForfettario={549}
+                prezzoForfettario={449}
                 slugSemplificato="piva-professionista-semplificato"
-                prezzoSemplificato={1610.40}
+                prezzoSemplificato={1099}
                 contesto="professionista"
-                currentSlug={prodotto.slug}
               />
-            </section>
-          )}
-
-          {(prodotto.slug === "piva-artigiano-commerciante" ||
-            prodotto.slug === "piva-artigiano-commerciante-forfettario" ||
-            prodotto.slug === "piva-artigiano-commerciante-semplificato" ||
-            prodotto.slug === "contabilita-artigiano-forfettario" ||
-            prodotto.slug === "contabilita-artigiano-semplificata") && (
-            <section className="mb-20">
-              <div className="bg-zinc-50 rounded-2xl border border-zinc-200 p-6 sm:p-8">
-                <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-2">
-                  Non sei sicuro? Fai il check-up
-                </p>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 font-[family-name:var(--font-heading)]">
-                  Il tuo caso è standard o richiede un preventivo dedicato?
-                </h3>
-                <p className="text-sm text-zinc-600 mb-5 leading-relaxed">
-                  Dipendenti, SCIA, autorizzazioni USL/HACCP, volumi elevati, subentro complesso: sono gli elementi che spostano il preventivo oltre il prezzo base. Il check-up guidato ti restituisce una stima dei tributi pubblici per provincia e segnala gli elementi fuori scope prima della firma del mandato.
-                </p>
-                <Link
-                  href="/strumenti/preventivo-artigiano-commerciante"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-300 bg-white text-zinc-900 rounded-lg text-sm font-semibold hover:bg-zinc-50 transition-colors"
-                >
-                  Avvia il check-up guidato →
-                </Link>
-                <p className="text-xs text-zinc-500 mt-3">
-                  Il check-up non è obbligatorio: se conosci già il tuo scenario puoi andare direttamente al portale.
-                </p>
-              </div>
             </section>
           )}
 
@@ -618,12 +557,6 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
             />
           </section>
 
-          {price !== null && (isRateizzabile(price) || getScontoAnticipato(price)) && (
-            <section className="mb-12">
-              <PaymentPolicyBox />
-            </section>
-          )}
-
           <section className="bg-[var(--color-surface)] rounded-3xl p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 font-[family-name:var(--font-heading)]">
               Pronto a partire?
@@ -638,7 +571,7 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
                   href={prodotto.ctaHref ?? `/servizi/${prodotto.slug}/checkout`}
                   className="px-8 py-4 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors"
                 >
-                  {prodotto.closingCtaLabel ?? `Acquista a ${formatEur(price)}`}
+                  {prodotto.closingCtaLabel ?? (prodotto.priceFormat === "da" ? `Acquista da €${price}` : `Acquista a €${price}`)}
                 </Link>
               ) : (
                 <Link
