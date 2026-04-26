@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     localPatterns: [
       { pathname: "/og", search: "" },
       { pathname: "/og", search: "?**" },
+      { pathname: "/images/**", search: "" },
+      { pathname: "/icons/**", search: "" },
     ],
   },
   async redirects() {
