@@ -24,7 +24,10 @@ export async function GET(req: Request) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "90px 90px 80px",
+          // Padding generoso (120px) per compensare il crop laterale che
+          // subisce l'OG quando viene mostrata in card 280x176 (aspect 1.6)
+          // con object-cover invece dell'aspect 1200/630 nativo (1.9).
+          padding: "100px 120px 90px",
           backgroundImage: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)",
           color: "#ffffff",
           fontFamily: "system-ui, -apple-system, sans-serif",
@@ -78,7 +81,7 @@ export async function GET(req: Request) {
               fontWeight: 800,
               lineHeight: 1.05,
               letterSpacing: "-0.025em",
-              maxWidth: "1020px",
+              maxWidth: "960px",
             }}
           >
             {theme.titolo}
