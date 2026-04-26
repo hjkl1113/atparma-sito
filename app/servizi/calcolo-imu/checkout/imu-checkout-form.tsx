@@ -7,6 +7,7 @@ import {
   normalizeTaxCode,
   type CheckoutFormData,
 } from "@/app/lib/checkout-utils";
+import { formatBreakdown } from "@/app/lib/pricing-utils";
 
 type Tier = "singolo" | "multi";
 type F24PaymentMethod = "self" | "entratel";
@@ -248,12 +249,15 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
               </span>
             </div>
             <div className="flex justify-between text-base pt-3 border-t border-zinc-200">
-              <span className="font-semibold text-zinc-900">Totale</span>
+              <span className="font-semibold text-zinc-900">Totale IVA inclusa</span>
               <span className="font-bold text-zinc-900 font-[family-name:var(--font-heading)]">
                 €{selected.price}
               </span>
             </div>
-            <p className="text-xs text-zinc-500">IVA inclusa &middot; Fattura elettronica entro 24 ore</p>
+            <p className="text-xs text-zinc-500">
+              Scorporo: {formatBreakdown(selected.price)}
+            </p>
+            <p className="text-xs text-zinc-500">Fattura elettronica entro 24 ore</p>
           </div>
 
           <button
@@ -261,7 +265,7 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
             disabled={loading}
             className="w-full px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium disabled:opacity-50"
           >
-            {loading ? "Reindirizzo a Stripe..." : `Paga €${selected.price} con carta`}
+            {loading ? "Reindirizzo a Stripe..." : `Paga €${selected.price} IVA inclusa con carta`}
           </button>
 
           <p className="text-xs text-zinc-500 text-center">

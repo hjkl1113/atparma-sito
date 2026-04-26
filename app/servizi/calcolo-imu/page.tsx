@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Stepper } from "@/components/stepper";
 import { InclusiEsclusiCards } from "@/components/inclusi-esclusi-cards";
+import { formatBreakdown } from "@/app/lib/pricing-utils";
 
 export const metadata: Metadata = {
   title: "Calcolo IMU professionale online — €39 | A.T. Consulting Parma",
@@ -189,7 +190,8 @@ export default function CalcoloImuPage() {
               </span>
               <h3 className="font-semibold text-lg mb-2 font-[family-name:var(--font-heading)]">Singolo immobile</h3>
               <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">€39</p>
-              <p className="text-xs text-zinc-500 mb-6">acconto + saldo, IVA inclusa</p>
+              <p className="text-xs text-zinc-500">IVA inclusa &middot; acconto + saldo</p>
+              <p className="text-xs text-zinc-400 mb-6">Scorporo: {formatBreakdown(39)}</p>
               <ul className="space-y-2 text-sm text-zinc-700 mb-6">
                 <li className="flex gap-2"><span className="text-[var(--color-accent)] font-bold">&bull;</span> 1 immobile (prima casa di lusso o seconda casa)</li>
                 <li className="flex gap-2"><span className="text-[var(--color-accent)] font-bold">&bull;</span> Calcolo acconto + saldo</li>
@@ -208,7 +210,8 @@ export default function CalcoloImuPage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-6">
               <h3 className="font-semibold text-lg mb-2 font-[family-name:var(--font-heading)]">Multi-immobile</h3>
               <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">€69</p>
-              <p className="text-xs text-zinc-500 mb-6">2-5 immobili, IVA inclusa</p>
+              <p className="text-xs text-zinc-500">IVA inclusa &middot; 2-5 immobili, acconto + saldo</p>
+              <p className="text-xs text-zinc-400 mb-6">Scorporo: {formatBreakdown(69)}</p>
               <ul className="space-y-2 text-sm text-zinc-700 mb-6">
                 <li className="flex gap-2"><span className="text-[var(--color-accent)] font-bold">&bull;</span> Da 2 a 5 immobili (con cantine/box)</li>
                 <li className="flex gap-2"><span className="text-[var(--color-accent)] font-bold">&bull;</span> Calcolo acconto + saldo per ogni immobile</li>

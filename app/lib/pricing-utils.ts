@@ -35,6 +35,35 @@ export function computeNetRounded(priceInclIva: number): number | null {
   return null;
 }
 
+/**
+ * Scompone un prezzo IVA inclusa in imponibile + IVA + totale, con valori
+ * arrotondati a due decimali. Utile per mostrare lo scorporo IVA nei
+ * checkout e nelle pricing card per chiarezza B2B.
+ *
+ * Esempio: breakdownIva(549) = { imponibile: 450.00, iva: 99.00, totale: 549.00 }
+ */
+export interface IvaBreakdown {
+  imponibile: number;
+  iva: number;
+  totale: number;
+}
+
+export function breakdownIva(priceInclIva: number): IvaBreakdown {
+  const totale = Math.round(priceInclIva * 100) / 100;
+  const imponibile = Math.round((totale / (1 + IVA_RATE)) * 100) / 100;
+  const iva = Math.round((totale - imponibile) * 100) / 100;
+  return { imponibile, iva, totale };
+}
+
+/**
+ * Formatta lo scorporo IVA in stringa breve per visualizzazione inline.
+ * Esempio: formatBreakdown(549) = "€450,00 imponibile + €99,00 IVA 22%"
+ */
+export function formatBreakdown(priceInclIva: number): string {
+  const b = breakdownIva(priceInclIva);
+  return `${formatEur2(b.imponibile)} imponibile + ${formatEur2(b.iva)} IVA 22%`;
+}
+
 export function isRateizzabile(priceInclIva: number): boolean {
   return priceInclIva > SOGLIA_RATE_INCL_IVA;
 }

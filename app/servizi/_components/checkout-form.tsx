@@ -11,6 +11,7 @@ import {
 import { PayPalButton } from "@/app/servizi/_components/paypal-button";
 import {
   formatEur,
+  formatBreakdown,
   getScontoAnticipato,
   isRateizzabile,
 } from "@/app/lib/pricing-utils";
@@ -235,11 +236,18 @@ export function CheckoutForm({
           {loading
             ? "Caricamento..."
             : paymentMode === "rate"
-              ? `Paga acconto ${formatEur(acconto)} con carta`
+              ? `Paga acconto ${formatEur(acconto)} IVA inclusa con carta`
               : sconto
-                ? `Paga ${formatEur(sconto.final)} con carta (-${sconto.pct}%)`
-                : `Paga ${formatEur(price)} con carta`}
+                ? `Paga ${formatEur(sconto.final)} IVA inclusa con carta (-${sconto.pct}%)`
+                : `Paga ${formatEur(price)} IVA inclusa con carta`}
         </button>
+        <p className="text-xs text-zinc-500 text-center">
+          {paymentMode === "rate"
+            ? `Acconto scorporato: ${formatBreakdown(acconto)}`
+            : sconto
+              ? `Scorporo: ${formatBreakdown(sconto.final)}`
+              : `Scorporo: ${formatBreakdown(price)}`}
+        </p>
         {paymentMode === "full" && !sconto && (
           <PayPalButton
             serviceId={serviceId}
@@ -256,9 +264,9 @@ export function CheckoutForm({
         </p>
         {paymentMode === "rate" && (
           <p className="text-xs text-zinc-600 bg-zinc-50 border border-zinc-200 rounded-lg p-3 leading-relaxed">
-            <strong>Importo oggi: {formatEur(acconto)}</strong> · Saldo residuo: {formatEur(saldoResiduo)} · Totale
-            mandato: {formatEur(importoStripe + saldoResiduo)}. Le tranche successive saranno fatturate tramite
-            proforma trimestrali sul portale.
+            <strong>Importo oggi: {formatEur(acconto)} IVA inclusa</strong> · Saldo residuo: {formatEur(saldoResiduo)} ·
+            Totale mandato: {formatEur(importoStripe + saldoResiduo)} IVA inclusa ({formatBreakdown(importoStripe + saldoResiduo)}).
+            Le tranche successive saranno fatturate tramite proforma trimestrali sul portale.
           </p>
         )}
       </div>
