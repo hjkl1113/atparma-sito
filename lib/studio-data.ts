@@ -13,6 +13,11 @@ export const STUDIO = {
   email: "segreteria@atparma.com",
   pec: "atconsultingparma@pec.it",
   portaleClienti: "https://clienti.atparma.com",
+  social: {
+    facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || "",
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
+    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "",
+  },
 } as const;
 
 export const TEAM = [

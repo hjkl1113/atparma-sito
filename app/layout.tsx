@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
 import { AnalyticsWrapper } from "@/components/analytics-wrapper";
 import { CookieBanner } from "@/components/cookie-banner";
+import { MetaPixel } from "@/components/meta-pixel";
+import { STUDIO } from "@/lib/studio-data";
 import "./globals.css";
 
 const geist = Geist({
@@ -127,7 +129,10 @@ export default function RootLayout({
               ],
               sameAs: [
                 "https://clienti.atparma.com",
-              ],
+                STUDIO.social.facebook || undefined,
+                STUDIO.social.instagram || undefined,
+                STUDIO.social.linkedin || undefined,
+              ].filter((item): item is string => Boolean(item)),
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
                 name: "Servizi professionali",
@@ -185,6 +190,7 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <AnalyticsWrapper />
+        <MetaPixel />
       </body>
     </html>
   );

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ComponentType } from "react";
 import { Pricing } from "./pricing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
+import { STUDIO } from "@/lib/studio-data";
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/lib/icons";
 import { getAllMacroSezioni } from "@/app/servizi/_data/macro-sezioni";
 
 function Hero() {
@@ -289,6 +292,75 @@ function ChiSiamo() {
   );
 }
 
+function PresenzaPubblica() {
+  const socialLinks = [
+    STUDIO.social.facebook ? { href: STUDIO.social.facebook, label: "Facebook", Icon: FacebookIcon } : null,
+    STUDIO.social.instagram ? { href: STUDIO.social.instagram, label: "Instagram", Icon: InstagramIcon } : null,
+    STUDIO.social.linkedin ? { href: STUDIO.social.linkedin, label: "LinkedIn", Icon: LinkedInIcon } : null,
+  ].filter((item): item is { href: string; label: string; Icon: ComponentType<{ className?: string }> } => item !== null);
+
+  const gallery = [
+    { src: "/images/generated-1775312362328.png", alt: "Team dello studio in riunione", caption: "Relazione e confronto" },
+    { src: "/images/generated-1775311824086.png", alt: "Studio professionale moderno", caption: "Ambiente professionale" },
+    { src: "/images/generated-1775311900516.png", alt: "Lavoro digitale del team", caption: "Operativita digitale" },
+  ] as const;
+
+  return (
+    <section className="py-24 bg-zinc-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+          <div>
+            <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
+              Presenza pubblica
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
+              Immagini e profilo coerenti con lo studio reale
+            </h2>
+          </div>
+          <p className="text-zinc-600 leading-relaxed max-w-2xl">
+            Usiamo immagini che mostrano persone, ambiente e lavoro reale, cosi&apos; il profilo pubblico e il sito raccontano la stessa identita&apos;.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {gallery.map((item) => (
+            <figure key={item.src} className="bg-white rounded-2xl overflow-hidden border border-zinc-100 shadow-sm">
+              <div className="relative h-64">
+                <Image src={item.src} alt={item.alt} fill className="object-cover" />
+              </div>
+              <figcaption className="px-5 py-4">
+                <p className="text-sm font-semibold text-zinc-900">{item.caption}</p>
+                <p className="text-xs text-zinc-500 mt-1">Usabile come base visiva per Meta Business Profile.</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          {socialLinks.length > 0 ? (
+            socialLinks.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 bg-white text-sm font-medium text-zinc-700 hover:border-zinc-300 hover:text-zinc-900 transition-colors"
+              >
+                <Icon className="w-4 h-4" />
+                {label}
+              </a>
+            ))
+          ) : (
+            <p className="text-sm text-zinc-500">
+              I link social pubblici possono essere agganciati appena mi dai gli URL ufficiali.
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const vantaggi = [
   {
     title: "Risposta entro 24 ore",
@@ -465,6 +537,7 @@ export default function Home() {
         <CalcolatoreBanner />
         <Pricing />
         <ChiSiamo />
+        <PresenzaPubblica />
         <PercheSceglierci />
         <Blog />
         <CtaUrgenze />

@@ -1,15 +1,34 @@
 import Link from "next/link";
+import type { ComponentType } from "react";
 import { STUDIO } from "@/lib/studio-data";
 import { TrustStrip } from "@/components/trust-badges";
 import { CookiePreferencesLink } from "@/components/cookie-preferences-link";
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/lib/icons";
 
 export function SiteFooter() {
-  const { ragioneSociale, brand, partitaIva, indirizzo, tel, telHref, email, pec, portaleClienti } = STUDIO;
+  const {
+    ragioneSociale,
+    brand,
+    partitaIva,
+    indirizzo,
+    tel,
+    telHref,
+    email,
+    pec,
+    portaleClienti,
+    social,
+  } = STUDIO;
+
+  const socialLinks = [
+    social.facebook ? { href: social.facebook, label: "Facebook", Icon: FacebookIcon } : null,
+    social.instagram ? { href: social.instagram, label: "Instagram", Icon: InstagramIcon } : null,
+    social.linkedin ? { href: social.linkedin, label: "LinkedIn", Icon: LinkedInIcon } : null,
+  ].filter((item): item is { href: string; label: string; Icon: ComponentType<{ className?: string }> } => item !== null);
 
   return (
     <footer className="bg-zinc-950 text-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className={`grid gap-12 ${socialLinks.length > 0 ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
           <div>
             <h3 className="text-lg font-bold mb-4 font-[family-name:var(--font-heading)]">
               {brand}
@@ -47,6 +66,23 @@ export function SiteFooter() {
               </li>
             </ul>
           </div>
+          {socialLinks.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-zinc-300">
+                Social
+              </h3>
+              <ul className="space-y-2 text-zinc-400 text-sm">
+                {socialLinks.map(({ href, label, Icon }) => (
+                  <li key={label}>
+                    <a href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-white transition-colors">
+                      <Icon className="w-4 h-4" />
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-zinc-300">
               Link utili
