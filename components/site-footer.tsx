@@ -23,7 +23,7 @@ export function SiteFooter() {
     social.facebook ? { href: social.facebook, label: "Facebook", Icon: FacebookIcon } : null,
     social.instagram ? { href: social.instagram, label: "Instagram", Icon: InstagramIcon } : null,
     social.linkedin ? { href: social.linkedin, label: "LinkedIn", Icon: LinkedInIcon } : null,
-  ].filter((item): item is { href: string; label: string; Icon: ComponentType<{ className?: string }> } => item !== null);
+  ].filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
     <footer className="bg-zinc-950 text-white">

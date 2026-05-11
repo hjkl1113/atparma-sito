@@ -297,7 +297,7 @@ function PresenzaPubblica() {
     STUDIO.social.facebook ? { href: STUDIO.social.facebook, label: "Facebook", Icon: FacebookIcon } : null,
     STUDIO.social.instagram ? { href: STUDIO.social.instagram, label: "Instagram", Icon: InstagramIcon } : null,
     STUDIO.social.linkedin ? { href: STUDIO.social.linkedin, label: "LinkedIn", Icon: LinkedInIcon } : null,
-  ].filter((item): item is { href: string; label: string; Icon: ComponentType<{ className?: string }> } => item !== null);
+  ].filter((item): item is NonNullable<typeof item> => item !== null);
 
   const gallery = [
     { src: "/images/generated-1775312362328.png", alt: "Team dello studio in riunione", caption: "Relazione e confronto" },
