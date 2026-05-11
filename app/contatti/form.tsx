@@ -20,6 +20,7 @@ export function ContattiForm() {
 
     const form = e.currentTarget;
     const data = {
+      titolo: (form.elements.namedItem("titolo") as RadioNodeList).value,
       nome: (form.elements.namedItem("nome") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       telefono: (form.elements.namedItem("telefono") as HTMLInputElement).value,
@@ -69,6 +70,32 @@ export function ContattiForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <fieldset>
+        <legend className="block text-sm font-medium mb-1.5">Titolo *</legend>
+        <div className="flex gap-6 items-center">
+          <label className="inline-flex items-center gap-2 cursor-pointer text-sm">
+            <input
+              type="radio"
+              name="titolo"
+              value="Sig."
+              required
+              className="w-4 h-4 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
+            />
+            <span>Sig.</span>
+          </label>
+          <label className="inline-flex items-center gap-2 cursor-pointer text-sm">
+            <input
+              type="radio"
+              name="titolo"
+              value="Sig.ra"
+              required
+              className="w-4 h-4 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
+            />
+            <span>Sig.ra</span>
+          </label>
+        </div>
+      </fieldset>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="nome" className="block text-sm font-medium mb-1.5">
