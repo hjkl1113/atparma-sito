@@ -95,6 +95,7 @@ export function PayPalButton({
               importo: price.toFixed(2),
               fullName: form.fullName,
               email: form.email,
+              phone: form.phone,
               taxCode: form.taxCode,
               vatNumber: form.vatNumber,
             }),

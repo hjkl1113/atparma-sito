@@ -104,6 +104,7 @@ export async function POST(request: Request) {
       serviceTitle: item.title,
       fullName: parsedIdentity.data.fullName,
       email: parsedIdentity.data.email,
+      phone: parsedIdentity.data.phone || "",
       taxCode: parsedIdentity.data.taxCode || "",
       vatNumber: parsedIdentity.data.vatNumber || "",
       paymentMode,

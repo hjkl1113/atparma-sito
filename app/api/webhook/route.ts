@@ -22,6 +22,7 @@ async function sendNotification(
   subject: string,
   customerName: string,
   customerEmail: string,
+  customerPhone: string,
   servizio: string,
   amount: string,
   metodo: string,
@@ -44,6 +45,7 @@ async function sendNotification(
     `Nome: ${firstName}`,
     `Cognome: ${lastName}`,
     `Email: ${customerEmail}`,
+    customerPhone ? `Telefono: ${customerPhone}` : null,
     taxCode ? `Codice fiscale: ${taxCode}` : null,
     vatNumber ? `P.IVA: ${vatNumber}` : null,
     `Note: Acquisto ${servizio} EUR ${amount} via sito (tx ${transactionId})`,
@@ -75,6 +77,7 @@ async function sendNotification(
             <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Servizio</td><td style="padding:10px;border:1px solid #e5e7eb;">${servizio}</td></tr>
             <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Importo</td><td style="padding:10px;border:1px solid #e5e7eb;font-weight:700;color:#059669;">EUR ${amount}</td></tr>
             <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Pagamento</td><td style="padding:10px;border:1px solid #e5e7eb;">${metodo}</td></tr>
+            ${customerPhone ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Telefono</td><td style="padding:10px;border:1px solid #e5e7eb;"><a href="tel:${customerPhone}" style="color:#0A0A0A;text-decoration:none;">${customerPhone}</a></td></tr>` : ""}
             ${taxCode ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Codice fiscale</td><td style="padding:10px;border:1px solid #e5e7eb;">${taxCode}</td></tr>` : ""}
             ${vatNumber ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">P.IVA</td><td style="padding:10px;border:1px solid #e5e7eb;">${vatNumber}</td></tr>` : ""}
             <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">ID Transazione</td><td style="padding:10px;border:1px solid #e5e7eb;font-family:monospace;font-size:12px;">${transactionId}</td></tr>
@@ -132,6 +135,7 @@ export async function POST(request: Request) {
       const servizio = session.metadata?.serviceTitle
         || session.metadata?.servizio
         || "Servizio da sito";
+      const customerPhone = session.metadata?.phone || "";
       const taxCode = session.metadata?.taxCode || undefined;
       const vatNumber = session.metadata?.vatNumber || undefined;
 
@@ -139,6 +143,7 @@ export async function POST(request: Request) {
         `Nuovo cliente dal sito — ${customerName} — EUR ${amount}`,
         customerName,
         customerEmail,
+        customerPhone,
         servizio,
         amount,
         "Carta (Stripe verificato)",

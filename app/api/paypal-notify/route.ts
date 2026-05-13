@@ -73,11 +73,12 @@ async function getVerifiedPayPalOrder(orderId: string) {
 
 export async function POST(request: Request) {
   try {
-    const { servizio, importo, orderId, serviceId, taxCode, vatNumber } = await request.json() as {
+    const { servizio, importo, orderId, serviceId, phone, taxCode, vatNumber } = await request.json() as {
       servizio?: string;
       importo?: string;
       orderId?: string;
       serviceId?: string;
+      phone?: string;
       taxCode?: string;
       vatNumber?: string;
     };
@@ -143,6 +144,7 @@ export async function POST(request: Request) {
               <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Servizio</td><td style="padding:10px;border:1px solid #e5e7eb;">${verifiedService}</td></tr>
               <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Importo</td><td style="padding:10px;border:1px solid #e5e7eb;font-weight:700;color:#059669;">EUR ${amount}</td></tr>
               <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Pagamento</td><td style="padding:10px;border:1px solid #e5e7eb;">PayPal verificato server-side</td></tr>
+              ${phone ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Telefono</td><td style="padding:10px;border:1px solid #e5e7eb;"><a href="tel:${phone}" style="color:#0A0A0A;text-decoration:none;">${phone}</a></td></tr>` : ""}
               ${taxCode ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">Codice fiscale</td><td style="padding:10px;border:1px solid #e5e7eb;">${taxCode}</td></tr>` : ""}
               ${vatNumber ? `<tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">P.IVA</td><td style="padding:10px;border:1px solid #e5e7eb;">${vatNumber}</td></tr>` : ""}
               <tr><td style="padding:10px;border:1px solid #e5e7eb;font-weight:600;background:#f9fafb;">ID Ordine</td><td style="padding:10px;border:1px solid #e5e7eb;font-family:monospace;font-size:12px;">${verifiedOrder.id || orderId}</td></tr>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   EMPTY_CHECKOUT_DATA,
   getCheckoutError,
+  normalizePhone,
   normalizeTaxCode,
   type CheckoutFormData,
 } from "@/app/lib/checkout-utils";
@@ -40,6 +41,7 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
     setData((prev) => {
       let nextValue = value;
       if (field === "email") nextValue = value.trim().toLowerCase();
+      if (field === "phone") nextValue = normalizePhone(value);
       if (field === "taxCode") nextValue = normalizeTaxCode(value);
       return { ...prev, [field]: nextValue };
     });
@@ -149,6 +151,19 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
               />
               <p className="text-xs text-zinc-500 mt-1">
                 Riceverai email di conferma + link al portale per caricare visure catastali.
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-zinc-700 mb-1">Telefono</label>
+              <input
+                type="tel"
+                value={data.phone}
+                onChange={(e) => updateField("phone", e.target.value)}
+                placeholder="+39 333 1234567"
+                className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm focus:border-zinc-400 focus:outline-none"
+              />
+              <p className="text-xs text-zinc-500 mt-1">
+                Sara ti richiama entro 24h lavorative per la presa in carico.
               </p>
             </div>
             <div>

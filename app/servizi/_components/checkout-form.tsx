@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   EMPTY_CHECKOUT_DATA,
   getCheckoutError,
+  normalizePhone,
   normalizeTaxCode,
   normalizeVatNumber,
   type CheckoutFormData,
@@ -48,6 +49,7 @@ export function CheckoutForm({
     setData((prev) => {
       let nextValue = value;
       if (field === "email") nextValue = value.trim().toLowerCase();
+      if (field === "phone") nextValue = normalizePhone(value);
       if (field === "taxCode") nextValue = normalizeTaxCode(value);
       if (field === "vatNumber") nextValue = normalizeVatNumber(value);
       return { ...prev, [field]: nextValue };
@@ -116,6 +118,21 @@ export function CheckoutForm({
           />
           <p className="text-xs text-zinc-500 mt-1">
             Qui riceverai credenziali del portale e fattura elettronica.
+          </p>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-zinc-700 mb-1">
+            Telefono
+          </label>
+          <input
+            type="tel"
+            value={data.phone}
+            onChange={(e) => updateField("phone", e.target.value)}
+            placeholder="+39 333 1234567"
+            className="w-full rounded-lg border border-zinc-200 px-3 py-2.5 text-sm focus:border-zinc-400 focus:outline-none"
+          />
+          <p className="text-xs text-zinc-500 mt-1">
+            Sara ti richiama entro 24h lavorative per la presa in carico.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
