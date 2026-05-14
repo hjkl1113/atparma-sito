@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { sendPaymentConfirmationEmail } from "@/lib/email-customer";
+import { provisionPortalClient } from "@/lib/portal-integration";
 
 export const runtime = "nodejs";
 
@@ -173,6 +174,21 @@ export async function POST(request: Request) {
       serviceTitle: verifiedService,
       amountEur: amount,
       transactionId: verifiedOrder.id || orderId,
+    });
+
+    // BACKLOG 1.66 — Provisioning automatico nel portale (Client + User + Practice DRAFT + invito).
+    // Best-effort: errori loggati, segreteria@ ha comunque ricevuto la notifica enhanced.
+    await provisionPortalClient({
+      externalOrderId: verifiedOrder.id || orderId,
+      externalSource: "site-paypal",
+      fullName: verifiedName,
+      email: verifiedEmail,
+      phone: phone ?? null,
+      taxCode: taxCode ?? null,
+      vatNumber: vatNumber ?? null,
+      serviceId: serviceId || "unknown",
+      serviceTitle: verifiedService,
+      amountEur: amount,
     });
 
     return NextResponse.json({ success: true });

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 import { sendPaymentConfirmationEmail } from "@/lib/email-customer";
+import { provisionPortalClient } from "@/lib/portal-integration";
 
 export const runtime = "nodejs";
 
@@ -160,6 +161,21 @@ export async function POST(request: Request) {
         serviceTitle: servizio,
         amountEur: amount,
         transactionId: session.id,
+      });
+
+      // BACKLOG 1.66 — Provisioning automatico nel portale (Client + User + Practice DRAFT + invito).
+      // Best-effort: errori loggati, segreteria@ ha comunque ricevuto la notifica enhanced.
+      await provisionPortalClient({
+        externalOrderId: session.id,
+        externalSource: "site-stripe",
+        fullName: customerName,
+        email: customerEmail,
+        phone: customerPhone || null,
+        taxCode: taxCode ?? null,
+        vatNumber: vatNumber ?? null,
+        serviceId: session.metadata?.serviceId || "unknown",
+        serviceTitle: servizio,
+        amountEur: amount,
       });
     }
 
