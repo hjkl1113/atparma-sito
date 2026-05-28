@@ -5,6 +5,7 @@ import { MobileMenu } from "@/components/mobile-menu";
 import { getPrezzi } from "@/app/lib/prezzi";
 import { getAllProdotti, getProdotto } from "@/app/servizi/_data/prodotti";
 import { CheckoutForm } from "@/app/servizi/_components/checkout-form";
+import { formatEur, formatImponibilePlusIva } from "@/app/lib/pricing-utils";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -106,7 +107,7 @@ export default async function CheckoutPage({
 
               <div className="flex items-baseline justify-between pb-4 border-b border-zinc-100">
                 <span className="text-sm text-zinc-600">Servizio</span>
-                <span className="text-sm font-medium">€{price}</span>
+                <span className="text-sm font-medium">{formatEur(price)}</span>
               </div>
               <div className="flex items-baseline justify-between py-4 border-b border-zinc-100">
                 <span className="text-sm text-zinc-600">Consegna</span>
@@ -116,9 +117,10 @@ export default async function CheckoutPage({
                 <span className="text-sm font-semibold">Totale</span>
                 <div className="text-right">
                   <span className="text-2xl font-bold font-[family-name:var(--font-heading)]">
-                    €{price}
+                    {formatEur(price)}
                   </span>
                   <p className="text-xs text-zinc-500">IVA inclusa</p>
+                  <p className="text-xs text-zinc-500">{formatImponibilePlusIva(price)}</p>
                 </div>
               </div>
 

@@ -4,13 +4,6 @@ export const SOGLIA_SCONTO_10_INCL_IVA = 1000;
 export const SCONTO_FASCIA_MEDIA = 0.05;
 export const SCONTO_OLTRE_1000 = 0.10;
 
-const eurFormatInt = new Intl.NumberFormat("it-IT", {
-  style: "currency",
-  currency: "EUR",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-  useGrouping: true,
-});
 const eurFormat2 = new Intl.NumberFormat("it-IT", {
   style: "currency",
   currency: "EUR",
@@ -20,11 +13,19 @@ const eurFormat2 = new Intl.NumberFormat("it-IT", {
 });
 
 export function formatEur(n: number): string {
-  return Number.isInteger(n) ? eurFormatInt.format(n) : eurFormat2.format(n);
+  return eurFormat2.format(n);
 }
 
 export function formatEur2(n: number): string {
   return eurFormat2.format(n);
+}
+
+export function getImponibile(priceInclIva: number): number {
+  return Math.round((priceInclIva / (1 + IVA_RATE)) * 100) / 100;
+}
+
+export function formatImponibilePlusIva(priceInclIva: number): string {
+  return `${formatEur2(getImponibile(priceInclIva))} + IVA 22%`;
 }
 
 export function computeNetRounded(priceInclIva: number): number | null {

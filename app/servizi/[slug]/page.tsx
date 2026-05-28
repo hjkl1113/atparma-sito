@@ -8,8 +8,8 @@ import { VerificaRequisitiForfettario } from "@/components/verifica-requisiti-fo
 import { getPrezzi } from "@/app/lib/prezzi";
 import { getAllProdotti, getProdotto, type ProdottoServizio } from "@/app/servizi/_data/prodotti";
 import {
-  computeNetRounded,
   formatEur,
+  formatImponibilePlusIva,
   getScontoAnticipato,
   isRateizzabile,
 } from "@/app/lib/pricing-utils";
@@ -274,9 +274,7 @@ async function ProdottoView({ prodotto }: { prodotto: ProdottoServizio }) {
               {price !== null && (
                 <div className="mb-4">
                   <p className="text-xs text-zinc-500">IVA inclusa</p>
-                  {computeNetRounded(price) !== null && (
-                    <p className="text-xs text-zinc-500">{computeNetRounded(price)}€ + IVA 22%</p>
-                  )}
+                  <p className="text-xs text-zinc-500">{formatImponibilePlusIva(price)}</p>
                 </div>
               )}
               {price !== null && (isRateizzabile(price) || getScontoAnticipato(price)) && (

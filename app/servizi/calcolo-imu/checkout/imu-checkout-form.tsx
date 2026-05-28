@@ -8,7 +8,7 @@ import {
   normalizeTaxCode,
   type CheckoutFormData,
 } from "@/app/lib/checkout-utils";
-import { formatBreakdown } from "@/app/lib/pricing-utils";
+import { formatBreakdown, formatEur } from "@/app/lib/pricing-utils";
 
 type Tier = "singolo" | "multi";
 type F24PaymentMethod = "self" | "entratel";
@@ -113,7 +113,7 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
                       {t === "singolo" ? "Singolo immobile" : "Multi-immobile"}
                     </span>
                     <span className="text-lg font-bold text-zinc-900 font-[family-name:var(--font-heading)]">
-                      €{tierData.price}
+                      {formatEur(tierData.price)}
                     </span>
                   </div>
                   <p className="text-xs text-zinc-600">{tierData.descr}</p>
@@ -266,7 +266,7 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
             <div className="flex justify-between text-base pt-3 border-t border-zinc-200">
               <span className="font-semibold text-zinc-900">Totale IVA inclusa</span>
               <span className="font-bold text-zinc-900 font-[family-name:var(--font-heading)]">
-                €{selected.price}
+                {formatEur(selected.price)}
               </span>
             </div>
             <p className="text-xs text-zinc-500">
@@ -280,7 +280,7 @@ export function ImuCheckoutForm({ initialTier }: { initialTier: Tier }) {
             disabled={loading}
             className="w-full px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium disabled:opacity-50"
           >
-            {loading ? "Reindirizzo a Stripe..." : `Paga €${selected.price} IVA inclusa con carta`}
+            {loading ? "Reindirizzo a Stripe..." : `Paga ${formatEur(selected.price)} IVA inclusa con carta`}
           </button>
 
           <p className="text-xs text-zinc-500 text-center">

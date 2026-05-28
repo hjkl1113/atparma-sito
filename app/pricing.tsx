@@ -6,8 +6,8 @@ import { DEFAULT_PREZZI, type Servizio } from "@/app/lib/prezzi-default";
 import { mergePrezziWithDefaults } from "@/app/lib/prezzi";
 import { getProdotto } from "@/app/servizi/_data/prodotti";
 import {
-  computeNetRounded,
   formatEur,
+  formatImponibilePlusIva,
   getScontoAnticipato,
   isRateizzabile,
 } from "@/app/lib/pricing-utils";
@@ -73,11 +73,9 @@ export function Pricing() {
                       {formatEur(p.price)}
                     </span>
                     <span className="ml-2 text-xs text-zinc-500">IVA inclusa</span>
-                    {computeNetRounded(p.price) !== null && (
-                      <p className="text-xs text-zinc-500 mt-1">
-                        {computeNetRounded(p.price)}€ + IVA 22%
-                      </p>
-                    )}
+                    <p className="text-xs text-zinc-500 mt-1">
+                      {formatImponibilePlusIva(p.price)}
+                    </p>
                     {(isRateizzabile(p.price) || getScontoAnticipato(p.price)) && (
                       <div className="flex flex-wrap gap-1.5 mt-3">
                         {isRateizzabile(p.price) && (

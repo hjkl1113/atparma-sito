@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Stepper } from "@/components/stepper";
 import { InclusiEsclusiCards } from "@/components/inclusi-esclusi-cards";
-import { formatBreakdown } from "@/app/lib/pricing-utils";
+import { formatBreakdown, formatEur } from "@/app/lib/pricing-utils";
 
 export const metadata: Metadata = {
   title: "Calcolo IMU professionale online — €39 | A.T. Consulting Parma",
@@ -193,7 +193,7 @@ export default function CalcoloImuPage() {
                 Più scelto
               </span>
               <h3 className="font-semibold text-lg mb-2 font-[family-name:var(--font-heading)]">Singolo immobile</h3>
-              <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">€39</p>
+              <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">{formatEur(39)}</p>
               <p className="text-xs text-zinc-500">IVA inclusa &middot; acconto + saldo</p>
               <p className="text-xs text-zinc-400 mb-6">Scorporo: {formatBreakdown(39)}</p>
               <ul className="space-y-2 text-sm text-zinc-700 mb-6">
@@ -206,14 +206,14 @@ export default function CalcoloImuPage() {
                 href="/servizi/calcolo-imu/checkout?tier=singolo"
                 className="block text-center px-6 py-2.5 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium"
               >
-                Acquista €39
+                Acquista {formatEur(39)}
               </Link>
             </div>
 
             {/* Tier multi */}
             <div className="rounded-2xl border border-zinc-200 bg-white p-6">
               <h3 className="font-semibold text-lg mb-2 font-[family-name:var(--font-heading)]">Multi-immobile</h3>
-              <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">€69</p>
+              <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">{formatEur(69)}</p>
               <p className="text-xs text-zinc-500">IVA inclusa &middot; 2-5 immobili, acconto + saldo</p>
               <p className="text-xs text-zinc-400 mb-6">Scorporo: {formatBreakdown(69)}</p>
               <ul className="space-y-2 text-sm text-zinc-700 mb-6">
@@ -226,14 +226,14 @@ export default function CalcoloImuPage() {
                 href="/servizi/calcolo-imu/checkout?tier=multi"
                 className="block text-center px-6 py-2.5 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium"
               >
-                Acquista €69
+                Acquista {formatEur(69)}
               </Link>
             </div>
 
             {/* Tier preventivo */}
             <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
               <h3 className="font-semibold text-lg mb-2 font-[family-name:var(--font-heading)]">Casi complessi</h3>
-              <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">da €149</p>
+              <p className="text-3xl font-bold mb-1 font-[family-name:var(--font-heading)]">da {formatEur(149)}</p>
               <p className="text-xs text-zinc-500 mb-6">a preventivo</p>
               <ul className="space-y-2 text-sm text-zinc-700 mb-6">
                 <li className="flex gap-2"><span className="text-[var(--color-accent)] font-bold">&bull;</span> Più di 5 immobili</li>

@@ -6,8 +6,8 @@ import { getPrezzi } from "@/app/lib/prezzi";
 import { getProdotto } from "@/app/servizi/_data/prodotti";
 import { getMacroSezione, type MacroSezioneSlug } from "@/app/servizi/_data/macro-sezioni";
 import {
-  computeNetRounded,
   formatEur,
+  formatImponibilePlusIva,
   getScontoAnticipato,
   isRateizzabile,
 } from "@/app/lib/pricing-utils";
@@ -161,7 +161,6 @@ export async function MacroSezionePage({ sectionSlug }: { sectionSlug: MacroSezi
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {prodotti.map((item) => {
-                const netRounded = item.price !== null ? computeNetRounded(item.price) : null;
                 const rate = item.price !== null && isRateizzabile(item.price);
                 const sconto = item.price !== null ? getScontoAnticipato(item.price) : null;
                 return (
@@ -184,11 +183,9 @@ export async function MacroSezionePage({ sectionSlug }: { sectionSlug: MacroSezi
                             </span>
                             <span className="text-[11px] text-zinc-500">IVA inclusa</span>
                           </div>
-                          {netRounded !== null && (
-                            <p className="text-xs text-zinc-500 mt-0.5">
-                              {netRounded}€ + IVA 22%
-                            </p>
-                          )}
+                          <p className="text-xs text-zinc-500 mt-0.5">
+                            {formatImponibilePlusIva(item.price)}
+                          </p>
                         </>
                       )}
                     </div>
