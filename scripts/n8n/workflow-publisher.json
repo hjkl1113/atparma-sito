@@ -1,0 +1,299 @@
+{
+  "name": "AT Parma — FB Publisher with Telegram Approval",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cron (09:00 weekdays)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "resource": "sheet",
+        "operation": "read",
+        "documentId": "__SHEET_ID__",
+        "sheetName": "Calendario",
+        "options": {
+          "headerRow": 1,
+          "returnAllMatches": false
+        },
+        "filtersUI": {
+          "filters": [
+            {
+              "lookupColumn": "data",
+              "lookupValue": "={{$today.toFormat('yyyy-LL-dd')}}"
+            },
+            {
+              "lookupColumn": "status",
+              "lookupValue": "pronto"
+            }
+          ]
+        }
+      },
+      "id": "read-sheet",
+      "name": "Read calendario (today, pronto)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [460, 300],
+      "credentials": {
+        "googleApi": {
+          "id": "__GOOGLE_CRED_ID__",
+          "name": "Google Sheets — AT Parma"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "row-exists",
+              "leftValue": "={{ $json.target }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "if-row-exists",
+      "name": "IF row exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.target }}",
+        "rules": {
+          "rules": [
+            { "value2": "privati" },
+            { "value2": "pmi" },
+            { "value2": "artigiani" }
+          ]
+        }
+      },
+      "id": "switch-target",
+      "name": "Switch by target",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-sonnet-4-6\",\n  \"max_tokens\": 800,\n  \"system\": \"Sei il social media manager di A.T. Consulting Parma. Scrivi post FB in italiano per CONSUMATORI/PRIVATI. Tono caldo colloquiale 'tu' diretto. Esempi quotidiani. Max 600 caratteri. Esordio con domanda o numero d'effetto. Cita prezzo se fornito. Una sola CTA. Max 3 hashtag. Genera SOLO il testo, niente intro.\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Argomento: {{ $json.topic }}\\nArticolo blog: {{ $json.articolo_url }}\\nPrezzo: €{{ $json.prezzo }}\\nCTA URL: {{ $json.cta_url }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "ai-privati",
+      "name": "AI rewrite — PRIVATI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 120],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "__ANTHROPIC_CRED_ID__",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-sonnet-4-6\",\n  \"max_tokens\": 900,\n  \"system\": \"Sei il social media manager di A.T. Consulting Parma. Scrivi post FB in italiano per IMPRENDITORI PMI / SINDACI / REVISORI. Tono professionale, autorevole, basato su dati e normativa. Cita CCII/D.Lgs. quando rilevante. Max 700 caratteri. Esordio con dato statistico o norma fresca. Niente promesse di risultati, parla di metodo. Max 4 hashtag professionali. Genera SOLO il testo.\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Argomento: {{ $json.topic }}\\nArticolo blog: {{ $json.articolo_url }}\\nCTA URL: {{ $json.cta_url }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "ai-pmi",
+      "name": "AI rewrite — PMI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "__ANTHROPIC_CRED_ID__",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-sonnet-4-6\",\n  \"max_tokens\": 700,\n  \"system\": \"Sei il social media manager di A.T. Consulting Parma. Scrivi post FB in italiano per ARTIGIANI/COMMERCIANTI con P.IVA. Tono concreto, pragmatico, numeri precisi, niente marketing speak. Max 550 caratteri. Cita SEMPRE costi e scadenze precise se forniti. Parla in termini di tempo/soldi/cosa serve/cosa rischi. Max 3 hashtag. Genera SOLO il testo.\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Argomento: {{ $json.topic }}\\nArticolo blog: {{ $json.articolo_url }}\\nPrezzo: €{{ $json.prezzo }}\\nCTA URL: {{ $json.cta_url }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "ai-artigiani",
+      "name": "AI rewrite — ARTIGIANI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 480],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "__ANTHROPIC_CRED_ID__",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "output": "input1",
+        "options": {}
+      },
+      "id": "merge-branches",
+      "name": "Merge AI outputs",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract text from Anthropic response + carry over sheet row metadata\nconst aiResp = $input.first().json;\nconst sheetRow = $('Read calendario (today, pronto)').first().json;\n\nconst postText = aiResp.content?.[0]?.text || '';\n\n// Generate HMAC token for approval links (replace SECRET with n8n env var)\nconst crypto = require('crypto');\nconst secret = $env.APPROVAL_SECRET || 'CHANGE_ME_in_n8n_env';\nconst payload = `${sheetRow.data}-${sheetRow.target}-${Date.now()}`;\nconst token = crypto.createHmac('sha256', secret).update(payload).digest('hex').slice(0, 16);\n\nreturn [{\n  json: {\n    ...sheetRow,\n    postText,\n    approvalToken: token,\n    rowIndex: sheetRow.row_number || 0,\n  }\n}];"
+      },
+      "id": "prepare-preview",
+      "name": "Prepare Telegram preview",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "__TELEGRAM_CHAT_ID__",
+        "text": "=📝 *Nuovo post FB pronto per pubblicazione*\n\n👥 Target: *{{ $json.target }}*\n📅 Programmato: {{ $json.data }}\n💼 Topic: {{ $json.topic }}\n\n---\n\n{{ $json.postText }}\n\n---\n\n👆 Conferma per pubblicare ora, o salta per archiviare.",
+        "additionalFields": {
+          "parse_mode": "Markdown",
+          "reply_markup": "={\n  \"inline_keyboard\": [[\n    { \"text\": \"✅ Pubblica ora\", \"url\": \"https://n8n.atparma.com/webhook/fb-publish?row={{ $json.rowIndex }}&token={{ $json.approvalToken }}\" },\n    { \"text\": \"⏭️ Salta\", \"url\": \"https://n8n.atparma.com/webhook/fb-skip?row={{ $json.rowIndex }}&token={{ $json.approvalToken }}\" }\n  ]]\n}"
+        }
+      },
+      "id": "send-telegram",
+      "name": "Send Telegram preview",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1780, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "__TELEGRAM_CRED_ID__",
+          "name": "Telegram — AT Parma Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cron (09:00 weekdays)": {
+      "main": [[{ "node": "Read calendario (today, pronto)", "type": "main", "index": 0 }]]
+    },
+    "Read calendario (today, pronto)": {
+      "main": [[{ "node": "IF row exists", "type": "main", "index": 0 }]]
+    },
+    "IF row exists": {
+      "main": [
+        [{ "node": "Switch by target", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Switch by target": {
+      "main": [
+        [{ "node": "AI rewrite — PRIVATI", "type": "main", "index": 0 }],
+        [{ "node": "AI rewrite — PMI", "type": "main", "index": 0 }],
+        [{ "node": "AI rewrite — ARTIGIANI", "type": "main", "index": 0 }]
+      ]
+    },
+    "AI rewrite — PRIVATI": {
+      "main": [[{ "node": "Merge AI outputs", "type": "main", "index": 0 }]]
+    },
+    "AI rewrite — PMI": {
+      "main": [[{ "node": "Merge AI outputs", "type": "main", "index": 0 }]]
+    },
+    "AI rewrite — ARTIGIANI": {
+      "main": [[{ "node": "Merge AI outputs", "type": "main", "index": 0 }]]
+    },
+    "Merge AI outputs": {
+      "main": [[{ "node": "Prepare Telegram preview", "type": "main", "index": 0 }]]
+    },
+    "Prepare Telegram preview": {
+      "main": [[{ "node": "Send Telegram preview", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  },
+  "_meta": {
+    "description": "Workflow giornaliero che legge il calendario editoriale, genera bozza post FB con AI Claude (3 prompt per target), e manda preview a Telegram per approval. Il publish effettivo avviene in workflow separato attivato da webhook quando si clicca il pulsante 'Pubblica ora' in Telegram.",
+    "companion_workflows": [
+      "fb-publish-webhook.json (TODO): trigger webhook + POST graph.facebook.com + update sheet status=pubblicato",
+      "fb-skip-webhook.json (TODO): trigger webhook + update sheet status=saltato",
+      "fb-metrics-fetcher.json (TODO): cron daily, fetch reach/engagement 24h dopo pubblicazione, update sheet"
+    ],
+    "placeholders_to_fill": [
+      "__SHEET_ID__: Google Sheet ID del calendario",
+      "__GOOGLE_CRED_ID__: ID credential Google Sheets in n8n",
+      "__ANTHROPIC_CRED_ID__: ID credential Anthropic API in n8n",
+      "__TELEGRAM_CHAT_ID__: tuo chat ID Telegram",
+      "__TELEGRAM_CRED_ID__: ID credential Telegram in n8n",
+      "APPROVAL_SECRET: env var in n8n per HMAC sign degli approval links"
+    ],
+    "version": "1.0",
+    "author": "A.T. Consulting Parma + Claude"
+  }
+}
