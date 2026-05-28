@@ -16,6 +16,14 @@ export const ogThemes: Record<string, OgTheme> = {
     titolo: "Studio commercialista a Parma",
   },
   // === Articoli blog (nuovi) ===
+  "composizione-negoziata-crisi-impresa-2026": {
+    eyebrow: "Guida fiscale",
+    titolo: "Composizione negoziata 2026",
+  },
+  "sovraindebitamento-2026-come-uscire-dai-debiti": {
+    eyebrow: "Guida fiscale",
+    titolo: "Sovraindebitamento 2026",
+  },
   "cripto-quadro-rw-2026": {
     eyebrow: "Guida fiscale",
     titolo: "Cripto in dichiarazione 2026",

@@ -8,6 +8,22 @@ export interface Articolo {
 
 export const articoli: Articolo[] = [
   {
+    slug: "composizione-negoziata-crisi-impresa-2026",
+    titolo: "Composizione negoziata 2026: guida alla crisi d'impresa",
+    excerpt:
+      "Composizione negoziata della crisi d'impresa 2026: numeri Unioncamere, test di accesso, esperto indipendente, misure protettive, esiti possibili. Guida CCII aggiornata Correttivo-ter D.Lgs. 136/2024.",
+    immagine: "/og?slug=composizione-negoziata-crisi-impresa-2026",
+    data: "2026-05-28",
+  },
+  {
+    slug: "sovraindebitamento-2026-come-uscire-dai-debiti",
+    titolo: "Sovraindebitamento 2026: come uscire dai debiti",
+    excerpt:
+      "Procedure CCII per uscire dai debiti nel 2026: ristrutturazione del consumatore, concordato minore, liquidazione controllata, esdebitazione dell'incapiente (art. 283). Chi può accedere, ruolo dell'OCC, quali debiti rientrano.",
+    immagine: "/og?slug=sovraindebitamento-2026-come-uscire-dai-debiti",
+    data: "2026-05-28",
+  },
+  {
     slug: "cripto-quadro-rw-2026",
     titolo: "Cripto-attività in dichiarazione 2026: guida completa al quadro RW",
     excerpt:

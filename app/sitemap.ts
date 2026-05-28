@@ -83,6 +83,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/blog/sovraindebitamento-2026-come-uscire-dai-debiti`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/composizione-negoziata-crisi-impresa-2026`,
+      lastModified: new Date("2026-05-28"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: "monthly",

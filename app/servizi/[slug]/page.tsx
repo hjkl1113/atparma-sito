@@ -42,6 +42,7 @@ const competenze: Record<string, {
   dettagli: string[];
   perChi: string[];
   cta: string;
+  articoli?: { slug: string; titolo: string }[];
 }> = {
   "consulenza-fiscale": {
     title: "Consulenza fiscale",
@@ -86,6 +87,16 @@ const competenze: Record<string, {
       "Professionisti nominati dal Tribunale",
     ],
     cta: "Richiedi assistenza per crisi di impresa",
+    articoli: [
+      {
+        slug: "sovraindebitamento-2026-come-uscire-dai-debiti",
+        titolo: "Sovraindebitamento 2026: come uscire dai debiti",
+      },
+      {
+        slug: "composizione-negoziata-crisi-impresa-2026",
+        titolo: "Composizione negoziata 2026: guida alla crisi d'impresa",
+      },
+    ],
   },
   "consulenza-finanziaria": {
     title: "Consulenza finanziaria",
@@ -717,6 +728,23 @@ function CompetenzaView({ s }: { s: (typeof competenze)[string] }) {
               </li>
             ))}
           </ul>
+
+          {s.articoli && s.articoli.length > 0 && (
+            <section className="mb-12">
+              <h2 className="text-xl font-semibold mb-6 font-[family-name:var(--font-heading)]">
+                Approfondimenti
+              </h2>
+              <ul className="space-y-3">
+                {s.articoli.map((a) => (
+                  <li key={a.slug}>
+                    <Link href={`/blog/${a.slug}`} className="text-[var(--color-accent)] hover:underline">
+                      {a.titolo}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <div className="bg-[var(--color-surface)] rounded-2xl p-8 text-center">
             <h3 className="text-lg font-semibold mb-2 font-[family-name:var(--font-heading)]">
