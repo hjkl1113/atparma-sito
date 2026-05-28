@@ -141,8 +141,8 @@ function AreaClienti() {
           </div>
           <div className="w-full md:w-80 h-48 bg-zinc-100 rounded-xl flex items-center justify-center">
             <Image
-              src="/images/generated-1775311900516.png"
-              alt="Area clienti digitale"
+              src="/images/studio/sede-cortile-vaso.jpg"
+              alt="Cortile interno dello studio A.T. Consulting Parma"
               width={320}
               height={192}
               className="rounded-xl object-cover w-full h-full"
@@ -246,8 +246,8 @@ function ChiSiamo() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-80 md:h-[28rem] rounded-2xl overflow-hidden">
             <Image
-              src="/images/generated-1775312362328.png"
-              alt="Il team di A.T. Consulting Parma"
+              src="/images/studio/sede-facciata-rose.jpg"
+              alt="Sede dello studio in Borgo Riccio da Parma 5"
               fill
               className="object-cover"
             />
@@ -300,9 +300,9 @@ function PresenzaPubblica() {
   ].filter((item): item is NonNullable<typeof item> => item !== null);
 
   const gallery = [
-    { src: "/images/generated-1775312362328.png", alt: "Team dello studio in riunione", caption: "Relazione e confronto" },
-    { src: "/images/generated-1775311824086.png", alt: "Studio professionale moderno", caption: "Ambiente professionale" },
-    { src: "/images/generated-1775311900516.png", alt: "Lavoro digitale del team", caption: "Operativita digitale" },
+    { src: "/images/studio/sede-facciata-rose.jpg", alt: "Cortile interno dello studio con arco di rose", caption: "Il cortile interno", note: "Borgo Riccio da Parma 5" },
+    { src: "/images/studio/sede-archi-cortile.jpg", alt: "Porticato ad archi del palazzo storico", caption: "Il porticato storico", note: "Palazzo del centro storico di Parma" },
+    { src: "/images/studio/sede-rose-rampicanti.jpg", alt: "Giardino interno con siepi geometriche e rose rampicanti", caption: "Il giardino", note: "Cura del dettaglio" },
   ] as const;
 
   return (
@@ -311,14 +311,14 @@ function PresenzaPubblica() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3">
-              Presenza pubblica
+              La nostra sede
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
-              Immagini e profilo coerenti con lo studio reale
+              Lo studio ha sede in Borgo Riccio da Parma 5
             </h2>
           </div>
           <p className="text-zinc-600 leading-relaxed max-w-2xl">
-            Usiamo immagini che mostrano persone, ambiente e lavoro reale, cosi&apos; il profilo pubblico e il sito raccontano la stessa identita&apos;.
+            Un palazzo storico nel centro di Parma, con cortile interno e porticato. Ti accogliamo qui per gli incontri in presenza, mentre il portale clienti permette di seguire pratiche e documenti da remoto in tutta sicurezza.
           </p>
         </div>
 
@@ -330,7 +330,7 @@ function PresenzaPubblica() {
               </div>
               <figcaption className="px-5 py-4">
                 <p className="text-sm font-semibold text-zinc-900">{item.caption}</p>
-                <p className="text-xs text-zinc-500 mt-1">Usabile come base visiva per Meta Business Profile.</p>
+                <p className="text-xs text-zinc-500 mt-1">{item.note}</p>
               </figcaption>
             </figure>
           ))}
