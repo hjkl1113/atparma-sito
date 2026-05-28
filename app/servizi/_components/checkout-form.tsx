@@ -16,6 +16,7 @@ import {
   getScontoAnticipato,
   isRateizzabile,
 } from "@/app/lib/pricing-utils";
+import { trackInitiateCheckout } from "@/lib/ads-tracking";
 
 type PaymentMode = "full" | "rate";
 
@@ -64,6 +65,11 @@ export function CheckoutForm({
       return;
     }
     setLoading(true);
+    trackInitiateCheckout({
+      value: importoStripe,
+      contentName: serviceTitle,
+      contentId: serviceId,
+    });
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",

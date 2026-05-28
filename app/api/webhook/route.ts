@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 import { sendPaymentConfirmationEmail } from "@/lib/email-customer";
+import { eventIdFor, sendCapiEvent } from "@/lib/meta-capi";
 import { provisionPortalClient } from "@/lib/portal-integration";
 
 export const runtime = "nodejs";
@@ -176,6 +177,24 @@ export async function POST(request: Request) {
         serviceId: session.metadata?.serviceId || "unknown",
         serviceTitle: servizio,
         amountEur: amount,
+      });
+
+      // Meta CAPI server-side — recupera il 30-40% di Purchase persi su iOS17+/ad-blocker.
+      // event_id deterministico → deduplication col Pixel client (se attivo).
+      const [firstName, ...rest] = customerName.trim().split(/\s+/);
+      void sendCapiEvent({
+        eventName: "Purchase",
+        eventId: eventIdFor("stripe", session.id),
+        eventSourceUrl: "https://www.atparma.com/checkout/successo",
+        email: customerEmail !== "non disponibile" ? customerEmail : null,
+        phone: customerPhone || null,
+        firstName: firstName || null,
+        lastName: rest.join(" ") || null,
+        value: Number(amount) || 0,
+        currency: "EUR",
+        contentName: servizio,
+        contentId: session.metadata?.serviceId || undefined,
+        transactionId: session.id,
       });
     }
 

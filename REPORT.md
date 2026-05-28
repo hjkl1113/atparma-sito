@@ -1,7 +1,7 @@
 # REPORT — VALIDAZIONE PROGETTO AT PARMA
 
-**Data:** 2026-04-24  
-**Versione:** 2.1  
+**Data:** 2026-05-27  
+**Versione:** 2.2  
 **Scopo:** fotografia tecnica e operativa aggiornata del sistema `sito + portale`, pensata per chi deve validare il progetto prima di nuovo sviluppo.
 
 ## Legenda
@@ -11,6 +11,95 @@
 - `Documentato ma non verificato`
 - `Pianificato`
 - `Superato / legacy`
+
+## Changelog 2026-05-27 — Fase 0 Ads (tracking + creatività)
+
+**Obiettivo della sessione**: rendere il sito ads-ready per Google Ads + Meta (Facebook/Instagram). Target geografico iniziale: Parma. Budget: da definire dopo primi dati.
+
+### Materiale visuale studio (foto reali Borgo Riccio)
+
+- **4 foto iPhone reali del palazzo studio** caricate da utente: `IMG_1641..1644.HEIC` in piena risoluzione (5712×4284, 4-9 MB ciascuna).
+- Convertite e ruotate via `sips` (HEIC→JPG, EXIF orientation rimosso → rotate fisica 90° CW).
+- Rinominate e archiviate in `public/images/studio/`:
+  - `sede-facciata-rose.jpg` — ⭐ vista cortile interno con archi + rose rampicanti rosa (la migliore)
+  - `sede-cortile-vaso.jpg` — vista attraverso archi con vaso terracotta antico
+  - `sede-archi-cortile.jpg` — facciata palazzo + porticato (auto in primo piano: ridotte via crop alto)
+  - `sede-rose-rampicanti.jpg` — giardino all'italiana fiorito
+- Originali `.heic` mantenuti come backup archivio.
+- **Le immagini AI `generated-*` esistenti sul sito NON sono state ancora sostituite** (decisione utente: tenere Duomo + Battistero come sono, sostituire AI con foto reali in fase successiva).
+
+### Mockup ads pronti per Meta Ads Manager
+
+Script `scripts/ads/mockup-facebook.py` parametrizzato (Python + PIL). Output in `public/ads/facebook/`:
+
+- **12 mockup** = 4 narrative × 3 formati
+- Formati: `1:1` (1080×1080 feed), `4:5` (1080×1350 feed alto), `9:16` (1080×1920 Stories/Reels)
+- Narrative: `01-brand` (boutique storico), `02-730 €50`, `03-piva-forf €549`, `04-consulenza` gratuita
+- Tipografia: Baskerville bold+italic (heading serif eleganza) + Helvetica (UI testi)
+- Palette: bianco + oro pallido `#C5A86E` per i prezzi
+- Safe zones Instagram Stories rispettate (280px top + 380px bottom per UI nativa)
+- Wordmark "A.T. CONSULTING · PARMA" su gradient scuro top per leggibilità su tutti i background
+- Per il 9:16 P.IVA: override sorgente automatico a `sede-rose-rampicanti.jpg` (le auto erano troppo dominanti nel formato verticale)
+
+### Mockup ads pronti per Google Ads (Performance Max + Display)
+
+Script `scripts/ads/mockup-google.py`. Output in `public/ads/google/`:
+
+- **12 mockup** = 4 narrative × 3 formati Google
+- Formati: `1.91:1` (1200×628 landscape display), `1:1` (1200×1200), `4:5` (1200×1500)
+- Layout landscape ha testo a sinistra su gradient laterale, foto a destra (diverso da social square)
+- Stesse 4 narrative dei mockup Facebook, coerenza brand garantita
+
+### Fase 0 — Tracking foundation (Verificato nel codice)
+
+Stack tracking implementato:
+
+| Pixel | Componente / endpoint | Trigger consenso |
+|---|---|---|
+| **Vercel Analytics** | `components/analytics-wrapper.tsx` (esistente) | analytics |
+| **Meta Pixel** (client) | `components/meta-pixel.tsx` (esistente, ora arricchito con eventi) | marketing |
+| **GA4** (nuovo) | `components/google-tag.tsx` | analytics |
+| **Google Ads** (nuovo) | `components/google-tag.tsx` (gtag.js condiviso) | marketing |
+| **Meta CAPI** (server) | `lib/meta-capi.ts` + endpoint nei webhook | sempre (server-side, no consenso necessario) |
+
+Helper unificato eventi client: `lib/ads-tracking.ts` (`trackPurchase`, `trackInitiateCheckout`, `trackViewContent`, `trackLead`) — disp atch su Meta Pixel + GA4 + Google Ads in un'unica chiamata, no-op se pixel non caricati.
+
+Eventi di conversione cablati:
+
+- **`InitiateCheckout`** (client) → `app/servizi/_components/checkout-form.tsx` su click "Procedi al pagamento" Stripe
+- **`Purchase`** (server CAPI) → `app/api/webhook/route.ts` su `checkout.session.completed` Stripe, dopo `provisionPortalClient`
+- **`Purchase`** (server CAPI) → `app/api/paypal-notify/route.ts` su ordine PayPal verificato `COMPLETED`
+- **`Lead`** (server CAPI) → `app/api/lead-forfettario/route.ts` dopo invio Brevo (mail studio + Pixel CAPI parallelizzati)
+
+Note tecniche:
+
+- Tutti i tracking client sono **gated da consenso esplicito** del cookie banner (vanilla-cookieconsent). Nessun evento parte prima dell'opt-in.
+- CAPI **non richiede consenso** perché è server-side (Meta lo considera proprio dato di transazione), ma viene comunque hashato (SHA-256 lowercase trimmed su email/phone/nome) prima dell'invio.
+- **Deduplication** via `event_id = <prefisso>_<txId>` (`stripe_cs_...`, `paypal_<orderId>`, `lead_<uuid>`). Se in futuro abilitiamo Purchase anche client-side passando lo stesso event_id, Meta deduplica naturalmente.
+- Su iOS 17+ e con ad-blocker il Pixel client perde il 30-40% degli eventi. **CAPI server-side è il canale primario** per Purchase: arriva sempre.
+
+Env vars necessarie (documentate in `.env.local.example` nuovo):
+
+```
+NEXT_PUBLIC_GA4_ID                                     # G-XXXXXXXXXX
+NEXT_PUBLIC_GOOGLE_ADS_ID                              # AW-XXXXXXXXX
+NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_PURCHASE       # label conversione purchase
+NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_LEAD           # label conversione lead
+NEXT_PUBLIC_META_PIXEL_ID                              # 15-16 cifre
+META_PIXEL_ID                                          # = sopra (server-side, separato per chiarezza)
+META_CAPI_ACCESS_TOKEN                                 # segreto Events Manager
+META_CAPI_TEST_EVENT_CODE                              # solo per testing, vuoto in prod
+```
+
+### Cosa rimane da fare prima di lanciare la prima campagna
+
+1. **Account ads** (lato utente):
+   - Verificare account Google Ads esistente o crearne uno nuovo, linkare a GA4
+   - Recuperare pagina Facebook AT Parma vecchia o crearne una nuova in Business Manager
+   - Generare gli ID e i token nelle env vars sopra
+2. **Sostituzione AI con foto reali sul sito** (opzionale ma raccomandato): rimpiazzare le `generated-*.png` con le 4 foto sede + tenere Duomo/Battistero come pianificato dall'utente
+3. **`ViewContent`** scheda servizio: il tracking è disponibile via `trackViewContent` ma non è ancora cablato sulle pagine `app/servizi/[slug]/page.tsx` (server component → serve un wrapper client minimale)
+4. **Test eventi**: usare Meta Events Manager → Test Events Code + GA4 DebugView per verificare arrivo eventi
 
 ## Changelog 2026-04-24
 

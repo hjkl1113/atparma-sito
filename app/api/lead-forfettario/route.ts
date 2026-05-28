@@ -1,4 +1,8 @@
+import { randomUUID } from "node:crypto";
+
 import { NextResponse } from "next/server";
+
+import { sendCapiEvent } from "@/lib/meta-capi";
 
 interface LeadBody {
   email: string;
@@ -96,6 +100,15 @@ export async function POST(request: Request) {
       console.error("Errore Brevo lead-forfettario:", err);
       return NextResponse.json({ error: "Errore invio lead" }, { status: 500 });
     }
+
+    // Meta CAPI Lead — best-effort, non blocca la response.
+    void sendCapiEvent({
+      eventName: "Lead",
+      eventId: `lead_${randomUUID()}`,
+      eventSourceUrl: "https://www.atparma.com/calcolatori/forfettario",
+      email,
+      contentName: `Calcolatore forfettario · ${fonte}`,
+    });
 
     return NextResponse.json({ success: true });
   } catch (err) {

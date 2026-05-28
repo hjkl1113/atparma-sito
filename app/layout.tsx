@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google";
 import { AnalyticsWrapper } from "@/components/analytics-wrapper";
 import { CookieBanner } from "@/components/cookie-banner";
+import { GoogleTag } from "@/components/google-tag";
 import { MetaPixel } from "@/components/meta-pixel";
 import { STUDIO } from "@/lib/studio-data";
 import "./globals.css";
@@ -190,6 +191,7 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <AnalyticsWrapper />
+        <GoogleTag />
         <MetaPixel />
       </body>
     </html>

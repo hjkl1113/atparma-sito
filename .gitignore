@@ -43,3 +43,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# OMC tooling — should never be committed
+.omc/
+**/.omc/

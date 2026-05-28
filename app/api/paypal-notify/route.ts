@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { sendPaymentConfirmationEmail } from "@/lib/email-customer";
+import { eventIdFor, sendCapiEvent } from "@/lib/meta-capi";
 import { provisionPortalClient } from "@/lib/portal-integration";
 
 export const runtime = "nodejs";
@@ -189,6 +190,23 @@ export async function POST(request: Request) {
       serviceId: serviceId || "unknown",
       serviceTitle: verifiedService,
       amountEur: amount,
+    });
+
+    // Meta CAPI server-side — Purchase event con deduplication.
+    const ppTxId = verifiedOrder.id || orderId;
+    void sendCapiEvent({
+      eventName: "Purchase",
+      eventId: eventIdFor("paypal", ppTxId),
+      eventSourceUrl: "https://www.atparma.com/checkout/successo",
+      email: verifiedEmail !== "noreply@atparma.com" ? verifiedEmail : null,
+      phone: phone || null,
+      firstName: verifiedOrder.payer?.name?.given_name || null,
+      lastName: verifiedOrder.payer?.name?.surname || null,
+      value: Number(amount) || 0,
+      currency: "EUR",
+      contentName: verifiedService,
+      contentId: serviceId || undefined,
+      transactionId: ppTxId,
     });
 
     return NextResponse.json({ success: true });
