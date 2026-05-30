@@ -31,14 +31,12 @@ Google Sheets (calendario editoriale)
 
 **Vanno completati nell'ordine sotto, prima di importare il workflow.**
 
-### 1. Conversione profilo professionale → Pagina Facebook classica
+### 1. ~~Conversione profilo professionale → Pagina Facebook classica~~ — non più necessaria
 
-Le API Meta Graph **non funzionano** sui profili professionali. Serve una Pagina
-vera. Migrazione richiede 24-72h. Stato attuale: **profilo pro ID 61588678684920**.
-
-- Vai su `facebook.com/pages/create/migrate`
-- Segui il wizard di conversione
-- Aspetta email di conferma Meta (24-72h)
+**Aggiornato 2026-05-29**: l'analisi ha verificato che le Graph API funzionano
+direttamente sul profilo in modalità professionale (ID `61588678684920`) per i
+nostri use case (pubblicazione post, reach metrics, comments). La conversione a
+Pagina classica non è richiesta. Si salta direttamente a Meta App + token.
 
 ### 2. Meta App registrata su Meta for Developers
 

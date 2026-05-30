@@ -58,18 +58,22 @@ Sono tutto materiale "setup automation social", coerente come commit atomico. **
 
 Il piano d'azione è stato già definito (per dettagli vedi `scripts/n8n/README.md` e le chat ChatGPT/Claude precedenti). Lo riassumo:
 
-### 🔴 Bloccante in attesa Meta
-**Conversione profilo professionale FB → Pagina classica** (ID profilo attuale `61588678684920`). Avviata? Verifica appena rientri. Meta richiede 24-72h. **Senza Pagina classica le Graph API non funzionano** e tutto il workflow n8n è inerte.
+### ~~🔴 Bloccante in attesa Meta~~ — **RIMOSSO 2026-05-29**
+~~Conversione profilo professionale FB → Pagina classica~~ — **non più necessaria.**
+Analisi del 29/05 ha verificato che Graph API funziona direttamente sul profilo
+in modalità professionale per i nostri use case (pubblicazione post, reach
+metrics, comments). Il workflow n8n può partire appena Telegram bot + Google
+Sheet sono configurati. Dettagli operativi in `docs/PIANO-SOCIAL-AT-2026.md`.
 
-### 🟡 Da fare in parallelo mentre Meta lavora
+### 🟡 Da fare per attivare workflow n8n
 | Task | Tempo | Bloccante? |
 |---|---|---|
 | Crea bot Telegram (`@BotFather`) — salva Bot Token + tuo Chat ID | 5 min | Sì per Telegram approval gate |
 | Crea Google Sheet "AT Parma — Calendario Social" con schema da `scripts/n8n/calendario-template.md` | 30 min | Sì per workflow n8n |
-| Riempi il Sheet con 4-6 righe pilota (prima 2 settimane post programmati) | 30 min | Sì |
-| Pubblica i 3 post organici manuali (3 bozze nei messaggi chat precedenti) | 15 min × 3 giorni | No tecnicamente, ma SEO/algoritmo Meta sì |
+| Riempi il Sheet con 4-6 righe pilota (vedi `scripts/n8n/post-setup-9.md` per copy pronta dei primi 9 post) | 30 min | Sì |
+| Pubblica i 9 post di setup (manuali nelle prime 2 settimane, vedi `scripts/n8n/post-setup-9.md`) | 15-20 min × 9 | Sì per identità profilo |
 
-### 🟢 Quando Pagina FB è migrata
+### 🟢 Setup Meta App (rimasto, ma NON più gated da migrazione)
 | Task | Tempo |
 |---|---|
 | Crea Meta App `developers.facebook.com` | 30 min |
@@ -85,9 +89,10 @@ Il piano d'azione è stato già definito (per dettagli vedi `scripts/n8n/README.
 ### Priorità 1 — Chiudere setup n8n preparatorio
 1. `git pull` (sincronizza)
 2. `git push` del HANDOFF + `scripts/n8n/` (se non già fatto a fine di questa sessione)
-3. Verifica stato migrazione Pagina FB
+3. ~~Verifica stato migrazione Pagina FB~~ — risolto 29/05, non più necessaria
 4. Crea bot Telegram + salva token in luogo sicuro (1Password, Bitwarden, ecc.)
 5. Crea Google Sheet calendario + condividi con account che n8n usa
+6. Carica i 9 post di setup (vedi `scripts/n8n/post-setup-9.md`) — sett 1-2 manuali, dalla sett 3 entra n8n
 
 ### Priorità 2 — Setup tracking ads dormiente
 1. Apri `ads.google.com`, verifica/crea account Google Ads
@@ -118,7 +123,7 @@ Quelle del HANDOFF v2.0 restano in piedi (sotto). Non le riepilogo qui per non d
 | Tema | Decisione aperta | Quando decidere |
 |---|---|---|
 | Cadenza post automatizzati | Default proposto 3/settimana (lun-mer-ven). Confermare dopo 4 settimane di test | Dopo primo mese di pubblicazione |
-| Budget Meta Ads iniziale | Da definire dopo che la Pagina FB ha 50+ follower e 4-6 post organici visibili | Dopo migrazione Pagina + 2 settimane di post manuali |
+| Budget Meta Ads iniziale | Da definire dopo che la Pagina FB ha 50+ follower e 4-6 post organici visibili | Dopo 2 settimane di post organici (vedi `docs/PIANO-SOCIAL-AT-2026.md`) |
 | Budget Google Ads iniziale | Search ads "commercialista Parma", "730 online" — budget realistico 300-500 €/mese | Dopo setup GA4 + Google Ads collegati |
 | Sostituzione foto AI esistenti sul sito | Le 4 foto reali della sede sono caricate ma NON ancora sostituite alle generated-*.png in homepage e blog | Da decidere a freddo (utente preferisce per ora tenere Duomo + Battistero) |
 | Articoli figli del cluster crisi impresa | Concordato semplificato, art. 13 CCII, indici crisi, esdebitazione persone fisiche dopo prima esdebitazione | Da valutare dopo 4-8 settimane di osservazione ranking dei 2 pillar |
@@ -139,7 +144,7 @@ Quelle del HANDOFF v2.0 restano in piedi (sotto). Non le riepilogo qui per non d
 | Dominio prod | `https://www.atparma.com` |
 | Vercel deployments | dashboard Vercel, progetto `atparma-sito` |
 | n8n | `https://n8n.atparma.com` (verificare credenziali admin) |
-| Profilo FB attuale | ID `61588678684920` — in attesa migrazione a Pagina classica |
+| Profilo FB attuale | ID `61588678684920` — profilo in modalità professionale, Graph API utilizzabili direttamente (analisi 29/05) |
 | Google Search Console | `https://search.google.com/search-console` |
 | Meta Events Manager | `https://business.facebook.com/events_manager2/` (dopo creazione Business Manager) |
 | Meta for Developers | `https://developers.facebook.com/apps/` |
@@ -148,6 +153,6 @@ Quelle del HANDOFF v2.0 restano in piedi (sotto). Non le riepilogo qui per non d
 
 La sessione 28/05 ha aggiunto **3 layer paralleli al progetto**: contenuto SEO (2 articoli blog), infrastruttura ads (foto + tracking + creatività), e setup automazione social (n8n). Il tutto è in `main` o pronto per esserlo.
 
-Il collo di bottiglia adesso è **operativo, non tecnico**: aspettare che Meta completi la migrazione della Pagina FB e configurare gli account ads. Stimato 1-2 settimane per arrivare alla prima campagna live.
+Il collo di bottiglia adesso è **operativo, non tecnico**: produrre e pubblicare costantemente i 9 post di setup + caricare il calendario su Google Sheet per attivare il workflow n8n. Stimato 2 settimane di post manuali, poi automazione attiva. Piano completo in `docs/PIANO-SOCIAL-AT-2026.md`.
 
 In attesa, la parte di SEO organico (articoli blog) lavora già: appena i 2 articoli sono indicizzati da Google, iniziano a portare traffico passivo per "sovraindebitamento Parma", "composizione negoziata Parma", "commercialista crisi impresa Parma" — keyword locali a bassa competizione, ranking realistico in 4-12 settimane.
