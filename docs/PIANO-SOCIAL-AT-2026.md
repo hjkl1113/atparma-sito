@@ -1,10 +1,31 @@
 # Piano organico IG + FB — A.T. Consulting Parma
 
-**Versione**: 1.0
-**Data creazione**: 2026-05-30
+**Versione**: 1.1 (merge col piano Mac 29/05)
+**Data creazione**: 2026-05-30 · **Ultima revisione**: 2026-06-02
 **Owner**: Alessandro (review) · Sara (esecuzione operativa) · Claude/n8n (automazione produzione)
 **Orizzonte**: 90 giorni (Q3 2026 estivo: giugno – agosto)
 **Obiettivo**: 2-5 lead qualificati/mese dai social entro fine sett 12, **a costo zero ads**
+
+## Scelta operativa 2026-06-02 — Merge col piano Mac (opzione C)
+
+In parallelo a questo piano (cadenza 5/sett @ 12:30+20:30, multi-formato Reels+Caroselli+Stories),
+il 29/05 dal Mac è stato creato un piano editoriale 8 settimane con cadenza 3/sett @ 09:00
+(`scripts/n8n/piano-editoriale-8-settimane.md`). Dopo confronto **scegliamo l'opzione C**:
+
+- **Sett 1-3 (8-26 giugno)**: pubblichiamo i miei 9 post di setup multi-formato per dare
+  identità al profilo, ma con cadenza Mac (3/sett lun-mer-ven @ 09:00 invece di 5/sett).
+  Ordine ottimizzato per scadenze fiscali (POST 6 IMU anticipato per acconto 16/6).
+- **Sett 4-11 (29 giugno – 14 agosto)**: parte il piano Mac 21 post (dal post 4 al 24),
+  cadenza confermata 3/sett lun-mer-ven @ 09:00. Entra il workflow n8n con approval gate
+  Telegram (fase 2) appena bot + Sheet sono operativi.
+
+Tutte le 30 date sono già pre-popolate nel CSV `scripts/n8n/calendario-social-seed.csv`
+(setup posts: `status=manuale` — workflow li ignora; Mac posts: `status=bozza` — diventano
+`pronto` quando approvati per workflow).
+
+**Conseguenza pratica per le sezioni sotto**: la cadenza target diventa **3/sett @ 09:00**
+(non 5/sett). Il resto del piano (pilastri, format, gerarchia CTA, primi 60 min, KPI,
+forecast) resta invariato.
 
 ---
 

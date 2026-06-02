@@ -4,8 +4,18 @@
 confermare) e alla Pagina FB. Le prime 9 caselle devono dire al visitatore in 3 secondi:
 *cosa fai · per chi · perché fidarsi*.
 
-**Calendario consigliato**: 1 post/giorno per 9 giorni feriali consecutivi (2 settimane lavorative
-salta sab/dom). Orario sempre 12:30 o 20:30.
+**Calendario operativo (opzione C — merge col piano Mac)**:
+3 post/sett distribuiti su 3 settimane consecutive (lun-mer-ven), orario **09:00**
+(coerente con cadenza piano Mac in `piano-editoriale-8-settimane.md`).
+Dalla settimana 4 (lun 29/6) parte il piano editoriale 8 settimane.
+
+Ordine ottimizzato per scadenze fiscali giugno:
+
+- Sett 1: POST 1 (lun 8/6) · POST 2 (mer 10/6) · **POST 6 anticipato** (ven 12/6 — scadenza acconto IMU 16/6)
+- Sett 2: POST 3 (lun 15/6) · POST 4 (mer 17/6) · POST 5 (ven 19/6)
+- Sett 3: POST 7 (lun 22/6) · POST 8 (mer 24/6) · POST 9 (ven 26/6)
+
+Tutte le date + cta_url sono già nel CSV `scripts/n8n/calendario-social-seed.csv` (status=manuale).
 
 **Hashtag set base** (ruotare 1 dei 4 set per ogni post):
 
@@ -347,22 +357,23 @@ Lavoriamo su composizione negoziata, ristrutturazione del debito, sovraindebitam
 
 ---
 
-## Schema operativo settimana 1-2
+## Schema operativo settimane 1-3 (8-26 giugno 2026)
 
-| Giorno | Post | Orario | Azione manuale parallela |
+| Data | Post | Orario | Azione manuale parallela |
 |---|---|---|---|
-| Lun sett 1 | POST 1 (Reel 730) | 12:30 | Commenti su 5 commercialisti adiacenti |
-| Mar sett 1 | POST 2 (Carosello checklist 730) | 12:30 | Commenti su 5 consulenti del lavoro |
-| Mer sett 1 | POST 3 (Manifesto cortile) | 20:30 | Lista 30 account adiacenti IT |
-| Gio sett 1 | POST 4 (Reel P.IVA INPS) | 12:30 | Commenti su 5 commercialisti micro |
-| Ven sett 1 | POST 5 (Carosello forfettario) | 12:30 | DM a 10 ex-clienti: "secondo te è chiara?" |
-| Lun sett 2 | POST 6 (Reel IMU comodato) | 12:30 | Commenti su 5 avvocati tributaristi |
-| Mar sett 2 | POST 7 (Post valori) | 20:30 | LinkedIn personale: commento sotto post AdE |
-| Mer sett 2 | POST 8 (Reel before/after sede) | 20:30 | Commenti su 5 notai locali |
-| Gio sett 2 | POST 9 (Carosello crisi PMI) | 20:30 | LinkedIn: commento sotto post Sole24Ore |
+| Lun 8/6 | POST 1 (Reel 730) | 09:00 | Commenti su 5 commercialisti adiacenti |
+| Mer 10/6 | POST 2 (Carosello checklist 730) | 09:00 | Commenti su 5 consulenti del lavoro |
+| Ven 12/6 | POST 6 (Reel IMU comodato) | 09:00 | DM a 10 ex-clienti: "secondo te è chiara?" (IMU 16/6 imminente) |
+| Lun 15/6 | POST 3 (Manifesto cortile) | 09:00 | Commenti su 5 commercialisti micro |
+| Mer 17/6 | POST 4 (Reel P.IVA INPS) | 09:00 | Commenti su 5 avvocati tributaristi |
+| Ven 19/6 | POST 5 (Carosello forfettario) | 09:00 | LinkedIn: commento sotto post AdE |
+| Lun 22/6 | POST 7 (Post valori) | 09:00 | Commenti su 5 notai locali |
+| Mer 24/6 | POST 8 (Reel before/after sede) | 09:00 | LinkedIn: commento sotto post Sole24Ore |
+| Ven 26/6 | POST 9 (Carosello crisi PMI) | 09:00 | DM ex-clienti PMI: anticipa il post |
 
-A partire dal **venerdì settimana 2** parte la programmazione regolare descritta in
-`docs/PIANO-SOCIAL-AT-2026.md` sez. 9.
+A partire da **lun 29/6** parte il piano editoriale 8 settimane (24 post),
+descritto in `scripts/n8n/piano-editoriale-8-settimane.md` — entra il workflow n8n
+con approval gate Telegram (fase 2) appena bot + Sheet sono configurati.
 
 ## Prossimi step quando questi 9 sono live
 
