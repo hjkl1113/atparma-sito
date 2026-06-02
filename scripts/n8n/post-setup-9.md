@@ -78,7 +78,7 @@ Vuoi la checklist completa dei 12 documenti da preparare? Scrivi "730" qui sotto
 **Slide**:
 
 1. **Promessa** — *"Checklist 730 2026"* + sottotitolo *"12 documenti da preparare prima di andare dal commercialista"*
-2. **Problema** — *"Ogni anno il 40% dei clienti porta documenti incompleti. Risultato: tempo perso e rischio di sbagliare detrazioni."*
+2. **Problema** — *"Molti contribuenti arrivano al primo appuntamento senza i documenti giusti. Risultato: tempo perso e rischio di perdere detrazioni a cui hanno diritto."*
 3. **Anagrafica** — *"1. Codice fiscale + documento · 2. CU 2025 (modello UniCo lavoro dipendente / pensione)"*
 4. **Casa** — *"3. Visura catastale immobili · 4. Bollette gas/luce/TARI per detrazione superbonus o ristrutturazioni · 5. Contratto mutuo + bonifico interessi"*
 5. **Spese sanitarie** — *"6. Ricevute farmacia (scontrini parlanti) · 7. Fatture medico/specialista · 8. Spese sanitarie familiari a carico"*
@@ -92,7 +92,7 @@ Vuoi la checklist completa dei 12 documenti da preparare? Scrivi "730" qui sotto
 ```
 La checklist che spediamo a ogni nuovo cliente prima del primo appuntamento. Salvala: ti serve a giugno.
 
-Detrarre tutto è possibile, ma solo se i documenti sono completi. Ogni anno vediamo gente che paga 200-400€ in più di tasse solo per uno scontrino farmacia senza codice fiscale.
+Detrarre tutto è possibile, ma solo se i documenti sono completi. Una detrazione persa per uno scontrino senza codice fiscale può costare centinaia di euro all'anno.
 
 ⬇ Salva il post (icona segnalibro in basso a destra) così la rileggi al momento giusto.
 
@@ -213,7 +213,7 @@ Sul sito abbiamo anche un calcolatore gratuito che fa la simulazione completa in
 
 ---
 
-## POST 6 — Reel · privati · "Cane sul divano (errore IMU 2026 più comune)"
+## POST 6 — Reel · privati · "IMU 2026: l'errore del comodato d'uso"
 
 **Formato**: Reel 20-25 secondi.
 **Persona**: privato 35-65 (proprietari di casa).
@@ -222,7 +222,7 @@ Sul sito abbiamo anche un calcolatore gratuito che fa la simulazione completa in
 
 **Script**:
 
-> 0-2s — *Hook* (testo grande): **"L'errore IMU che fa 1 contribuente su 5."**
+> 0-2s — *Hook* (testo grande): **"L'errore IMU sul comodato che vediamo ogni anno."**
 >
 > 3-10s — *Problema*: "Hai dato in comodato d'uso la seconda casa a un figlio? Pensi sia esente IMU."
 >
@@ -371,9 +371,11 @@ Lavoriamo su composizione negoziata, ristrutturazione del debito, sovraindebitam
 | Mer 24/6 | POST 8 (Reel before/after sede) | 09:00 | LinkedIn: commento sotto post Sole24Ore |
 | Ven 26/6 | POST 9 (Carosello crisi PMI) | 09:00 | DM ex-clienti PMI: anticipa il post |
 
-A partire da **lun 29/6** parte il piano editoriale 8 settimane (24 post),
-descritto in `scripts/n8n/piano-editoriale-8-settimane.md` — entra il workflow n8n
-con approval gate Telegram (fase 2) appena bot + Sheet sono configurati.
+A partire da **lun 29/6** partono i 21 post del piano editoriale 8 settimane
+(dal post #4 al #24 — i primi 3 datati 1-3-5/6 sono stati saltati per pausa
+operativa, andranno riprogrammati). Descritto in
+`scripts/n8n/piano-editoriale-8-settimane.md` — entra il workflow n8n con
+approval gate Telegram (fase 2) appena bot + Sheet sono configurati.
 
 ## Prossimi step quando questi 9 sono live
 

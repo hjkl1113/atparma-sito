@@ -98,7 +98,7 @@ Totale produzione: **5-6 originali/settimana**, riciclati cross-platform. Batch 
 ## 4. Format Reels (4 tipi rotanti)
 
 - **Sintomo nascosto** — *"Se hai P.IVA forfettaria da meno di 6 mesi e non hai ancora ricevuto QUESTO documento, c'è un problema."* (hook 0-2s, problema 3-8s, spiegazione 9-20s, CTA 21-30s)
-- **Errore comune** — *"L'errore che fa 1 forfettario su 3 alla prima fattura."* · *"Il dato che nessuno controlla sulla precompilata 730."*
+- **Errore comune** — *"L'errore che vediamo spesso al primo anno di P.IVA forfettaria."* · *"Il dato che nessuno controlla sulla precompilata 730."* (preferire formulazioni qualitative, evitare statistiche numeriche non dimostrabili — vincolo deontologico ODCEC)
 - **Prima/Dopo** — screen documenti caos → portale clienti ordinato · sede esterna → cortile interno
 - **Mini-guida visiva** — *"Calendario IMU 2026 in 30 secondi"* · *"3 spese che TUTTI dimenticano nel 730"*
 

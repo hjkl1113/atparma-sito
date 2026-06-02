@@ -1,5 +1,13 @@
 # 3 post Facebook — Sovraindebitamento (uno per target)
 
+> **⚠️ NOTA 2026-06-02**: Le date originarie 1-3-5/6 (visibili più sotto nel
+> documento per riferimento storico) **sono passate** per pausa operativa.
+> Il calendario operativo aggiornato è in `scripts/n8n/calendario-social-seed.csv`:
+> sovraindebitamento PMI è ora programmato per **ven 26/6** (POST 9 setup, riga
+> CSV con `topic=Carosello crisi impresa 7 segnali bilancio`). I 3 post pronti
+> qui sotto restano riusabili come copy base — vanno solo riprogrammati in
+> nuove righe del Sheet quando vuoi rilanciarli (sett 8+ del piano Mac).
+
 Tutti e 3 puntano all'articolo già pubblicato:
 `https://www.atparma.com/blog/sovraindebitamento-2026-come-uscire-dai-debiti`
 

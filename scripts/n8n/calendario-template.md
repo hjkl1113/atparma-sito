@@ -16,7 +16,7 @@ con `data` = oggi e `status` = `pronto`.
 | `prezzo` | NUMBER | `50` | Prezzo da menzionare (opzionale) |
 | `cta_url` | URL | `https://www.atparma.com/contatti?ref=fb-730` | URL di destinazione con UTM |
 | `bozza` | TEXT | (vuota) | Bozza scritta a mano (opzionale, override AI) |
-| `status` | ENUM | `pronto` | `bozza` \| `pronto` \| `pubblicato` \| `saltato` |
+| `status` | ENUM | `pronto` | `bozza` \| `pronto` \| `pubblicato` \| `saltato` \| `manuale` |
 | `post_id` | TEXT | `123456789_987654321` | ID post FB generato dopo pubblicazione |
 | `pubblicato_il` | DATETIME | `2026-06-02 09:15` | Timestamp effettivo pubblicazione |
 | `reach_24h` | NUMBER | `420` | Reach 24h dopo (fetched da Graph API) |
@@ -37,6 +37,7 @@ con `data` = oggi e `status` = `pronto`.
 - `pronto` — pronta per pubblicazione automatica
 - `pubblicato` — workflow l'ha già pubblicata (set da n8n)
 - `saltato` — utente ha rifiutato preview Telegram (set da n8n)
+- `manuale` — riga con copy pre-scritta che va pubblicata a mano (workflow la ignora). Usato per i 9 post di setup in `post-setup-9.md` (sett 1-3, identità profilo).
 
 ## Esempio compilato (prima settimana — 02/06 → 06/06)
 

@@ -66,12 +66,15 @@ metrics, comments). Il workflow n8n può partire appena Telegram bot + Google
 Sheet sono configurati. Dettagli operativi in `docs/PIANO-SOCIAL-AT-2026.md`.
 
 ### 🟡 Da fare per attivare workflow n8n
-| Task | Tempo | Bloccante? |
+| Task | Stato 2026-06-02 | Note |
 |---|---|---|
-| Crea bot Telegram (`@BotFather`) — salva Bot Token + tuo Chat ID | 5 min | Sì per Telegram approval gate |
-| Crea Google Sheet "AT Parma — Calendario Social" con schema da `scripts/n8n/calendario-template.md` | 30 min | Sì per workflow n8n |
-| Riempi il Sheet con 4-6 righe pilota (vedi `scripts/n8n/post-setup-9.md` per copy pronta dei primi 9 post) | 30 min | Sì |
-| Pubblica i 9 post di setup (manuali nelle prime 2 settimane, vedi `scripts/n8n/post-setup-9.md`) | 15-20 min × 9 | Sì per identità profilo |
+| Crea bot Telegram (`@BotFather`) — salva Bot Token + tuo Chat ID | ✅ FATTO 2/6 | Token + Chat ID in `.env.local` |
+| Crea Google Sheet "AT Parma — Calendario Social" con schema da `scripts/n8n/calendario-template.md` | ✅ FATTO 2/6 | 30 righe importate da `scripts/n8n/calendario-social-seed.csv` |
+| Pubblica i 9 post di setup manuali (sett 1-3, vedi `scripts/n8n/post-setup-9.md`) | ⏳ DA FARE da lun 8/6 | 15-20 min × 9, lun-mer-ven @ 09:00 |
+| Routine commenti 30 min/giorno su 30 account adiacenti IT (vedi `scripts/n8n/account-adiacenti-IT.md`) | ⏳ DA FARE da lun 8/6 | 5 commenti/giorno × 7 giorni |
+| Crea Meta App + Business Verification | ⏳ IN CORSO 2/6 | Step 4 in `scripts/n8n/README.md` — bloccante Business Manager AT Parma |
+| Implementa 3 webhook n8n companion (fb-publish, fb-skip, fb-metrics-fetcher) | ⏳ DA FARE entro 29/6 | Workflow attualmente solo preview, no publish |
+| Fix `sheetName` + 6 placeholder in `scripts/n8n/workflow-publisher.json` | ⏳ DA FARE entro 29/6 | Tab name reale + SHEET_ID + cred IDs + APPROVAL_SECRET HMAC |
 
 ### 🟢 Setup Meta App (rimasto, ma NON più gated da migrazione)
 | Task | Tempo |
