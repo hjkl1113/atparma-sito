@@ -89,24 +89,21 @@ curl -X GET "https://graph.facebook.com/v18.0/me/accounts?access_token={LONG_LIV
 
 Conserva il token in n8n come **Credential** (mai in plain text in workflow).
 
-### 6. Telegram Bot per approval gate
+### 6. ✅ Telegram Bot per approval gate — FATTO 2026-06-02
 
-- Apri Telegram, cerca `@BotFather`
-- `/newbot` → segui il flow
-  - Nome: `AT Parma Social Bot`
-  - Username: `atparma_social_bot` (deve essere unico)
-- Copia il **Bot Token** che ti restituisce
-- Crea il tuo chat ID:
-  - Apri il tuo bot, manda un messaggio qualsiasi
-  - Vai su `https://api.telegram.org/bot{TOKEN}/getUpdates`
-  - Copia `chat.id` (es. `123456789`)
+Bot Telegram creato via `@BotFather`. Token + Chat ID salvati in
+`.env.local` (mai committato). Vanno trasferiti nelle credentials di n8n
+quando il workflow si attiva.
 
-Il bot manderà preview a quel chat.
+### 7. ✅ Google Sheets — calendario editoriale — FATTO 2026-06-02
 
-### 7. Google Sheets — calendario editoriale
+Foglio "AT Parma — Calendario Social" creato e popolato dall'import
+del CSV `scripts/n8n/calendario-social-seed.csv` (30 righe: 9 setup post
++ 21 post Mac plan 8 settimane). Schema completo in
+`calendario-template.md`. URL del foglio NON committato (solo in
+`.env.local` quando configureremo n8n).
 
-Crea un nuovo Google Sheet "AT Parma — Calendario Social". Vedi
-`calendario-template.md` per lo schema completo.
+Pre-import 3 setup manuali consigliati: convalida dati col B (`privati,pmi,artigiani`), convalida dati col H (`bozza,pronto,pubblicato,saltato,manuale`), blocco riga 1.
 
 In sintesi:
 - 1 riga = 1 post programmato
