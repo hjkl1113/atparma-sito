@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
 import { STUDIO } from "@/lib/studio-data";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/lib/icons";
-import { getAllMacroSezioni } from "@/app/servizi/_data/macro-sezioni";
+import { getAllMacroSezioni, CONSULENZE_SPECIALISTICHE } from "@/app/servizi/_data/macro-sezioni";
 
 function Hero() {
   return (
@@ -158,14 +158,18 @@ const servizi = getAllMacroSezioni();
 
 function Servizi() {
   return (
-    <section id="servizi" className="py-24 bg-white">
+    <section id="servizi-online" className="scroll-mt-24 py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-3 text-center">
-          Servizi online per area
+          Servizi online · prezzo trasparente
         </p>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-16 font-[family-name:var(--font-heading)]">
-          Parti dal percorso giusto
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center mb-4 font-[family-name:var(--font-heading)]">
+          Acquista online, in autonomia
         </h2>
+        <p className="text-zinc-600 text-center max-w-2xl mx-auto mb-16 leading-relaxed">
+          730, Partita IVA e gestione annuale: scegli il percorso, vedi il prezzo
+          IVA inclusa e attivi tutto dal portale. Senza preventivo, senza attese.
+        </p>
         <div className="grid md:grid-cols-3 gap-8">
           {servizi.map((s) => (
             <Link
@@ -178,19 +182,73 @@ function Servizi() {
               </h3>
               <p className="text-zinc-600 leading-relaxed text-sm mb-5">{s.shortDescription}</p>
               <span className="text-xs text-[var(--color-accent)] font-medium inline-flex items-center gap-1">
-                Apri area <span aria-hidden>&rarr;</span>
+                Vedi prezzi e acquista <span aria-hidden>&rarr;</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ConsulenzaSpecialistica() {
+  return (
+    <section
+      id="consulenza-specialistica"
+      className="scroll-mt-24 py-24 bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] text-white"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-2xl mb-14">
+          <p className="text-xs tracking-[0.25em] uppercase text-white/50 font-medium mb-3">
+            Consulenza specialistica
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
+            Quando il caso non sta in una scheda
+          </h2>
+          <p className="text-white/70 leading-relaxed">
+            Crisi d&apos;impresa, operazioni straordinarie, finanza e incarichi
+            complessi. Qui non c&apos;è un carrello: ogni mandato parte da una
+            valutazione riservata, costruita sul caso specifico.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {CONSULENZE_SPECIALISTICHE.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/servizi/${item.slug}`}
+              className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.06]"
+            >
+              <h3 className="text-xl font-semibold mb-3 font-[family-name:var(--font-heading)]">
+                {item.title}
+              </h3>
+              <p className="text-white/65 leading-relaxed text-sm flex-1 mb-6">{item.desc}</p>
+              <span className="text-sm font-medium text-white inline-flex items-center gap-2">
+                Richiedi una valutazione
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </span>
             </Link>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
           <Link
-            href="/servizi#consulenze-specialistiche"
-            className="text-sm text-zinc-500 hover:text-zinc-900 underline underline-offset-4 transition-colors"
+            href="/contatti?ref=consulenza-specialistica"
+            className="inline-block px-7 py-3.5 bg-white text-zinc-900 rounded-lg font-medium text-sm hover:bg-zinc-100 transition-colors"
           >
-            Per crisi d&apos;impresa, finanza agevolata e incarichi complessi vedi le consulenze specialistiche
+            Prenota una valutazione riservata
           </Link>
+          <p className="text-white/50 text-sm">
+            Risposta entro 24 ore lavorative · Riservatezza garantita
+          </p>
         </div>
       </div>
     </section>
@@ -534,6 +592,7 @@ export default function Home() {
         <Intro />
         <AreaClienti />
         <Servizi />
+        <ConsulenzaSpecialistica />
         <CalcolatoreBanner />
         <Pricing />
         <ChiSiamo />
