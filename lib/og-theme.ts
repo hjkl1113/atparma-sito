@@ -16,6 +16,22 @@ export const ogThemes: Record<string, OgTheme> = {
     titolo: "Studio commercialista a Parma",
   },
   // === Articoli blog (nuovi) ===
+  "concordato-semplificato-liquidazione-2026": {
+    eyebrow: "Guida fiscale",
+    titolo: "Concordato semplificato 2026",
+  },
+  "adeguati-assetti-indici-crisi-2026": {
+    eyebrow: "Guida fiscale",
+    titolo: "Adeguati assetti e indici della crisi",
+  },
+  "concordato-minore-2026": {
+    eyebrow: "Guida fiscale",
+    titolo: "Concordato minore 2026",
+  },
+  "esdebitazione-incapiente-2026": {
+    eyebrow: "Guida fiscale",
+    titolo: "Esdebitazione del debitore incapiente",
+  },
   "composizione-negoziata-crisi-impresa-2026": {
     eyebrow: "Guida fiscale",
     titolo: "Composizione negoziata 2026",

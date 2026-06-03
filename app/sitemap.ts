@@ -95,6 +95,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/blog/concordato-semplificato-liquidazione-2026`,
+      lastModified: new Date("2026-06-03"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/adeguati-assetti-indici-crisi-2026`,
+      lastModified: new Date("2026-06-03"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/concordato-minore-2026`,
+      lastModified: new Date("2026-06-03"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/esdebitazione-incapiente-2026`,
+      lastModified: new Date("2026-06-03"),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: "monthly",
