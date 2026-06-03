@@ -136,46 +136,58 @@ export default async function ServiziPage() {
             ))}
           </div>
 
-          <section id="consulenze-specialistiche">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3 font-[family-name:var(--font-heading)]">
-              Consulenze specialistiche su misura
-            </h2>
-            <p className="text-zinc-600 text-sm mb-10 max-w-2xl">
-              Percorsi complessi, operazioni straordinarie e incarichi professionali che non vanno compressi in una scheda standard. Qui il punto di arrivo e&apos; la consulenza dedicata.
-            </p>
+          <section
+            id="consulenze-specialistiche"
+            className="scroll-mt-24 rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] text-white p-8 sm:p-12"
+          >
+            <div className="max-w-2xl mb-12">
+              <p className="text-xs tracking-[0.25em] uppercase text-white/50 font-medium mb-3">
+                Consulenza specialistica
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
+                Quando il caso non sta in una scheda
+              </h2>
+              <p className="text-white/70 leading-relaxed">
+                Percorsi complessi, operazioni straordinarie e incarichi professionali
+                che non vanno compressi in una scheda standard. Qui non c&apos;è un
+                carrello: ogni mandato parte da una valutazione riservata, costruita
+                sul caso specifico.
+              </p>
+            </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6">
               {CONSULENZE_SPECIALISTICHE.map((item) => (
-                <div
+                <Link
                   key={item.slug}
-                  className="p-8 rounded-2xl border border-zinc-100 hover:border-zinc-200 hover:shadow-lg transition-all duration-300"
+                  href={`/servizi/${item.slug}`}
+                  className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.06]"
                 >
                   <h3 className="text-xl font-semibold mb-3 font-[family-name:var(--font-heading)]">
                     {item.title}
                   </h3>
-                  <p className="text-zinc-600 leading-relaxed text-sm mb-4">{item.desc}</p>
-                  <Link
-                    href={`/servizi/${item.slug}`}
-                    className="inline-flex items-center gap-2 text-[var(--color-accent)] font-medium text-sm hover:underline"
-                  >
-                    Scopri di più
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <p className="text-white/65 leading-relaxed text-sm flex-1 mb-6">{item.desc}</p>
+                  <span className="text-sm font-medium text-white inline-flex items-center gap-2">
+                    Richiedi una valutazione
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               ))}
             </div>
-          </section>
 
-          <div className="mt-16 text-center">
-            <Link
-              href="/contatti"
-              className="inline-block px-8 py-4 bg-[var(--color-accent)] text-white font-medium rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors"
-            >
-              Richiedi una consulenza
-            </Link>
-          </div>
+            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
+              <Link
+                href="/contatti?ref=consulenza-specialistica"
+                className="inline-block px-7 py-3.5 bg-white text-zinc-900 rounded-lg font-medium text-sm hover:bg-zinc-100 transition-colors"
+              >
+                Prenota una valutazione riservata
+              </Link>
+              <p className="text-white/50 text-sm">
+                Risposta entro 24 ore lavorative · Riservatezza garantita
+              </p>
+            </div>
+          </section>
         </div>
       </main>
       <SiteFooter />
