@@ -1,7 +1,17 @@
 import type { MetadataRoute } from "next";
+import { articoli } from "@/lib/articoli";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.atparma.com";
+
+  // Articoli del blog generati dinamicamente da lib/articoli.ts:
+  // ogni nuovo articolo entra in sitemap automaticamente, senza disallineamenti.
+  const blogArticoli: MetadataRoute.Sitemap = articoli.map((a) => ({
+    url: `${baseUrl}/blog/${a.slug}`,
+    lastModified: new Date(a.data),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
 
   return [
     {
@@ -64,60 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/blog/commercialista-online`,
-      lastModified: new Date("2026-04-01"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/aprire-partita-iva-online`,
-      lastModified: new Date("2026-03-25"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/come-fare-730-online`,
-      lastModified: new Date("2026-03-18"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/sovraindebitamento-2026-come-uscire-dai-debiti`,
-      lastModified: new Date("2026-05-28"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/composizione-negoziata-crisi-impresa-2026`,
-      lastModified: new Date("2026-05-28"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/concordato-semplificato-liquidazione-2026`,
-      lastModified: new Date("2026-06-03"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/adeguati-assetti-indici-crisi-2026`,
-      lastModified: new Date("2026-06-03"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/concordato-minore-2026`,
-      lastModified: new Date("2026-06-03"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/esdebitazione-incapiente-2026`,
-      lastModified: new Date("2026-06-03"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
+    ...blogArticoli,
     {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
