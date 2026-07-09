@@ -150,7 +150,7 @@ def main() -> int:
         return 0
 
     user = env.get("STUDIO_MAIL_USER"); pw = env.get("STUDIO_MAIL_PASS")
-    host = env.get("SMTP_HOST", "smtp.aruba.it"); port = int(env.get("SMTP_PORT", "465"))
+    host = env.get("SMTP_HOST", "smtps.aruba.it"); port = int(env.get("SMTP_PORT", "465"))
     if not user or not pw:
         raise SystemExit("Credenziali SMTP mancanti (STUDIO_MAIL_USER/PASS).")
 
