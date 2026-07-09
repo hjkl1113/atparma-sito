@@ -2,12 +2,13 @@ import Link from "next/link";
 import { MobileMenu } from "@/components/mobile-menu";
 import { ScadenzeBanner } from "@/components/scadenze-banner";
 
-type Current = "home" | "servizi" | "strumenti" | "blog" | "faq" | "contatti";
+type Current = "home" | "servizi" | "strumenti" | "aggiornamenti" | "blog" | "faq" | "contatti";
 
 const voci: { href: string; label: string; key: Current }[] = [
   { href: "/", label: "Home", key: "home" },
   { href: "/servizi", label: "Servizi", key: "servizi" },
   { href: "/strumenti", label: "Strumenti", key: "strumenti" },
+  { href: "/aggiornamenti-fiscali", label: "Aggiornamenti", key: "aggiornamenti" },
   { href: "/blog", label: "Blog", key: "blog" },
   { href: "/faq", label: "FAQ", key: "faq" },
   { href: "/contatti", label: "Contatti", key: "contatti" },

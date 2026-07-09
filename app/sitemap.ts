@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articoli } from "@/lib/articoli";
+import { news } from "@/lib/news";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.atparma.com";
@@ -10,6 +11,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/blog/${a.slug}`,
     lastModified: new Date(a.data),
     changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  // Aggiornamenti fiscali (news brevi) generati da lib/news.json:
+  // ogni news pubblicata entra in sitemap in automatico.
+  const newsPagine: MetadataRoute.Sitemap = news.map((n) => ({
+    url: `${baseUrl}/aggiornamenti-fiscali/${n.slug}`,
+    lastModified: new Date(n.data),
+    changeFrequency: "monthly",
     priority: 0.6,
   }));
 
@@ -75,6 +85,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     ...blogArticoli,
+    {
+      url: `${baseUrl}/aggiornamenti-fiscali`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...newsPagine,
     {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
