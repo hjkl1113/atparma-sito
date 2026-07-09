@@ -42,7 +42,7 @@ export default function ArticoloPage() {
               "Guida completa alla dichiarazione delle cripto-attività nel 2026: chi è obbligato, niente soglia, imposta sostitutiva 0,2%, plusvalenze 26%, exchange esteri, wallet privati, NFT, stablecoin, DeFi, permute cripto-cripto.",
             image: "https://www.atparma.com/og?slug=cripto-quadro-rw-2026",
             datePublished: "2026-04-26",
-            dateModified: "2026-04-26",
+            dateModified: "2026-07-07",
             author: {
               "@type": "Organization",
               name: "A.T. Consulting Parma",
@@ -162,6 +162,12 @@ export default function ArticoloPage() {
             <p>
               Esempio: hai comprato 1 ETH a €1.500 nel 2022 e venduto a €3.500 nel 2025 → plusvalenza €2.000 → imposta 26% = €520.
             </p>
+            <div className="bg-amber-50 rounded-xl p-6 my-6 border border-amber-200">
+              <p className="font-semibold text-amber-900 text-sm mb-2">⚠ Attenzione: dal 2026 l&apos;aliquota sale al 33%</p>
+              <p className="text-sm text-amber-900/90 leading-relaxed">
+                Il 26% vale per le plusvalenze <strong>realizzate nel 2025</strong> (quelle che si dichiarano ora, nel 2026). Per i realizzi <strong>dal 1° gennaio 2026</strong> &mdash; che si dichiareranno nel 2027 &mdash; la Legge di Bilancio 2025 (L. 207/2024) ha innalzato l&apos;aliquota dal 26% al <strong>33%</strong>. La Legge di Bilancio 2026 (L. 199/2025) ha <strong>confermato il 33%</strong>, introducendo un&apos;unica eccezione al 26% per i <strong>token di moneta elettronica (stablecoin) denominati in euro</strong> conformi al regolamento europeo MiCAR (Reg. UE 2023/1114). Se realizzi plusvalenze nel 2026, metti da parte il 33%, non il 26%.
+              </p>
+            </div>
 
             <p><strong>4. IVAFE su conti che ospitano cripto &mdash; €34,20</strong></p>
             <p>

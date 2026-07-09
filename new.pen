@@ -96,6 +96,7 @@
                       "content": "Servizi",
                       "fontFamily": "Inter",
                       "fontSize": 13,
+                      "fontWeight": "normal",
                       "letterSpacing": 1
                     },
                     {
@@ -105,6 +106,7 @@
                       "content": "Chi siamo",
                       "fontFamily": "Inter",
                       "fontSize": 13,
+                      "fontWeight": "normal",
                       "letterSpacing": 1
                     },
                     {
@@ -114,6 +116,7 @@
                       "content": "Contatti",
                       "fontFamily": "Inter",
                       "fontSize": 13,
+                      "fontWeight": "normal",
                       "letterSpacing": 1
                     }
                   ]
@@ -161,7 +164,8 @@
                   "content": "Supportiamo imprese e professionisti nella gestione fiscale,\nnella crisi di impresa e nelle operazioni straordinarie.",
                   "lineHeight": 1.6,
                   "fontFamily": "Inter",
-                  "fontSize": 18
+                  "fontSize": 18,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -214,7 +218,8 @@
                           "fill": "#FFFFFF",
                           "content": "+39 0521 247721",
                           "fontFamily": "Inter",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -255,6 +260,7 @@
                       "content": "Anni di esperienza",
                       "fontFamily": "Inter",
                       "fontSize": 13,
+                      "fontWeight": "normal",
                       "letterSpacing": 1
                     }
                   ]
@@ -282,6 +288,7 @@
                       "content": "Aziende assistite",
                       "fontFamily": "Inter",
                       "fontSize": 13,
+                      "fontWeight": "normal",
                       "letterSpacing": 1
                     }
                   ]
@@ -309,6 +316,7 @@
                       "content": "Aree di specializzazione",
                       "fontFamily": "Inter",
                       "fontSize": 13,
+                      "fontWeight": "normal",
                       "letterSpacing": 1
                     }
                   ]
@@ -389,7 +397,8 @@
               "lineHeight": 1.4,
               "textAlign": "center",
               "fontFamily": "Playfair Display",
-              "fontSize": 36
+              "fontSize": 36,
+              "fontWeight": "normal"
             },
             {
               "type": "rectangle",
@@ -1329,7 +1338,8 @@
                       "fill": "#FFFFFF",
                       "content": "+39 0521 247721",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -4260,5 +4270,47 @@
         }
       ]
     }
-  ]
+  ],
+  "variables": {
+    "accent-gold": {
+      "type": "color",
+      "value": "#7D6B3DFF"
+    },
+    "accent-terracotta": {
+      "type": "color",
+      "value": "#C36F3EFF"
+    },
+    "accent-tomato": {
+      "type": "color",
+      "value": "#C0392BFF"
+    },
+    "border-subtle": {
+      "type": "color",
+      "value": "#DCD8CBFF"
+    },
+    "fg-inverse": {
+      "type": "color",
+      "value": "#F5F2E9FF"
+    },
+    "fg-primary": {
+      "type": "color",
+      "value": "#2D2926FF"
+    },
+    "fg-secondary": {
+      "type": "color",
+      "value": "#5E5954FF"
+    },
+    "surface-card": {
+      "type": "color",
+      "value": "#FBF9F3FF"
+    },
+    "surface-inverse": {
+      "type": "color",
+      "value": "#221F1DFF"
+    },
+    "surface-primary": {
+      "type": "color",
+      "value": "#F5F2E9FF"
+    }
+  }
 }

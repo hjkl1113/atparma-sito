@@ -47,3 +47,6 @@ next-env.d.ts
 # OMC tooling — should never be committed
 .omc/
 **/.omc/
+
+# dev log temporaneo
+.tmp-dev.log
