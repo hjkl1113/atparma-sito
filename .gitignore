@@ -50,3 +50,6 @@ next-env.d.ts
 
 # dev log temporaneo
 .tmp-dev.log
+
+# Ratio engine output (digest generati, non versionare)
+scripts/ratio/output/
