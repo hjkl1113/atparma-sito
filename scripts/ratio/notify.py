@@ -25,6 +25,7 @@ import urllib.parse
 from email.message import EmailMessage
 
 import lib_ratio as R
+import publish  # riuso md_to_html per il corpo completo
 
 BOZZE_DIR = os.path.join(os.path.dirname(__file__), "output", "bozze")
 OUT_DIR = os.path.join(os.path.dirname(__file__), "output")
@@ -47,6 +48,10 @@ def parse_bozza(path: str) -> dict | None:
     body = m.group(2)
     sm = re.search(r"^\s*>\s*\*\*Sommario:\*\*\s*(.*)$", body, flags=re.M)
     fm["_sommario"] = sm.group(1).strip() if sm else ""
+    # corpo completo dell'articolo (senza riga sommario, commenti, separatore finale)
+    body = re.sub(r"^\s*>\s*\*\*Sommario:\*\*.*$", "", body, flags=re.M)
+    body = re.sub(r"<!--.*?-->", "", body, flags=re.S).strip().rstrip("-").strip()
+    fm["_body_md"] = body
     return fm
 
 
@@ -72,6 +77,18 @@ def mailto(to: str, subject: str, body: str) -> str:
     return f"mailto:{to}?{q}"
 
 
+def styled_body(md: str) -> str:
+    """Corpo articolo in HTML con stili inline (i client email ignorano i CSS esterni)."""
+    h = publish.md_to_html(md)
+    h = h.replace("<h2>", '<h2 style="font-size:16px;font-weight:700;color:#1a2733;margin:18px 0 8px;">')
+    h = h.replace("<h3>", '<h3 style="font-size:14px;font-weight:700;color:#1a2733;margin:14px 0 6px;">')
+    h = h.replace("<p>", '<p style="font-size:14px;color:#3a4753;line-height:1.6;margin:0 0 10px;">')
+    h = h.replace("<ul>", '<ul style="font-size:14px;color:#3a4753;line-height:1.6;margin:0 0 10px;padding-left:20px;">')
+    h = h.replace("<ol>", '<ol style="font-size:14px;color:#3a4753;line-height:1.6;margin:0 0 10px;padding-left:20px;">')
+    h = h.replace("<li>", '<li style="margin-bottom:5px;">')
+    return h
+
+
 def build_html(bozze: list[dict], to: str, data_label: str) -> str:
     cards = []
     for i, b in enumerate(bozze, 1):
@@ -82,9 +99,10 @@ def build_html(bozze: list[dict], to: str, data_label: str) -> str:
         mod = mailto(to, f"[MODIFICA] {slug}",
                      f"MODIFICA {slug}:\n(scrivi qui cosa cambiare)")
         fonte_html = (
-            f'<p style="margin:0 0 14px;font-size:12px;color:#8698a6;">'
+            f'<p style="margin:14px 0;font-size:12px;color:#8698a6;">'
             f'<b style="color:#5a6b7a;">Norme citate:</b> {fonte}</p>' if fonte else ""
         )
+        corpo_html = styled_body(b.get("_body_md", ""))
         cards.append(f"""
         <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e4ebf1;border-radius:12px;margin-bottom:16px;">
           <tr><td style="padding:18px;">
@@ -92,7 +110,8 @@ def build_html(bozze: list[dict], to: str, data_label: str) -> str:
               #{i} · {cat}
             </div>
             <div style="font-size:17px;font-weight:700;color:#1a2733;line-height:1.3;margin-bottom:6px;">{b['titolo']}</div>
-            <div style="font-size:14px;color:#5a6b7a;margin-bottom:10px;">{b['_sommario']}</div>
+            <div style="font-size:14px;font-style:italic;color:#5a6b7a;margin-bottom:12px;">{b['_sommario']}</div>
+            <div style="border-top:1px solid #eef2f6;padding-top:12px;">{corpo_html}</div>
             {fonte_html}
             <a href="{ok}" style="display:inline-block;background:{ACCENT};color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:9px 16px;border-radius:8px;margin-right:8px;">✅ Approva e pubblica</a>
             <a href="{mod}" style="display:inline-block;background:#fff;color:#1a2733;text-decoration:none;font-size:14px;font-weight:600;padding:9px 16px;border-radius:8px;border:1px solid #cdd8e1;">✏️ Modifica</a>
