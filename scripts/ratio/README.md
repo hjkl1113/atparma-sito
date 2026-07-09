@@ -33,7 +33,15 @@ python3 read_daily.py
 
 # Genera il digest di un messaggio specifico
 python3 read_daily.py --id 628
+
+# FASE 2 — riscrivi gli argomenti scelti in bozze news originali (Sonnet 5)
+python3 rewrite.py --digest output/2026-07-09-quotidiana.json --pick 5,18
 ```
+
+`rewrite.py` chiama Claude (modello `claude-sonnet-5`, override con `RATIO_REWRITE_MODEL`)
+via `ANTHROPIC_API_KEY` (in `.env`, riusata dal portale). Produce bozze originali in
+`output/bozze/` con frontmatter (titolo SEO, slug, categoria, `stato: DA_APPROVARE`)
+e stima del costo. Nessuna pubblicazione: le bozze si rivedono/approvano prima.
 
 Output in `output/` (ignorato da git):
 - `AAAA-MM-GG-quotidiana.json` — dati strutturati (numero, data, argomenti[], pdf_link)

@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+"""Fase 2 — Riscrittura AI degli spunti Ratio in news ORIGINALI per il sito.
+
+Prende un digest generato da read_daily.py, seleziona gli argomenti indicati e,
+per ognuno, chiama Claude Sonnet 5 per produrre una news breve ORIGINALE
+(titolo SEO, sommario, corpo ~400 parole, riferimenti normativi reali).
+Le bozze vanno in output/bozze/ — NESSUNA pubblicazione: sono da approvare.
+
+Uso:
+    python3 rewrite.py --digest output/2026-07-09-quotidiana.json --pick 1,4,7
+    python3 rewrite.py --digest output/2026-07-09-quotidiana.json --pick 1 --filone privati
+
+Vincoli:
+- Riscrittura ORIGINALE: mai testo Ratio verbatim; citare le norme, non "Ratio".
+- Copre il pubblico del sito (privati/730-cripto, P.IVA/forfettari, imprese/crisi).
+- Modello: claude-sonnet-5 (override con RATIO_REWRITE_MODEL nel .env).
+"""
+from __future__ import annotations
+import argparse
+import json
+import os
+import re
+import sys
+import urllib.request
+import urllib.error
+
+import lib_ratio as R
+
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "output")
+BOZZE_DIR = os.path.join(OUTPUT_DIR, "bozze")
+API_URL = "https://api.anthropic.com/v1/messages"
+
+SYSTEM_PROMPT = (
+    "Sei un copywriter fiscale per lo studio commercialista A.T. Consulting Parma. "
+    "Scrivi news brevi, chiare e ORIGINALI su aggiornamenti fiscali italiani, per un "
+    "pubblico non tecnico (privati, partite IVA forfettarie, piccole imprese). "
+    "Regole ferree: (1) contenuto totalmente originale, mai copiato; (2) cita la "
+    "normativa di riferimento reale (es. 'art. X D.Lgs. Y', Legge di Bilancio, "
+    "circolari AdE) quando pertinente, MAI citare 'Ratio' come fonte; (3) tono "
+    "professionale ma accessibile; (4) niente promesse o consulenza personalizzata, "
+    "solo informazione; (5) se un argomento e' troppo tecnico o di nicchia per il "
+    "pubblico del sito, dillo nel campo 'adatto_al_sito': false."
+)
+
+USER_TEMPLATE = """Argomento da trasformare in una news per il sito (spunto, da riscrivere in modo originale):
+
+"{argomento}"
+
+Filone editoriale suggerito: {filone}
+
+Produci SOLO un oggetto JSON con questi campi (nessun testo fuori dal JSON):
+{{
+  "adatto_al_sito": true/false,
+  "titolo": "titolo SEO, max ~65 caratteri, chiaro e concreto",
+  "slug": "slug-url-minuscolo-con-trattini",
+  "sommario": "1-2 frasi che riassumono la news (max ~160 caratteri, per meta description)",
+  "corpo_md": "il corpo della news in Markdown, 300-450 parole, paragrafi brevi, eventualmente un elenco puntato; spiega cosa cambia e per chi",
+  "fonte_normativa": "riferimenti normativi reali citati (o stringa vuota se non applicabile)",
+  "categoria": "uno tra: privati, partite-iva, imprese, generale"
+}}"""
+
+
+def call_claude(env: dict, argomento: str, filone: str) -> dict:
+    api_key = env.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise SystemExit(
+            "ANTHROPIC_API_KEY mancante. Aggiungila a scripts/ratio/.env "
+            "(riusa quella del portale) o come variabile d'ambiente."
+        )
+    model = env.get("RATIO_REWRITE_MODEL") or "claude-sonnet-5"
+    payload = {
+        "model": model,
+        "max_tokens": 1500,
+        "thinking": {"type": "disabled"},  # rewrite semplice: no thinking, costo/latency minimi
+        "system": SYSTEM_PROMPT,
+        "messages": [
+            {"role": "user", "content": USER_TEMPLATE.format(argomento=argomento, filone=filone)}
+        ],
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        API_URL, data=data, method="POST",
+        headers={
+            "content-type": "application/json",
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            body = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        raise SystemExit(f"Errore API ({e.code}): {e.read().decode('utf-8', 'replace')[:400]}")
+    except urllib.error.URLError as e:
+        raise SystemExit(f"Errore di rete: {e}")
+
+    if body.get("stop_reason") == "refusal":
+        raise SystemExit("La richiesta e' stata rifiutata dai classificatori di sicurezza.")
+    text = "".join(b.get("text", "") for b in body.get("content", []) if b.get("type") == "text")
+    return _parse_json_block(text), body.get("usage", {})
+
+
+def _parse_json_block(text: str) -> dict:
+    """Estrae il primo oggetto JSON dalla risposta (robusto a testo attorno)."""
+    m = re.search(r"\{.*\}", text, re.S)
+    if not m:
+        raise SystemExit(f"Risposta non-JSON dal modello:\n{text[:300]}")
+    return json.loads(m.group(0))
+
+
+def slugify(s: str) -> str:
+    s = s.lower()
+    s = re.sub(r"[àáâä]", "a", s); s = re.sub(r"[èéêë]", "e", s)
+    s = re.sub(r"[ìíîï]", "i", s); s = re.sub(r"[òóôö]", "o", s)
+    s = re.sub(r"[ùúûü]", "u", s)
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return s[:80]
+
+
+def write_bozza(digest_iso: str, idx: int, argomento: str, out: dict, usage: dict) -> str:
+    os.makedirs(BOZZE_DIR, exist_ok=True)
+    slug = out.get("slug") or slugify(out.get("titolo") or argomento)
+    base = f"{digest_iso}-{idx:02d}-{slug}"
+    md_path = os.path.join(BOZZE_DIR, base + ".md")
+    lines = [
+        "---",
+        f"titolo: {out.get('titolo','')}",
+        f"slug: {slug}",
+        f"categoria: {out.get('categoria','generale')}",
+        f"adatto_al_sito: {out.get('adatto_al_sito', True)}",
+        f"data: {digest_iso}",
+        f"fonte_normativa: {out.get('fonte_normativa','')}",
+        f"spunto_ratio: {argomento}",
+        f"stato: DA_APPROVARE",
+        "---",
+        "",
+        f"> **Sommario:** {out.get('sommario','')}",
+        "",
+        out.get("corpo_md", ""),
+        "",
+        "---",
+        f"<!-- token usati: in={usage.get('input_tokens','?')} out={usage.get('output_tokens','?')} -->",
+        "",
+    ]
+    with open(md_path, "w") as f:
+        f.write("\n".join(lines))
+    return md_path
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Riscrittura AI spunti Ratio -> bozze news (Sonnet 5)")
+    ap.add_argument("--digest", required=True, help="path del JSON generato da read_daily.py")
+    ap.add_argument("--pick", required=True, help="numeri argomenti (1-based) separati da virgola, es. 1,4,7")
+    ap.add_argument("--filone", default="auto", help="privati | partite-iva | imprese | auto")
+    args = ap.parse_args()
+
+    env = R.load_env()
+    with open(args.digest) as f:
+        digest = json.load(f)
+    argomenti = digest.get("argomenti", [])
+    digest_iso = digest.get("data_iso", "senza-data")
+
+    try:
+        picks = [int(x) for x in re.split(r"[,\s]+", args.pick.strip()) if x]
+    except ValueError:
+        raise SystemExit("--pick deve contenere numeri separati da virgola, es. 1,4,7")
+
+    print(f"Digest: Quotidiana {digest.get('numero','?')} del {digest.get('data','?')} — {len(argomenti)} argomenti")
+    generati = []
+    tot_in = tot_out = 0
+    for n in picks:
+        if not (1 <= n <= len(argomenti)):
+            print(f"  ⚠️ #{n} fuori range, salto")
+            continue
+        argomento = argomenti[n - 1]
+        print(f"  ✍️  #{n}: {argomento[:60]} ...")
+        out, usage = call_claude(env, argomento, args.filone)
+        tot_in += usage.get("input_tokens", 0); tot_out += usage.get("output_tokens", 0)
+        path = write_bozza(digest_iso, n, argomento, out, usage)
+        flag = "" if out.get("adatto_al_sito", True) else "  [segnalata NON adatta al sito]"
+        generati.append(path)
+        print(f"       → {os.path.relpath(path)}{flag}")
+
+    # stima costo Sonnet 5 (intro $2/$10 per 1M fino ago 2026)
+    costo = tot_in / 1_000_000 * 2 + tot_out / 1_000_000 * 10
+    print(f"\n✅ {len(generati)} bozze in output/bozze/ — da rivedere e approvare.")
+    print(f"   Token: in={tot_in} out={tot_out}  |  costo stimato ~${costo:.4f}")
+    print("   Nessuna pubblicazione: sono bozze interne.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
