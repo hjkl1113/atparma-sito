@@ -5,6 +5,8 @@ import { Pricing } from "./pricing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
+import { news, CATEGORIE_LABEL } from "@/lib/news";
+import { ScadenzaCallout } from "@/components/scadenza-callout";
 import { STUDIO } from "@/lib/studio-data";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/lib/icons";
 import { getAllMacroSezioni, CONSULENZE_SPECIALISTICHE } from "@/app/servizi/_data/macro-sezioni";
@@ -486,6 +488,77 @@ function PercheSceglierci() {
   );
 }
 
+function AggiornamentiHome() {
+  const mesi = [
+    "gen", "feb", "mar", "apr", "mag", "giu",
+    "lug", "ago", "set", "ott", "nov", "dic",
+  ];
+  const fmt = (iso: string) => {
+    const [, m, d] = iso.split("-");
+    return `${parseInt(d, 10)} ${mesi[parseInt(m, 10) - 1] ?? m}`;
+  };
+  const ultime = news.slice(0, 3);
+
+  return (
+    <section className="py-20 bg-[var(--color-surface)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-end justify-between gap-4 mb-8">
+          <div>
+            <p className="text-xs tracking-[0.25em] uppercase text-[var(--color-accent)] font-medium mb-2">
+              Sempre aggiornati
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight font-[family-name:var(--font-heading)]">
+              Aggiornamenti e scadenze fiscali
+            </h2>
+          </div>
+          <Link
+            href="/aggiornamenti-fiscali"
+            className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-[var(--color-accent)] hover:underline whitespace-nowrap"
+          >
+            Vedi tutti &rarr;
+          </Link>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ScadenzaCallout />
+
+          {ultime.map((n) => (
+            <Link
+              key={n.slug}
+              href={`/aggiornamenti-fiscali/${n.slug}`}
+              className="group flex flex-col justify-between h-full p-6 rounded-2xl bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-lg transition-all"
+            >
+              <div>
+                <div className="flex items-center gap-2 mb-2 text-xs">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-700 font-medium">
+                    {CATEGORIE_LABEL[n.categoria]}
+                  </span>
+                  <time dateTime={n.data} className="text-zinc-400">
+                    {fmt(n.data)}
+                  </time>
+                </div>
+                <h3 className="text-base font-semibold tracking-tight leading-snug group-hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-heading)]">
+                  {n.titolo}
+                </h3>
+              </div>
+              <span className="mt-4 text-xs text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                Leggi &rarr;
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <Link
+          href="/aggiornamenti-fiscali"
+          className="sm:hidden mt-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--color-accent)]"
+        >
+          Vedi tutti gli aggiornamenti &rarr;
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 function Blog() {
   return (
     <section className="py-24 bg-[var(--color-surface)]">
@@ -590,6 +663,7 @@ export default function Home() {
       <main>
         <Hero />
         <Intro />
+        <AggiornamentiHome />
         <AreaClienti />
         <Servizi />
         <ConsulenzaSpecialistica />
