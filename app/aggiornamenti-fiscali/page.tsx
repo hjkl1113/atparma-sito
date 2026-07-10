@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { news, CATEGORIE_LABEL } from "@/lib/news";
+import { NotiziarioPlayer } from "@/components/notiziario-player";
 
 export const metadata: Metadata = {
   title: "Aggiornamenti fiscali | A.T. Consulting Parma",
@@ -43,10 +44,12 @@ export default function AggiornamentiFiscaliPage() {
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
             Le novità fiscali, spiegate semplici
           </h1>
-          <p className="text-zinc-600 mb-12 leading-relaxed">
+          <p className="text-zinc-600 mb-8 leading-relaxed">
             Scadenze, bonus e cambiamenti normativi che contano per privati, partite IVA
             e imprese. Aggiornamenti a cura del nostro team di dottori commercialisti.
           </p>
+
+          <NotiziarioPlayer />
 
           {news.length === 0 ? (
             <p className="text-zinc-500">Nessun aggiornamento pubblicato al momento.</p>
