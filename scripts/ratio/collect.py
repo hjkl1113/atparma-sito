@@ -28,6 +28,15 @@ import publish  # riuso parse_bozza / to_news_item / load_news / NEWS_JSON
 BOZZE_DIR = os.path.join(os.path.dirname(__file__), "output", "bozze")
 STATE = os.path.join(os.path.dirname(__file__), "output", "processed-replies.json")
 MODIFICHE = os.path.join(os.path.dirname(__file__), "output", "modifiche-richieste.md")
+MANIFEST = os.path.join(os.path.dirname(__file__), "output", "pending-manifest.json")
+
+
+def load_manifest() -> dict:
+    """Mappa numero(str) -> {slug, titolo, path} scritta da notify.py."""
+    if os.path.exists(MANIFEST):
+        data = json.load(open(MANIFEST))
+        return {str(it["n"]): it for it in data.get("items", [])}
+    return {}
 
 
 def dh(s):
@@ -79,19 +88,43 @@ def main() -> int:
     processed = load_state()
     since = (datetime.now() - timedelta(days=args.days)).strftime("%d-%b-%Y")
 
+    # Cerca marcatori nel subject (bottoni) E le risposte alla mail (numeri nel testo).
     ids = set()
-    for marker in ("[OK]", "[MODIFICA]"):
-        typ, data = M.search(None, "SINCE", since, "SUBJECT", f'"{marker}"')
+    for field, val in (("SUBJECT", '"[OK]"'), ("SUBJECT", '"[MODIFICA]"'),
+                       ("SUBJECT", '"Bozze aggiornamenti"')):
+        typ, data = M.search(None, "SINCE", since, field, val)
         if typ == "OK" and data[0]:
             ids.update(data[0].split())
 
     if not ids:
-        print(f"Nessuna risposta [OK]/[MODIFICA] negli ultimi {args.days} giorni.")
+        print(f"Nessuna risposta negli ultimi {args.days} giorni.")
         M.logout(); return 0
 
     news_items = publish.load_news()
     by_slug = {it["slug"]: idx for idx, it in enumerate(news_items)}
+    manifest = load_manifest()
     pubblicati, modifiche, skip = [], [], []
+
+    def num_to_slug(n: str):
+        it = manifest.get(str(int(n)))
+        return (it["slug"], bozza_by_slug(it["slug"])) if it else (None, None)
+
+    def parse_commands(subj: str, body: str):
+        """Ritorna lista (azione, slug, path, note) da subject e/o testo risposta."""
+        cmds = []
+        for az, sl in re.findall(r"\[(OK|MODIFICA)\]\s*([a-z0-9-]+)", subj, re.I):
+            cmds.append((az.upper(), sl, bozza_by_slug(sl), ""))
+        head = body[:800]  # la risposta sta in cima; ignora l'email citata sotto
+        for mm in re.finditer(r"\bOK\b[\s:]*([\d ,]+)", head, re.I):
+            for num in re.findall(r"\d+", mm.group(1)):
+                slug, p = num_to_slug(num)
+                if slug:
+                    cmds.append(("OK", slug, p, ""))
+        for mm in re.finditer(r"\bMODIFICA\b[\s#]*(\d+)\s*:?\s*([^\n]*)", head, re.I):
+            slug, p = num_to_slug(mm.group(1))
+            if slug:
+                cmds.append(("MODIFICA", slug, p, mm.group(2).strip()))
+        return cmds
 
     for i in sorted(ids, key=lambda x: int(x)):
         typ, d = M.fetch(i, "(BODY.PEEK[])")
@@ -101,27 +134,25 @@ def main() -> int:
         mid = dh(msg.get("Message-ID")) or f"uid-{i.decode()}"
         if mid in processed:
             continue
-        subj = dh(msg.get("Subject"))
-        m = re.search(r"\[(OK|MODIFICA)\]\s*([a-z0-9-]+)", subj, re.I)
-        if not m:
-            continue
-        azione, slug = m.group(1).upper(), m.group(2).strip()
-        path = bozza_by_slug(slug)
-        if not path:
-            skip.append((slug, "bozza non trovata in output/bozze/"))
-            continue
-
-        if azione == "OK":
-            item = publish.to_news_item(publish.parse_bozza(path))
-            if item["slug"] in by_slug:
-                news_items[by_slug[item["slug"]]] = item
-            else:
-                news_items.append(item); by_slug[item["slug"]] = len(news_items) - 1
-            pubblicati.append((slug, mid))
-        else:  # MODIFICA
-            note = body_text(msg).strip()
-            modifiche.append((slug, note[:500]))
-            processed.add(mid)
+        cmds = parse_commands(dh(msg.get("Subject")), body_text(msg))
+        seen = set()
+        for azione, slug, path, note in cmds:
+            if (azione, slug) in seen:
+                continue
+            seen.add((azione, slug))
+            if not path:
+                skip.append((slug, "bozza non trovata in output/bozze/"))
+                continue
+            if azione == "OK":
+                item = publish.to_news_item(publish.parse_bozza(path))
+                if item["slug"] in by_slug:
+                    news_items[by_slug[item["slug"]]] = item
+                else:
+                    news_items.append(item); by_slug[item["slug"]] = len(news_items) - 1
+                pubblicati.append((slug, mid))
+            else:  # MODIFICA
+                modifiche.append((slug, note[:500]))
+                processed.add(mid)
 
     print(f"Risposte trovate: OK={len(pubblicati)}  MODIFICA={len(modifiche)}  ignorate={len(skip)}")
     for s, _ in pubblicati:

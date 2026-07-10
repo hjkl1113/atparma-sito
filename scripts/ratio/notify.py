@@ -89,6 +89,17 @@ def styled_body(md: str) -> str:
     return h
 
 
+def write_manifest(bozze: list[dict]) -> None:
+    """Salva la mappa numero→slug così collect.py capisce le risposte 'OK 1 3'."""
+    man = {"items": [{"n": i, "slug": b["slug"], "titolo": b["titolo"],
+                      "path": os.path.relpath(b["_path"], os.path.dirname(__file__))}
+                     for i, b in enumerate(bozze, 1)]}
+    mpath = os.path.join(OUT_DIR, "pending-manifest.json")
+    with open(mpath, "w") as f:
+        import json as _json
+        _json.dump(man, f, ensure_ascii=False, indent=2)
+
+
 def build_html(bozze: list[dict], to: str, data_label: str) -> str:
     cards = []
     for i, b in enumerate(bozze, 1):
@@ -152,9 +163,9 @@ def main() -> int:
         print("Nessuna bozza DA_APPROVARE trovata in output/bozze/.")
         return 1
 
-    from datetime import date  # solo per etichetta; data reale presa dalla bozza se c'è
     data_label = bozze[0].get("data", "")
     html = build_html(bozze, to, data_label or "oggi")
+    write_manifest(bozze)  # mappa numero→slug per collect.py (risposte "OK 1 3")
 
     preview = os.path.join(OUT_DIR, "anteprima-mail-approvazione.html")
     with open(preview, "w") as f:
