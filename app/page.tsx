@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
 import { news, CATEGORIE_LABEL } from "@/lib/news";
 import { ScadenzaCallout } from "@/components/scadenza-callout";
+import { NewsTicker } from "@/components/news-ticker";
 import { STUDIO } from "@/lib/studio-data";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/lib/icons";
 import { getAllMacroSezioni, CONSULENZE_SPECIALISTICHE } from "@/app/servizi/_data/macro-sezioni";
@@ -662,6 +663,7 @@ export default function Home() {
       <SiteHeader current="home" />
       <main>
         <Hero />
+        <NewsTicker />
         <Intro />
         <AggiornamentiHome />
         <AreaClienti />
