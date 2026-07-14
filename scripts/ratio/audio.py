@@ -52,20 +52,58 @@ def build_script(news: list) -> tuple[str, str, list]:
     data_iso = news[0]["data"]
     oggi = [n for n in news if n["data"] == data_iso]
     intro = (f"Aggiornamenti fiscali di A.T. Consulting Parma. "
-             f"Le novità di {data_parlata(data_iso)}.")
+             f"Ecco le principali novità di {data_parlata(data_iso)}.")
+    ordinali = ["Primo", "Secondo", "Terzo", "Quarto", "Quinto", "Sesto"]
     corpo = []
-    for n in oggi:
-        corpo.append(f"{n['titolo']}. {n.get('sommario','')}")
+    for i, n in enumerate(oggi):
+        lead = ordinali[i] if i < len(ordinali) else "Inoltre"
+        # doppio punto = pausa più marcata tra una notizia e l'altra
+        corpo.append(f"{lead}. {n['titolo']}. {n.get('sommario','')}")
     outro = ("Trovi tutti gli approfondimenti sul nostro sito, "
              "nella sezione Aggiornamenti fiscali. A presto, da A.T. Consulting Parma.")
-    script = " ".join([intro] + corpo + [outro])
+    script = "  ".join([intro] + corpo + [outro])
     return data_iso, script, oggi
+
+
+def synth(script: str, neural_voice: str, neural_rate: str, say_voice: str, say_rate: int) -> str:
+    """Sintetizza la voce. Preferisce edge-tts (neurale, gratis, molto naturale);
+    se non disponibile/offline ripiega sulla voce macOS `say`. Output: AUDIO_M4A."""
+    # 1) edge-tts (Microsoft neural, gratis, senza API key)
+    try:
+        import asyncio
+        import edge_tts
+        mp3 = os.path.join(AUDIO_DIR, "_tmp.mp3")
+
+        async def _gen():
+            await edge_tts.Communicate(script, neural_voice, rate=neural_rate).save(mp3)
+
+        asyncio.run(_gen())
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", mp3, "-c:a", "aac", "-b:a", "160k", AUDIO_M4A],
+            check=True, capture_output=True,
+        )
+        os.remove(mp3)
+        return f"edge-tts / {neural_voice}"
+    except Exception as e:
+        print(f"   (edge-tts non disponibile: {e} — uso la voce del Mac)")
+
+    # 2) ripiego: voce macOS `say`
+    txt = os.path.join(AUDIO_DIR, "_script.txt")
+    with open(txt, "w") as f:
+        f.write(script)
+    aiff = os.path.join(AUDIO_DIR, "_tmp.aiff")
+    subprocess.run(["say", "-v", say_voice, "-r", str(say_rate), "-f", txt, "-o", aiff], check=True)
+    subprocess.run(["afconvert", aiff, AUDIO_M4A, "-d", "aac", "-f", "m4af"], check=True)
+    os.remove(aiff); os.remove(txt)
+    return f"macOS say / {say_voice}"
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Genera il notiziario audio del giorno")
-    ap.add_argument("--voice", default="Alice", help="voce macOS (default Alice)")
-    ap.add_argument("--rate", type=int, default=182, help="velocità parlato (wpm)")
+    ap.add_argument("--neural-voice", default="it-IT-IsabellaNeural", help="voce edge-tts")
+    ap.add_argument("--neural-rate", default="-8%", help="velocità voce neurale (es. -8%)")
+    ap.add_argument("--voice", default="Alice", help="voce macOS di ripiego")
+    ap.add_argument("--rate", type=int, default=155, help="velocità voce macOS (wpm)")
     args = ap.parse_args()
 
     with open(NEWS_JSON) as f:
@@ -76,14 +114,8 @@ def main() -> int:
         print("Nessuna news in lib/news.json."); return 1
 
     os.makedirs(AUDIO_DIR, exist_ok=True)
-    txt = os.path.join(AUDIO_DIR, "_script.txt")
-    with open(txt, "w") as f:
-        f.write(script)
-
-    aiff = os.path.join(AUDIO_DIR, "_tmp.aiff")
-    subprocess.run(["say", "-v", args.voice, "-r", str(args.rate), "-f", txt, "-o", aiff], check=True)
-    subprocess.run(["afconvert", aiff, AUDIO_M4A, "-d", "aac", "-f", "m4af"], check=True)
-    os.remove(aiff); os.remove(txt)
+    engine = synth(script, args.neural_voice, args.neural_rate, args.voice, args.rate)
+    print(f"   voce: {engine}")
 
     # durata (secondi) via afinfo
     dur = 0
