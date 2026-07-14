@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anteprima Reel — Proroga 20 luglio</title>
+<style>
+  :root { color-scheme: dark; }
+  html,body { margin:0; height:100%; background:#0b1020; font-family:-apple-system,Helvetica,Arial,sans-serif; }
+  .wrap { min-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:20px; box-sizing:border-box; }
+  .phone {
+    position:relative; height:min(88vh,860px); aspect-ratio:1080/1920;
+    border-radius:26px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.6);
+    background:#0d1b33;
+  }
+  .phone img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .4s ease; }
+  .phone img.on { opacity:1; }
+  .bars { position:absolute; top:10px; left:10px; right:10px; display:flex; gap:5px; z-index:5; }
+  .bars span { flex:1; height:3px; border-radius:3px; background:rgba(255,255,255,.28); overflow:hidden; }
+  .bars i { display:block; height:100%; width:0; background:#fff; }
+  .ctrl { display:flex; gap:10px; align-items:center; color:#c6d0e0; font-size:14px; }
+  .btn { background:#1a2540; border:1px solid #2e3e5c; color:#e6ecf5; padding:8px 14px; border-radius:10px; cursor:pointer; font-size:14px; }
+  .btn:hover { background:#243352; }
+  .cap { color:#8ea0bd; font-size:12px; letter-spacing:.3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="phone" id="phone">
+    <div class="bars" id="bars"></div>
+    <img src="frame-1.png" alt="1">
+    <img src="frame-2.png" alt="2">
+    <img src="frame-3.png" alt="3">
+    <img src="frame-4.png" alt="4">
+    <img src="frame-5.png" alt="5">
+  </div>
+  <div class="ctrl">
+    <button class="btn" id="playpause">⏸ Pausa</button>
+    <button class="btn" id="restart">↺ Riparti</button>
+    <span class="cap">Anteprima Reel · Proroga versamenti 20 luglio · A.T. Consulting Parma</span>
+  </div>
+</div>
+<script>
+  const durations = [3000, 4500, 4000, 4000, 5200]; // ms per frame (tempi del reel)
+  const imgs = [...document.querySelectorAll('.phone img')];
+  const barsBox = document.getElementById('bars');
+  imgs.forEach(()=>{ const s=document.createElement('span'); s.innerHTML='<i></i>'; barsBox.appendChild(s); });
+  const fills = [...barsBox.querySelectorAll('i')];
+  let idx=0, t0=0, raf=null, paused=false, elapsed=0;
+
+  function show(i){
+    imgs.forEach((im,k)=>im.classList.toggle('on', k===i));
+    fills.forEach((f,k)=>{ f.style.transition='none'; f.style.width = k<i?'100%':'0%'; });
+  }
+  function step(ts){
+    if(!t0) t0=ts;
+    const d=durations[idx];
+    const p=Math.min(1,(elapsed+ts-t0)/d);
+    fills[idx].style.transition='none';
+    fills[idx].style.width=(p*100)+'%';
+    if(p>=1){ elapsed=0; t0=0; idx=(idx+1)%imgs.length; show(idx); }
+    if(!paused) raf=requestAnimationFrame(step);
+  }
+  function play(){ paused=false; document.getElementById('playpause').textContent='⏸ Pausa'; t0=0; raf=requestAnimationFrame(step); }
+  function pause(){ paused=true; cancelAnimationFrame(raf); document.getElementById('playpause').textContent='▶ Play'; }
+  document.getElementById('playpause').onclick=()=>paused?play():pause();
+  document.getElementById('restart').onclick=()=>{ idx=0; elapsed=0; t0=0; show(0); if(paused)play(); };
+  show(0); play();
+</script>
+</body>
+</html>
