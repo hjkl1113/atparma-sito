@@ -50,10 +50,14 @@ def auto_pick(env: dict, argomenti: list[str], n: int) -> list[int]:
     user = (
         "Sei l'editor del sito di uno studio commercialista. Il pubblico sono privati, "
         "partite IVA forfettarie e piccole imprese (non grandi società né super-tecnici). "
-        f"Dal notiziario fiscale di oggi, scegli le {n} notizie PIÙ UTILI e comprensibili "
-        "per questo pubblico. Evita argomenti di nicchia o troppo tecnici.\n\n"
+        f"Dal notiziario fiscale di oggi, scegli le notizie di MAGGIOR IMPATTO e utilità "
+        "concreta per questo pubblico: scadenze, adempimenti, agevolazioni, novità che "
+        "toccano davvero privati e piccole attività. Scarta gli argomenti di nicchia, "
+        "troppo tecnici o rilevanti solo per grandi imprese/operatori specializzati.\n"
+        f"Scegli AL MASSIMO {n} notizie, ma anche MENO se solo poche sono davvero di "
+        "impatto: meglio 2 notizie forti che 4 riempitive. Non forzare il numero.\n\n"
         f"Notizie:\n{elenco}\n\n"
-        f'Rispondi SOLO con un JSON: {{"scelte": [numeri]}} con esattamente {n} numeri.'
+        f'Rispondi SOLO con un JSON: {{"scelte": [numeri]}} (da 1 a {n} numeri, i più rilevanti).'
     )
     payload = {
         "model": model, "max_tokens": 300, "thinking": {"type": "disabled"},
@@ -85,6 +89,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Orchestratore mattutino Ratio")
     ap.add_argument("--dry", action="store_true", help="prepara le bozze ma non invia la mail")
     ap.add_argument("--n", type=int, default=4, help="quante news preparare (default 4)")
+    ap.add_argument("--id", help="msg_id IMAP di una quotidiana specifica (default: l'ultima). Utile per i recuperi.")
     args = ap.parse_args()
 
     env = R.load_env()
@@ -93,11 +98,14 @@ def main() -> int:
 
     M = R.connect(env)
     try:
-        emails = R.list_emails(M)
-        quot = [e for e in emails if e.categoria == "quotidiana"]
-        if not quot:
-            log("Nessuna Informazione Quotidiana in casella oggi."); return 1
-        q = R.parse_quotidiana(M, quot[-1].msg_id)
+        if args.id:
+            q = R.parse_quotidiana(M, args.id)
+        else:
+            emails = R.list_emails(M)
+            quot = [e for e in emails if e.categoria == "quotidiana"]
+            if not quot:
+                log("Nessuna Informazione Quotidiana in casella oggi."); return 1
+            q = R.parse_quotidiana(M, quot[-1].msg_id)
     finally:
         M.logout()
 
@@ -105,6 +113,17 @@ def main() -> int:
         log(f"Quotidiana {q.numero} senza argomenti estraibili."); return 1
 
     log(f"[daily] Quotidiana {q.numero} del {q.data} — {len(q.argomenti)} argomenti")
+
+    # Scarica il PDF ed estrae il TESTO REALE di ogni articolo. Senza questo la
+    # riscrittura inventa contenuti e norme (allucinazioni). output/ è gitignorato.
+    testi = R.fetch_article_texts(
+        q.pdf_link, q.argomenti, os.path.join(HERE, "output"), q.numero)
+    if not testi:
+        log("[daily] ERRORE: impossibile estrarre il testo dal PDF della quotidiana "
+            "(pdf_link mancante o download fallito). Interrompo: senza fonte reale "
+            "non si riscrive (regola anti-allucinazione)."); return 1
+    log(f"[daily] Testi reali estratti: {len(testi)}/{len(q.argomenti)} articoli")
+
     scelte = auto_pick(env, q.argomenti, args.n)
     if not scelte:
         log("Selezione automatica vuota, salto."); return 1
@@ -130,9 +149,13 @@ def main() -> int:
     generate = 0
     for pos, idx in enumerate(scelte, 1):
         argomento = q.argomenti[idx - 1]
+        testo = testi.get(argomento)
+        if not testo:
+            log(f"[daily] salto #{pos} ({argomento[:45]}): testo non estratto dal PDF")
+            continue
         log(f"[daily] riscrivo #{pos}: {argomento[:55]}")
         try:
-            out, usage = rewrite.call_claude(env, argomento, "auto")
+            out, usage = rewrite.call_claude(env, argomento, "auto", testo)
         except SystemExit as e:
             log(f"   errore riscrittura: {e}"); continue
         rewrite.write_bozza(digest_iso, idx, argomento, out, usage)

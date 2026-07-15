@@ -34,33 +34,50 @@ SYSTEM_PROMPT = (
     "Sei un copywriter fiscale per lo studio commercialista A.T. Consulting Parma. "
     "Scrivi news brevi, chiare e ORIGINALI su aggiornamenti fiscali italiani, per un "
     "pubblico non tecnico (privati, partite IVA forfettarie, piccole imprese). "
-    "Regole ferree: (1) contenuto totalmente originale, mai copiato; (2) cita la "
-    "normativa di riferimento reale (es. 'art. X D.Lgs. Y', Legge di Bilancio, "
-    "circolari AdE) quando pertinente, MAI citare 'Ratio' come fonte; (3) tono "
-    "professionale ma accessibile; (4) niente promesse o consulenza personalizzata, "
-    "solo informazione; (5) se un argomento e' troppo tecnico o di nicchia per il "
-    "pubblico del sito, dillo nel campo 'adatto_al_sito': false."
+    "Ti viene fornito il TESTO FONTE reale della notizia (cronaca fiscale del giorno). "
+    "REGOLE FERREE, non derogabili:\n"
+    "(1) Basati ESCLUSIVAMENTE sui fatti contenuti nel TESTO FONTE. È VIETATO "
+    "aggiungere, dedurre o 'ricordare' norme, circolari, sentenze, date, importi o "
+    "percentuali che NON siano scritti nel testo fonte. Se non c'è, non esiste.\n"
+    "(2) I riferimenti normativi vanno riportati SOLO se presenti nel testo fonte, "
+    "copiandoli fedelmente (es. 'D.Lgs. 122/2026', 'D.M. 22.06.2026'). MAI inventarli. "
+    "Se il testo non cita norme precise, lascia 'fonte_normativa' vuota.\n"
+    "(3) Contenuto RISCRITTO in modo originale: mai copiare frasi verbatim; MAI citare "
+    "come fonte 'Ratio', 'Italia Oggi', 'Il Sole 24 Ore' o altre testate.\n"
+    "(4) Tono professionale ma accessibile; solo informazione, niente consulenza "
+    "personalizzata o promesse.\n"
+    "(5) Se l'argomento è troppo tecnico/di nicchia per il pubblico del sito, "
+    "segnalalo con 'adatto_al_sito': false."
 )
 
-USER_TEMPLATE = """Argomento da trasformare in una news per il sito (spunto, da riscrivere in modo originale):
+USER_TEMPLATE = """Riscrivi in una news ORIGINALE per il sito dello studio la notizia qui sotto.
 
-"{argomento}"
-
+Titolo dell'argomento: "{argomento}"
 Filone editoriale suggerito: {filone}
 
-Produci SOLO un oggetto JSON con questi campi (nessun testo fuori dal JSON):
+--- TESTO FONTE (uso interno, NON citarlo e NON copiarlo alla lettera) ---
+{testo_fonte}
+--- FINE TESTO FONTE ---
+
+Ricorda: usa SOLO fatti e riferimenti normativi presenti nel TESTO FONTE qui sopra;
+non aggiungere nulla di tuo. Produci SOLO un oggetto JSON con questi campi (nessun testo fuori dal JSON):
 {{
   "adatto_al_sito": true/false,
   "titolo": "titolo SEO, max ~65 caratteri, chiaro e concreto",
   "slug": "slug-url-minuscolo-con-trattini",
   "sommario": "1-2 frasi che riassumono la news (max ~160 caratteri, per meta description)",
-  "corpo_md": "il corpo della news in Markdown, 300-450 parole, paragrafi brevi, eventualmente un elenco puntato; spiega cosa cambia e per chi",
-  "fonte_normativa": "riferimenti normativi reali citati (o stringa vuota se non applicabile)",
+  "corpo_md": "il corpo della news in Markdown, 300-450 parole, paragrafi brevi, eventualmente un elenco puntato; spiega cosa cambia e per chi, SOLO in base al testo fonte",
+  "fonte_normativa": "SOLO i riferimenti normativi presenti nel testo fonte, copiati fedelmente (stringa vuota se il testo non ne cita)",
   "categoria": "uno tra: privati, partite-iva, imprese, generale"
 }}"""
 
 
-def call_claude(env: dict, argomento: str, filone: str) -> dict:
+def call_claude(env: dict, argomento: str, filone: str, testo_fonte: str | None = None) -> dict:
+    if not testo_fonte or not testo_fonte.strip():
+        # Regola anti-allucinazione: senza il testo reale NON si riscrive.
+        raise SystemExit(
+            f"nessun testo fonte per '{argomento[:50]}' — salto per non allucinare"
+        )
     api_key = env.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise SystemExit(
@@ -74,7 +91,8 @@ def call_claude(env: dict, argomento: str, filone: str) -> dict:
         "thinking": {"type": "disabled"},  # rewrite semplice: no thinking, costo/latency minimi
         "system": SYSTEM_PROMPT,
         "messages": [
-            {"role": "user", "content": USER_TEMPLATE.format(argomento=argomento, filone=filone)}
+            {"role": "user", "content": USER_TEMPLATE.format(
+                argomento=argomento, filone=filone, testo_fonte=testo_fonte.strip())}
         ],
     }
     data = json.dumps(payload).encode("utf-8")
@@ -131,6 +149,7 @@ def write_bozza(digest_iso: str, idx: int, argomento: str, out: dict, usage: dic
         f"data: {digest_iso}",
         f"fonte_normativa: {out.get('fonte_normativa','')}",
         f"spunto_ratio: {argomento}",
+        f"fonte_verificata: True",
         f"stato: DA_APPROVARE",
         "---",
         "",
@@ -165,6 +184,18 @@ def main() -> int:
     except ValueError:
         raise SystemExit("--pick deve contenere numeri separati da virgola, es. 1,4,7")
 
+    # Scarica il PDF ed estrae il testo REALE di ogni articolo: senza questo la
+    # riscrittura allucinerebbe. output/ è gitignorato → testo verbatim solo locale.
+    print("Scarico il PDF della quotidiana ed estraggo gli articoli...")
+    testi = R.fetch_article_texts(
+        digest.get("pdf_link"), argomenti, OUTPUT_DIR, digest.get("numero"))
+    if not testi:
+        raise SystemExit(
+            "Impossibile estrarre il testo dal PDF (pdf_link mancante o download fallito). "
+            "Interrompo: senza fonte reale non si riscrive."
+        )
+    print(f"Testi estratti: {len(testi)}/{len(argomenti)} articoli.")
+
     print(f"Digest: Quotidiana {digest.get('numero','?')} del {digest.get('data','?')} — {len(argomenti)} argomenti")
     generati = []
     tot_in = tot_out = 0
@@ -173,8 +204,12 @@ def main() -> int:
             print(f"  ⚠️ #{n} fuori range, salto")
             continue
         argomento = argomenti[n - 1]
+        testo = testi.get(argomento)
+        if not testo:
+            print(f"  ⚠️ #{n}: testo non estratto dal PDF, salto (niente allucinazioni)")
+            continue
         print(f"  ✍️  #{n}: {argomento[:60]} ...")
-        out, usage = call_claude(env, argomento, args.filone)
+        out, usage = call_claude(env, argomento, args.filone, testo)
         tot_in += usage.get("input_tokens", 0); tot_out += usage.get("output_tokens", 0)
         path = write_bozza(digest_iso, n, argomento, out, usage)
         flag = "" if out.get("adatto_al_sito", True) else "  [segnalata NON adatta al sito]"

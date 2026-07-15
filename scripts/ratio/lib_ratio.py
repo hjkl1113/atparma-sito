@@ -15,6 +15,8 @@ import html as htmllib
 import imaplib
 import os
 import re
+import subprocess
+import urllib.request
 from dataclasses import dataclass, field
 from email.header import decode_header, make_header
 
@@ -232,3 +234,135 @@ def parse_quotidiana(M: imaplib.IMAP4_SSL, msg_id: str) -> Quotidiana:
             if len(item) >= 4:
                 q.argomenti.append(item)
     return q
+
+
+# ---------------------------------------------------------------------------
+# Estrazione del testo INTEGRALE degli articoli dal PDF della quotidiana.
+# Serve alla riscrittura (L2): senza il testo reale l'AI allucina i contenuti
+# e i riferimenti normativi. Il PDF Ratio si scarica senza login dal pdf_link.
+# Il testo verbatim resta SOLO in locale (output/ è gitignorato): copyright-safe.
+# ---------------------------------------------------------------------------
+
+_NOISE_RE = re.compile(
+    r"(ISSN\s|Riproduzione vietata|^\s*Pagina\s+\d+\s*$|Centro Studi Castelli)",
+    re.I,
+)
+
+# Marcatori del masthead/footer dell'ultima pagina: da lì in poi non è più
+# contenuto redazionale (crediti, indirizzo, privacy). Taglia la sezione finale.
+_FOOTER_RE = re.compile(
+    r"(SITO WEB:|E-MAIL:|DIRETTORE RESP|VICE DIRETTORE|COORD\.\s|COMITATO DI ESPERTI|"
+    r"SERVIZIO ABBONAMENTI|DIFFUSIONE:|Informativa privacy|Via Bonfiglio|"
+    r"P\.IVA e Reg|Capitale sociale|titolare del trattamento)",
+    re.I,
+)
+
+
+def download_pdf(url: str, dest: str) -> str:
+    """Scarica il PDF completo della quotidiana (senza login). Ritorna il path."""
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        data = r.read()
+    with open(dest, "wb") as f:
+        f.write(data)
+    return dest
+
+
+def pdf_to_text(pdf_path: str) -> str:
+    """Estrae il testo dal PDF con `pdftotext -layout` (preserva la struttura)."""
+    txt_path = pdf_path + ".txt"
+    subprocess.run(
+        ["pdftotext", "-layout", pdf_path, txt_path],
+        check=True, capture_output=True,
+    )
+    with open(txt_path, encoding="utf-8", errors="replace") as f:
+        return f.read()
+
+
+def _norm_title(s: str) -> str:
+    """Normalizza per il matching titolo↔intestazione: apostrofi, spazi, minuscolo."""
+    s = (s or "").replace("’", "'").replace("‘", "'").replace("`", "'")
+    return re.sub(r"\s+", " ", s).strip().lower()
+
+
+def split_articles(full_text: str, argomenti: list[str]) -> dict[str, str]:
+    """Divide il testo del PDF in sezioni {titolo_argomento: testo_articolo}.
+
+    Nel corpo ogni articolo inizia con una riga 'titolo .... Fonte gg.mm.aaaa p. N'.
+    Usa i titoli dell'indice (argomenti) come punti di taglio; rimuove intestazioni
+    di categoria (Imposte e tasse, Diritto del lavoro, ...) e righe di rumore.
+    Ritorna solo gli argomenti effettivamente localizzati nel testo.
+    """
+    lines = full_text.splitlines()
+    # Il corpo inizia dopo la prima "Pagina 1" (fine dell'indice di pagina 1).
+    body_start = 0
+    for i, l in enumerate(lines):
+        if re.match(r"\s*Pagina\s+1\s*$", l):
+            body_start = i + 1
+            break
+    index_region = lines[:body_start]
+    body = lines[body_start:]
+
+    norm_titles = [_norm_title(a) for a in argomenti]
+    title_set = set(norm_titles)
+
+    # Categorie = righe brevi dell'indice che non sono argomenti né rumore né testata.
+    categorie = set()
+    for l in index_region:
+        nl = _norm_title(l)
+        if (nl and nl not in title_set and not _NOISE_RE.search(l)
+                and "informazione quotidiana" not in nl and len(nl.split()) <= 5):
+            categorie.add(nl)
+
+    # Riga d'inizio di ogni argomento nel corpo. Gestisce due casi:
+    #  (a) intestazione su una riga:   riga inizia col titolo intero;
+    #  (b) intestazione andata a capo:  la parte a sinistra della fonte (split su
+    #      2+ spazi) è un PREFISSO del titolo (il resto prosegue sulla riga dopo).
+    positions: list[tuple[int, int]] = []
+    used: set[int] = set()
+    for ai, nt in enumerate(norm_titles):
+        for li, l in enumerate(body):
+            if li in used:
+                continue
+            line_norm = _norm_title(l)
+            left_norm = _norm_title(re.split(r"\s{2,}", l.strip())[0])
+            if line_norm.startswith(nt) or (
+                len(left_norm.split()) >= 4 and nt.startswith(left_norm)
+            ):
+                positions.append((li, ai))
+                used.add(li)
+                break
+    positions.sort()
+
+    sections: dict[str, str] = {}
+    for k, (li, ai) in enumerate(positions):
+        end = positions[k + 1][0] if k + 1 < len(positions) else len(body)
+        cleaned = []
+        for cl in body[li:end]:
+            if _FOOTER_RE.search(cl):
+                break  # da qui è masthead/footer: fine del contenuto redazionale
+            if _NOISE_RE.search(cl) or _norm_title(cl) in categorie or not cl.strip():
+                continue
+            cleaned.append(cl.strip())
+        sections[argomenti[ai]] = "\n".join(cleaned).strip()
+    return sections
+
+
+def fetch_article_texts(pdf_link: str | None, argomenti: list[str],
+                        workdir: str, numero: str | None = None) -> dict[str, str]:
+    """Scarica il PDF della quotidiana ed estrae il testo reale per ogni argomento.
+
+    Ritorna {titolo: testo}. Dizionario vuoto se manca il pdf_link o l'estrazione
+    fallisce: in tal caso il chiamante NON deve riscrivere (si allucinerebbe).
+    Parametri primitivi così è riusabile sia da daily.py (ha l'oggetto Quotidiana)
+    sia da rewrite.py (ha solo il digest JSON).
+    """
+    if not pdf_link:
+        return {}
+    try:
+        os.makedirs(workdir, exist_ok=True)
+        pdf_path = os.path.join(workdir, f"quotidiana-{numero or 'x'}.pdf")
+        download_pdf(pdf_link, pdf_path)
+        return split_articles(pdf_to_text(pdf_path), argomenti)
+    except Exception:
+        return {}
