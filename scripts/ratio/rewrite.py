@@ -87,8 +87,9 @@ def call_claude(env: dict, argomento: str, filone: str, testo_fonte: str | None 
     model = env.get("RATIO_REWRITE_MODEL") or "claude-sonnet-5"
     payload = {
         "model": model,
-        "max_tokens": 1500,
-        "thinking": {"type": "disabled"},  # rewrite semplice: no thinking, costo/latency minimi
+        # margine ampio: Fable usa thinking "adaptive" di default (i token di
+        # ragionamento contano sull'output e non devono troncare il JSON finale).
+        "max_tokens": 3000,
         "system": SYSTEM_PROMPT,
         "messages": [
             {"role": "user", "content": USER_TEMPLATE.format(
