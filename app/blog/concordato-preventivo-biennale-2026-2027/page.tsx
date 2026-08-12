@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 const TITOLO = "Concordato preventivo biennale 2026-2027: guida all'adesione";
 const DESCRIZIONE =
-  "CPB 2026-2027: chi può aderire, il termine del 2 novembre 2026, come si aderisce e si revoca, i nuovi tetti del 30% e 35% per gli ISA bassi, le cause di decadenza. Guida aggiornata al D.Lgs. 13/2024.";
+  "CPB 2026-2027: chi può aderire, il termine del 31 ottobre 2026, come si aderisce e si revoca, i nuovi tetti del 30% e 35% per gli ISA bassi, le cause di decadenza. Guida aggiornata al D.Lgs. 13/2024.";
 const SLUG = "concordato-preventivo-biennale-2026-2027";
 
 export const metadata: Metadata = {
@@ -96,11 +96,25 @@ export default function ArticoloPage() {
             </div>
 
             <h2 className="text-xl font-semibold text-zinc-900 mt-10 mb-4 font-[family-name:var(--font-heading)]">
-              La scadenza: 2 novembre 2026
+              La scadenza: 31 ottobre 2026
             </h2>
             <p>
-              Il termine per aderire al CPB 2026-2027 &egrave; stato <strong>prorogato al 31 ottobre 2026</strong>.
-              Poich&eacute; il 31 ottobre cade di sabato, la scadenza slitta a <strong>luned&igrave; 2 novembre 2026</strong>.
+              Il termine di adesione &egrave; fissato dall&apos;<strong>art. 7-bis, comma 3, del D.L. 38/2026</strong>,
+              convertito dalla legge 88/2026, che dispone testualmente:
+            </p>
+            <blockquote className="border-l-4 border-zinc-200 pl-4 italic text-zinc-600">
+              &laquo;Per il biennio 2026-2027 il termine per aderire alla proposta di concordato, di cui
+              all&apos;articolo 9, comma 3, del decreto legislativo 12 febbraio 2024, n. 13, &egrave; differito al
+              <strong> 31 ottobre 2026</strong> ovvero all&apos;ultimo giorno del decimo mese successivo a quello di
+              chiusura del periodo d&apos;imposta per i soggetti con periodo d&apos;imposta non coincidente con
+              l&apos;anno solare.&raquo;
+            </blockquote>
+            <p>
+              Due conseguenze pratiche. La prima: chi ha l&apos;esercizio <strong>non coincidente con l&apos;anno
+              solare</strong> non guarda al 31 ottobre, ma all&apos;ultimo giorno del decimo mese successivo alla
+              chiusura del proprio periodo d&apos;imposta. La seconda: il <strong>31 ottobre 2026 cade di sabato</strong>,
+              quindi per la regola generale sugli adempimenti fiscali in scadenza di sabato o in giorno festivo la
+              scadenza si sposta al primo giorno lavorativo successivo, <strong>luned&igrave; 2 novembre 2026</strong>.
             </p>
             <p>
               La proroga ha una logica precisa: allineare il termine di adesione a quello di trasmissione delle
@@ -166,7 +180,7 @@ export default function ArticoloPage() {
               avevano frenato le adesioni:
             </p>
             <ul className="space-y-2 ml-4">
-              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Tetti massimi alla proposta per chi ha ISA bassi.</strong> Per i contribuenti con punteggio ISA <strong>tra 6 e 8</strong> la proposta non pu&ograve; eccedere il <strong>30%</strong> del reddito dichiarato nel periodo precedente; per quelli con punteggio <strong>tra 1 e 6</strong> il limite di incremento sale al <strong>35%</strong>. &Egrave; la risposta alla critica pi&ugrave; diffusa alla prima edizione: proposte percepite come sproporzionate proprio verso chi aveva indici pi&ugrave; bassi</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Tetti massimi alla proposta per chi ha ISA bassi.</strong> L&apos;art. 7-bis, comma 1, del D.L. 38/2026 ha aggiunto due lettere all&apos;art. 9, comma 3-bis, del D.Lgs. 13/2024: il limite &egrave; del <strong>30%</strong> per chi, nel periodo d&apos;imposta antecedente a quelli cui si riferisce la proposta, presenta un livello di affidabilit&agrave; fiscale <strong>pari o superiore a 6 ma inferiore a 8</strong>, e del <strong>35%</strong> per chi lo presenta <strong>pari o superiore a 1 ma inferiore a 6</strong>. &Egrave; la risposta alla critica pi&ugrave; diffusa alla prima edizione: proposte percepite come sproporzionate proprio verso chi aveva indici pi&ugrave; bassi</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Iperammortamento compatibile.</strong> &Egrave; stato inserito tra le variazioni ammesse a rettifica del reddito concordato: chi investe non vede pi&ugrave; vanificato il beneficio dall&apos;adesione al patto</span></li>
               <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Proroga del termine</strong> di adesione, allineato a quello dichiarativo</span></li>
             </ul>
@@ -244,7 +258,7 @@ export default function ArticoloPage() {
               </h3>
               <p className="text-sm text-zinc-600 mb-4">
                 Analizziamo la proposta elaborata sui tuoi dati, la confrontiamo con le previsioni reali di 2026 e 2027 e
-                verifichiamo la posizione debitoria. La decisione va presa entro il 2 novembre 2026.
+                verifichiamo la posizione debitoria. La decisione va presa entro il 31 ottobre 2026 (di sabato: si slitta a lunedi 2 novembre).
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/contatti" className="inline-block px-6 py-3 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent-dark)] transition-colors text-sm font-medium">
