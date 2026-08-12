@@ -60,7 +60,9 @@ def auto_pick(env: dict, argomenti: list[str], n: int) -> list[int]:
         f'Rispondi SOLO con un JSON: {{"scelte": [numeri]}} (da 1 a {n} numeri, i più rilevanti).'
     )
     payload = {
-        "model": model, "max_tokens": 300, "thinking": {"type": "disabled"},
+        # niente thinking:disabled — non supportato da Fable (default adaptive);
+        # margine sui token perché il thinking non tronchi il JSON di risposta.
+        "model": model, "max_tokens": 800,
         "messages": [{"role": "user", "content": user}],
     }
     req = urllib.request.Request(
