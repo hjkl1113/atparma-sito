@@ -46,23 +46,53 @@ def prima_frase(html: str) -> str:
     return frase[:220]
 
 
-def build_script(news: list) -> tuple[str, str, list]:
+def select_news(news: list, days: int, max_n: int) -> tuple[list, bool, str]:
+    """Seleziona le news per il notiziario.
+    days<=1: solo il giorno più recente (notiziario giornaliero).
+    days>1: le news degli ultimi `days` giorni (notiziario settimanale), al
+    massimo `max_n`, le più recenti. Ritorna (selezione, settimanale, label)."""
+    import datetime
+    news = sorted(news, key=lambda x: x.get("data", ""), reverse=True)
     if not news:
-        return "", "", []
-    data_iso = news[0]["data"]
-    oggi = [n for n in news if n["data"] == data_iso]
-    intro = (f"Aggiornamenti fiscali di A.T. Consulting Parma. "
-             f"Ecco le principali novità di {data_parlata(data_iso)}.")
-    ordinali = ["Primo", "Secondo", "Terzo", "Quarto", "Quinto", "Sesto"]
+        return [], False, ""
+
+    def d(iso):
+        y, m, g = (int(x) for x in iso.split("-"))
+        return datetime.date(y, m, g)
+
+    recente = news[0]["data"]
+    if days <= 1:
+        return [n for n in news if n["data"] == recente][:max_n], False, data_parlata(recente)
+    cutoff = d(recente) - datetime.timedelta(days=days - 1)
+    sel = [n for n in news if d(n["data"]) >= cutoff][:max_n]
+    dmin, dmax = d(sel[-1]["data"]), d(sel[0]["data"])
+    if dmin.month == dmax.month:
+        label = f"dal {dmin.day} al {dmax.day} {MESI[dmax.month-1]}"
+    else:
+        label = f"dal {dmin.day} {MESI[dmin.month-1]} al {dmax.day} {MESI[dmax.month-1]}"
+    return sel, True, label
+
+
+ORDINALI = ["Primo", "Secondo", "Terzo", "Quarto", "Quinto", "Sesto", "Settimo", "Ottavo"]
+
+
+def build_script(sel: list, weekly: bool, label: str) -> str:
+    if not sel:
+        return ""
+    if weekly:
+        intro = ("Aggiornamenti fiscali di A.T. Consulting Parma. "
+                 f"Ecco le principali novità della settimana, {label}.")
+    else:
+        intro = ("Aggiornamenti fiscali di A.T. Consulting Parma. "
+                 f"Ecco le principali novità di {label}.")
     corpo = []
-    for i, n in enumerate(oggi):
-        lead = ordinali[i] if i < len(ordinali) else "Inoltre"
+    for i, n in enumerate(sel):
+        lead = ORDINALI[i] if i < len(ORDINALI) else "Inoltre"
         # doppio punto = pausa più marcata tra una notizia e l'altra
         corpo.append(f"{lead}. {n['titolo']}. {n.get('sommario','')}")
     outro = ("Trovi tutti gli approfondimenti sul nostro sito, "
              "nella sezione Aggiornamenti fiscali. A presto, da A.T. Consulting Parma.")
-    script = "  ".join([intro] + corpo + [outro])
-    return data_iso, script, oggi
+    return "  ".join([intro] + corpo + [outro])
 
 
 def synth(script: str, neural_voice: str, neural_rate: str, say_voice: str, say_rate: int) -> str:
@@ -104,14 +134,17 @@ def main() -> int:
     ap.add_argument("--neural-rate", default="-15%", help="velocità voce neurale (es. -15%): più lenta e naturale, preferenza utente")
     ap.add_argument("--voice", default="Alice", help="voce macOS di ripiego")
     ap.add_argument("--rate", type=int, default=155, help="velocità voce macOS (wpm)")
+    ap.add_argument("--days", type=int, default=1, help="giorni da includere: 1=giornaliero, 7=settimanale")
+    ap.add_argument("--max", type=int, default=8, help="numero massimo di news nel notiziario")
     args = ap.parse_args()
 
     with open(NEWS_JSON) as f:
         news = json.load(f)
-    news.sort(key=lambda x: x.get("data", ""), reverse=True)
-    data_iso, script, oggi = build_script(news)
+    sel, weekly, label = select_news(news, args.days, args.max)
+    script = build_script(sel, weekly, label)
     if not script:
         print("Nessuna news in lib/news.json."); return 1
+    data_iso = sel[0]["data"]
 
     os.makedirs(AUDIO_DIR, exist_ok=True)
     engine = synth(script, args.neural_voice, args.neural_rate, args.voice, args.rate)
@@ -129,17 +162,18 @@ def main() -> int:
 
     meta = {
         "data": data_iso,
-        "data_label": data_parlata(data_iso),
+        "data_label": (f"settimana {label}" if weekly else label),
+        "periodo": ("settimanale" if weekly else "giornaliero"),
         "file": "/notiziario/latest.m4a",
         "durata_sec": dur,
-        "n_news": len(oggi),
-        "titoli": [n["titolo"] for n in oggi],
+        "n_news": len(sel),
+        "titoli": [n["titolo"] for n in sel],
     }
     with open(META_JSON, "w") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
-    print(f"✅ Notiziario {data_iso} — {len(oggi)} news, ~{dur}s")
+    print(f"✅ Notiziario {'settimanale' if weekly else data_iso} — {len(sel)} news, ~{dur}s")
     print(f"   audio: {os.path.relpath(AUDIO_M4A, REPO)}")
     print(f"   meta:  {os.path.relpath(META_JSON, REPO)}")
     print("   Ora: commit + push (audio + lib/notiziario.json) -> live sul sito.")
