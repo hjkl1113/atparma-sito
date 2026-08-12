@@ -115,7 +115,10 @@ def main() -> int:
         for az, sl in re.findall(r"\[(OK|MODIFICA)\]\s*([a-z0-9-]+)", subj, re.I):
             cmds.append((az.upper(), sl, bozza_by_slug(sl), ""))
         head = body[:800]  # la risposta sta in cima; ignora l'email citata sotto
-        for mm in re.finditer(r"\bOK\b[\s:]*([\d ,]+)", head, re.I):
+        # numeri dopo "OK", separati da spazi/virgole o da connettori (e, ed, and, &):
+        # gestisce "OK 1 2", "OK 1,2", "OK 1 e 2", "OK 1 and 2". Si ferma a parole
+        # non-numeriche (es. "no 3 e 4" NON viene incluso tra gli OK).
+        for mm in re.finditer(r"\bOK\b[\s:]*((?:\d+[\s,]*(?:e|ed|and|&)?[\s,]*)+)", head, re.I):
             for num in re.findall(r"\d+", mm.group(1)):
                 slug, p = num_to_slug(num)
                 if slug:
