@@ -1,11 +1,18 @@
 {
   "data": "2026-08-12",
-  "data_label": "mercoledì 12 agosto",
+  "data_label": "settimana dal 9 al 12 agosto",
+  "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 65,
-  "n_news": 2,
+  "durata_sec": 171,
+  "n_news": 8,
   "titoli": [
     "Pos e scontrini: niente sanzioni se lo scarto resta entro il 5%",
-    "IMU e TARI: nuove regole per le dichiarazioni dal 12 agosto 2026"
+    "IMU e TARI: nuove regole per le dichiarazioni dal 12 agosto 2026",
+    "Welfare: esente il rimborso spese scolastiche pagate dal coniuge",
+    "Vendita di immobili: il quinquennio si conta per ogni unità",
+    "Detrazione IVA: più tempo per esercitarla con il nuovo correttivo",
+    "Bonus carburante agricolo: domande dal 6 agosto al 30 settembre",
+    "Mensa e buoni pasto non fruiti: quando l'indennizzo non è tassato",
+    "Ape sociale e lavoratori precoci: domande coperte fino al 15 luglio"
   ]
 }
