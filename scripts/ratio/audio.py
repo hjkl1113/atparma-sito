@@ -101,7 +101,7 @@ def synth(script: str, neural_voice: str, neural_rate: str, say_voice: str, say_
 def main() -> int:
     ap = argparse.ArgumentParser(description="Genera il notiziario audio del giorno")
     ap.add_argument("--neural-voice", default="it-IT-IsabellaNeural", help="voce edge-tts")
-    ap.add_argument("--neural-rate", default="-8%", help="velocità voce neurale (es. -8%)")
+    ap.add_argument("--neural-rate", default="-15%", help="velocità voce neurale (es. -15%): più lenta e naturale, preferenza utente")
     ap.add_argument("--voice", default="Alice", help="voce macOS di ripiego")
     ap.add_argument("--rate", type=int, default=155, help="velocità voce macOS (wpm)")
     args = ap.parse_args()

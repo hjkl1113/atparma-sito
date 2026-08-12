@@ -1,13 +1,11 @@
 {
-  "data": "2026-07-15",
-  "data_label": "mercoledì 15 luglio",
+  "data": "2026-08-12",
+  "data_label": "mercoledì 12 agosto",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 82,
-  "n_news": 4,
+  "durata_sec": 65,
+  "n_news": 2,
   "titoli": [
-    "Rottamazione-quinquies: attenzione ai ritardi nei pagamenti",
-    "Manutenzioni auto e beni aziendali: limiti alla deduzione",
-    "Bonus assunzioni: più facile accedervi in caso di riassunzione",
-    "Lavori condominiali: il fondo speciale va costituito subito"
+    "Pos e scontrini: niente sanzioni se lo scarto resta entro il 5%",
+    "IMU e TARI: nuove regole per le dichiarazioni dal 12 agosto 2026"
   ]
 }
