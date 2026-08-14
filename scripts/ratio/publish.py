@@ -120,6 +120,28 @@ def load_news() -> list:
         return json.load(f)
 
 
+def _norm_title(t: str) -> str:
+    return re.sub(r"\s+", " ", (t or "").strip().lower())
+
+
+def upsert(items: list, item: dict) -> str:
+    """Inserisce o aggiorna una news, deduplicando per slug O per titolo normalizzato.
+    Evita i doppioni quando lo slug cambia ma il titolo è lo stesso (es. slug
+    rigenerato dall'AI a ogni run). Ritorna 'aggiunta' | 'aggiornata' |
+    'aggiornata (dedup titolo)'. In caso di match sul titolo con slug diverso,
+    aggiorna il contenuto MA conserva lo slug già pubblicato (non rompe l'URL)."""
+    nt = _norm_title(item.get("titolo", ""))
+    for i, ex in enumerate(items):
+        if ex.get("slug") == item.get("slug"):
+            items[i] = item
+            return "aggiornata"
+        if nt and _norm_title(ex.get("titolo", "")) == nt:
+            items[i] = {**item, "slug": ex["slug"]}  # tieni lo slug esistente
+            return "aggiornata (dedup titolo)"
+    items.append(item)
+    return "aggiunta"
+
+
 def main() -> int:
     args = sys.argv[1:]
     if not args:
@@ -131,7 +153,6 @@ def main() -> int:
         raise SystemExit("Nessuna bozza trovata per gli argomenti indicati.")
 
     items = load_news()
-    by_slug = {it["slug"]: idx for idx, it in enumerate(items)}
     pubblicati = []
     for p in paths:
         parsed = parse_bozza(p)
@@ -139,13 +160,7 @@ def main() -> int:
         if not item["slug"] or not item["titolo"]:
             print(f"  ⚠️ {os.path.basename(p)}: slug/titolo mancante, salto")
             continue
-        if item["slug"] in by_slug:
-            items[by_slug[item["slug"]]] = item  # upsert
-            azione = "aggiornata"
-        else:
-            items.append(item)
-            by_slug[item["slug"]] = len(items) - 1
-            azione = "aggiunta"
+        azione = upsert(items, item)  # dedup per slug O per titolo normalizzato
         pubblicati.append((item["slug"], azione))
         print(f"  ✅ {azione}: {item['titolo']}  (/aggiornamenti-fiscali/{item['slug']})")
 

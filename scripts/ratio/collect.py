@@ -101,7 +101,6 @@ def main() -> int:
         M.logout(); return 0
 
     news_items = publish.load_news()
-    by_slug = {it["slug"]: idx for idx, it in enumerate(news_items)}
     manifest = load_manifest()
     pubblicati, modifiche, skip = [], [], []
 
@@ -148,10 +147,7 @@ def main() -> int:
                 continue
             if azione == "OK":
                 item = publish.to_news_item(publish.parse_bozza(path))
-                if item["slug"] in by_slug:
-                    news_items[by_slug[item["slug"]]] = item
-                else:
-                    news_items.append(item); by_slug[item["slug"]] = len(news_items) - 1
+                publish.upsert(news_items, item)  # dedup per slug O titolo
                 pubblicati.append((slug, mid))
             else:  # MODIFICA
                 modifiche.append((slug, note[:500]))
