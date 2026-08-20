@@ -150,12 +150,28 @@
      "partite-iva"
     ],
     "riferimento": "Art. 31 D.Lgs. 148/2026"
+   },
+   {
+    "id": "sanzioni-trasmissione-corrispettivi-giornalieri",
+    "titolo": "Corrispettivi giornalieri: sanzione fissa di 100 euro per errori formali",
+    "corpoHtml": "<p>Il D.Lgs. 148/2026 interviene sul regime sanzionatorio relativo all'invio telematico dei corrispettivi giornalieri, cioè i dati delle vendite che commercianti, artigiani ed esercenti trasmettono quotidianamente all'Agenzia delle Entrate.</p><h3>Cosa prevede la norma</h3><p>In base all'art. 11, c. 2-quinquies D.Lgs. 471/1997, quando la trasmissione dei corrispettivi è omessa, effettuata in ritardo oppure contiene dati incompleti o non veritieri, ma <strong>l'errore non ha alterato la corretta liquidazione dell'imposta</strong>, si applica una sanzione fissa di <strong>100 euro per ogni trasmissione irregolare</strong>, con un tetto massimo di <strong>1.000 euro per trimestre</strong>.</p><p>Attenzione a un dettaglio importante: è espressamente escluso il cosiddetto cumulo giuridico previsto dall'art. 12 D.Lgs. 472/1997. In pratica, più violazioni non vengono \"unificate\" in un'unica sanzione ridotta: ciascuna trasmissione irregolare conta per sé, fermo restando il limite trimestrale di 1.000 euro.</p><h3>Pagamenti elettronici: la tolleranza del 5%</h3><p>Lo stesso trattamento sanzionatorio vale anche per le violazioni degli obblighi di memorizzazione o trasmissione dei dati sui <strong>pagamenti elettronici</strong>. È però prevista una soglia di tolleranza: nessuna sanzione se lo scostamento tra il numero delle operazioni incassate con strumenti elettronici (registrate e memorizzate ai fini dell'invio dei corrispettivi) e il numero dei pagamenti elettronici effettivamente accettati <strong>non supera il 5%</strong>.</p><h3>Chi è interessato</h3><p>La disposizione riguarda tutti i soggetti tenuti alla memorizzazione e trasmissione telematica dei corrispettivi: negozi, bar, ristoranti e in generale le attività che operano con il pubblico. Per una valutazione della propria posizione specifica, lo studio è a disposizione.</p>",
+    "chiRiguarda": [
+     "partite-iva",
+     "imprese"
+    ],
+    "riferimento": "Art. 33 D.Lgs. 148/2026"
    }
   ],
   "fonteNormativa": "D.Lgs. 7.08.2026 n. 148",
   "newsCollegate": [
    "auto-aziendali-uso-promiscuo-fringe-benefit-nuove-regole",
-   "detrazione-iva-acquisti-piu-tempo-nuove-regole-registrazione"
+   "corrispettivi-elettronici-pos-soglia-5-per-cento-niente-sanzioni",
+   "welfare-aziendale-decreto-omnibus-familiari-non-conviventi",
+   "detrazione-iva-acquisti-piu-tempo-nuove-regole-registrazione",
+   "pos-scontrini-tolleranza-5-per-cento-sanzioni",
+   "detrazione-iva-nuovi-termini-decreto-correttivo-omnibus",
+   "decreto-omnibus-novita-reddito-impresa",
+   "auto-fringe-benefit-maggiorazioni-decreto-omnibus"
   ]
  }
 ]

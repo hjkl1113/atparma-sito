@@ -105,8 +105,19 @@ RUMORE = re.compile(
     r"|^\s*\d{1,2}/\d{4}\s*$",
     re.I,
 )
-# riga-intestazione di un blocco: "Detrazione Iva      Art. 12"
-HEAD = re.compile(r"^\s*(?P<tit>\S.*?)\s{2,}(?P<art>Artt?\.\s*\d+[\w\-\s,e]*)\s*$")
+# riga-intestazione di un blocco. Due formati ricorrenti nelle circolari Ratio:
+#   "Detrazione Iva                              Art. 12"           (straordinarie su un decreto)
+#   "Linee guida sul rischio fiscale    Provv. Ag. Entrate 6.07.2026, n. 200904"  (aggiornamento mensile)
+RIFERIMENTO = (
+    r"Artt?\.|Provv\.|Provvedimento|Circolare|Circ\.|Risoluzione|Ris\.|Interpello|"
+    r"Principio di diritto|Consulenza giuridica|Messaggio|Comunicato|Decreto|D\.L\.|"
+    r"D\.Lgs\.|D\.M\.|D\.P\.R\.|L\.\s*\d|Legge|Sentenza|Ordinanza"
+)
+HEAD = re.compile(
+    rf"^\s*(?P<tit>\S.*?)\s{{2,}}(?P<art>(?:{RIFERIMENTO})[^\t]*?)\s*$"
+)
+# riferimento da solo sulla riga (titolo andato a capo sopra/sotto)
+SOLO_RIF = re.compile(rf"^\s*(?P<art>(?:{RIFERIMENTO})\s*[\d,\.\s\-a-z/]*)\s*$", re.I)
 TITOLO_PARTE = re.compile(r"^\s*(Titolo [IVXL]+|Capo [IVXL]+|Sezione [IVXL]+)\s*-\s*(?P<nome>.+?)\s*$")
 
 
@@ -122,11 +133,37 @@ def estrai_blocchi(testo: str) -> list[dict]:
     blocchi: list[dict] = []
     parte = ""
     corrente: dict | None = None
-    for riga in righe:
+    salta_prossima = False
+    for i, riga in enumerate(righe):
+        if salta_prossima:
+            salta_prossima = False
+            continue
         mp = TITOLO_PARTE.match(riga)
         if mp:
             parte = mp.group("nome").strip().title()
             continue
+        # intestazione con il riferimento isolato su una riga propria: il titolo
+        # sta nelle righe adiacenti (capita quando il titolo va a capo).
+        msolo = SOLO_RIF.match(riga)
+        if msolo:
+            titolo = " ".join(
+                x.strip() for x in (righe[i - 1] if i else "", righe[i + 1] if i + 1 < len(righe) else "")
+                if x.strip() and not SOLO_RIF.match(x) and len(x.strip()) > 8
+            ).strip()
+            if titolo:
+                if corrente:
+                    if corrente["corpo"] and corrente["corpo"][-1].strip() == righe[i - 1].strip():
+                        corrente["corpo"].pop()
+                    blocchi.append(corrente)
+                corrente = {
+                    "parte": parte,
+                    "titolo": re.sub(r"\s{2,}", " ", titolo),
+                    "art": msolo.group("art").strip(),
+                    "corpo": [],
+                }
+                salta_prossima = True
+                continue
+
         mh = HEAD.match(riga)
         if mh and len(mh.group("tit")) > 8:
             if corrente:
@@ -145,7 +182,7 @@ def estrai_blocchi(testo: str) -> list[dict]:
     for b in blocchi:
         b["corpo"] = re.sub(r"\n{3,}", "\n\n", "\n".join(b["corpo"])).strip()
     # scarta i blocchi senza sostanza
-    return [b for b in blocchi if len(b["corpo"]) > 250]
+    return [b for b in blocchi if len(b["corpo"]) > 200]
 
 
 # --------------------------------------------------------------------------
