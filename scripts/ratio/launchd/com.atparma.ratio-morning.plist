@@ -7,7 +7,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/alessandrosicuri/Desktop/studio at/sito/scripts/ratio/launchd/morning.sh</string>
+    <string>/Users/alessandrosicuri/Progetti claude/atparma/sito/scripts/ratio/launchd/morning.sh</string>
   </array>
   <key>StartCalendarInterval</key>
   <array>
@@ -18,8 +18,8 @@
     <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>30</integer><key>Weekday</key><integer>5</integer></dict>
   </array>
   <key>StandardOutPath</key>
-  <string>/Users/alessandrosicuri/Desktop/studio at/sito/scripts/ratio/output/launchd-morning.out</string>
+  <string>/Users/alessandrosicuri/Progetti claude/atparma/sito/scripts/ratio/output/launchd-morning.out</string>
   <key>StandardErrorPath</key>
-  <string>/Users/alessandrosicuri/Desktop/studio at/sito/scripts/ratio/output/launchd-morning.err</string>
+  <string>/Users/alessandrosicuri/Progetti claude/atparma/sito/scripts/ratio/output/launchd-morning.err</string>
 </dict>
 </plist>

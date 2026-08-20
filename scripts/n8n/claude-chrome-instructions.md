@@ -91,7 +91,7 @@ Leggila qui: www.atparma.com/blog/sovraindebitamento-2026-come-uscire-dai-debiti
 »
 
 Poi allega questa foto:
-/Users/alessandrosicuri/Desktop/studio at/sito/public/ads/topical/sovraindebitamento-1x1.jpg
+/Users/alessandrosicuri/Progetti claude/atparma/sito/public/ads/topical/sovraindebitamento-1x1.jpg
 
 NON pubblicare ancora. Mostrami l'anteprima del post così verifico.
 Quando ti dico "ok pubblica", clicca "Pubblica".
@@ -138,7 +138,7 @@ Leggi: www.atparma.com/blog/sovraindebitamento-2026-come-uscire-dai-debiti?utm_s
 »
 
 Poi allega questa foto:
-/Users/alessandrosicuri/Desktop/studio at/sito/public/ads/topical/sovraindebitamento-1x1.jpg
+/Users/alessandrosicuri/Progetti claude/atparma/sito/public/ads/topical/sovraindebitamento-1x1.jpg
 
 NON pubblicare ancora. Mostrami l'anteprima.
 Quando ti dico "ok pubblica", clicca "Pubblica".
@@ -173,7 +173,7 @@ Tutto nella guida: www.atparma.com/blog/sovraindebitamento-2026-come-uscire-dai-
 »
 
 Poi allega questa foto:
-/Users/alessandrosicuri/Desktop/studio at/sito/public/ads/topical/sovraindebitamento-1x1.jpg
+/Users/alessandrosicuri/Progetti claude/atparma/sito/public/ads/topical/sovraindebitamento-1x1.jpg
 
 NON pubblicare ancora. Mostrami l'anteprima.
 Quando ti dico "ok pubblica", clicca "Pubblica".

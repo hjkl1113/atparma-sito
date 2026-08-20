@@ -4,8 +4,8 @@
 # player sul sito riproduce il recap nuovo. Voce edge-tts IsabellaNeural a -15%
 # (default gia' in audio.py). Serve /opt/homebrew/bin per ffmpeg/edge-tts.
 set -o pipefail
-RATIO="/Users/alessandrosicuri/Desktop/studio at/sito/scripts/ratio"
-REPO="/Users/alessandrosicuri/Desktop/studio at/sito"
+RATIO="/Users/alessandrosicuri/Progetti claude/atparma/sito/scripts/ratio"
+REPO="/Users/alessandrosicuri/Progetti claude/atparma/sito"
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 echo "===== [$(date)] notiziario settimanale avvio ====="

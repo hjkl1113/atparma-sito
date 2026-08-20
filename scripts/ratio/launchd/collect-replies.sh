@@ -5,8 +5,8 @@
 # piu' volte al giorno senza doppioni. Il tuo "OK" nella mail e' il gate: senza
 # risposta non pubblica nulla. Serve /opt/homebrew/bin per pdftotext.
 set -o pipefail
-RATIO="/Users/alessandrosicuri/Desktop/studio at/sito/scripts/ratio"
-REPO="/Users/alessandrosicuri/Desktop/studio at/sito"
+RATIO="/Users/alessandrosicuri/Progetti claude/atparma/sito/scripts/ratio"
+REPO="/Users/alessandrosicuri/Progetti claude/atparma/sito"
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 echo "===== [$(date)] collect avvio ====="
