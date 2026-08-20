@@ -395,6 +395,11 @@ FORMULE_TECNICHE = [
     "veicoli ordinati entro il",
     "datori di lavoro fino al",
     "legalmente ed effettivamente separato i figli i genitori",
+    # denominazioni ufficiali di istituti: vanno citate cosi' come sono
+    "codice della crisi d impresa e dell insolvenza",
+    "piano di ristrutturazione soggetto a omologazione",
+    "indici sintetici di affidabilita fiscale",
+    "scissione dei pagamenti",
 ]
 
 
