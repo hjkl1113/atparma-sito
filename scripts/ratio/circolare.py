@@ -102,7 +102,11 @@ Produci SOLO un oggetto JSON:
 RUMORE = re.compile(
     r"RIPRODUZIONE VIETATA|Centro Studi Castelli|Circolare Speciale|Via (Francesco )?Bonfiglio"
     r"|ISSN|^\s*Pagina \d+|servizioclienti@|Scarica la Circolare|C\.F\. e P\.I\."
-    r"|^\s*\d{1,2}/\d{4}\s*$",
+    r"|^\s*\d{1,3}/\d{4}\s*$"
+    # intestazioni di pagina: "Decreto Omnibus            38/2026" e la data sotto
+    r"|\s{6,}\d{1,3}/\d{4}\s*$"
+    r"|^\s*\d{1,2}\s?(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|"
+    r"settembre|ottobre|novembre|dicembre)\s?\d{4}\s*$",
     re.I,
 )
 # riga-intestazione di un blocco. Due formati ricorrenti nelle circolari Ratio:
@@ -111,10 +115,16 @@ RUMORE = re.compile(
 RIFERIMENTO = (
     r"Artt?\.|Provv\.|Provvedimento|Circolare|Circ\.|Risoluzione|Ris\.|Interpello|"
     r"Principio di diritto|Consulenza giuridica|Messaggio|Comunicato|Decreto|D\.L\.|"
-    r"D\.Lgs\.|D\.M\.|D\.P\.R\.|L\.\s*\d|Legge|Sentenza|Ordinanza"
+    r"D\.Lgs\.|D\.M\.|D\.P\.R\.|L\.\s*\d|Legge|Sentenza|Ordinanza|Notizia|Nota"
 )
 HEAD = re.compile(
     rf"^\s*(?P<tit>\S.*?)\s{{2,}}(?P<art>(?:{RIFERIMENTO})[^\t]*?)\s*$"
+)
+# heading compatto: "Titolo del tema Provv. Ag. Entrate 30.07.2026, n. 223895"
+HEAD_COMPATTO = re.compile(
+    r"^(?P<tit>[A-ZÀ-Ù][^•\n]{15,}?)\s+"
+    r"(?P<art>(?:Provv\.|Circ\.|Ris\.|Circolare|Risoluzione|Provvedimento|Comunicato|"
+    r"Notizia|Messaggio|D\.L\.|D\.M\.|D\.Lgs\.)[^•\n]*\d{4}[^•\n]*)$"
 )
 # riferimento da solo sulla riga (titolo andato a capo sopra/sotto)
 SOLO_RIF = re.compile(rf"^\s*(?P<art>(?:{RIFERIMENTO})\s*[\d,\.\s\-a-z/]*)\s*$", re.I)
@@ -123,8 +133,24 @@ TITOLO_PARTE = re.compile(r"^\s*(Titolo [IVXL]+|Capo [IVXL]+|Sezione [IVXL]+)\s*
 
 def pulisci(testo: str) -> str:
     righe = [l for l in testo.split("\n") if not RUMORE.search(l)]
+    # intestazioni e pie' di pagina: righe identiche ripetute su piu' pagine
+    from collections import Counter
+    frequenze = Counter(l.strip() for l in righe if len(l.strip()) > 10)
+    ripetute = {t for t, n in frequenze.items() if n >= 3}
+    righe = [l for l in righe if l.strip() not in ripetute]
     out = "\n".join(righe)
     return re.sub(r"\n{3,}", "\n\n", out)
+
+
+# glifi decorativi dei PDF Ratio (bullet/frecce mappati nell'area privata Unicode)
+GLIFI_PRIVATI = re.compile(r"[\uE000-\uF8FF]")
+
+
+def ricomponi_sillabe(testo: str) -> str:
+    """Nel testo giustificato le parole spezzate a fine riga vanno ricucite."""
+    testo = GLIFI_PRIVATI.sub(" ", testo)
+    testo = re.sub(r"(\w)[-‐‑]\s+(\w)", r"\1\2", testo)
+    return re.sub(r"\s{2,}", " ", testo).strip()
 
 
 def estrai_blocchi(testo: str) -> list[dict]:
@@ -138,18 +164,30 @@ def estrai_blocchi(testo: str) -> list[dict]:
         if salta_prossima:
             salta_prossima = False
             continue
+        # una riga puntata e' sempre corpo: i riferimenti che contiene sono
+        # citazioni interne, non l'intestazione di un nuovo blocco
+        e_corpo = riga.lstrip().startswith(("•", "◦", "-", "–"))
         mp = TITOLO_PARTE.match(riga)
         if mp:
             parte = mp.group("nome").strip().title()
             continue
         # intestazione con il riferimento isolato su una riga propria: il titolo
         # sta nelle righe adiacenti (capita quando il titolo va a capo).
-        msolo = SOLO_RIF.match(riga)
+        msolo = None if e_corpo else SOLO_RIF.match(riga)
         if msolo:
-            titolo = " ".join(
-                x.strip() for x in (righe[i - 1] if i else "", righe[i + 1] if i + 1 < len(righe) else "")
-                if x.strip() and not SOLO_RIF.match(x) and len(x.strip()) > 8
-            ).strip()
+            prima = righe[i - 1].strip() if i else ""
+            dopo = righe[i + 1].strip() if i + 1 < len(righe) else ""
+            # la riga sopra e' un titolo solo se non e' corpo puntato, non e'
+            # una frase conclusa e comincia in maiuscolo
+            if (not prima or prima.startswith(("•", "◦", "-", "–"))
+                    or prima.endswith((".", ";", ":")) or not prima[:1].isupper()
+                    or len(prima) < 9 or SOLO_RIF.match(prima)):
+                prima = ""
+            # la riga sotto puo' essere la coda del titolo andato a capo
+            if (not dopo or dopo.startswith(("•", "◦", "-", "–")) or len(dopo) > 120
+                    or dopo.endswith((".", ";")) or SOLO_RIF.match(dopo)):
+                dopo = ""
+            titolo = " ".join(x for x in (prima, dopo) if x).strip()
             if titolo:
                 if corrente:
                     if corrente["corpo"] and corrente["corpo"][-1].strip() == righe[i - 1].strip():
@@ -164,7 +202,7 @@ def estrai_blocchi(testo: str) -> list[dict]:
                 salta_prossima = True
                 continue
 
-        mh = HEAD.match(riga)
+        mh = None if e_corpo else (HEAD.match(riga) or HEAD_COMPATTO.match(riga))
         if mh and len(mh.group("tit")) > 8:
             if corrente:
                 blocchi.append(corrente)
@@ -183,6 +221,98 @@ def estrai_blocchi(testo: str) -> list[dict]:
         b["corpo"] = re.sub(r"\n{3,}", "\n\n", "\n".join(b["corpo"])).strip()
     # scarta i blocchi senza sostanza
     return [b for b in blocchi if len(b["corpo"]) > 200]
+
+
+# --------------------------------------------------------------------------
+# Layout a due colonne (rassegne "Interpelli": etichetta a sinistra, testo a destra)
+# --------------------------------------------------------------------------
+
+# "Interpello Ag. Entrate 31.07.2026, n. 153" / "Princ. dir. ..." / "Consul. giur. ..."
+RIF_COLONNA = re.compile(r"n\.\s*\d+\s*$")
+FONTE_COLONNA = re.compile(
+    r"(Interpello|Princ\.\s*dir\.|Principio di diritto|Consul\.\s*giur\.|Consulenza giuridica|Risp\.)",
+    re.I,
+)
+
+
+def colonna_di_stacco(righe: list[str]) -> int | None:
+    """Colonna in cui inizia il testo, se la pagina e' impaginata su due colonne.
+
+    Le righe di una stessa colonna non partono tutte dallo stesso carattere
+    (rientri, allineamenti), quindi si cerca il *cluster* di posizioni piu'
+    popoloso e si taglia al suo estremo sinistro.
+    """
+    conteggi: dict[int, int] = {}
+    for riga in righe:
+        gruppi = list(re.finditer(r"\S(?:.*?\S)?(?=\s{3,}|$)", riga))
+        if len(gruppi) >= 2:
+            x = gruppi[1].start()
+            conteggi[x] = conteggi.get(x, 0) + 1
+    if not conteggi:
+        return None
+    utili = sum(1 for r in righe if r.strip())
+    migliore, quante = None, 0
+    for centro in conteggi:
+        vicini = [x for x in conteggi if abs(x - centro) <= 5]
+        tot = sum(conteggi[x] for x in vicini)
+        if tot > quante:
+            migliore, quante = min(vicini), tot
+    if migliore is None or not utili:
+        return None
+    return migliore if quante / utili > 0.20 and migliore > 10 else None
+
+
+def estrai_blocchi_colonne(testo: str) -> list[dict]:
+    """Blocchi di una rassegna impaginata su due colonne.
+
+    Colonna sinistra = etichetta del caso + estremi del documento di prassi;
+    colonna destra = la massima. Un blocco si chiude quando ha gia' incontrato
+    gli estremi ("..., n. 153") e il gruppo di righe successivo ne apre altri.
+    """
+    righe = pulisci(testo).split("\n")
+    x = colonna_di_stacco(righe)
+    if x is None:
+        return []
+
+    gruppi: list[list[str]] = [[]]
+    for riga in righe:
+        if not riga.strip():
+            if gruppi[-1]:
+                gruppi.append([])
+            continue
+        gruppi[-1].append(riga)
+    gruppi = [g for g in gruppi if g]
+
+    blocchi: list[dict] = []
+    etichetta: list[str] = []
+    corpo: list[str] = []
+    rif = ""
+
+    def chiudi():
+        nonlocal etichetta, corpo, rif
+        testo_corpo = " ".join(corpo).strip()
+        titolo = " ".join(etichetta).strip().title()
+        testo_corpo = ricomponi_sillabe(testo_corpo)
+        if titolo and len(testo_corpo) > 120 and RIF_COLONNA.search(rif or ""):
+            blocchi.append({"parte": "", "titolo": re.sub(r"\s{2,}", " ", titolo),
+                            "art": rif or "Interpello", "corpo": testo_corpo})
+        etichetta, corpo, rif = [], [], ""
+
+    for gruppo in gruppi:
+        if rif:  # il blocco precedente e' completo: questo gruppo ne apre uno nuovo
+            chiudi()
+        for riga in gruppo:
+            sinistra = riga[: max(0, x - 1)].strip()
+            destra = riga[x - 1:].strip() if len(riga) > x - 1 else ""
+            if sinistra:
+                if FONTE_COLONNA.search(sinistra) or RIF_COLONNA.search(sinistra):
+                    rif = (rif + " " + sinistra).strip()
+                else:
+                    etichetta.append(sinistra)
+            if destra:
+                corpo.append(re.sub(r"^[•◦]\s*", "", destra))
+    chiudi()
+    return blocchi
 
 
 # --------------------------------------------------------------------------
@@ -366,6 +496,9 @@ def main() -> int:
 
     testo = R.pdf_to_text(pdf_path)
     blocchi = estrai_blocchi(testo)
+    a_colonne = estrai_blocchi_colonne(testo)
+    if len(a_colonne) > len(blocchi):
+        blocchi = a_colonne
     if not blocchi:
         raise SystemExit(f"Nessun blocco riconosciuto in {pdf_path}.")
 
