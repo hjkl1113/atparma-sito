@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articoli } from "@/lib/articoli";
 import { news } from "@/lib/news";
+import { approfondimenti } from "@/lib/approfondimenti";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.atparma.com";
@@ -21,6 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(n.data),
     changeFrequency: "monthly",
     priority: 0.6,
+  }));
+
+  // Approfondimenti normativi (contenuti lunghi) da lib/approfondimenti.json.
+  const approfondimentiPagine: MetadataRoute.Sitemap = approfondimenti.map((a) => ({
+    url: `${baseUrl}/approfondimenti/${a.slug}`,
+    lastModified: new Date(a.data),
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [
@@ -92,6 +101,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     ...newsPagine,
+    {
+      url: `${baseUrl}/approfondimenti`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...approfondimentiPagine,
     {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),

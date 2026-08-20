@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { news } from "@/lib/news";
 import { NotiziarioPlayer } from "@/components/notiziario-player";
 import { AggiornamentiArchivio } from "@/components/aggiornamenti-archivio";
+import { SezioniSwitcher } from "@/components/sezioni-switcher";
 
 export const metadata: Metadata = {
   title: "Aggiornamenti fiscali | A.T. Consulting Parma",
@@ -38,6 +39,10 @@ export default function AggiornamentiFiscaliPage() {
             Scadenze, bonus e cambiamenti normativi che contano per privati, partite IVA
             e imprese. Aggiornamenti a cura del nostro team di dottori commercialisti.
           </p>
+
+          <div className="mb-8">
+            <SezioniSwitcher current="aggiornamenti" />
+          </div>
 
           <NotiziarioPlayer />
 

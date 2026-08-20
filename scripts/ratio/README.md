@@ -41,6 +41,13 @@ python3 rewrite.py --digest output/2026-07-09-quotidiana.json --pick 5,18
 python3 publish.py output/bozze/2026-07-09-05-rottamazione-....md
 # poi: git add lib/news.json && git commit && git push  → va online
 
+# CIRCOLARI SPECIALI — approfondimenti lunghi in /approfondimenti
+python3 circolare.py --uid 328 --list            # elenca i blocchi (1 articolo = 1 blocco)
+python3 circolare.py --uid 328 --pick 1,2,12     # riscrive i blocchi scelti con Fable 5
+python3 publish_circolare.py output/bozze-circolari/2026-08-19-....json \
+        --in-vigore 2026-08-12 --news slug-news-collegata
+# poi: git add lib/approfondimenti.json && commit && push  -> online
+
 # FASE L3 — approvazione via mail (invio + lettura risposte)
 python3 notify.py                 # DRY-RUN: compone la mail (output/anteprima-mail-approvazione.html)
 python3 notify.py --send          # invia la mail di approvazione a STUDIO_MAIL_USER
@@ -57,6 +64,12 @@ Invio via SMTP Aruba (`smtp.aruba.it:465`, credenziali `STUDIO_MAIL_*` in `~/for
 via `ANTHROPIC_API_KEY` (in `.env`, riusata dal portale). Produce bozze originali in
 `output/bozze/` con frontmatter (titolo SEO, slug, categoria, `stato: DA_APPROVARE`)
 e stima del costo. Nessuna pubblicazione: le bozze si rivedono/approvano prima.
+
+`circolare.py` tratta le **circolari speciali** (mail classificate `circolare`):
+scarica il PDF, lo spezza nei blocchi tematici, riscrive ogni blocco con Fable 5 in una
+sezione originale e produce una bozza JSON in `output/bozze-circolari/`. Include un
+**controllo anti-verbatim** (n-grammi di 8 parole in comune con la fonte): i PDF Ratio sono
+marcati "riproduzione vietata", sul sito va solo testo riscritto con citazione delle norme.
 
 Output in `output/` (ignorato da git):
 - `AAAA-MM-GG-quotidiana.json` — dati strutturati (numero, data, argomenti[], pdf_link)

@@ -1,0 +1,161 @@
+[
+ {
+  "slug": "decreto-correttivo-fiscale-2026-dlgs-148-novita",
+  "titolo": "Decreto correttivo fiscale 2026: le novità del D.Lgs. 148/2026",
+  "sommario": "Il D.Lgs. 148/2026, in vigore dal 12.08.2026, corregge le regole su IRPEF, IVA, successioni, accertamenti e concordato preventivo biennale: le novità per privati, professionisti e imprese.",
+  "data": "2026-08-19",
+  "tipo": "circolare-speciale",
+  "riferimento": "D.Lgs. 7.08.2026 n. 148",
+  "inVigoreDal": "2026-08-12",
+  "destinatari": [
+   "privati",
+   "partite-iva",
+   "imprese",
+   "enti-non-profit"
+  ],
+  "intro": "<p>Con il D.Lgs. 7.08.2026 n. 148, pubblicato in Gazzetta Ufficiale dell'11.08.2026 n. 185, il legislatore interviene con una serie di disposizioni integrative e correttive che toccano diversi ambiti del sistema tributario: imposte sui redditi, imposta sulle successioni e donazioni, IVA, accise, attività di controllo, adempimento collaborativo e misure di semplificazione.</p><p>Il decreto è in vigore dal 12.08.2026 e le sue novità hanno un impatto molto trasversale: si va dalle regole sui familiari a carico e sulle auto aziendali concesse ai dipendenti, ai tempi per la detrazione IVA, dalla tassazione dei guadagni sui crediti d'imposta acquistati alle nuove regole su trust, successioni e concordato preventivo biennale per il biennio 2026-2027, fino a specifiche disposizioni su IRAP e Terzo Settore e sull'utilizzo delle fatture elettroniche da parte delle Dogane.</p><p>In questa pagina trovate una guida ragionata, sezione per sezione, alle principali modifiche: per ciascuna spieghiamo cosa cambia rispetto alla disciplina precedente, chi ne è interessato e da quando si applicano le nuove regole. Si tratta di un contenuto informativo, che non sostituisce una valutazione personalizzata della singola posizione.</p>",
+  "sezioni": [
+   {
+    "id": "familiari-a-carico-nuove-regole-convivenza",
+    "titolo": "Familiari a carico: nuove regole su convivenza e assegni alimentari",
+    "corpoHtml": "<p>Il D.Lgs. 148/2026 interviene sull'art. 12 del Tuir, la norma che individua i familiari rilevanti ai fini fiscali e che viene richiamata da numerose altre disposizioni tributarie (si pensi, ad esempio, alle agevolazioni collegate ai carichi di famiglia).</p><h3>Cosa cambia</h3><p>Viene riscritto il comma 4-ter dell'art. 12 Tuir. La nuova regola distingue due situazioni:</p><ul><li><strong>Quando una norma fiscale richiama semplicemente i familiari dell'art. 12 Tuir</strong>, anche senza che spetti alcuna detrazione, rientrano nell'elenco: il coniuge non legalmente ed effettivamente separato, i figli, i genitori e gli altri soggetti dell'art. 433 del Codice civile (generi, nuore, suoceri, fratelli e sorelle anche unilaterali). Per questi ultimi <strong>non serve più</strong> dimostrare la convivenza con il contribuente né la percezione di assegni alimentari non disposti dal giudice: il requisito è stato eliminato.</li><li><strong>Quando invece la norma fiscale richiede la condizione di familiare fiscalmente a carico</strong> (cioè richiama anche il comma 2 dell'art. 12 Tuir, con i relativi limiti di reddito), per gli \"altri familiari\" dell'art. 433 c.c. resta necessario, oltre al requisito reddituale, che vi sia convivenza oppure la percezione di assegni alimentari non derivanti da provvedimenti dell'autorità giudiziaria.</li></ul><h3>Effetti pratici</h3><p>In sintesi: la platea dei familiari rilevanti si amplia quando la norma non esige lo status di \"a carico\", mentre le condizioni più stringenti restano confinate ai casi in cui tale status è espressamente richiesto. Le novità operano già dal periodo d'imposta in corso al 20.12.2025, data di entrata in vigore del D.Lgs. 192/2025.</p>",
+    "chiRiguarda": [
+     "privati",
+     "partite-iva"
+    ],
+    "decorrenza": "Dal periodo d'imposta in corso al 20 dicembre 2025",
+    "riferimento": "Art. 1 D.Lgs. 148/2026"
+   },
+   {
+    "id": "auto-aziendali-fringe-benefit-vetusta-optional",
+    "titolo": "Auto aziendali ai dipendenti: nuove regole su vetustà e optional",
+    "corpoHtml": "<p>L'art. 2 del D.Lgs. 148/2026 interviene sulla tassazione in capo al dipendente dei veicoli aziendali concessi in uso promiscuo, con effetto dal <strong>periodo d'imposta 2026</strong>.</p><p>Resta confermato il meccanismo forfetario basato sulle tabelle ACI: il valore imponibile è pari al <strong>50%</strong> del costo riferito a una percorrenza convenzionale di 15.000 km annui, ridotto al <strong>10%</strong> per le auto esclusivamente elettriche e al <strong>20%</strong> per le ibride plug-in, al netto di quanto eventualmente trattenuto al lavoratore.</p><h3>Le principali novità</h3><ul><li><strong>Anzianità del veicolo al posto della nuova immatricolazione:</strong> non conta più che il mezzo sia di prima immatricolazione al momento dell'assegnazione. Il criterio convenzionale si applica finché il veicolo non supera i 5 anni di vita; dal 1° gennaio successivo al compimento del 5° anno dall'immatricolazione, il valore imponibile <strong>aumenta del 50%</strong>. La regola vale anche se l'auto viene riassegnata a un dipendente diverso dal primo.</li><li><strong>Optional non censiti dall'ACI:</strong> viene colmato un vuoto normativo. Se il veicolo ha dotazioni aggiuntive che le tabelle ACI non conteggiano, pagate dall'azienda e non dal dipendente, il fringe benefit è <strong>maggiorato del 5%</strong>.</li></ul><h3>Regime transitorio</h3><p>Viene rimodulata la clausola di salvaguardia dell'art. 1, c. 48-bis L. 207/2024: il regime vigente al 31.12.2024 si applica ai veicoli ordinati entro il 31.12.2024 e assegnati entro il 31.12.2025, anche in caso di riassegnazione. Anche a questi mezzi, e a quelli concessi in uso dal 1.07.2020 al 31.12.2024, si applicano dal 1.01.2026 la maggiorazione del 50% dopo il 5° anno e quella del 5% per gli optional. Sono fatti salvi i comportamenti tenuti dai datori di lavoro fino al 31.12.2025 sugli accessori, senza rimborso delle maggiori imposte già versate.</p>",
+    "chiRiguarda": [
+     "imprese",
+     "partite-iva",
+     "privati"
+    ],
+    "decorrenza": "Dal periodo d'imposta 2026, con effetti anche su veicoli assegnati dal 1.07.2020 e su quelli ordinati entro il 31.12.2024 e concessi in uso nel 2025",
+    "riferimento": "Art. 2 D.Lgs. 148/2026"
+   },
+   {
+    "id": "tassazione-plusvalenze-crediti-imposta-acquistati",
+    "titolo": "Guadagni da crediti d'imposta acquistati: tassazione al 26%",
+    "corpoHtml": "<p>Il D.Lgs. 148/2026 introduce una regola precisa per chi acquista crediti d'imposta e ne ricava un guadagno: se il credito viene rivenduto a un prezzo superiore a quello pagato, oppure viene utilizzato in compensazione per un valore maggiore del costo sostenuto, la differenza positiva diventa <strong>reddito imponibile</strong>.</p><h3>Quali crediti sono interessati</h3><p>La norma riguarda i crediti d'imposta diversi da quelli che emergono dalla liquidazione delle imposte. Vi rientrano espressamente i crediti legati ai bonus edilizi indicati dall'art. 121, c. 2 D.L. 34/2020, tra cui: ristrutturazioni edilizie, riqualificazione energetica, interventi antisismici, bonus facciate, impianti fotovoltaici e sistemi di accumulo, colonnine di ricarica per veicoli elettrici e abbattimento delle barriere architettoniche.</p><h3>Come funziona la tassazione</h3><ul><li>Il guadagno è assoggettato a <strong>imposta sostitutiva del 26%</strong>, la stessa aliquota prevista per i redditi diversi, da versare con le regole e i termini del saldo delle imposte sui redditi.</li><li>In caso di compensazione, il differenziale si calcola in proporzione alla quota di costo d'acquisto riferibile agli importi compensati in ciascun periodo d'imposta.</li><li>Restano esclusi i crediti ricevuti come corrispettivo di prestazioni artistiche o professionali: in questo caso il valore concorre al reddito ordinario per la parte compensata in ogni anno.</li></ul><h3>Da quando</h3><p>Le nuove regole valgono per i crediti <strong>acquistati dal 12.08.2026</strong>. I professionisti che determinano il reddito secondo gli artt. 54 e seguenti del Tuir possono però applicarle già ai crediti acquistati dal periodo d'imposta in corso al 31.12.2024, presentando se necessario una dichiarazione integrativa; non è previsto il rimborso delle maggiori imposte già versate.</p>",
+    "chiRiguarda": [
+     "privati",
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "Crediti d'imposta acquistati dal 12.08.2026; per i professionisti, su opzione, già dal periodo d'imposta in corso al 31.12.2024",
+    "riferimento": "Art. 3 D.Lgs. 148/2026"
+   },
+   {
+    "id": "detrazione-iva-piu-tempo-registrazione-fatture",
+    "titolo": "Detrazione IVA: più tempo per detrarre e registrare le fatture",
+    "corpoHtml": "<p>L'art. 12 D.Lgs. 148/2026 interviene su due norme cardine dell'IVA, l'art. 19 e l'art. 25 D.P.R. 633/1972, allungando in modo significativo i tempi a disposizione per detrarre l'imposta sugli acquisti. La modifica recepisce nell'ordinamento italiano quanto stabilito dalla Corte di Giustizia europea con la sentenza n. T689/24 dell'11.02.2026, secondo cui chi riceve la fattura prima di presentare la dichiarazione può detrarre l'IVA nella dichiarazione del periodo in cui il diritto è sorto, anche se la fattura non era arrivata entro quel periodo.</p><h3>Cosa cambia in concreto</h3><ul><li><strong>Termine per la detrazione:</strong> finora l'ultima occasione utile era la dichiarazione relativa all'anno in cui il diritto era sorto. Con la nuova regola, la detrazione può essere esercitata al più tardi con la dichiarazione relativa al <strong>secondo anno successivo</strong> a quello di nascita del diritto, applicando le condizioni vigenti in quel momento.</li><li><strong>Termine per la registrazione:</strong> le fatture e le bollette doganali (incluse quelle in inversione contabile ex art. 17, c. 2 D.P.R. 633/1972) vanno annotate nel registro degli acquisti prima della liquidazione periodica in cui si detrae l'imposta e, comunque, entro il termine di presentazione della dichiarazione annuale relativa al <strong>secondo anno successivo</strong> a quello di ricezione della fattura.</li></ul><h3>Perché è utile</h3><p>La finestra più ampia consente alle imprese di completare con calma i controlli sulle fatture ricevute prima di registrarle e far confluire il credito IVA nelle liquidazioni. Resta fermo il doppio requisito per detrarre: l'operazione deve essere stata effettuata (presupposto sostanziale) e occorre possedere una valida fattura d'acquisto (presupposto formale).</p>",
+    "chiRiguarda": [
+     "partite-iva",
+     "imprese"
+    ],
+    "riferimento": "Art. 12 D.Lgs. 148/2026"
+   },
+   {
+    "id": "trust-vincoli-destinazione-opzione-pagamento-imposta",
+    "titolo": "Trust e vincoli di destinazione: quando pagare l'imposta si può scegliere",
+    "corpoHtml": "<p>Il D.Lgs. 148/2026, all'art. 13, interviene sulla disciplina dell'imposta sulle successioni e donazioni con riferimento ai <strong>trust</strong> e agli altri strumenti che creano un vincolo di destinazione sui beni.</p><h3>Come funziona l'opzione</h3><p>La norma di riferimento è l'art. 4-bis, c. 3 D.Lgs. 346/1990: quando beni o diritti vengono destinati a un trust (o vincolati con strumenti analoghi), il contribuente può <strong>scegliere il momento in cui versare l'imposta</strong>. Le alternative sono due:</p><ul><li>pagare al momento di <strong>ciascun conferimento</strong> dei beni o dei diritti nel trust;</li><li>pagare all'<strong>apertura della successione</strong>.</li></ul><h3>Cosa cambia con il nuovo intervento</h3><p>La novità introdotta dall'art. 13 del decreto è di tipo chiarificatore, ma con effetti pratici concreti: viene reso <strong>esplicito</strong> che l'opzione sul momento del pagamento vale non solo per l'imposta sulle successioni e donazioni, ma anche per le <strong>imposte ipotecaria e catastale</strong>. In precedenza questo punto non era espressamente previsto dalla norma.</p><h3>Chi è interessato</h3><p>La misura riguarda chi utilizza il trust o altri vincoli di destinazione nella pianificazione del passaggio generazionale del patrimonio: famiglie, imprenditori che intendono trasferire quote o beni aziendali, e in generale chi struttura il proprio patrimonio con questi strumenti. Poter allineare il momento del versamento di tutte le imposte coinvolte (successioni e donazioni, ipotecaria e catastale) semplifica la gestione fiscale dell'operazione e consente una scelta consapevole tra tassazione immediata al conferimento o rinviata all'apertura della successione.</p><p>Per valutare quale opzione sia più adatta al singolo caso è opportuno un esame specifico della situazione patrimoniale e familiare.</p>",
+    "chiRiguarda": [
+     "privati",
+     "imprese"
+    ],
+    "riferimento": "Art. 13 D.Lgs. 148/2026"
+   },
+   {
+    "id": "successioni-interessi-maggiore-imposta-dlgs-148-2026",
+    "titolo": "Successioni: nuova decorrenza degli interessi sulla maggiore imposta",
+    "corpoHtml": "<p>Con gli artt. 14 e 15 del D.Lgs. 148/2026 cambiano due aspetti della disciplina dell'imposta di successione, entrambi legati al passaggio al sistema dell'autoliquidazione da parte del contribuente.</p><h3>Da quando maturano gli interessi</h3><p>La novità principale riguarda il momento da cui si calcolano gli interessi quando risulta dovuta una <strong>maggiore imposta di successione</strong>. In precedenza, il conteggio partiva dalla data in cui l'ufficio notificava la liquidazione dell'imposta principale. Ora, invece, gli interessi decorrono <strong>dal giorno successivo alla scadenza del termine di versamento dell'imposta autoliquidata</strong>, cioè 90 giorni dal termine di presentazione della dichiarazione di successione.</p><p>In pratica: chi versa meno del dovuto in sede di autoliquidazione vedrà maturare gli interessi già dalla scadenza originaria del pagamento, non dal successivo intervento dell'ufficio. Un motivo in più per curare con attenzione la corretta determinazione dell'imposta fin dalla dichiarazione.</p><h3>Correzione degli errori da parte degli uffici</h3><p>Viene inoltre aggiornato il quadro normativo: in fase di liquidazione l'ufficio del registro provvede a correggere sviste e dimenticanze di eredi e legatari negli adempimenti previsti dall'<strong>art. 33, c. 1 D.Lgs. 346/1990</strong>. Il richiamo al comma 1-bis dello stesso articolo, abrogato dal D.Lgs. 139/2024, è sostituito dal riferimento al comma 1, che disciplina l'autoliquidazione dell'imposta di successione e donazione.</p><p>Resta fermo che, se nella dichiarazione di successione (anche sostitutiva o integrativa) sono indicati <strong>immobili o diritti reali immobiliari</strong>, gli obbligati al pagamento devono liquidare e versare, nei termini dell'art. 31, le imposte ipotecaria e catastale, l'imposta di bollo e le tasse per i servizi ipotecari.</p><p>La modifica interessa in primo luogo <strong>eredi e legatari</strong> tenuti alla dichiarazione di successione.</p>",
+    "chiRiguarda": [
+     "privati"
+    ],
+    "riferimento": "Artt. 14 e 15 D.Lgs. 148/2026"
+   },
+   {
+    "id": "forfettari-abrogazione-riduzione-termini-accertamento",
+    "titolo": "Forfettari: addio allo sconto di un anno sui termini di accertamento",
+    "corpoHtml": "<p>Con l'art. 21 del D.Lgs. 7.08.2026 n. 148 viene eliminata un'agevolazione che riguardava i contribuenti in <strong>regime forfettario</strong>: la riduzione di un anno del termine entro cui l'Agenzia delle Entrate può notificare gli avvisi di accertamento.</p><h3>Come funzionava prima</h3><p>La norma ora abrogata premiava i forfettari il cui fatturato annuo era composto <strong>esclusivamente da fatture elettroniche</strong>: in questo caso, il periodo entro il quale il Fisco poteva effettuare controlli e notificare accertamenti si accorciava di un anno. Si trattava di un incentivo pensato per spingere all'adozione della fatturazione elettronica quando questa era ancora una scelta facoltativa.</p><h3>Perché viene eliminata</h3><p>La ragione della soppressione è semplice: la fatturazione elettronica è nel frattempo diventata <strong>obbligatoria</strong>. Venuta meno la funzione di incentivo, il legislatore ha ritenuto superata anche la premialità collegata.</p><h3>Cosa cambia in pratica</h3><ul><li>I contribuenti forfettari <strong>non beneficeranno più</strong> della riduzione di un anno dei termini di decadenza per gli accertamenti;</li><li>la novità produce effetti sui <strong>controlli relativi ai periodi d'imposta dal 2026 in avanti</strong>;</li><li>per i forfettari, quindi, i termini a disposizione del Fisco tornano ad allinearsi a quelli ordinari, senza l'abbreviazione legata all'uso esclusivo della fattura elettronica.</li></ul><p>Chi opera in regime forfettario dovrebbe tenerne conto nella <strong>conservazione della documentazione contabile e fiscale</strong>, che andrà mantenuta per l'intero periodo ordinario di possibile accertamento. Per valutare l'impatto sulla propria posizione, lo studio è a disposizione per un confronto.</p>",
+    "chiRiguarda": [
+     "partite-iva"
+    ],
+    "decorrenza": "Effetti sui controlli relativi ai periodi d'imposta dal 2026 in avanti",
+    "riferimento": "Art. 21 D.Lgs. 148/2026"
+   },
+   {
+    "id": "termine-accertamento-componenti-pluriennali",
+    "titolo": "Ammortamenti e costi pluriennali: da quando parte l'accertamento del Fisco",
+    "corpoHtml": "<p>Il D.Lgs. 148/2026, all'art. 22, chiarisce una questione da tempo dibattuta: entro quale termine l'Agenzia delle Entrate può contestare i costi d'impresa che vengono dedotti in più anni, come gli ammortamenti dei beni strumentali (materiali e immateriali) e le spese ripartite su più esercizi.</p><h3>Cosa cambia</h3><p>Il periodo entro cui il Fisco può notificare un accertamento – fissato dall'art. 43, c. 1 D.P.R. 600/1973 al 31 dicembre del quinto anno successivo a quello di presentazione della dichiarazione – inizia a decorrere dalla dichiarazione riferita all'anno in cui la prima quota del costo è stata portata in deduzione. In pratica, l'Amministrazione non potrà più rimettere in discussione, molti anni dopo, la deducibilità di un componente pluriennale contestando le singole quote annuali: il \"conto alla rovescia\" parte dal primo anno di deduzione. Fanno eccezione i componenti negativi collegati a operazioni inesistenti, per i quali questa tutela non opera.</p><p>Per ammortamenti e spese a utilità pluriennale, la regola vale per le irregolarità già verificabili quando il bene è stato acquistato o la spesa sostenuta.</p><h3>Cosa resta invariato</h3><ul><li>Dopo la notifica di un avviso di accertamento, per l'anno in corso, quello precedente e i successivi tornano ad applicarsi le regole ordinarie dell'art. 43, c. 1.</li><li>Rimangono fermi i controlli sui rimborsi richiesti e quanto previsto dall'art. 1, c. 640, lett. b) L. 190/2014.</li></ul><h3>Da quando</h3><p>Le nuove regole valgono per i beni e i servizi acquistati dal periodo d'imposta in corso al 31 dicembre 2027. Un intervento che porta maggiore certezza nella pianificazione fiscale di imprese e professionisti.</p>",
+    "chiRiguarda": [
+     "imprese",
+     "partite-iva"
+    ],
+    "decorrenza": "Per i beni e servizi acquistati a partire dal periodo d'imposta in corso al 31 dicembre 2027",
+    "riferimento": "Art. 22 D.Lgs. 148/2026"
+   },
+   {
+    "id": "societa-ristretta-base-presunzione-utili-soci",
+    "titolo": "Utili occulti ai soci: quando scatta la presunzione di distribuzione",
+    "corpoHtml": "<p>Il D.Lgs. 148/2026 interviene su una questione che da anni genera contenzioso: quando il Fisco rettifica il reddito di una <strong>società di capitali con pochi soci</strong> (la cosiddetta ristretta base partecipativa), può presumere che il maggior utile accertato sia finito nelle tasche dei soci stessi, tassandolo anche in capo a loro?</p><h3>Cosa prevede la nuova regola</h3><p>L'art. 23 del decreto delimita in modo netto il perimetro di questa presunzione. La distribuzione occulta degli utili ai soci può essere presunta <strong>solo in due ipotesi</strong>, e a condizione che l'Amministrazione finanziaria le dimostri con elementi certi e precisi (ammessi anche quelli di tipo presuntivo):</p><ul><li>ricavi o altri <strong>componenti positivi di reddito</strong> che la società non ha registrato in contabilità né dichiarato;</li><li><strong>costi inesistenti</strong>, cioè componenti negativi dedotti dal reddito ma privi di realtà, quindi indeducibili.</li></ul><p>Resta ferma per il socio la possibilità di fornire la <strong>prova contraria</strong>, dimostrando di non aver percepito quelle somme.</p><h3>Effetti pratici</h3><p>Quando la presunzione opera, gli utili si considerano incassati dai soci e vengono tassati secondo le regole ordinarie dei dividendi previste dagli artt. 47, 59 e 89 del Tuir, a seconda che il socio sia una persona fisica, un imprenditore o una società.</p><p>Il cambiamento è rilevante: la presunzione non può più essere applicata in modo generalizzato a qualsiasi rettifica del reddito societario, ma resta circoscritta ai casi di ricavi in nero e costi fittizi accertati su basi solide. Una novità che interessa direttamente le <strong>Srl e le Spa a compagine familiare o ristretta</strong> e i loro soci.</p>",
+    "chiRiguarda": [
+     "imprese",
+     "privati"
+    ],
+    "riferimento": "Art. 23 D.Lgs. 148/2026"
+   },
+   {
+    "id": "accertamento-antieconomicita-art-24",
+    "titolo": "Prezzi diversi dal mercato: quando il Fisco può contestarli",
+    "corpoHtml": "<p>Vendere un bene a un prezzo basso o pagare un servizio più del suo valore di mercato non basta più, da solo, a far scattare una contestazione fiscale. È questo, in sintesi, il principio fissato dall'art. 24 del D.Lgs. 148/2026 in materia di accertamento per antieconomicità, con effetti sulle imposte sui redditi e sull'Irap.</p><h3>Cosa prevede la norma</h3><p>Se il corrispettivo concordato tra le parti si discosta dal valore di mercato del bene o del servizio, questa differenza può essere considerata dall'Amministrazione finanziaria come un indizio di due possibili irregolarità:</p><ul><li>l'esistenza di un <strong>ricavo (o altro componente positivo) più alto</strong> di quello dichiarato;</li><li>la <strong>mancanza di inerenza di un costo</strong> dedotto dall'impresa o dal professionista.</li></ul><p>La novità sta nei limiti posti a questo tipo di contestazione. Lo scostamento dal valore di mercato, infatti, può fondare l'accertamento soltanto in due casi:</p><ul><li>quando esistono <strong>ulteriori elementi indiziari</strong> che, valutati anche insieme alla differenza di prezzo, risultino <strong>gravi, precisi e concordanti</strong>;</li><li>oppure quando la difformità tra prezzo pattuito e valore di mercato sia <strong>manifesta e rilevante</strong>.</li></ul><h3>Cosa significa in pratica</h3><p>Per imprese e titolari di partita IVA, la conseguenza concreta è una maggiore tutela: una semplice divergenza dal prezzo di mercato, se contenuta e non accompagnata da altri riscontri, non è di per sé sufficiente a giustificare una ripresa a tassazione. Resta comunque opportuno documentare le ragioni economiche delle operazioni concluse a condizioni non allineate al mercato, così da poterle spiegare in caso di verifica.</p>",
+    "chiRiguarda": [
+     "imprese",
+     "partite-iva"
+    ],
+    "riferimento": "Art. 24 D.Lgs. 148/2026"
+   },
+   {
+    "id": "concordato-preventivo-biennale-novita-2026-2027",
+    "titolo": "Concordato preventivo biennale: le novità per il biennio 2026-2027",
+    "corpoHtml": "<p>L'art. 28 D.Lgs. 148/2026 rivede diverse regole del concordato preventivo biennale (CPB), con effetto <strong>dal biennio d'imposta 2026-2027</strong>. Le novità interessano imprese e professionisti soggetti agli ISA.</p><h3>Adesione senza effetti</h3><p>Viene chiarito che l'adesione è inefficace se mancano i requisiti dell'art. 10, cc. 1 e 2 D.Lgs. 13/2024 (applicazione degli ISA e assenza, nell'anno precedente, di debiti fiscali verso l'Agenzia delle Entrate o contributivi) oppure se sussiste una causa di esclusione ex art. 11 D.Lgs. 13/2024.</p><h3>Modifiche societarie e professionisti</h3><p>In caso di rinnovo, l'ingresso di nuovi soci o associati non pregiudica il concordato se nell'annualità precedente questi non hanno superato <strong>35.000 euro</strong> sommando lavoro dipendente (e redditi assimilati), impresa e lavoro autonomo. Sono inoltre precisate le regole per chi dichiara redditi di lavoro autonomo e partecipa a studi associati, STP o società tra avvocati: i vincoli di adesione congiunta valgono solo quando le attività ricadono nel <strong>medesimo ISA</strong>.</p><h3>Vantaggi in caso di rinnovo</h3><ul><li>esonero dal visto di conformità per compensazioni fino a <strong>100.000 euro annui per l'IVA</strong> e <strong>70.000 euro per imposte dirette e IRAP</strong>;</li><li>esonero da visto o garanzia per rimborsi IVA fino a 100.000 euro annui;</li><li>niente interessi sui versamenti rateali delle imposte per il biennio 2026-2027;</li><li>nessuna maggiorazione dell'acconto per il primo periodo di adesione.</li></ul><p>Attenzione però: i termini di accertamento sono <strong>anticipati di 2 anni</strong>. Riviste anche le cause di decadenza: rileva, tra l'altro, l'accertamento di attività non dichiarate o passività indebite oltre il 30% dei ricavi o compensi dichiarati. Gli errori sui dati comunicati possono essere corretti con rideterminazione del reddito concordato e sanzioni definibili con ravvedimento operoso.</p>",
+    "chiRiguarda": [
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "A decorrere dal biennio d'imposta 2026-2027",
+    "riferimento": "Art. 28 D.Lgs. 148/2026"
+   },
+   {
+    "id": "irap-terzo-settore-qualificazione-attivita",
+    "titolo": "IRAP e Terzo Settore: come si qualifica l'attività dal 2026",
+    "corpoHtml": "<h3>Una regola di coordinamento per gli enti non profit</h3><p>L'art. 30 del D.Lgs. 148/2026 interviene sul rapporto tra la disciplina IRAP (D.Lgs. 446/1997) e il mondo del Terzo Settore, chiarendo quale criterio utilizzare per stabilire se l'attività svolta da un ente abbia natura commerciale oppure no ai fini di questa imposta.</p><p><strong>Chi riguarda:</strong> tutti gli enti del Terzo Settore, con l'esclusione delle imprese sociali, che restano fuori dal perimetro della norma.</p><p><strong>Cosa prevede:</strong> per determinare, ai fini IRAP, la qualificazione fiscale dell'attività esercitata, l'ente deve fare riferimento – periodo d'imposta per periodo d'imposta – alle regole del Testo Unico delle Imposte sui Redditi (D.P.R. 917/1986). In pratica, il giudizio sulla natura commerciale o non commerciale dell'attività segue i criteri già utilizzati per le imposte sui redditi, senza parametri autonomi per l'IRAP.</p><p><strong>Cosa cambia in concreto:</strong> secondo quanto emerge dalla relazione illustrativa al decreto, la disposizione non introduce un nuovo metodo di calcolo, ma conferma e stabilizza il criterio già in uso. Si tratta quindi di una norma di certezza: gli enti sanno che la valutazione compiuta ai fini reddituali vale anche per l'IRAP, evitando disallineamenti tra i due tributi.</p><p><strong>Da quando:</strong> la regola opera a partire dal periodo d'imposta successivo a quello in corso al 31 dicembre 2025; per gli enti con esercizio coincidente con l'anno solare, quindi, dal 2026.</p><p>Gli enti del Terzo Settore interessati faranno bene a verificare, anno per anno, la corretta qualificazione delle proprie attività secondo i criteri del TUIR, poiché da essa dipende anche il trattamento IRAP.</p>",
+    "chiRiguarda": [
+     "enti-non-profit"
+    ],
+    "decorrenza": "Dal periodo d'imposta successivo a quello in corso al 31 dicembre 2025 (per gli enti con esercizio solare, dal 2026)",
+    "riferimento": "Art. 30 D.Lgs. 148/2026"
+   },
+   {
+    "id": "fatture-elettroniche-dogane-analisi-rischi",
+    "titolo": "Fatture elettroniche: le Dogane potranno usarle anche per l'analisi dei rischi",
+    "corpoHtml": "<p>Il D.Lgs. 7.08.2026 n. 148 amplia, con l'<strong>art. 31</strong>, le possibilità di impiego dei dati delle fatture elettroniche da parte dell'<strong>Agenzia delle dogane e dei monopoli</strong>.</p><h3>Cosa cambia</h3><p>Finora i file delle fatture elettroniche, trasmessi all'Agenzia delle dogane dall'Agenzia delle Entrate, potevano essere impiegati per le attività di <strong>vigilanza e controllo</strong>. Con la nuova disposizione, gli stessi dati diventano utilizzabili pure per l'<strong>analisi del rischio</strong> e per i <strong>controlli fiscali e doganali</strong>, sempre nell'ambito delle materie e delle attività di competenza dell'Agenzia.</p><h3>Chi riguarda</h3><p>La novità interessa in modo particolare le <strong>imprese e i titolari di partita IVA</strong> che operano con l'estero o in settori soggetti alla competenza doganale. In pratica, le informazioni contenute nelle fatture elettroniche già emesse e ricevute potranno alimentare i sistemi di selezione dei soggetti da sottoporre a verifica, rendendo i controlli più mirati.</p><h3>Effetti pratici</h3><ul><li>Le due Agenzie condividono i dati delle fatture elettroniche con finalità più ampie rispetto al passato.</li><li>Cresce l'importanza della <strong>correttezza e coerenza dei dati di fatturazione</strong>: eventuali anomalie potranno emergere più facilmente nelle analisi incrociate a fini fiscali e doganali.</li><li>Non sono previsti nuovi adempimenti a carico dei contribuenti: cambia l'uso che l'Amministrazione può fare di informazioni già in suo possesso.</li></ul><p>Per chi opera in ambito doganale può essere l'occasione per una verifica interna della qualità dei propri flussi di fatturazione elettronica.</p>",
+    "chiRiguarda": [
+     "imprese",
+     "partite-iva"
+    ],
+    "riferimento": "Art. 31 D.Lgs. 148/2026"
+   }
+  ],
+  "fonteNormativa": "D.Lgs. 7.08.2026 n. 148",
+  "newsCollegate": [
+   "auto-aziendali-uso-promiscuo-fringe-benefit-nuove-regole",
+   "detrazione-iva-acquisti-piu-tempo-nuove-regole-registrazione"
+  ]
+ }
+]

@@ -83,6 +83,19 @@ Nessuna pubblicazione/invio senza tua approvazione. Meccanismo scelto: **email**
 - Regola di sicurezza: un item non passa a L4 finché non c'è una risposta esplicita
   di approvazione (default = non pubblicare).
 
+### L4a-bis — Publisher sito `/approfondimenti`  ✅ FATTO (20.08.2026)
+- Sezione parallela alle news brevi, per i contenuti **lunghi**: una circolare speciale o
+  un decreto spiegato per intero, articolo per articolo.
+- Dati: `lib/approfondimenti.json` + `lib/approfondimenti.ts`. Ogni voce ha `sezioni[]`
+  (id-ancora, titolo, corpoHtml, chiRiguarda, decorrenza, riferimento) → l'indice interno
+  e le etichette "decorrenza / chi riguarda" si generano da soli.
+- Motore: `scripts/ratio/circolare.py` (Fable 5) → bozza in `output/bozze-circolari/` →
+  revisione → `publish_circolare.py` → commit/push.
+- **Copyright**: i PDF Ratio sono marcati "riproduzione vietata". Il PDF resta in locale,
+  online va solo testo riscritto; lo script fa un controllo anti-verbatim a n-grammi (8 parole).
+- Cross-link: `newsCollegate[]` collega l'approfondimento alle news brevi nate dallo stesso
+  provvedimento; la pagina news mostra il link inverso.
+
 ### L4a — Publisher sito `/aggiornamenti-fiscali`
 - Nuova sezione Next.js, separata dal blog delle guide lunghe.
 - Dati: `lib/news.ts` (array tipizzato, come `lib/articoli.ts`) → pagina indice + pagina singola.

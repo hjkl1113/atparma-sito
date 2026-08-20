@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { news, getNews, CATEGORIE_LABEL } from "@/lib/news";
+import { approfondimentiPerNews } from "@/lib/approfondimenti";
 
 const BASE = "https://www.atparma.com";
 
@@ -52,6 +53,8 @@ export default async function AggiornamentoPage({
   const { slug } = await params;
   const n = getNews(slug);
   if (!n) notFound();
+
+  const approfondimenti = approfondimentiPerNews(n.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -117,6 +120,27 @@ export default async function AggiornamentoPage({
             <p className="mt-10 pt-6 border-t border-zinc-100 text-xs text-zinc-400">
               Riferimenti normativi: {n.fonteNormativa}
             </p>
+          ) : null}
+
+          {approfondimenti.length > 0 ? (
+            <div className="mt-10 p-6 rounded-2xl border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/5">
+              <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-2">
+                Approfondimento
+              </p>
+              <ul className="space-y-2">
+                {approfondimenti.map((a) => (
+                  <li key={a.slug}>
+                    <Link
+                      href={`/approfondimenti/${a.slug}`}
+                      className="text-sm font-medium text-zinc-900 hover:underline"
+                    >
+                      {a.titolo} →
+                    </Link>
+                    <p className="text-sm text-zinc-600 mt-1">{a.sommario}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ) : null}
 
           <div className="mt-10 p-6 rounded-2xl bg-zinc-50 border border-zinc-100">

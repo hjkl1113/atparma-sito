@@ -104,6 +104,9 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/approfondimenti" className="hover:text-white transition-colors">Approfondimenti</Link>
+              </li>
+              <li>
                 <Link href="/faq" className="hover:text-white transition-colors">
                   FAQ
                 </Link>
