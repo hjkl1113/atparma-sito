@@ -8,6 +8,7 @@ import { articoli } from "@/lib/articoli";
 import { news, CATEGORIE_LABEL } from "@/lib/news";
 import { ScadenzaCallout } from "@/components/scadenza-callout";
 import { NewsTicker } from "@/components/news-ticker";
+import { ApprofondimentiHome } from "@/components/approfondimenti-home";
 import { STUDIO } from "@/lib/studio-data";
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/lib/icons";
 import { getAllMacroSezioni, CONSULENZE_SPECIALISTICHE } from "@/app/servizi/_data/macro-sezioni";
@@ -666,6 +667,7 @@ export default function Home() {
         <NewsTicker />
         <Intro />
         <AggiornamentiHome />
+        <ApprofondimentiHome />
         <AreaClienti />
         <Servizi />
         <ConsulenzaSpecialistica />

@@ -30,7 +30,7 @@ export default function ApprofondimentiPage() {
 
   return (
     <>
-      <SiteHeader current="aggiornamenti" />
+      <SiteHeader current="approfondimenti" />
 
       <main className="pt-32 pb-24">
         <div className="max-w-6xl mx-auto px-6">

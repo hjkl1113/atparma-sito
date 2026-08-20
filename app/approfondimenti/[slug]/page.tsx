@@ -105,7 +105,7 @@ export default async function ApprofondimentoPage({
 
   return (
     <>
-      <SiteHeader current="aggiornamenti" />
+      <SiteHeader current="approfondimenti" />
 
       <script
         type="application/ld+json"
