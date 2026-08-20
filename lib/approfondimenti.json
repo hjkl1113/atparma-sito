@@ -173,5 +173,108 @@
    "decreto-omnibus-novita-reddito-impresa",
    "auto-fringe-benefit-maggiorazioni-decreto-omnibus"
   ]
+ },
+ {
+  "slug": "novita-fiscali-2026-cu-isa-superbonus-split-payment",
+  "titolo": "Novità fiscali 2026: CU massive, ISA, Superbonus e split payment",
+  "sommario": "Panoramica delle ultime novità fiscali: scarico massivo delle CU, aggiornamento ISA, Superbonus 2026, proroga dello split payment al 30.6.2029, accise gasolio e crisi d'impresa.",
+  "data": "2026-08-05",
+  "tipo": "circolare-speciale",
+  "riferimento": "Prassi e norme di luglio 2026",
+  "destinatari": [
+   "privati",
+   "partite-iva",
+   "imprese"
+  ],
+  "intro": "<p>In questa pagina raccogliamo e spieghiamo le principali novità fiscali e normative di interesse per imprese, professionisti e privati, dall'area dichiarativa a quella agevolativa, fino alla gestione della crisi d'impresa.</p><p>Tra i temi trattati: la possibilità di scaricare in modo massivo le Certificazioni Uniche dal cassetto fiscale, l'aggiornamento degli ISA 2025 per tutte le 173 attività interessate, le modifiche in materia di crisi d'impresa con il piano di ristrutturazione soggetto a omologazione (PRO) e la regola della priorità relativa, oltre al nuovo modello per comunicare sconto in fattura e cessione del credito legati al Superbonus 2026.</p><p>Completano il quadro l'autorizzazione UE alla proroga dello split payment fino al 30 giugno 2029, il taglio delle accise sul gasolio con il credito d'imposta per l'autotrasporto e l'eliminazione dell'addizionale del 10% su bonus e stock option nel settore finanziario. Per ciascun argomento indichiamo cosa cambia, chi è interessato e da quando decorrono le novità.</p>",
+  "sezioni": [
+   {
+    "id": "scarico-massivo-certificazioni-uniche-cassetto-fiscale",
+    "titolo": "Certificazioni Uniche: arriva lo scarico massivo dal cassetto fiscale",
+    "corpoHtml": "<p>Con il Provv. Ag. Entrate 6.07.2026, n. 200918, l'Agenzia delle Entrate introduce una novità tecnologica di rilievo per chi gestisce quotidianamente dati e documenti fiscali: un canale di <strong>interoperabilità</strong> che mette in comunicazione diretta i sistemi informatici dei contribuenti (o dei loro intermediari) con quelli dell'Amministrazione finanziaria.</p><h3>Cosa cambia in concreto</h3><p>Fino ad oggi il recupero delle informazioni presenti nel cassetto fiscale avveniva in modo prevalentemente manuale, documento per documento. Con il nuovo servizio, invece, i software gestionali potranno dialogare direttamente con l'Agenzia e acquisire dati, atti e documenti in un <strong>ambiente sicuro</strong>.</p><p>La prima applicazione pratica sarà lo <strong>scarico massivo delle Certificazioni Uniche</strong> riferite agli anni d'imposta <strong>2024 e 2025</strong>: una funzione particolarmente utile in vista della predisposizione delle dichiarazioni dei redditi, perché consente di importare in blocco le CU senza doverle scaricare una alla volta.</p><h3>Chi può utilizzarlo e come attivarlo</h3><ul><li>Il servizio è riservato agli utenti abilitati ai canali telematici <strong>Entratel</strong> e <strong>Fisconline</strong>;</li><li>l'attivazione avviene nell'area riservata del sito dell'Agenzia delle Entrate, tramite il <strong>Catalogo dei servizi di interoperabilità</strong>.</li></ul><h3>Tempistiche</h3><p>Attenzione: il servizio di scarico massivo delle CU sarà operativo solo al termine della <strong>fase di test attualmente in corso</strong>. L'Agenzia ha inoltre annunciato che ulteriori servizi verranno aggiunti progressivamente e comunicati con appositi avvisi sul proprio sito internet.</p><p>Lo Studio resta a disposizione per valutare l'attivazione del servizio e l'integrazione con i propri strumenti gestionali.</p>",
+    "chiRiguarda": [
+     "privati",
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "Operativo al termine della fase di test in corso; il servizio è stato istituito con provvedimento del 6.07.2026",
+    "riferimento": "Provv. Ag. Entrate 6.07.2026, n. 200918"
+   },
+   {
+    "id": "isa-2025-aggiornamento-indici-affidabilita-fiscale",
+    "titolo": "ISA 2025: pagelle fiscali aggiornate per tutte le 173 attività",
+    "corpoHtml": "<p>Con la <strong>Circolare n. 4/E del 6.07.2026</strong> l'Agenzia delle Entrate ha illustrato le novità sugli <strong>Indici sintetici di affidabilità fiscale (ISA)</strong>, le cosiddette \"pagelle fiscali\" che misurano il grado di affidabilità di imprese e professionisti attribuendo un punteggio in base ai dati dichiarati.</p><h3>Cosa cambia</h3><p>Gli ISA vengono rivisti periodicamente per restare al passo con l'andamento reale dei vari settori economici. Per il <strong>periodo d'imposta 2025</strong> l'intervento si è articolato su due livelli:</p><ul><li><strong>revisione integrale di 85 indici</strong>, che sono stati quindi rielaborati da capo;</li><li><strong>aggiornamento di tutti i 173 ISA attualmente in vigore</strong>, così da renderli più coerenti con la situazione economica del 2025.</li></ul><p>Un elemento di rilievo: nella taratura degli indici si è tenuto conto anche degli <strong>effetti straordinari sul contesto economico-finanziario derivanti dalle tensioni geopolitiche</strong> registrate nel 2025. In altre parole, il punteggio non dovrebbe penalizzare i contribuenti per scostamenti dovuti a fattori eccezionali esterni alla loro gestione.</p><h3>Chi riguarda e perché è importante</h3><p>La novità interessa <strong>tutte le partite IVA e le imprese soggette agli ISA</strong>, che nella dichiarazione relativa al 2025 vedranno applicati indici ricalibrati. Un punteggio ISA elevato può dare accesso ai benefici del regime premiale, quindi conviene verificare con attenzione i dati da indicare nei modelli e l'impatto degli aggiornamenti sul proprio settore.</p><p>Lo Studio è a disposizione per analizzare la posizione ISA e valutare gli effetti degli indici aggiornati sulla singola attività.</p>",
+    "chiRiguarda": [
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "Si applica al periodo d'imposta 2025 (dichiarazioni presentate nel 2026)",
+    "riferimento": "Circ. Ag. Entrate 6.07.2026, n. 4/E"
+   },
+   {
+    "id": "crisi-impresa-pro-priorita-relativa",
+    "titolo": "Crisi d'impresa: cosa cambia con il PRO e la priorità relativa",
+    "corpoHtml": "<p>Con la Circolare 16.07.2026, n. 5/E l'Agenzia delle Entrate ha dedicato un approfondimento agli istituti introdotti dal Codice della crisi d'impresa e dell'insolvenza, ricostruendone il quadro complessivo anche alla luce di quanto emerso durante l'iter parlamentare.</p><h3>La vera novità: il Piano di ristrutturazione soggetto a omologazione (PRO)</h3><p>Tra gli strumenti analizzati spicca il <strong>PRO</strong>, che rappresenta un'assoluta innovazione per il nostro ordinamento. Per capirne la portata occorre ricordare come funzionava finora la distribuzione delle somme ai creditori nelle procedure concorsuali: vigeva la cosiddetta <strong>priorità assoluta</strong>, ossia un ordine rigido delle cause di prelazione. In pratica, un creditore di rango più basso non poteva ricevere nulla finché quello di rango superiore non fosse stato pagato per intero. E anche quando era ammesso un pagamento solo parziale dei creditori privilegiati, la gerarchia delle prelazioni restava comunque intoccabile.</p><h3>Cosa cambia in concreto</h3><p>Il PRO supera questo schema: consente di derogare all'ordine tradizionale adottando un criterio di <strong>priorità relativa</strong>. Diventa quindi possibile costruire piani di ristrutturazione più flessibili, in cui la distribuzione delle risorse non deve necessariamente rispettare in modo integrale la scala delle prelazioni. La condizione essenziale è però stringente: serve l'<strong>approvazione all'unanimità di tutte le classi di creditori</strong>.</p><h3>Per chi è rilevante</h3><p>La novità interessa le imprese in difficoltà che valutano percorsi di risanamento, ma anche i creditori (banche, fornitori, professionisti) chiamati a esprimersi sui piani proposti: la maggiore flessibilità distributiva può ampliare le soluzioni negoziali disponibili, fermo restando il ruolo decisivo del consenso di ciascuna classe.</p><p>Per valutare l'applicabilità di questi strumenti al caso concreto è opportuno un esame professionale della situazione aziendale.</p>",
+    "chiRiguarda": [
+     "imprese"
+    ],
+    "riferimento": "Circ. Agenzia delle Entrate 16.07.2026, n. 5/E"
+   },
+   {
+    "id": "superbonus-2026-nuovo-modello-sconto-fattura-cessione-credito",
+    "titolo": "Superbonus 2026: nuovo modello per sconto in fattura e cessione del credito",
+    "corpoHtml": "<p>Con il Provv. Ag. Entrate 17.07.2026, n. 211701 è stato aggiornato il modello con cui si comunica in via telematica all'Agenzia delle Entrate la scelta di utilizzare il Superbonus non come detrazione diretta, ma tramite <strong>sconto in fattura</strong> oppure tramite <strong>prima cessione del credito</strong>, con riferimento alle spese sostenute nel corso del 2026.</p><h3>Cosa cambia in pratica</h3><ul><li>Chi ha sostenuto (o sosterrà) nel 2026 spese agevolate con il Superbonus e intende optare per lo sconto o la cessione dovrà servirsi della <strong>nuova versione del modello</strong>, insieme alle relative specifiche tecniche, operativa a partire dal <strong>23.07.2026</strong>.</li><li>Attenzione: per il 2026 queste opzioni <strong>non sono liberamente esercitabili</strong>, ma restano possibili soltanto nelle ipotesi espressamente ammesse dalla normativa. È quindi fondamentale verificare, caso per caso, di rientrare tra le situazioni consentite prima di procedere.</li><li>La scadenza per l'invio segue la regola già nota degli anni scorsi: le comunicazioni riferite alle spese 2026 vanno trasmesse entro il <strong>16 marzo dell'anno successivo</strong>, quindi entro il <strong>16.03.2027</strong>.</li></ul><h3>Chi è interessato</h3><p>La novità riguarda tutti i soggetti che fruiscono del Superbonus e che, rientrando nei casi ammessi, preferiscono monetizzare subito il beneficio anziché recuperarlo in dichiarazione: condomìni, privati proprietari di immobili, ma anche imprese e professionisti coinvolti negli interventi come fornitori che applicano lo sconto in fattura.</p><p>Il consiglio operativo è duplice: verificare preventivamente l'esistenza dei requisiti per esercitare l'opzione e programmare per tempo l'invio della comunicazione, così da non arrivare a ridosso della scadenza del 16.03.2027.</p>",
+    "chiRiguarda": [
+     "privati",
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "Il nuovo modello e le specifiche tecniche si utilizzano dal 23.07.2026; le comunicazioni per le spese 2026 vanno inviate entro il 16.03.2027",
+    "riferimento": "Provv. Ag. Entrate 17.07.2026, n. 211701"
+   },
+   {
+    "id": "split-payment-proroga-2029",
+    "titolo": "Split payment: via libera UE alla proroga fino al 30 giugno 2029",
+    "corpoHtml": "<p>Con la decisione di esecuzione (UE) 2026/1728 del 10.07.2026, pubblicata nella Gazzetta Ufficiale dell'Unione europea il 15.07.2026, il Consiglio ha autorizzato l'Italia a mantenere in vigore lo <strong>split payment</strong> (la cosiddetta scissione dei pagamenti dell'IVA). Si tratta di una misura speciale che deroga agli artt. 206 e 226 della direttiva 2006/112/CE, la norma europea che disciplina il sistema comune dell'imposta sul valore aggiunto: per questo la sua applicazione richiede un'autorizzazione specifica da parte dell'Unione europea, da rinnovare periodicamente.</p><h3>Cosa cambia in concreto</h3><p>In realtà, la novità sta proprio nella <strong>continuità</strong>: l'autorizzazione ha effetto dal <strong>1.07.2026</strong> e consente al meccanismo di proseguire <strong>senza alcuna interruzione fino al 30.06.2029</strong>. Chi oggi emette fatture in regime di scissione dei pagamenti non deve quindi modificare nulla nella propria operatività: le regole già applicate restano valide per altri tre anni.</p><h3>Perché è una notizia rilevante</h3><ul><li>Viene eliminata l'incertezza legata alla scadenza dell'autorizzazione precedente: senza il rinnovo, il regime non avrebbe potuto proseguire.</li><li>Imprese e professionisti che operano con controparti soggette allo split payment possono pianificare fatturazione e flussi finanziari con un orizzonte certo fino a metà 2029.</li></ul><p>Lo Studio resta a disposizione per verificare, caso per caso, se e come il regime di scissione dei pagamenti incide sulla propria attività di fatturazione. Questa nota ha finalità puramente informative e non costituisce consulenza personalizzata.</p>",
+    "chiRiguarda": [
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "Dal 1.07.2026, senza soluzione di continuità, fino al 30.06.2029",
+    "riferimento": "Decisione di esecuzione (UE) 2026/1728 del Consiglio del 10.07.2026, in deroga agli artt. 206 e 226 direttiva 2006/112/CE"
+   },
+   {
+    "id": "taglio-accise-gasolio-credito-imposta-autotrasporto",
+    "titolo": "Taglio accise sul gasolio e credito d'imposta per l'autotrasporto",
+    "corpoHtml": "<p>Con il <strong>D.L. 27.07.2026, n. 133</strong> il Governo interviene per contenere il nuovo rialzo dei prezzi energetici, agendo su due fronti: il costo del gasolio alla pompa e il sostegno diretto alle imprese di autotrasporto.</p><h3>Cosa cambia sul prezzo del gasolio</h3><p>Per il periodo che va dal <strong>30 luglio al 6 agosto 2026</strong>, l'accisa sul gasolio impiegato come carburante si ferma, in via provvisoria, a quota <strong>532,90 euro ogni mille litri</strong>. In pratica, il taglio vale <strong>14 centesimi al litro</strong>, che diventano circa <strong>17 centesimi</strong> se si considera anche l'effetto dell'Iva. Un abbattimento della stessa entità è previsto anche per le giornate del <strong>28 e 29 luglio</strong>, disposto con apposito decreto interministeriale MEF-MASE.</p><p>Il beneficio è immediato e generalizzato: chiunque faccia rifornimento di gasolio nel periodo indicato – privati cittadini, professionisti e imprese – paga un prezzo alla pompa più basso, senza dover presentare domande o istanze.</p><h3>Il sostegno agli autotrasportatori</h3><p>Il decreto riconosce inoltre alle imprese del settore autotrasporto un <strong>sostegno straordinario, riconosciuto come credito d'imposta</strong>. L'agevolazione si calcola sulla maggiore spesa per carburante sostenuta nei mesi <strong>da marzo a luglio 2026</strong>, confrontata con i prezzi rilevati a <strong>febbraio 2026</strong>, assunto come mese di riferimento.</p><p>L'inclusione dei consumi fino a luglio amplia la platea dei costi agevolabili, a favore di un comparto tra i più colpiti dal rincaro dei carburanti. Le imprese interessate hanno quindi convenienza a raccogliere e conservare la documentazione degli acquisti di carburante di quei mesi, utile per quantificare il credito spettante.</p>",
+    "chiRiguarda": [
+     "privati",
+     "partite-iva",
+     "imprese"
+    ],
+    "decorrenza": "Taglio accise dal 30 luglio al 6 agosto 2026 (esteso al 28 e 29 luglio con decreto MEF-MASE); credito d'imposta autotrasportatori sui consumi da marzo a luglio 2026",
+    "riferimento": "D.L. 27.07.2026, n. 133"
+   },
+   {
+    "id": "esclusione-addizionale-10-bonus-stock-option-settore-finanziario",
+    "titolo": "Settore finanziario: stop all'addizionale 10% su bonus e stock option",
+    "corpoHtml": "<p>Arriva una novità di rilievo per chi lavora nel settore finanziario con retribuzioni legate ai risultati. La legge di Bilancio 2026 è intervenuta sull'art. 33 del D.L. 78/2010, introducendo il nuovo comma 2-ter: la disposizione prevede che, quando sono rispettate specifiche condizioni, non si applichi più l'addizionale del 10% sulla parte variabile della retribuzione che supera la componente fissa.</p><h3>Cosa cambia</h3><p>Fino a oggi, i compensi variabili (come bonus e stock option) percepiti da alcune figure del comparto finanziario scontavano un'imposta addizionale del 10% sulla quota eccedente la retribuzione fissa. Con la nuova norma, questo prelievo aggiuntivo viene meno, ma solo se ricorrono le condizioni fissate dalla legge.</p><h3>Chi è interessato</h3><ul><li><strong>Dirigenti</strong> che operano nel settore finanziario;</li><li><strong>Collaboratori coordinati e continuativi</strong> attivi nello stesso settore.</li></ul><p>Indirettamente, la novità interessa anche le imprese del comparto in qualità di sostituti d'imposta, chiamate a gestire correttamente la tassazione di queste componenti retributive.</p><h3>Le regole attuative</h3><p>Per rendere operativa l'esclusione, l'Agenzia delle Entrate ha emanato il provvedimento 30.07.2026, n. 223895, che definisce modalità e termini di applicazione della disciplina. È quindi a questo documento che occorre fare riferimento per verificare, caso per caso, se le condizioni richieste risultano soddisfatte.</p><p>Chi percepisce o eroga emolumenti variabili nel settore finanziario dovrebbe verificare la propria posizione alla luce delle nuove regole, per valutare se l'addizionale del 10% resti dovuta oppure no. Le informazioni qui riportate hanno carattere generale e non sostituiscono un'analisi della singola situazione.</p>",
+    "chiRiguarda": [
+     "privati",
+     "imprese"
+    ],
+    "decorrenza": "Le modalità e i termini di applicazione sono stati definiti con il provvedimento dell'Agenzia delle Entrate del 30.07.2026",
+    "riferimento": "Art. 33, c. 2-ter D.L. 78/2010; Provv. Ag. Entrate 30.07.2026, n. 223895"
+   }
+  ],
+  "fonteNormativa": "Provv. Ag. Entrate 6.07.2026 n. 200918; Circ. Ag. Entrate 6.07.2026 n. 4/E; Circ. Ag. Entrate 16.07.2026 n. 5/E; Provv. Ag. Entrate 17.07.2026 n. 211701; Decisione di esecuzione (UE) 2026/1728; D.L. 27.07.2026 n. 133; art. 33, c. 2-ter D.L. 78/2010 e Provv. Ag. Entrate 30.07.2026 n. 223895",
+  "newsCollegate": [
+   "proroga-versamenti-isa-maggiorazione",
+   "cpb-2026-2027-ravvedimento-speciale-2023",
+   "pausa-fiscale-agosto-2026-versamenti-rinviabili-al-20-agosto",
+   "cassetto-fiscale-nuove-funzionalita-avvisi-autotutela",
+   "bonus-carburante-agricolo-domande-scadenza-30-settembre-2026",
+   "credito-imposta-carburante-agricolo-20-per-cento"
+  ]
  }
 ]
