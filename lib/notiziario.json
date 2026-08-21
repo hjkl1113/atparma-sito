@@ -1,18 +1,18 @@
 {
-  "data": "2026-08-12",
-  "data_label": "settimana dal 9 al 12 agosto",
+  "data": "2026-08-20",
+  "data_label": "settimana dal 18 al 20 agosto",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 171,
+  "durata_sec": 177,
   "n_news": 8,
   "titoli": [
-    "Pos e scontrini: niente sanzioni se lo scarto resta entro il 5%",
-    "IMU e TARI: nuove regole per le dichiarazioni dal 12 agosto 2026",
-    "Welfare: esente il rimborso spese scolastiche pagate dal coniuge",
-    "Vendita di immobili: il quinquennio si conta per ogni unità",
-    "Detrazione IVA: più tempo per esercitarla con il nuovo correttivo",
-    "Bonus carburante agricolo: domande dal 6 agosto al 30 settembre",
-    "Mensa e buoni pasto non fruiti: quando l'indennizzo non è tassato",
-    "Ape sociale e lavoratori precoci: domande coperte fino al 15 luglio"
+    "20 agosto 2026: scade il termine per i versamenti al Fisco",
+    "Criptoattività: quali documenti conservare per il Fisco",
+    "Unioni civili: reversibilità erogata con 15-16 anni di anticipo",
+    "Affitti brevi: cosa succede oltre il limite di appartamenti",
+    "Dichiarazione IMU: addio alla carta, invio solo telematico",
+    "Prestiti personali: più tutele fino a 100.000 euro dal 20.11.2026",
+    "Agevolazioni auto e disabilità: serve il verbale corretto",
+    "Auto aziendali in uso promiscuo: nuove regole sul fringe benefit"
   ]
 }
