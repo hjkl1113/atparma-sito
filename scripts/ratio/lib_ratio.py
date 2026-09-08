@@ -21,9 +21,12 @@ from dataclasses import dataclass, field
 from email.header import decode_header, make_header
 
 # Percorsi .env consultati in ordine (l'ultimo vince sui precedenti,
-# os.environ vince su tutto). Il fallback ~/formatemp-verifiche/.env
-# contiene gia' STUDIO_MAIL_USER / STUDIO_MAIL_PASS / IMAP_HOST / IMAP_PORT.
+# os.environ vince su tutto). Il .env di formatemp contiene gia'
+# STUDIO_MAIL_USER / STUDIO_MAIL_PASS / IMAP_HOST / IMAP_PORT.
+# NB: dal riordino del 20/08/2026 formatemp sta sotto ~/Progetti claude/legali/;
+# il vecchio ~/formatemp-verifiche/ non esiste piu' ed e' tenuto solo come fallback.
 ENV_PATHS = [
+    os.path.expanduser("~/Progetti claude/legali/formatemp/.env"),
     os.path.expanduser("~/formatemp-verifiche/.env"),
     os.path.join(os.path.dirname(__file__), ".env"),
 ]
