@@ -1,18 +1,18 @@
 {
-  "data": "2026-08-20",
-  "data_label": "settimana dal 18 al 20 agosto",
+  "data": "2026-09-08",
+  "data_label": "settimana dal 2 al 8 settembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 177,
+  "durata_sec": 178,
   "n_news": 8,
   "titoli": [
-    "20 agosto 2026: scade il termine per i versamenti al Fisco",
-    "Criptoattività: quali documenti conservare per il Fisco",
-    "Unioni civili: reversibilità erogata con 15-16 anni di anticipo",
-    "Affitti brevi: cosa succede oltre il limite di appartamenti",
-    "Dichiarazione IMU: addio alla carta, invio solo telematico",
-    "Prestiti personali: più tutele fino a 100.000 euro dal 20.11.2026",
-    "Agevolazioni auto e disabilità: serve il verbale corretto",
-    "Auto aziendali in uso promiscuo: nuove regole sul fringe benefit"
+    "Modello 730/2026: ultime scadenze per integrazioni e acconti",
+    "Iscro più automatica per le partite IVA: cosa prevede il decreto",
+    "Cassetto fiscale: nuovi servizi per scaricare dati anche in blocco",
+    "Criptovalute in bilancio: le nuove regole contabili e fiscali",
+    "Affitto non registrato: quando la registrazione tardiva lo sana",
+    "Concordato preventivo biennale: debiti oltre 5.000 euro, cosa cambia",
+    "Isa 2024: in arrivo le lettere di anomalia dell'Agenzia delle Entrate",
+    "Fisco, settembre 2026: 155 scadenze in quindici giorni"
   ]
 }
