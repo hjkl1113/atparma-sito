@@ -31,12 +31,34 @@ MODIFICHE = os.path.join(os.path.dirname(__file__), "output", "modifiche-richies
 MANIFEST = os.path.join(os.path.dirname(__file__), "output", "pending-manifest.json")
 
 
-def load_manifest() -> dict:
-    """Mappa numero(str) -> {slug, titolo, path} scritta da notify.py."""
-    if os.path.exists(MANIFEST):
-        data = json.load(open(MANIFEST))
-        return {str(it["n"]): it for it in data.get("items", [])}
-    return {}
+def load_manifest(data_label: str | None = None) -> dict:
+    """Mappa numero(str) -> {slug, titolo, path} scritta da notify.py.
+
+    Se `data_label` e' valorizzata (ricavata dall'oggetto della risposta, che
+    contiene la data della mail di approvazione) si usa il manifest di quella
+    giornata: cosi' una risposta che arriva il giorno dopo non finisce sulle
+    news sbagliate. Altrimenti si ricade sul manifest corrente.
+    """
+    if data_label:
+        # L'oggetto indica a quale mail si riferisce la risposta: si usa SOLO il
+        # manifest di quel giorno. Se manca, non si ricade su quello corrente,
+        # perche' significherebbe applicare la risposta alle news sbagliate.
+        path = os.path.join(os.path.dirname(MANIFEST),
+                            f"pending-manifest-{data_label}.json")
+        if not os.path.exists(path):
+            return {}
+    else:
+        path = MANIFEST
+        if not os.path.exists(path):
+            return {}
+    data = json.load(open(path))
+    return {str(it["n"]): it for it in data.get("items", [])}
+
+
+def data_da_subject(subj: str) -> str | None:
+    """Estrae la data dall'oggetto: 'Bozze aggiornamenti fiscali - 2026-09-13'."""
+    m = re.search(r"(\d{4}-\d{2}-\d{2})", subj or "")
+    return m.group(1) if m else None
 
 
 def dh(s):
@@ -65,16 +87,35 @@ def bozza_by_slug(slug: str) -> str | None:
     return None
 
 
+def _html_to_text(html: str) -> str:
+    """Riduce l'HTML a testo: serve per le risposte inviate da telefono, che
+    spesso non hanno alcuna parte text/plain."""
+    import html as _html
+    txt = re.sub(r"(?is)<(script|style).*?</\1>", " ", html)
+    txt = re.sub(r"(?i)<br\s*/?>|</p>|</div>|</li>", "\n", txt)
+    txt = re.sub(r"<[^>]+>", " ", txt)
+    return _html.unescape(txt)
+
+
 def body_text(msg) -> str:
-    if msg.is_multipart():
-        for part in msg.walk():
-            if part.get_content_type() == "text/plain":
-                payload = part.get_payload(decode=True)
-                if payload:
-                    return payload.decode(part.get_content_charset() or "utf-8", "replace")
-        return ""
-    payload = msg.get_payload(decode=True)
-    return payload.decode(msg.get_content_charset() or "utf-8", "replace") if payload else ""
+    """Testo della risposta. Preferisce text/plain; se manca (tipico delle mail
+    inviate da iPhone) ricade sulla parte HTML ripulita."""
+    plain, html = "", ""
+    for part in (msg.walk() if msg.is_multipart() else [msg]):
+        ctype = part.get_content_type()
+        if ctype not in ("text/plain", "text/html"):
+            continue
+        payload = part.get_payload(decode=True)
+        if not payload:
+            continue
+        testo = payload.decode(part.get_content_charset() or "utf-8", "replace")
+        if ctype == "text/plain" and not plain:
+            plain = testo
+        elif ctype == "text/html" and not html:
+            html = testo
+    if plain.strip():
+        return plain
+    return _html_to_text(html) if html else ""
 
 
 def main() -> int:
@@ -101,7 +142,7 @@ def main() -> int:
         M.logout(); return 0
 
     news_items = publish.load_news()
-    manifest = load_manifest()
+    manifest = {}  # risolto per ogni risposta in base alla data nell'oggetto
     pubblicati, modifiche, skip = [], [], []
 
     def num_to_slug(n: str):
@@ -122,6 +163,18 @@ def main() -> int:
                 slug, p = num_to_slug(num)
                 if slug:
                     cmds.append(("OK", slug, p, ""))
+        # Approvazione "in blocco": e' il modo in cui le risposte vengono
+        # scritte davvero ("ok a tutti", "ok tutte", "ok tutti e 4", "vanno
+        # bene tutte"). Si applica solo se non e' gia' stato indicato almeno un
+        # numero, cosi' "OK 1 3" continua a valere come selezione puntuale.
+        if not cmds and re.search(
+                r"(?<!\bnon\s)(?:\bok\b|\bvanno\s+bene\b|\bpubblica\b)"
+                r"[\s,:]*(?:a\s*|per\s*)?tutt[iaeo]\b", head, re.I):
+            for n in sorted(manifest, key=lambda x: int(x)):
+                slug, p_ = num_to_slug(n)
+                if slug:
+                    cmds.append(("OK", slug, p_, ""))
+
         for mm in re.finditer(r"\bMODIFICA\b[\s#]*(\d+)\s*:?\s*([^\n]*)", head, re.I):
             slug, p = num_to_slug(mm.group(1))
             if slug:
@@ -136,7 +189,9 @@ def main() -> int:
         mid = dh(msg.get("Message-ID")) or f"uid-{i.decode()}"
         if mid in processed:
             continue
-        cmds = parse_commands(dh(msg.get("Subject")), body_text(msg))
+        subj = dh(msg.get("Subject"))
+        manifest = load_manifest(data_da_subject(subj))
+        cmds = parse_commands(subj, body_text(msg))
         seen = set()
         for azione, slug, path, note in cmds:
             if (azione, slug) in seen:

@@ -94,10 +94,18 @@ def write_manifest(bozze: list[dict]) -> None:
     man = {"items": [{"n": i, "slug": b["slug"], "titolo": b["titolo"],
                       "path": os.path.relpath(b["_path"], os.path.dirname(__file__))}
                      for i, b in enumerate(bozze, 1)]}
+    import json as _json
     mpath = os.path.join(OUT_DIR, "pending-manifest.json")
     with open(mpath, "w") as f:
-        import json as _json
         _json.dump(man, f, ensure_ascii=False, indent=2)
+    # Copia datata: serve a collect.py per agganciare una risposta alla mail
+    # giusta anche quando arriva dopo che il job del mattino ha gia' riscritto
+    # il manifest corrente.
+    data_label = (bozze[0].get("data") or "").strip() if bozze else ""
+    if data_label:
+        dpath = os.path.join(OUT_DIR, f"pending-manifest-{data_label}.json")
+        with open(dpath, "w") as f:
+            _json.dump(man, f, ensure_ascii=False, indent=2)
 
 
 def build_html(bozze: list[dict], to: str, data_label: str) -> str:
