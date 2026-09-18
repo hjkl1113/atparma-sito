@@ -96,13 +96,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceBlurb:
       "Caparra di 10 euro alla registrazione, saldo di 40 euro dopo la firma della bozza. Niente costi nascosti.",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("730"),
     ctaNote:
       "Caparra 10 euro via Stripe o PayPal. Saldo dopo la validazione della bozza. Fattura elettronica automatica.",
     closingBlurb:
       "Iscriviti al portale e versa la caparra di 10 euro. Carichi i documenti quando vuoi, ti mostriamo la bozza e solo dopo la tua validazione versi i 40 euro di saldo per sbloccare l'invio. 730 trasmesso in 7-10 giorni lavorativi dalla consegna completa.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: false,
     docs: [
       "Certificazione Unica (CU) del datore di lavoro o INPS",
@@ -221,13 +221,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "549 euro primo anno. Rinnovo annuale con disdetta libera, oppure triennale con prezzo bloccato 549 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("piva-professionista-forfettario"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 549 euro alla firma del mandato (annuale o triennale). Fatturazione elettronica automatica.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 549 euro alla firma del mandato (annuale o triennale). Fatturazione elettronica automatica.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale, firmi il mandato (annuale o triennale a prezzo bloccato) e solo a quel punto versi i 549 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: true,
     calculatorHeroBanner: true,
     hidePostPaymentSection: true,
@@ -344,13 +344,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "1.647 euro primo anno per casi standard. Include apertura + contabilità + IVA + dichiarazione + EFAT. Rinnovo annuale con disdetta libera o triennale a prezzo bloccato. Se il tuo caso include dipendenti, volumi elevati o complessità particolari, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo aver firmato il mandato nel portale.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("piva-professionista-semplificato"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1.647 euro alla firma del mandato. Fatturazione elettronica automatica.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 1.647 euro alla firma del mandato. Fatturazione elettronica automatica.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo insieme la consulenza iniziale per valutare la convenienza del regime semplificato, firmi il mandato e solo a quel punto versi i 1.647 euro del primo anno. P.IVA attiva entro 5 giorni lavorativi dalla firma.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: true,
     hidePostPaymentSection: true,
     docs: [
@@ -454,13 +454,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "610 euro onorario apertura (500 + IVA). Include P.IVA + CCIAA + INPS artigiani/commercianti + SIA + portale clienti 12 mesi. Rimborsi spese e tributi pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. La contabilità annuale si concorda a parte.",
     priceSuffix: "apertura",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("piva-artigiano-commerciante"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 610 euro alla firma del mandato. Rimborsi spese e tributi pubblici a parte.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 610 euro alla firma del mandato. Rimborsi spese e tributi pubblici a parte.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo insieme la verifica qualifica artigiana/commerciale e la consulenza iniziale. Firmi il mandato con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia. P.IVA attiva entro 10 giorni lavorativi dalla firma.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
@@ -559,13 +559,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "1.220 euro primo anno per casi standard. Un solo mandato, una fattura, rinnovo annuale con prezzo predicibile. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità forfettario + EFAT. Tributi e diritti pubblici dovuti agli enti sono a parte, importi esatti nella bozza di mandato. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture/anno o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("piva-artigiano-commerciante-forfettario"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1.220 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 1.220 euro alla firma del mandato. Tributi pubblici pagati direttamente agli enti.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo insieme la verifica dei requisiti forfettario e la consulenza iniziale. Firmi il mandato con il dettaglio esatto di onorario + tributi pubblici applicabili alla tua provincia. P.IVA attiva entro 10 giorni lavorativi.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
@@ -669,13 +669,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "2.074 euro primo anno per casi standard. Un solo mandato, rinnovo annuale. Include apertura + CCIAA + SIA + INPS + 12 mesi contabilità semplificata + IVA + EFAT. Tributi pubblici dovuti agli enti a parte, importi esatti nella bozza di mandato. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso o volumi elevati, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("piva-artigiano-commerciante-semplificato"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 2.074 euro alla firma del mandato.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 2.074 euro alla firma del mandato.",
     closingBlurb:
       "Iscriviti al portale, verifichiamo insieme convenienza semplificato vs ordinario. Firmi il mandato con dettaglio esatto onorario + tributi pubblici. P.IVA attiva entro 10 giorni lavorativi.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
@@ -774,13 +774,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "449 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 449 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("contabilita-professionista-forfettario"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 449 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 449 euro alla firma del mandato. Subentro gestito dalla segreteria.",
     closingBlurb:
       "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 449 euro del primo anno. Ci occupiamo del subentro dal tuo commercialista precedente con la tua delega: tu non muovi un documento.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: true,
     calculatorHeroBanner: true,
     hidePostPaymentSection: true,
@@ -888,13 +888,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "Da 1.464 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato per 3 anni. Se il tuo caso include dipendenti, volumi elevati, ristrutturazione pregressa di registri IVA o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("contabilita-professionista-semplificata"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento alla firma del mandato (da 1.464 euro per casi standard). Subentro gestito dalla segreteria.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento alla firma del mandato (da 1.464 euro per casi standard). Subentro gestito dalla segreteria.",
     closingBlurb:
       "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi il primo anno (da 1.464 euro per casi standard). Ci occupiamo del subentro completo: recupero documenti, cassetto fiscale, EFAT.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: false,
     hidePostPaymentSection: true,
     docs: [
@@ -997,13 +997,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "610 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 610 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Se il tuo caso include SCIA/USL/HACCP, volumi oltre 20 fatture, subentro critico o arretrati da sistemare, il prezzo finale lo definiamo con un check-up preventivo prima del mandato.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("contabilita-artigiano-forfettario"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 610 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 610 euro alla firma del mandato. Subentro gestito dalla segreteria.",
     closingBlurb:
       "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 610 euro del primo anno. Ci occupiamo del subentro completo: documenti, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: true,
     calculatorHeroBanner: true,
     hidePostPaymentSection: true,
@@ -1108,13 +1108,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "1.464 euro primo anno per casi standard. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 1.464 euro per 3 anni. Se il tuo caso include dipendenti, SCIA/USL/HACCP, magazzino complesso, volumi elevati o subentro critico, il prezzo finale lo definiamo con un check-up preventivo prima del mandato. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("contabilita-artigiano-semplificata"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 1.464 euro alla firma del mandato. Subentro gestito dalla segreteria.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 1.464 euro alla firma del mandato. Subentro gestito dalla segreteria.",
     closingBlurb:
       "Iscriviti gratis al portale, firmi il mandato (annuale o triennale a prezzo bloccato) e versi 1.464 euro del primo anno. Ci occupiamo del subentro completo: registri IVA, cassetto fiscale, INPS artigiani, CCIAA, EFAT.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     showForfettarioCalculator: false,
     hidePostPaymentSection: true,
     docs: [
@@ -1224,13 +1224,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "98 euro è il punto di partenza per un 730 avanzato standard (es. quadro RW semplice, 1-2 bonus pluriennali). Se hai molti quadri esteri, più immobili all'estero, storici bonus articolati su più cantieri, l'onorario finale lo definiamo nel check-up iniziale prima della firma del mandato. Nessuna sorpresa dopo.",
     priceSuffix: "dichiarazione",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("dichiarazione-730-avanzato"),
     ctaNote:
       "Caparra 10 euro all'iscrizione portale. Saldo onorario concordato alla firma del mandato.",
     closingBlurb:
       "Iscriviti al portale, facciamo insieme il check-up iniziale per mappare la complessità del tuo caso. Firmi il mandato con onorario concordato e lavoriamo la dichiarazione con i quadri avanzati gestiti correttamente.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "CU Italia ed eventuali CU estere (o certificazioni redditi esteri equivalenti)",
@@ -1330,13 +1330,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "98 euro IVA inclusa per UPF base lineare. Se il check-up rileva quadri avanzati (RW per conti esteri, RT per plusvalenze, redditi esteri complessi) ti indirizziamo su UPF avanzato, con onorario concordato prima della firma del mandato.",
     priceSuffix: "dichiarazione",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("dichiarazione-upf-base"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 98 euro alla firma del mandato.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 98 euro alla firma del mandato.",
     closingBlurb:
       "Iscriviti al portale, facciamo il check-up per confermare che UPF base copre il tuo caso, firmi il mandato e lavoriamo la dichiarazione. Invio telematico e archivio documenti inclusi.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "CU dei sostituti d'imposta (se presenti)",
@@ -1435,13 +1435,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "198 euro è il punto di partenza per UPF avanzato standard (es. RW con un conto estero, una sola plusvalenza, un immobile estero). Se hai più asset esteri in Paesi diversi, cumulo di RW + RT + redditi esteri complessi, strascichi P.IVA pluriennali, l'onorario finale lo definiamo nel check-up iniziale prima della firma del mandato. Nessuna sorpresa dopo.",
     priceSuffix: "dichiarazione",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("dichiarazione-upf-avanzato"),
     ctaNote:
       "Caparra 10 euro all'iscrizione portale. Saldo onorario concordato alla firma del mandato.",
     closingBlurb:
       "Iscriviti al portale, facciamo insieme il check-up iniziale per mappare la complessità del tuo caso. Firmi il mandato con onorario concordato e lavoriamo la dichiarazione con i quadri avanzati gestiti correttamente.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "CU Italia ed eventuali CU estere (o certificazioni redditi esteri equivalenti)",
@@ -1534,13 +1534,13 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     priceBlurb:
       "183 euro una tantum per l'apertura completa. Nessun abbonamento, nessun rinnovo. Se successivamente decidi di affidarci anche la contabilità annuale, il prezzo pieno del bundle contabilità è disponibile sul portale. Nessun obbligo.",
     priceSuffix: "una tantum",
-    ctaLabel: "Inizia sul portale",
+    ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("apertura-professionista-sola"),
     ctaNote:
-      "Iscrizione portale gratuita. Pagamento 183 euro alla firma del mandato. Servizio una tantum senza vincoli.",
+      "Nessuna registrazione: apriamo noi la pratica. Pagamento 183 euro alla firma del mandato. Servizio una tantum senza vincoli.",
     closingBlurb:
       "Iscriviti gratis al portale, facciamo la consulenza iniziale per verificare il regime corretto e la cassa previdenziale giusta, firmi il mandato una tantum e versi 183 euro. P.IVA attiva entro 5 giorni lavorativi, senza impegno per la gestione annuale.",
-    closingCtaLabel: "Inizia sul portale",
+    closingCtaLabel: "Richiedi l'attivazione",
     hidePostPaymentSection: true,
     docs: [
       "Carta d'identità o passaporto in corso di validità",
