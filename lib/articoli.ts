@@ -9,7 +9,7 @@ export interface Articolo {
 export const articoli: Articolo[] = [
   {
     slug: "concordato-preventivo-biennale-2026-2027",
-    titolo: "Concordato preventivo biennale 2026-2027: guida all'adesione",
+    titolo: "Concordato preventivo biennale 2026-2027: scadenza 31 ottobre, chi può aderire",
     excerpt:
       "CPB 2026-2027 (D.Lgs. 13/2024): chi può aderire, il termine del 31 ottobre 2026, come si aderisce e si revoca col modello CPB, la soglia dei 5.000 euro di debiti, i nuovi tetti del 30% e 35% per gli ISA bassi e le cause di decadenza dell'art. 22.",
     immagine: "/og?slug=concordato-preventivo-biennale-2026-2027",

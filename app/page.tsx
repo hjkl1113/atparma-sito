@@ -25,12 +25,12 @@ function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
-        <p className="text-sm tracking-[0.3em] uppercase text-white/70 mb-6">
-          Studio Professionale · Parma · Tutta Italia
-        </p>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 font-[family-name:var(--font-heading)]">
-          Il fisco è online. Lo studio pure.
+        <h1 className="text-sm tracking-[0.3em] uppercase text-white/70 mb-6">
+          Studio commercialista a Parma · A.T. Consulting
         </h1>
+        <p className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 font-[family-name:var(--font-heading)]">
+          Il fisco è online. Lo studio pure.
+        </p>
         <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
           Dottori commercialisti iscritti all&apos;albo. Dichiarazioni, Partita
           IVA e consulenze su misura — dal portale clienti, senza code e senza

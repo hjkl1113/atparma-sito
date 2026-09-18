@@ -4,9 +4,9 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const TITOLO = "Concordato preventivo biennale 2026-2027: guida all'adesione";
+const TITOLO = "Concordato preventivo biennale 2026-2027: scadenza 31 ottobre, chi può aderire";
 const DESCRIZIONE =
-  "CPB 2026-2027: chi può aderire, il termine del 31 ottobre 2026, come si aderisce e si revoca, i nuovi tetti del 30% e 35% per gli ISA bassi, le cause di decadenza. Guida aggiornata al D.Lgs. 13/2024.";
+  "Adesione al CPB 2026-2027 entro il 31 ottobre: chi può aderire, come si revoca, i tetti del 30% e 35% per gli ISA bassi e le cause di decadenza.";
 const SLUG = "concordato-preventivo-biennale-2026-2027";
 
 export const metadata: Metadata = {
