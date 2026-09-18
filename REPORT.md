@@ -12,6 +12,18 @@
 - `Pianificato`
 - `Superato / legacy`
 
+## Changelog 2026-09-18 — Visibilità su Google (SEO)
+
+Base: report Search Console 19/08–15/09 (`_analisi/search-console-2026-09-18.md`): 70 clic, 3.180 impressioni, CTR 2,2%, posizione media 10,2; il 61% dei clic arriva dalle news `/aggiornamenti-fiscali/`, il catalogo quasi non compare.
+
+- `Verificato nel codice` **Correttivo fiscale** (52cfc36): titolo e description riscritti (era posizione 6, CTR 0,3%).
+- `Verificato nel codice` **Sitemap** (d5f0932): aggiunte le 14 schede prodotto (lette da `getAllProdotti()`, i nuovi prodotti entrano da soli) + quadro RW, quadro RW ravvedimento, calcolo IMU, calendario scadenze, preventivo artigiani, sicurezza. Da 123 a 143 URL. Le `/guide/` restano fuori (noindex).
+- `Verificato nel codice` **Homepage** (bad34ea): l'H1 diventa «Studio commercialista a Parma · A.T. Consulting», lo slogan resta visivamente identico come paragrafo.
+- `Verificato nel codice` **Concordato preventivo biennale** (bad34ea): titolo con la scadenza del 31 ottobre, description da 196 a 145 caratteri.
+- `Verificato nel codice` **Collegamenti interni news** (cd4726c, `lib/correlati.ts`): ogni news ha «Leggi anche» (3 affini), il servizio pertinente, la guida del blog quando esiste (14/86) e BreadcrumbList. Tutto automatico per le news future.
+- `Pianificato` Azioni manuali in Search Console: reinviare la sitemap, richiedere l'indicizzazione delle schede prodotto principali; verificare la scheda Google Business Profile.
+- `Pianificato` Monitoraggio Search Console (df9c88c) non ancora attivo: manca la chiave del service account in `~/.config/atparma`, vedi `scripts/searchconsole/CONFIGURAZIONE.md`.
+
 ## Changelog 2026-05-27 — Fase 0 Ads (tracking + creatività)
 
 **Obiettivo della sessione**: rendere il sito ads-ready per Google Ads + Meta (Facebook/Instagram). Target geografico iniziale: Parma. Budget: da definire dopo primi dati.
