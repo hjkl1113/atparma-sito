@@ -54,3 +54,8 @@ next-env.d.ts
 # Ratio engine output (digest generati, non versionare)
 scripts/ratio/output/
 __pycache__/
+
+# Search Console: log dei job e chiavi (le chiavi stanno in ~/.config/atparma)
+scripts/searchconsole/*.out
+scripts/searchconsole/*.err
+scripts/searchconsole/*.json
