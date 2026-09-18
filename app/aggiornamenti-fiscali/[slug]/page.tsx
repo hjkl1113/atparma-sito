@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { news, getNews, CATEGORIE_LABEL } from "@/lib/news";
 import { approfondimentiPerNews } from "@/lib/approfondimenti";
+import { leggiAnche, servizioPerNews, guidaPerNews } from "@/lib/correlati";
 
 const BASE = "https://www.atparma.com";
 
@@ -55,6 +56,9 @@ export default async function AggiornamentoPage({
   if (!n) notFound();
 
   const approfondimenti = approfondimentiPerNews(n.slug);
+  const correlate = leggiAnche(n.slug);
+  const servizio = servizioPerNews(n);
+  const guida = guidaPerNews(n);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,6 +77,16 @@ export default async function AggiornamentoPage({
     mainEntityOfPage: `${BASE}/aggiornamenti-fiscali/${n.slug}`,
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Aggiornamenti fiscali", item: `${BASE}/aggiornamenti-fiscali` },
+      { "@type": "ListItem", position: 3, name: n.titolo },
+    ],
+  };
+
   return (
     <>
       <SiteHeader current="aggiornamenti" />
@@ -80,6 +94,10 @@ export default async function AggiornamentoPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <main className="pt-32 pb-24">
@@ -143,7 +161,31 @@ export default async function AggiornamentoPage({
             </div>
           ) : null}
 
+          {guida ? (
+            <div className="mt-10 p-6 rounded-2xl border border-[var(--color-accent)]/20 bg-[var(--color-accent)]/5">
+              <p className="text-xs tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium mb-2">
+                Guida completa
+              </p>
+              <Link
+                href={`/blog/${guida.slug}`}
+                className="text-sm font-medium text-zinc-900 hover:underline"
+              >
+                {guida.titolo} →
+              </Link>
+            </div>
+          ) : null}
+
           <div className="mt-10 p-6 rounded-2xl bg-zinc-50 border border-zinc-100">
+            <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium mb-2">
+              Il servizio dello studio
+            </p>
+            <Link
+              href={servizio.href}
+              className="text-base font-semibold text-zinc-900 hover:underline"
+            >
+              {servizio.titolo} →
+            </Link>
+            <p className="text-sm text-zinc-600 mt-1 mb-4">{servizio.testo}</p>
             <p className="text-sm text-zinc-600 mb-3">
               Hai un dubbio sulla tua situazione fiscale? Il nostro studio è a Parma e
               segue clienti in tutta Italia.
@@ -155,6 +197,29 @@ export default async function AggiornamentoPage({
               Richiedi una consulenza →
             </Link>
           </div>
+
+          {correlate.length > 0 ? (
+            <nav aria-label="Leggi anche" className="mt-12 pt-8 border-t border-zinc-100">
+              <h2 className="text-lg font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
+                Leggi anche
+              </h2>
+              <ul className="space-y-4">
+                {correlate.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/aggiornamenti-fiscali/${c.slug}`}
+                      className="text-sm font-medium text-zinc-900 hover:underline"
+                    >
+                      {c.titolo}
+                    </Link>
+                    <p className="text-xs text-zinc-400 mt-0.5">
+                      {CATEGORIE_LABEL[c.categoria]} · {formatData(c.data)}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
         </article>
       </main>
 
