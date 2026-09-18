@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { articoli } from "@/lib/articoli";
 import { news } from "@/lib/news";
 import { approfondimenti } from "@/lib/approfondimenti";
+import { getAllProdotti } from "@/app/servizi/_data/prodotti";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.atparma.com";
@@ -30,6 +31,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(a.data),
     changeFrequency: "monthly",
     priority: 0.7,
+  }));
+
+  // Schede prodotto del catalogo servizi (app/servizi/_data/prodotti.ts):
+  // sono le pagine d'acquisto, ogni nuovo prodotto entra in sitemap in automatico.
+  const prodottiPagine: MetadataRoute.Sitemap = getAllProdotti().map((p) => ({
+    url: `${baseUrl}/servizi/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  // Landing page statiche fuori dal catalogo. Le guide in /guide/ sono
+  // volutamente escluse: sono stampabili per i clienti e hanno noindex.
+  const landingPagine: MetadataRoute.Sitemap = [
+    { path: "/servizi/quadro-rw", priority: 0.8 },
+    { path: "/servizi/quadro-rw-ravvedimento", priority: 0.8 },
+    { path: "/servizi/calcolo-imu", priority: 0.8 },
+    { path: "/calendario-scadenze-fiscali", priority: 0.8 },
+    { path: "/strumenti/preventivo-artigiano-commerciante", priority: 0.7 },
+    { path: "/sicurezza", priority: 0.3 },
+  ].map(({ path, priority }) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority,
   }));
 
   return [
@@ -87,6 +113,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    ...prodottiPagine,
+    ...landingPagine,
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
