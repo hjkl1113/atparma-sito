@@ -1,18 +1,18 @@
 {
-  "data": "2026-09-08",
-  "data_label": "settimana dal 2 al 8 settembre",
+  "data": "2026-09-17",
+  "data_label": "settimana dal 16 al 17 settembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 178,
+  "durata_sec": 191,
   "n_news": 8,
   "titoli": [
-    "Modello 730/2026: ultime scadenze per integrazioni e acconti",
-    "Iscro più automatica per le partite IVA: cosa prevede il decreto",
-    "Cassetto fiscale: nuovi servizi per scaricare dati anche in blocco",
-    "Criptovalute in bilancio: le nuove regole contabili e fiscali",
-    "Affitto non registrato: quando la registrazione tardiva lo sana",
-    "Concordato preventivo biennale: debiti oltre 5.000 euro, cosa cambia",
-    "Isa 2024: in arrivo le lettere di anomalia dell'Agenzia delle Entrate",
-    "Fisco, settembre 2026: 155 scadenze in quindici giorni"
+    "Rottamazione-quinquies: seconda rata in scadenza il 30 settembre",
+    "Bollo auto 2027: esenzione per veicoli fino a 80 kW e moto",
+    "Prima casa: nuovi codici tributo F24 per ravvedimento e revoca",
+    "Concordato preventivo biennale: pubblicata la Guida operativa",
+    "Modello 730 senza sostituto: attenzione alle scadenze di pagamento",
+    "Pacchi extra Ue: allo studio la proroga della mini-tassa da 2 euro",
+    "Bonus colonnine: domande dal 22 settembre 2026 su Invitalia",
+    "Bonus affitti per genitori separati: contributo fino al 50%"
   ]
 }
