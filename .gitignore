@@ -53,3 +53,4 @@ next-env.d.ts
 
 # Ratio engine output (digest generati, non versionare)
 scripts/ratio/output/
+__pycache__/
