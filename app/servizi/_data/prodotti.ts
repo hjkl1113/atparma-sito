@@ -772,7 +772,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
       },
     ],
     priceBlurb:
-      "449 euro primo anno. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato 449 euro per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo la firma del mandato nel portale.",
+      "402,60 euro primo anno, IVA inclusa. Rinnovo annuale con disdetta libera (60 giorni), oppure triennale con prezzo bloccato per 3 anni. Add-on fatturazione assistita +99 euro/anno opzionale. Paghi solo dopo la firma del mandato nel portale.",
     priceSuffix: "primo anno",
     ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("contabilita-professionista-forfettario"),
@@ -1532,7 +1532,7 @@ export const PRODOTTI: Record<string, ProdottoServizio> = {
     ],
     priceFormat: "fisso",
     priceBlurb:
-      "183 euro una tantum per l'apertura completa. Nessun abbonamento, nessun rinnovo. Se successivamente decidi di affidarci anche la contabilità annuale, il prezzo pieno del bundle contabilità è disponibile sul portale. Nessun obbligo.",
+      "146,40 euro una tantum, IVA inclusa, per l'apertura completa. Nessun abbonamento, nessun rinnovo. Se successivamente decidi di affidarci anche la contabilità annuale, il prezzo pieno del bundle contabilità è disponibile sul portale. Nessun obbligo.",
     priceSuffix: "una tantum",
     ctaLabel: "Richiedi l'attivazione",
     ctaHref: portalStartHref("apertura-professionista-sola"),
