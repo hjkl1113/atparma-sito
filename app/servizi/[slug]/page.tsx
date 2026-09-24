@@ -88,13 +88,31 @@ const competenze: Record<string, {
     ],
     cta: "Richiedi assistenza per crisi di impresa",
     articoli: [
+      // Imprese: dagli obblighi di allerta agli strumenti di risanamento e liquidazione.
+      {
+        slug: "adeguati-assetti-indici-crisi-2026",
+        titolo: "Adeguati assetti e indici della crisi 2026: gli obblighi dell'impresa",
+      },
+      {
+        slug: "composizione-negoziata-crisi-impresa-2026",
+        titolo: "Composizione negoziata 2026: guida alla crisi d'impresa",
+      },
+      {
+        slug: "concordato-semplificato-liquidazione-2026",
+        titolo: "Concordato semplificato 2026: liquidazione dopo la composizione negoziata",
+      },
+      // Sovraindebitamento: imprenditori minori, professionisti e debitori civili.
       {
         slug: "sovraindebitamento-2026-come-uscire-dai-debiti",
         titolo: "Sovraindebitamento 2026: come uscire dai debiti",
       },
       {
-        slug: "composizione-negoziata-crisi-impresa-2026",
-        titolo: "Composizione negoziata 2026: guida alla crisi d'impresa",
+        slug: "concordato-minore-2026",
+        titolo: "Concordato minore 2026: la procedura per imprenditori minori e professionisti",
+      },
+      {
+        slug: "esdebitazione-incapiente-2026",
+        titolo: "Esdebitazione del debitore incapiente 2026: cancellare i debiti a zero",
       },
     ],
   },
