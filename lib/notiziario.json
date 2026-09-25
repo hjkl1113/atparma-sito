@@ -1,18 +1,18 @@
 {
-  "data": "2026-09-17",
-  "data_label": "settimana dal 16 al 17 settembre",
+  "data": "2026-09-24",
+  "data_label": "settimana dal 23 al 24 settembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 191,
+  "durata_sec": 190,
   "n_news": 8,
   "titoli": [
-    "Rottamazione-quinquies: seconda rata in scadenza il 30 settembre",
-    "Bollo auto 2027: esenzione per veicoli fino a 80 kW e moto",
-    "Prima casa: nuovi codici tributo F24 per ravvedimento e revoca",
-    "Concordato preventivo biennale: pubblicata la Guida operativa",
-    "Modello 730 senza sostituto: attenzione alle scadenze di pagamento",
-    "Pacchi extra Ue: allo studio la proroga della mini-tassa da 2 euro",
-    "Bonus colonnine: domande dal 22 settembre 2026 su Invitalia",
-    "Bonus affitti per genitori separati: contributo fino al 50%"
+    "Cpb 2026-2027: schede di sintesi nel cassetto fiscale",
+    "Pensioni: in arrivo +3 mesi sui requisiti nel biennio 2029-2030",
+    "Rateizzazione: piccoli residui di interessi non fanno decadere",
+    "Pensioni: requisiti in aumento di 3 mesi nel biennio 2029-2030",
+    "Cripto-attività: al via controlli mirati del Fisco con questionari",
+    "Superbonus: nei controlli fiscali si guardano anche i file digitali",
+    "Bonus colonnine domestiche: domande aperte dal 22 settembre",
+    "Carta Dedicata a te 2026-2027: istruzioni Inps e sconto del 15%"
   ]
 }
