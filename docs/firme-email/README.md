@@ -9,31 +9,31 @@ Due firme, una per casella. Generate il 25/09/2026 sui dati di `lib/studio-data.
 
 La segreteria è impersonale di proposito: la casella la usa anche Casciaro da Outlook.
 
-## Il logo: da dove viene (25/09/2026)
+## Niente logo nelle firme — scelta del 25/09/2026
 
-L'HTML richiama `https://www.atparma.com/firma-at.png` (in `public/firma-at.png`).
-**Finché quel file non è in produzione, nelle mail si vede un riquadro vuoto.**
+Le firme **non contengono il marchio**. Decisione dell'utente: Alessandro Sicuri firma come
+**Dottore Commercialista e Revisore Legale**, che è attività personale e ordinistica, mentre
+A.T. Consulting Parma è una S.R.L.S. di cui è socio al 49%. Mettere il marchio della società su
+una firma personale confonde chi sta agendo.
 
-Quel PNG è il **marchio autentico dello studio**, lo stesso che compare sulle fatture:
-scaricato da Fatture in Cloud (`s3.eu-west-1.amazonaws.com/fattureincloud/userdata/logos/288184/`),
-**53×54 px, blu `#171695` su bianco opaco**. È la legatura AT con la T sovrapposta alla A, la
-stessa della targa sulla porta dello studio.
+Al posto del logo resta il **filetto verticale blu `#171695`** come accento.
 
-⚠️ **53×54 è il massimo disponibile.** Verificato: tutte le fatture emesse incorporano quella
-dimensione, e il file caricato su Fatture in Cloud è anch'esso 53×54. Per questo in firma è
-mostrato a **48 px** e non a 56: sopra quella misura si sfarina. Su schermi retina resta
-leggermente morbido — non c'è materiale per il 2×.
+### Il file del marchio resta comunque nel repo
 
-Se un domani si recupera il **vettoriale** da chi ha realizzato la targa, basta sostituire
-`public/firma-at.png` e le firme restano identiche.
+`public/firma-at.png` è il **marchio autentico dello studio**, quello sulle fatture: scaricato da
+Fatture in Cloud (`userdata/logos/288184`), **53×54 px, blu `#171695`**, legatura AT con la T
+sovrapposta alla A come sulla targa dello studio. **53×54 è il massimo esistente** — verificato su
+sette fatture emesse e sul file caricato nel gestionale.
 
-Sono stati normalizzati a bianco pieno 240 pixel quasi-bianchi (antialiasing sporco nell'angolo
-in alto a sinistra, visibile come sbavatura a questa scala). Il fondo è **opaco per scelta**:
-in dark mode si vedrà un riquadro bianco, preferito al blu illeggibile su fondo scuro.
+Non è più usato dalle firme ma **va tenuto**: prima non esisteva in nessun repo una copia del
+marchio vero. Il sito usa un `icon.svg` con una AT sans su nero, il portale un'icona su navy, le
+creative social solo il wordmark: tre identità diverse, nessuna autentica.
 
-Scartate lungo la strada, per memoria: il monogramma sans generato da `app/icon.svg`, il
-`logo_AT_meta_pack` in `~/Downloads` (lettere accostate, non intrecciate: non è il marchio), e
-una ricostruzione vettoriale disegnata a mano (proporzioni troppo distanti dall'originale).
+Scartati lungo la ricerca, per non rifarla: il `logo_AT_meta_pack` in `~/Downloads` (lettere
+accostate, non intrecciate — non è il marchio) e una ricostruzione vettoriale disegnata a mano
+(proporzioni troppo distanti).
+
+Se si recupera il **vettoriale** da chi ha fatto la targa, sostituire `public/firma-at.png`.
 
 ## Come si installano
 
@@ -49,10 +49,10 @@ apri il `.html` in un browser, copia il risultato **renderizzato** e incolla.
 
 ## Scelte fatte
 
-- **Niente PEC**: esclusa su richiesta.
+- **Niente logo** e **niente PEC**: entrambi esclusi su richiesta (il logo per non legare la firma personale alla societa').
 - **Area clienti** (`clienti.atparma.com`) presente accanto al sito: è il punto d'arrivo di
   tutti i servizi del catalogo, quindi in firma vale più del sito vetrina.
-- **Disclaimer in due righe**, non la versione lunga.
+- **Nota privacy ridotta al solo rimando all'informativa** (`atparma.com/privacy`, verificata online). Tolte le formule di rito sulla riservatezza e sul cancellare il messaggio: non vincolano il destinatario a nulla e sono rumore.
 - Colori dal sito: accento `#4A9FD8`, monogramma su `#0A0A0A`.
 - Tabelle e stili inline: è l'unico modo perché la firma regga su Outlook.
 - Larghezza fissa 470 px, così la riga del disclaimer allinea col blocco.
