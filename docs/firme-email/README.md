@@ -9,11 +9,31 @@ Due firme, una per casella. Generate il 25/09/2026 sui dati di `lib/studio-data.
 
 La segreteria è impersonale di proposito: la casella la usa anche Casciaro da Outlook.
 
-## Prerequisito: il logo deve stare online
+## Il logo: da dove viene (25/09/2026)
 
 L'HTML richiama `https://www.atparma.com/firma-at.png` (in `public/firma-at.png`).
-**Finché quel file non è in produzione, nelle mail si vede un riquadro vuoto.** Il PNG è
-il monogramma «AT» di `app/icon.svg` convertito a 192 px: gli SVG nelle mail non si vedono.
+**Finché quel file non è in produzione, nelle mail si vede un riquadro vuoto.**
+
+Quel PNG è il **marchio autentico dello studio**, lo stesso che compare sulle fatture:
+scaricato da Fatture in Cloud (`s3.eu-west-1.amazonaws.com/fattureincloud/userdata/logos/288184/`),
+**53×54 px, blu `#171695` su bianco opaco**. È la legatura AT con la T sovrapposta alla A, la
+stessa della targa sulla porta dello studio.
+
+⚠️ **53×54 è il massimo disponibile.** Verificato: tutte le fatture emesse incorporano quella
+dimensione, e il file caricato su Fatture in Cloud è anch'esso 53×54. Per questo in firma è
+mostrato a **48 px** e non a 56: sopra quella misura si sfarina. Su schermi retina resta
+leggermente morbido — non c'è materiale per il 2×.
+
+Se un domani si recupera il **vettoriale** da chi ha realizzato la targa, basta sostituire
+`public/firma-at.png` e le firme restano identiche.
+
+Sono stati normalizzati a bianco pieno 240 pixel quasi-bianchi (antialiasing sporco nell'angolo
+in alto a sinistra, visibile come sbavatura a questa scala). Il fondo è **opaco per scelta**:
+in dark mode si vedrà un riquadro bianco, preferito al blu illeggibile su fondo scuro.
+
+Scartate lungo la strada, per memoria: il monogramma sans generato da `app/icon.svg`, il
+`logo_AT_meta_pack` in `~/Downloads` (lettere accostate, non intrecciate: non è il marchio), e
+una ricostruzione vettoriale disegnata a mano (proporzioni troppo distanti dall'originale).
 
 ## Come si installano
 
