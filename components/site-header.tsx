@@ -8,6 +8,7 @@ type Current =
   | "strumenti"
   | "aggiornamenti"
   | "approfondimenti"
+  | "debiti-e-crisi"
   | "blog"
   | "faq"
   | "contatti";
@@ -43,8 +44,8 @@ export function SiteHeader({ current }: { current?: Current }) {
               href={v.href}
               className={
                 current === v.key
-                  ? "text-zinc-900 font-medium"
-                  : "hover:text-zinc-900 transition-colors"
+                  ? "text-zinc-900 font-medium whitespace-nowrap"
+                  : "hover:text-zinc-900 transition-colors whitespace-nowrap"
               }
             >
               {v.label}

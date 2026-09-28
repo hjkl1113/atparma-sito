@@ -1,12 +1,14 @@
 import Link from "next/link";
 
-// Piccolo switcher fra le due sezioni editoriali: le news brevi del giorno
-// (/aggiornamenti-fiscali) e gli approfondimenti lunghi (/approfondimenti).
-// Sta in cima a entrambe le pagine: la nav principale resta invariata.
+// Piccolo switcher fra le sezioni editoriali: le news brevi del giorno
+// (/aggiornamenti-fiscali), gli approfondimenti lunghi (/approfondimenti) e
+// l'argomento debiti e crisi (/debiti-e-crisi).
+// Sta in cima a queste pagine: la nav principale resta invariata.
 
 const TABS = [
   { href: "/aggiornamenti-fiscali", label: "Aggiornamenti", key: "aggiornamenti" },
   { href: "/approfondimenti", label: "Approfondimenti", key: "approfondimenti" },
+  { href: "/debiti-e-crisi", label: "Debiti e crisi", key: "debiti-e-crisi" },
 ] as const;
 
 export type SezioneEditoriale = (typeof TABS)[number]["key"];
@@ -15,7 +17,7 @@ export function SezioniSwitcher({ current }: { current: SezioneEditoriale }) {
   return (
     <nav
       aria-label="Sezioni editoriali"
-      className="inline-flex items-center gap-1 p-1 rounded-xl bg-zinc-100"
+      className="flex w-full flex-col sm:flex-row items-stretch gap-2"
     >
       {TABS.map((t) => (
         <Link
@@ -24,8 +26,8 @@ export function SezioniSwitcher({ current }: { current: SezioneEditoriale }) {
           aria-current={current === t.key ? "page" : undefined}
           className={
             current === t.key
-              ? "px-4 py-1.5 rounded-lg bg-white text-zinc-900 text-sm font-medium shadow-sm"
-              : "px-4 py-1.5 rounded-lg text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+              ? "flex-1 text-center px-6 py-4 rounded-xl bg-[var(--color-accent-dark)] text-white text-lg font-semibold shadow-md"
+              : "flex-1 text-center px-6 py-4 rounded-xl bg-[var(--color-accent)]/10 border-2 border-[var(--color-accent)] text-lg font-semibold text-[var(--color-accent-dark)] hover:bg-[var(--color-accent)]/20 transition-colors"
           }
         >
           {t.label}

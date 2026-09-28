@@ -9,6 +9,7 @@ type Current =
   | "strumenti"
   | "aggiornamenti"
   | "approfondimenti"
+  | "debiti-e-crisi"
   | "blog"
   | "faq"
   | "contatti";

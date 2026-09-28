@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { news } from "@/lib/news";
 import { articoli } from "@/lib/articoli";
+import { SezioniSwitcher } from "@/components/sezioni-switcher";
 
 export const metadata: Metadata = {
   title: "Debiti e crisi: sovraindebitamento, cartelle, fideiussioni | A.T. Consulting Parma",
@@ -58,7 +59,7 @@ export default function DebitiECrisiPage() {
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader current="debiti-e-crisi" />
 
       <main className="pt-32 pb-24">
         <div className="max-w-6xl mx-auto px-6">
@@ -74,6 +75,10 @@ export default function DebitiECrisiPage() {
             trovi le guide dello studio e le novità che contano, aggiornate man mano che
             escono le decisioni dei tribunali.
           </p>
+
+          <div className="mb-10">
+            <SezioniSwitcher current="debiti-e-crisi" />
+          </div>
 
           {/* I tre filoni */}
           <div className="grid gap-6 md:grid-cols-3 mb-16">

@@ -658,6 +658,65 @@ function CtaUrgenze() {
   );
 }
 
+
+function DebitiCrisiHome() {
+  return (
+    <section className="py-20 bg-[var(--color-surface)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="rounded-2xl border-2 border-[var(--color-accent)]/25 bg-white p-8 sm:p-12 shadow-sm">
+          <p className="text-xs tracking-[0.25em] uppercase text-[var(--color-accent)] font-medium mb-2">
+            Debiti e crisi
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 font-[family-name:var(--font-heading)]">
+            Quando i debiti diventano il problema
+          </h2>
+          <p className="text-zinc-600 leading-relaxed mb-8 max-w-3xl">
+            Sovraindebitamento ed esdebitazione per le persone, composizione negoziata e
+            concordato per le imprese, cartelle esattoriali e fideiussioni firmate in banca.
+            Le procedure esistono e hanno presupposti precisi: la difficoltà è capire quale
+            si applica al proprio caso.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-3 mb-8">
+            <div className="rounded-xl bg-[var(--color-surface)] p-5">
+              <h3 className="font-semibold text-zinc-900 mb-1 text-sm font-[family-name:var(--font-heading)]">
+                Debiti personali
+              </h3>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Ristrutturazione, liquidazione controllata ed esdebitazione, anche per chi
+                non possiede nulla.
+              </p>
+            </div>
+            <div className="rounded-xl bg-[var(--color-surface)] p-5">
+              <h3 className="font-semibold text-zinc-900 mb-1 text-sm font-[family-name:var(--font-heading)]">
+                Impresa in difficoltà
+              </h3>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Composizione negoziata, misure protettive e benefici fiscali prima delle
+                procedure concorsuali.
+              </p>
+            </div>
+            <div className="rounded-xl bg-[var(--color-surface)] p-5">
+              <h3 className="font-semibold text-zinc-900 mb-1 text-sm font-[family-name:var(--font-heading)]">
+                Cartelle e garanzie
+              </h3>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Riscossione, pignoramenti e fideiussioni bancarie, con le novità che
+                arrivano dai tribunali.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/debiti-e-crisi"
+            className="inline-flex items-center gap-1 bg-[var(--color-accent)] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+          >
+            Guide e novità su debiti e crisi &rarr;
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -666,6 +725,7 @@ export default function Home() {
         <Hero />
         <NewsTicker />
         <Intro />
+        <DebitiCrisiHome />
         <AggiornamentiHome />
         <ApprofondimentiHome />
         <AreaClienti />
