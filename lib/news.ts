@@ -5,7 +5,12 @@ import newsData from "./news.json";
 // (scripts/ratio/publish.py) dopo la tua approvazione. Ogni voce è
 // una news originale riscritta — mai testo di terzi verbatim.
 
-export type CategoriaNews = "privati" | "partite-iva" | "imprese" | "generale";
+export type CategoriaNews =
+  | "privati"
+  | "partite-iva"
+  | "imprese"
+  | "crisi-debiti"
+  | "generale";
 
 export interface NewsItem {
   slug: string;
@@ -21,6 +26,7 @@ export const CATEGORIE_LABEL: Record<CategoriaNews, string> = {
   privati: "Privati",
   "partite-iva": "Partite IVA",
   imprese: "Imprese",
+  "crisi-debiti": "Debiti e crisi",
   generale: "Fisco",
 };
 

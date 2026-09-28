@@ -261,6 +261,18 @@ export default function ArticoloPage() {
               <strong>Come funziona.</strong> Quando l&apos;esposizione verso uno di questi enti supera determinate soglie, il creditore pubblico ha l&apos;obbligo di segnalare la situazione all&apos;imprenditore e, ove esistente, all&apos;organo di controllo, invitando il debitore a valutare senza indugio l&apos;attivazione di uno degli strumenti previsti dall&apos;ordinamento, fra cui la composizione negoziata. Si tratta di un sistema di allerta esterno che si affianca a quello interno degli assetti.
             </p>
             <p>
+              <strong>Le soglie oltre le quali scatta la segnalazione.</strong> Sono fissate dallo stesso art. 25-novies e vale la pena conoscerle a memoria, perche sono l&apos;unico parametro oggettivo del sistema di allerta esterno:
+            </p>
+            <ul className="space-y-2 ml-4">
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>INPS</strong>: debito contributivo scaduto superiore al 30% dei contributi dovuti nell&apos;anno precedente e all&apos;importo di <strong>15.000 euro</strong> per le imprese con dipendenti; <strong>5.000 euro</strong> per quelle senza dipendenti</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>INAIL</strong>: premio assicurativo scaduto da oltre 90 giorni e non versato, superiore a <strong>5.000 euro</strong></span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Agenzia delle Entrate</strong>: debito IVA scaduto e non versato superiore a <strong>5.000 euro</strong> e comunque non inferiore al 10% del volume d&apos;affari; la segnalazione parte in ogni caso se il debito supera <strong>20.000 euro</strong></span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Agenzia delle Entrate-Riscossione</strong>: crediti affidati per la riscossione, scaduti da oltre 90 giorni, superiori a <strong>100.000 euro</strong> per le imprese individuali, <strong>200.000 euro</strong> per le societa di persone e <strong>500.000 euro</strong> per le altre societa</span></li>
+            </ul>
+            <p>
+              Le soglie sono riportate nella <strong>circolare dell&apos;Agenzia delle Entrate n. 5/E del 16 luglio 2026</strong>, che dedica un capitolo specifico alle segnalazioni dei creditori pubblici qualificati.
+            </p>
+            <p>
               Per l&apos;impresa, la ricezione di una segnalazione ex art. 25-novies e un campanello d&apos;allarme da non sottovalutare: ignorarla significa lasciar maturare un&apos;esposizione che, oltre a generare sanzioni e interessi, incide direttamente sulla valutazione di responsabilita degli amministratori e degli organi di controllo.
             </p>
 

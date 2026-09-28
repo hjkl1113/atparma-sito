@@ -47,7 +47,13 @@ SYSTEM_PROMPT = (
     "(4) Tono professionale ma accessibile; solo informazione, niente consulenza "
     "personalizzata o promesse.\n"
     "(5) Se l'argomento è troppo tecnico/di nicchia per il pubblico del sito, "
-    "segnalalo con 'adatto_al_sito': false."
+    "segnalalo con 'adatto_al_sito': false.\n"
+    "(6) Categoria 'crisi-debiti': usala per tutto ciò che riguarda debiti e loro "
+    "gestione — rottamazione e definizione agevolata, cartelle e riscossione, "
+    "rateizzazioni, pignoramenti, sovraindebitamento, esdebitazione, piano del "
+    "consumatore, liquidazione controllata, concordato minore, composizione negoziata "
+    "e crisi d'impresa. È un filone che il pubblico cerca molto: non declassarlo a "
+    "'generale' e non marcarlo come di nicchia."
 )
 
 USER_TEMPLATE = """Riscrivi in una news ORIGINALE per il sito dello studio la notizia qui sotto.
@@ -68,7 +74,7 @@ non aggiungere nulla di tuo. Produci SOLO un oggetto JSON con questi campi (ness
   "sommario": "1-2 frasi che riassumono la news (max ~160 caratteri, per meta description)",
   "corpo_md": "il corpo della news in Markdown, 300-450 parole, paragrafi brevi, eventualmente un elenco puntato; spiega cosa cambia e per chi, SOLO in base al testo fonte",
   "fonte_normativa": "SOLO i riferimenti normativi presenti nel testo fonte, copiati fedelmente (stringa vuota se il testo non ne cita)",
-  "categoria": "uno tra: privati, partite-iva, imprese, generale"
+  "categoria": "uno tra: privati, partite-iva, imprese, crisi-debiti, generale"
 }}"""
 
 

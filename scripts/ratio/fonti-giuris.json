@@ -1,0 +1,65 @@
+{
+  "_nota": "Fonti e filtri del collettore giurisprudenziale (giuris.py). Provate il 28/09/2026. Modificare qui, non nel codice.",
+  "giorni_massimi": 21,
+  "max_pezzi_per_esecuzione": 3,
+  "candidati_da_valutare": 12,
+  "fonti": [
+    {
+      "nome": "Unijuris — Osservatorio giurisprudenza fallimentare",
+      "url": "https://www.unijuris.it/rss.xml",
+      "filoni": ["crisi"],
+      "peso": 3,
+      "nota": "Provvedimenti di merito con tribunale e massima nel titolo. La fonte migliore per crisi e sovraindebitamento."
+    },
+    {
+      "nome": "Diritto Bancario",
+      "url": "https://www.dirittobancario.it/feed/",
+      "filoni": ["fideiussioni", "crisi"],
+      "peso": 2,
+      "nota": "Buono su garanzie e bancario. Rumoroso: molto materiale EBA e vigilanza, il filtro per parole chiave e' indispensabile."
+    },
+    {
+      "nome": "Radar — fideiussioni e schema ABI",
+      "url": "https://news.google.com/rss/search?q=fideiussione+omnibus+OR+%22schema+ABI%22+Cassazione&hl=it&gl=IT&ceid=IT:it",
+      "filoni": ["fideiussioni"],
+      "peso": 1,
+      "nota": "Segnalatore: da qui si prende solo la notizia che il provvedimento esiste, mai il testo altrui."
+    },
+    {
+      "nome": "Radar — riscossione e cartelle",
+      "url": "https://news.google.com/rss/search?q=cartella+esattoriale+OR+%22estratto+di+ruolo%22+OR+pignoramento+Cassazione+contribuente&hl=it&gl=IT&ceid=IT:it",
+      "filoni": ["riscossione"],
+      "peso": 1,
+      "nota": "Segnalatore per il contenzioso con l'Agente della riscossione."
+    },
+    {
+      "nome": "Radar — sovraindebitamento ed esdebitazione",
+      "url": "https://news.google.com/rss/search?q=sovraindebitamento+OR+esdebitazione+OR+%22liquidazione+controllata%22+tribunale&hl=it&gl=IT&ceid=IT:it",
+      "filoni": ["crisi"],
+      "peso": 1,
+      "nota": "Segnalatore per la crisi del consumatore."
+    }
+  ],
+  "parole_chiave": {
+    "crisi": [
+      "sovraindebitamento", "esdebitazione", "incapiente", "liquidazione controllata",
+      "concordato minore", "ristrutturazione dei debiti del consumatore", "composizione negoziata",
+      "concordato semplificato", "occ", "organismo di composizione", "meritevolezza",
+      "liquidazione giudiziale", "adeguati assetti", "crisi d'impresa", "crisi di impresa",
+      "ccii", "codice della crisi", "art. 283", "art. 268", "25-sexies", "piano del consumatore"
+    ],
+    "fideiussioni": [
+      "fideiussione", "fideiussioni", "schema abi", "nullita' antitrust", "nullita antitrust",
+      "garante", "coobbligato", "escussione", "contratto autonomo di garanzia", "garanzia omnibus"
+    ],
+    "riscossione": [
+      "cartella di pagamento", "cartella esattoriale", "estratto di ruolo", "intimazione di pagamento",
+      "pignoramento", "fermo amministrativo", "ipoteca esattoriale", "rottamazione",
+      "definizione agevolata", "agenzia delle entrate-riscossione", "agente della riscossione",
+      "notifica irreperibilita", "prescrizione del credito"
+    ]
+  },
+  "escludi_se_contiene": [
+    "webinar", "corso di formazione", "master", "iscrizioni aperte", "convegno", "abbonamento"
+  ]
+}

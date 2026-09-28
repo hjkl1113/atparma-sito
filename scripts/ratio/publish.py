@@ -94,7 +94,7 @@ def md_to_html(md: str) -> str:
     return "\n".join(out)
 
 
-VALID_CAT = {"privati", "partite-iva", "imprese", "generale"}
+VALID_CAT = {"privati", "partite-iva", "imprese", "crisi-debiti", "generale"}
 
 
 def to_news_item(parsed: dict) -> dict:

@@ -136,6 +136,7 @@ const PER_CATEGORIA: Record<NewsItem["categoria"], keyof typeof SERVIZI> = {
   privati: "dichiarazioni",
   "partite-iva": "professionisti",
   imprese: "consulenza",
+  "crisi-debiti": "crisi",
   generale: "consulenza",
 };
 

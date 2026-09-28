@@ -69,7 +69,8 @@ def load_bozze(paths: list[str]) -> list[dict]:
 
 
 CAT_LABEL = {"privati": "Privati", "partite-iva": "Partite IVA",
-             "imprese": "Imprese", "generale": "Fisco"}
+             "imprese": "Imprese", "crisi-debiti": "Debiti e crisi",
+             "generale": "Fisco"}
 
 
 def mailto(to: str, subject: str, body: str) -> str:

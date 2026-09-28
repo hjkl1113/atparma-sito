@@ -286,6 +286,24 @@ export default function ArticoloPage() {
               <strong>Pubblicità.</strong> A differenza della procedura in sé (riservata), le misure protettive vengono iscritte nel registro delle imprese e diventano pubbliche. Questo è il momento in cui mercato e creditori vengono a conoscenza dello stato di crisi: scelta da pesare con l&apos;esperto valutando rischi reputazionali e benefici di protezione.
             </p>
 
+
+            {/* Misure premiali e circolare 5/E */}
+            <h2 id="misure-premiali" className="text-xl font-semibold text-zinc-900 mt-10 mb-4 font-[family-name:var(--font-heading)]">
+              Le misure premiali fiscali (art. 25-bis CCII)
+            </h2>
+            <p>
+              Chi accede alla composizione negoziata ottiene benefici fiscali automatici, che spesso pesano più della protezione dai creditori. Sono previsti dall&apos;art. 25-bis CCII e l&apos;Agenzia delle Entrate li ha analizzati nella <strong>circolare n. 5/E del 16 luglio 2026</strong>, la prima lettura sistematica del Codice della crisi.
+            </p>
+            <ul className="space-y-2 ml-4">
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Interessi ridotti al tasso legale</strong> sui debiti tributari, dall&apos;accettazione dell&apos;incarico dell&apos;esperto fino alla conclusione delle trattative</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Sanzioni tributarie ridotte al minimo</strong> quando il termine per il pagamento agevolato scade dopo la presentazione dell&apos;istanza</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Sanzioni e interessi dimezzati</strong> sui debiti tributari sorti prima del deposito dell&apos;istanza, se le trattative si chiudono con le soluzioni dell&apos;art. 23, comma 2</span></li>
+              <li className="flex gap-3"><span className="text-[var(--color-accent)] font-bold">&bull;</span> <span><strong>Rateazione fino a 72 rate mensili</strong> per imposte sui redditi, ritenute, IVA e IRAP non ancora iscritte a ruolo, se il contratto o l&apos;accordo viene pubblicato nel registro delle imprese</span></li>
+            </ul>
+            <p>
+              Sulla rateazione c&apos;è un dettaglio che vale la pena conoscere: l&apos;istanza va sottoscritta anche dall&apos;esperto, e <strong>quella firma fa prova della temporanea situazione di obiettiva difficoltà</strong>, che altrimenti andrebbe dimostrata. Il beneficio decade però automaticamente se l&apos;impresa finisce in liquidazione giudiziale o controllata, o se le rate non vengono pagate.
+            </p>
+
             {/* Esiti */}
             <h2 id="esiti" className="text-xl font-semibold text-zinc-900 mt-10 mb-4 font-[family-name:var(--font-heading)]">
               Esiti possibili della composizione negoziata

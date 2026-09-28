@@ -149,6 +149,9 @@ export default function ArticoloPage() {
             <p>
               In questa guida ricostruiamo cos&apos;è il concordato semplificato, qual è il presupposto che ne consente l&apos;accesso, perché manca il voto dei creditori, il ruolo dell&apos;ausiliario nominato dal Tribunale e i criteri di omologazione, le modalità liquidatorie (cessione dei beni o assuntore), il confronto puntuale col concordato preventivo, i suoi vantaggi e i suoi limiti. È un articolo pensato per PMI, amministratori e advisor che escono da una composizione negoziata senza accordo.
             </p>
+            <p>
+              Nel luglio 2026 l&apos;Agenzia delle Entrate ha pubblicato la <strong>circolare n. 5/E del 16 luglio 2026</strong>, che offre la prima lettura sistematica dei nuovi istituti del Codice della crisi e dedica un capitolo specifico al concordato semplificato dell&apos;art. 25-sexies. È la prima presa di posizione organica dell&apos;amministrazione finanziaria sulla materia.
+            </p>
 
             {/* Indice */}
             <div className="bg-zinc-50 rounded-xl p-6 my-8 border border-zinc-100">
