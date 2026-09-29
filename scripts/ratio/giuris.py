@@ -201,8 +201,12 @@ FILONE_LABEL = {
 }
 
 
-def scegli(env: dict, candidati: list[dict], n: int) -> list[int]:
-    """Chiede a Claude quali pezzi valgono davvero. Ritorna indici 1-based."""
+def scegli(env: dict, candidati: list[dict], n: int) -> tuple[list[int], list[int]]:
+    """Chiede a Claude quali pezzi valgono.
+
+    Ritorna due liste di indici 1-based: quelli da trattare come news breve e
+    quelli che, per portata, meritano invece un approfondimento lungo.
+    """
     api_key = env.get("ANTHROPIC_API_KEY")
     model = env.get("RATIO_REWRITE_MODEL") or "claude-sonnet-5"
     elenco = "\n".join(
@@ -220,8 +224,15 @@ def scegli(env: dict, candidati: list[dict], n: int) -> list[int]:
         "bancaria o europea che non tocca il pubblico.\n"
         f"Scegli AL MASSIMO {n} segnalazioni, anche MENO se poche meritano: meglio una "
         "forte che tre deboli. Non forzare il numero.\n\n"
+        "Indica poi, fra quelle scelte, quali hanno una portata tale da meritare un "
+        "APPROFONDIMENTO LUNGO invece di una news breve. Meritano l'approfondimento le "
+        "pronunce delle Sezioni Unite o della Cassazione che cambiano un orientamento, le "
+        "novità normative che modificano i presupposti di una procedura e i chiarimenti "
+        "ufficiali di portata generale. Non lo meritano le singole decisioni di merito che "
+        "confermano un indirizzo già noto.\n\n"
         f"Segnalazioni:\n{elenco}\n\n"
-        f'Rispondi SOLO con un JSON: {{"scelte": [numeri]}}.'
+        'Rispondi SOLO con un JSON: {"scelte": [numeri], "approfondimento": [numeri]}, '
+        'dove "approfondimento" è un sottoinsieme di "scelte" e può essere vuoto.'
     )
     payload = {
         "model": model,
@@ -238,16 +249,22 @@ def scegli(env: dict, candidati: list[dict], n: int) -> list[int]:
             body = json.loads(resp.read().decode())
     except (urllib.error.HTTPError, urllib.error.URLError) as e:
         log(f"[giuris] selezione AI fallita ({e}): prendo i primi {n} per punteggio")
-        return list(range(1, min(n, len(candidati)) + 1))
+        return list(range(1, min(n, len(candidati)) + 1)), []
     text = "".join(b.get("text", "") for b in body.get("content", []) if b.get("type") == "text")
     m = re.search(r"\{.*\}", text, re.S)
     if not m:
-        return list(range(1, min(n, len(candidati)) + 1))
+        return list(range(1, min(n, len(candidati)) + 1)), []
     try:
-        scelte = json.loads(m.group(0)).get("scelte", [])
+        dati = json.loads(m.group(0))
     except json.JSONDecodeError:
-        return list(range(1, min(n, len(candidati)) + 1))
-    return [int(x) for x in scelte if isinstance(x, (int, float)) and 1 <= int(x) <= len(candidati)]
+        return list(range(1, min(n, len(candidati)) + 1)), []
+
+    def numeri(chiave: str) -> list[int]:
+        return [int(x) for x in dati.get(chiave, [])
+                if isinstance(x, (int, float)) and 1 <= int(x) <= len(candidati)]
+
+    scelte = numeri("scelte")
+    return scelte, [x for x in numeri("approfondimento") if x in scelte]
 
 
 # ------------------------------------------------------------------------ main
@@ -320,12 +337,13 @@ def main() -> int:
     candidati = candidati[: cfg.get("candidati_da_valutare", 12)]
     log(f"[giuris] {len(candidati)} candidati al vaglio editoriale")
 
-    scelte = scegli(env, candidati, n_max)
+    scelte, da_approfondire = scegli(env, candidati, n_max)
     if not scelte:
         log("[giuris] l'editor non ha ritenuto nulla degno. Nessuna bozza.")
         salva_visti(visti | {impronta(c) for c in candidati})
         return 0
-    log(f"[giuris] scelte: {scelte}")
+    log(f"[giuris] scelte: {scelte}"
+        + (f" — da trattare come APPROFONDIMENTO: {da_approfondire}" if da_approfondire else ""))
 
     oggi = dt.date.today().isoformat()
     generate = 0
@@ -342,10 +360,19 @@ def main() -> int:
             log(f"      errore riscrittura: {e}")
             continue
         out.setdefault("categoria", "crisi-debiti")
+        merita = idx in da_approfondire
+        if merita:
+            out["titolo"] = "[DA APPROFONDIRE] " + out.get("titolo", "")
+            log("      segnalata come da trattare con un approfondimento lungo")
         path = rewrite.write_bozza(oggi, 90 + pos, c["titolo"], out, usage)
-        # traccia la provenienza: serve per il controllo umano, non finisce sul sito
+        # traccia la provenienza e l'indicazione editoriale: restano nel file di
+        # lavoro, non finiscono sul sito
         with open(path, "a") as f:
             f.write(f"\n<!-- fonte segnalazione: {c['fonte']} — {c['link']} -->\n")
+            if merita:
+                f.write("<!-- PORTATA: merita un approfondimento lungo in "
+                        "/approfondimenti, non una news breve. Togliere il prefisso "
+                        "[DA APPROFONDIRE] dal titolo prima di pubblicare come news. -->\n")
         generate += 1
         visti.add(impronta(c))
 
