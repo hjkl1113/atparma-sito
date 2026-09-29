@@ -12,6 +12,23 @@
 - `Pianificato`
 - `Superato / legacy`
 
+## Changelog 2026-09-29 — Filone «Debiti e crisi» e collettore giurisprudenziale
+
+Il motore Ratio scartava sistematicamente crisi d'impresa e sovraindebitamento: il prompt di selezione li trattava come «argomenti di nicchia». Nelle 106 news pubblicate non ce n'era una, mentre nei digest della fonte 14 argomenti su 531 riguardavano la materia. Il blog aveva gia 6 guide sul tema, ferme al 3 giugno e senza news che le alimentassero.
+
+- `Verificato nel codice` **Nuova categoria `crisi-debiti`** (053629c): aggiunta in `rewrite.py`, `notify.py` (etichetta «Debiti e crisi»), `publish.py` (senza questa modifica sarebbe stata degradata a «generale» in pubblicazione), `lib/news.ts` e `lib/correlati.ts` (rimando a `/servizi/crisi-di-impresa`).
+- `Verificato nel codice` **Selezione del mattino** (053629c, `daily.py`): eccezione esplicita, i temi di debiti e crisi non sono nicchia e se presenti se ne sceglie almeno uno.
+- `Verificato nel codice` **Pagina hub `/debiti-e-crisi`** (053629c, fcff7c2, bb20b8e): circa 850 parole proprie, tabella delle quattro procedure di sovraindebitamento, strumenti d'impresa, cartelle e fideiussioni, durate, sei domande frequenti. Dati presi dalle guide gia pubblicate. Le news restano su `/aggiornamenti-fiscali/<slug>`: nessun URL duplicato.
+- `Verificato nel codice` **Indicizzazione** (fcff7c2): la pagina mancava in `app/sitemap.ts` (aggiunta, priorita 0.9); le 6 guide del blog ora la linkano da «Approfondimenti correlati»; dati strutturati CollectionPage, BreadcrumbList e FAQPage.
+- `Verificato nel codice` **Visibilita** (8392fae): sezione dedicata in home subito dopo l'introduzione; terza scheda nello switcher editoriale, ricolorata perche il bianco sull'azzurro del tema (#4A9FD8) stava a 2,5:1, sotto la soglia di leggibilita. Il menu principale resta a otto voci.
+- `Verificato nel codice` **Selezione redazionale** (bb20b8e, `lib/debiti-e-crisi.ts`): le news brevi restano in «generale», nella pagina dell'argomento si riportano a mano solo quelle che contano; gli approfondimenti lunghi entrano da soli.
+- `Verificato nel codice` **Articoli aggiornati** con la circolare AdE 5/E del 16 luglio 2026, letta dalla fonte ufficiale: misure premiali dell'art. 25-bis nella guida alla composizione negoziata, soglie dell'art. 25-novies negli adeguati assetti (mancavano), riferimento alla circolare nel concordato semplificato.
+- `Verificato nel codice` **Collettore giurisprudenziale** (053629c, a7cfc55): `scripts/giuris.py` + `fonti-giuris.json`. Legge feed pubblici, filtra per parole chiave sui tre filoni (crisi, fideiussioni, riscossione), scarta i gia visti, fa scegliere i pezzi, scarica il testo reale e prepara le bozze; stesso gate umano delle news quotidiane. Distingue le news brevi dai pezzi che meritano un approfondimento lungo, marcandoli `[DA APPROFONDIRE]`.
+- `Verificato in configurazione esterna` **Fonti provate il 28/09**: funzionano Unijuris (`rss.xml`, provvedimenti di merito, la migliore), Diritto Bancario (`/feed/`, rumoroso) e tre radar Google News. Non utilizzabili: dirittodellacrisi.it (404), ilcaso.it (HTML), Altalex (feed vuoto), Fisco Oggi e Cortedicassazione (403). Nota pratica: i radar portano spesso a paywall e il motore scarta da solo quei pezzi, perche senza testo reale non si riscrive.
+- `Pianificato` Job settimanale del collettore (per ora si lancia a mano con `python3 giuris.py`).
+- `Pianificato` In Search Console: richiedere l'indicizzazione di `/debiti-e-crisi` e verificare la sitemap.
+- Proposta e ragionamento sul copyright (le sentenze non sono protette, i commenti altrui si): `RATIO-GIURISPRUDENZA-PROPOSTA.md`.
+
 ## Changelog 2026-09-18 — Visibilità su Google (SEO)
 
 Base: report Search Console 19/08–15/09 (`_analisi/search-console-2026-09-18.md`): 70 clic, 3.180 impressioni, CTR 2,2%, posizione media 10,2; il 61% dei clic arriva dalle news `/aggiornamenti-fiscali/`, il catalogo quasi non compare.

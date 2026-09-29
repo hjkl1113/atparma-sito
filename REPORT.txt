@@ -1,3 +1,28 @@
+AGGIORNAMENTO 29/09/2026 - FILONE "DEBITI E CRISI"
+
+Il motore Ratio scartava crisi d'impresa e sovraindebitamento come "argomenti di
+nicchia": zero news su 106, mentre la fonte ne offriva 14 su 531 argomenti.
+
+Fatto:
+- nuova categoria crisi-debiti in tutto il motore (rewrite, notify, publish) e nel sito
+- pagina hub /debiti-e-crisi: ~850 parole proprie, tabella delle quattro procedure di
+  sovraindebitamento, strumenti d'impresa, cartelle e fideiussioni, sei domande frequenti
+- indicizzazione: la pagina mancava in sitemap (ora c'e', priorita 0.9), le sei guide del
+  blog la linkano, dati strutturati CollectionPage + BreadcrumbList + FAQPage
+- visibilita': sezione in home dopo l'introduzione, terza scheda nello switcher
+  (ricolorata: il bianco sull'azzurro del tema stava a 2,5:1, sotto la leggibilita')
+- le news brevi restano in "generale": nella pagina si riportano a mano solo quelle che
+  contano (lib/debiti-e-crisi.ts), gli approfondimenti lunghi entrano da soli
+- tre guide aggiornate con la circolare AdE 5/E del 16/07/2026 (misure premiali art.
+  25-bis, soglie art. 25-novies che mancavano)
+- nuovo collettore giurisprudenziale scripts/ratio/giuris.py: legge feed pubblici su
+  crisi, fideiussioni e riscossione, prepara le bozze e manda la mail di approvazione
+  come il flusso quotidiano; distingue le news dai pezzi da approfondire
+
+Da fare:
+- job settimanale del collettore (per ora si lancia a mano)
+- Search Console: richiedere indicizzazione di /debiti-e-crisi, verificare la sitemap
+
 ================================================================================
 REPORT UNIFICATO — AT PARMA
 Sito www.atparma.com + Portale clienti.atparma.com
