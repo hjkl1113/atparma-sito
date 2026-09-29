@@ -137,6 +137,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...approfondimentiPagine,
     {
+      // Pagina hub dell'argomento "debiti e crisi": raccoglie guide e novità
+      // e punta al servizio. Priorità alta: è una landing tematica, non una lista.
+      url: `${baseUrl}/debiti-e-crisi`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: "monthly",

@@ -59,6 +59,64 @@ export default function DebitiECrisiPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Debiti e crisi",
+            description:
+              "Sovraindebitamento ed esdebitazione, composizione negoziata e concordato, cartelle esattoriali e fideiussioni bancarie: guide e novità dello studio A.T. Consulting Parma.",
+            url: "https://www.atparma.com/debiti-e-crisi",
+            inLanguage: "it-IT",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "A.T. Consulting Parma",
+              url: "https://www.atparma.com",
+            },
+            about: [
+              { "@type": "Thing", name: "Sovraindebitamento" },
+              { "@type": "Thing", name: "Esdebitazione" },
+              { "@type": "Thing", name: "Crisi d'impresa" },
+              { "@type": "Thing", name: "Composizione negoziata" },
+              { "@type": "Thing", name: "Riscossione e cartelle esattoriali" },
+              { "@type": "Thing", name: "Fideiussioni bancarie" },
+            ],
+            mainEntity: {
+              "@type": "ItemList",
+              itemListElement: guide.map((a, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `https://www.atparma.com/blog/${a.slug}`,
+                name: a.titolo,
+              })),
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Chi può accedere alle procedure di sovraindebitamento?", "acceptedAnswer": {"@type": "Answer", "text": "Chi non è soggetto alle procedure concorsuali ordinarie: consumatori, professionisti, imprenditori minori, imprenditori agricoli e start-up innovative. È il primo requisito da verificare, perché una domanda presentata nella procedura sbagliata viene dichiarata inammissibile."}}, {"@type": "Question", "name": "Si possono cancellare i debiti se non si possiede nulla?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, con l'esdebitazione del debitore incapiente prevista dall'art. 283 del Codice della crisi. Si ottiene una sola volta nella vita e per quattro anni dal decreto resta l'obbligo di pagare se sopravvengono utilità rilevanti; trascorsi i quattro anni diventa definitiva."}}, {"@type": "Question", "name": "Quanto dura una procedura di sovraindebitamento?", "acceptedAnswer": {"@type": "Answer", "text": "La ristrutturazione dei debiti del consumatore e il concordato minore richiedono in genere dai sei ai dodici mesi dal deposito all'omologazione. La liquidazione controllata dura fino a tre anni, al termine dei quali l'esdebitazione arriva di diritto."}}, {"@type": "Question", "name": "Cosa significa essere meritevoli?", "acceptedAnswer": {"@type": "Answer", "text": "Che i debiti non siano stati contratti con colpa grave, malafede o frode. Non basta essere indebitati: il tribunale guarda come ci si è arrivati. La giurisprudenza recente nega il beneficio, per esempio, a chi ha omesso sistematicamente di versare le imposte pur avendo redditi."}}, {"@type": "Question", "name": "La mia impresa è in difficoltà: da dove comincio?", "acceptedAnswer": {"@type": "Answer", "text": "Dalla composizione negoziata, una trattativa riservata con i creditori assistita da un esperto indipendente, in cui l'imprenditore mantiene la gestione. Dà accesso a misure protettive dalle azioni dei creditori e a benefici fiscali su interessi, sanzioni e rateazione dei debiti tributari."}}, {"@type": "Question", "name": "La fideiussione firmata in banca si può contestare?", "acceptedAnswer": {"@type": "Answer", "text": "In alcuni casi sì. Molti contratti ricalcano uno schema predisposto dall'associazione bancaria che la giurisprudenza ha ritenuto in contrasto con la normativa antitrust. È una verifica da fare sul testo del contratto firmato, prima di pagare."}}]}) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.atparma.com" },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Debiti e crisi",
+                item: "https://www.atparma.com/debiti-e-crisi",
+              },
+            ],
+          }),
+        }}
+      />
       <SiteHeader current="debiti-e-crisi" />
 
       <main className="pt-32 pb-24">
@@ -108,6 +166,195 @@ export default function DebitiECrisiPage() {
                 )}
               </div>
             ))}
+          </div>
+
+
+          {/* Contenuto della pagina */}
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-bold tracking-tight mb-4 mt-12 font-[family-name:var(--font-heading)]">
+              La prima domanda non è quali debiti hai, ma chi sei
+            </h2>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Sembra strano, ma è così. La legge divide chi ha debiti in due mondi, e la
+              strada cambia completamente a seconda di dove ci si trova. Da una parte le
+              imprese che superano certe dimensioni, per le quali esistono le procedure
+              concorsuali classiche. Dall&apos;altra tutti gli altri: consumatori, professionisti,
+              piccoli imprenditori, imprenditori agricoli, start-up innovative. Per questo
+              secondo gruppo il Codice della crisi prevede le cosiddette procedure di
+              sovraindebitamento, pensate proprio per chi non è fallibile.
+            </p>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              È il primo bivio, e sbagliarlo significa perdere mesi: una domanda presentata
+              nella procedura sbagliata viene dichiarata inammissibile.
+            </p>
+
+            <h2 className="text-2xl font-bold tracking-tight mb-4 mt-12 font-[family-name:var(--font-heading)]">
+              Se non sei fallibile: le quattro strade
+            </h2>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Sono quattro, e non sono alternative equivalenti. Ognuna ha presupposti
+              precisi e un esito diverso.
+            </p>
+            <div className="overflow-x-auto mb-6">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b-2 border-zinc-300 text-left">
+                    <th className="py-2 pr-4 font-semibold text-zinc-900">Procedura</th>
+                    <th className="py-2 pr-4 font-semibold text-zinc-900">A chi si rivolge</th>
+                    <th className="py-2 font-semibold text-zinc-900">Cosa produce</th>
+                  </tr>
+                </thead>
+                <tbody className="text-zinc-700">
+                  <tr className="border-b border-zinc-200">
+                    <td className="py-3 pr-4 font-medium">Ristrutturazione dei debiti del consumatore<br /><span className="text-xs text-zinc-500">artt. 67-73 CCII</span></td>
+                    <td className="py-3 pr-4">Persone fisiche consumatrici, meritevoli</td>
+                    <td className="py-3">Pagamento ridotto e dilazionato, poi liberazione dai debiti residui</td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="py-3 pr-4 font-medium">Concordato minore<br /><span className="text-xs text-zinc-500">artt. 74-83 CCII</span></td>
+                    <td className="py-3 pr-4">Professionisti, imprenditori minori e agricoli, start-up</td>
+                    <td className="py-3">Accordo con i creditori, con prosecuzione dell&apos;attività</td>
+                  </tr>
+                  <tr className="border-b border-zinc-200">
+                    <td className="py-3 pr-4 font-medium">Liquidazione controllata<br /><span className="text-xs text-zinc-500">artt. 268-277 CCII</span></td>
+                    <td className="py-3 pr-4">Chi ha un patrimonio liquidabile ma non può sostenere un piano</td>
+                    <td className="py-3">Liquidazione assistita, con esdebitazione di diritto dopo tre anni</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-medium">Esdebitazione del debitore incapiente<br /><span className="text-xs text-zinc-500">art. 283 CCII</span></td>
+                    <td className="py-3 pr-4">Persone fisiche meritevoli che non possono offrire nulla ai creditori</td>
+                    <td className="py-3">Cancellazione dei debiti anche senza pagare nulla</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              L&apos;ultima è quella di cui si parla di più, e va spiegata bene perché è anche la
+              più fraintesa. L&apos;esdebitazione del debitore incapiente permette di cancellare i
+              debiti a chi non ha nulla da offrire, ma si ottiene <strong>una sola volta nella
+              vita</strong> e non è definitiva subito: per <strong>quattro anni</strong> dal
+              decreto resta l&apos;obbligo di pagare se sopravvengono utilità rilevanti, per esempio
+              un&apos;eredità o una vincita. Passati i quattro anni diventa definitiva e
+              incondizionata.
+            </p>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              E c&apos;è una parola che ricorre in tutte e quattro: <strong>meritevolezza</strong>.
+              Non basta essere indebitati, conta come ci si è arrivati. I tribunali la valutano
+              caso per caso, e proprio lì si concentra la giurisprudenza più recente: chi ha
+              sistematicamente omesso di pagare le imposte pur avendo redditi, per esempio, se
+              la vede negare.
+            </p>
+
+            <h2 className="text-2xl font-bold tracking-tight mb-4 mt-12 font-[family-name:var(--font-heading)]">
+              Se sei un&apos;impresa: prima si prova a salvarla
+            </h2>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Per le imprese la logica del Codice è opposta a quella della vecchia legge
+              fallimentare: prima si cerca di conservare l&apos;attività, e solo se non c&apos;è nulla
+              da conservare si liquida. Lo strumento centrale è la <strong>composizione
+              negoziata</strong>, una trattativa riservata con i creditori assistita da un
+              esperto indipendente, in cui l&apos;imprenditore mantiene la gestione dell&apos;azienda.
+            </p>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Due cose la rendono conveniente più di quanto si creda. Le <strong>misure
+              protettive</strong> sospendono le azioni dei creditori per quattro mesi,
+              prorogabili fino a dodici. E le <strong>misure premiali fiscali</strong>
+              riducono interessi e sanzioni sui debiti tributari e consentono una rateazione
+              fino a settantadue rate, con un vantaggio pratico non da poco: la firma
+              dell&apos;esperto sull&apos;istanza fa prova della difficoltà, che altrimenti andrebbe
+              dimostrata.
+            </p>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Se le trattative non riescono, resta il <strong>concordato semplificato</strong>,
+              che porta alla liquidazione senza il voto dei creditori. E a monte di tutto ci
+              sono gli obblighi di allerta: dal 2026 i creditori pubblici, cioè INPS, INAIL,
+              Agenzia delle Entrate e Riscossione, devono segnalare le esposizioni oltre certe
+              soglie. Ricevere una di quelle segnalazioni e ignorarla è, oggi, uno dei modi più
+              rapidi per aggravare la responsabilità degli amministratori.
+            </p>
+
+            <h2 className="text-2xl font-bold tracking-tight mb-4 mt-12 font-[family-name:var(--font-heading)]">
+              Cartelle, pignoramenti e fideiussioni
+            </h2>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Accanto alle procedure ci sono le partite quotidiane, che spesso arrivano prima:
+              una cartella notificata male, un estratto di ruolo che si scopre per caso, un
+              fermo sull&apos;auto, un pignoramento dello stipendio. Qui non servono procedure
+              concorsuali ma verifiche puntuali, a partire da due: se la notifica è avvenuta
+              regolarmente e se il credito è ancora esigibile o si è prescritto.
+            </p>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Discorso a parte meritano le <strong>fideiussioni firmate in banca</strong>, quasi
+              sempre al momento di ottenere un affidamento per la propria impresa. Molti
+              contratti ricalcano uno schema predisposto dall&apos;associazione bancaria che la
+              giurisprudenza ha ritenuto in contrasto con la normativa antitrust, e su questo le
+              Corti tornano continuamente. Per chi ha garantito i debiti di una società che non
+              ce l&apos;ha fatta, è una verifica che vale la pena fare prima di pagare.
+            </p>
+
+            <h2 className="text-2xl font-bold tracking-tight mb-4 mt-12 font-[family-name:var(--font-heading)]">
+              Quanto durano e come si comincia
+            </h2>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              La ristrutturazione dei debiti del consumatore e il concordato minore richiedono
+              in genere <strong>dai sei ai dodici mesi</strong> dal deposito all&apos;omologazione.
+              La liquidazione controllata dura fino a <strong>tre anni</strong>, al termine dei
+              quali l&apos;esdebitazione arriva di diritto. La composizione negoziata è più rapida,
+              ma la sua durata dipende da quanto reggono le trattative.
+            </p>
+            <p className="text-zinc-700 leading-relaxed mb-4">
+              Si comincia sempre dallo stesso punto: mettere in fila i debiti, capire verso chi
+              sono e cosa si possiede davvero. Per le procedure di sovraindebitamento serve poi
+              un <strong>organismo di composizione della crisi</strong>, che nomina il gestore e
+              accompagna la domanda in tribunale. Il costo dipende dalla procedura e dalla
+              complessità della situazione: è una delle prime cose che diciamo, non l&apos;ultima.
+            </p>
+          </div>
+
+
+          {/* Domande frequenti */}
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-bold tracking-tight mb-6 mt-12 font-[family-name:var(--font-heading)]">
+              Domande frequenti
+            </h2>
+            <div className="space-y-6 mb-4">
+              <div>
+                <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                  Chi può accedere alle procedure di sovraindebitamento?
+                </h3>
+                <p className="text-zinc-700 leading-relaxed">Chi non è soggetto alle procedure concorsuali ordinarie: consumatori, professionisti, imprenditori minori, imprenditori agricoli e start-up innovative. È il primo requisito da verificare, perché una domanda presentata nella procedura sbagliata viene dichiarata inammissibile.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                  Si possono cancellare i debiti se non si possiede nulla?
+                </h3>
+                <p className="text-zinc-700 leading-relaxed">Sì, con l&apos;esdebitazione del debitore incapiente prevista dall&apos;art. 283 del Codice della crisi. Si ottiene una sola volta nella vita e per quattro anni dal decreto resta l&apos;obbligo di pagare se sopravvengono utilità rilevanti; trascorsi i quattro anni diventa definitiva.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                  Quanto dura una procedura di sovraindebitamento?
+                </h3>
+                <p className="text-zinc-700 leading-relaxed">La ristrutturazione dei debiti del consumatore e il concordato minore richiedono in genere dai sei ai dodici mesi dal deposito all&apos;omologazione. La liquidazione controllata dura fino a tre anni, al termine dei quali l&apos;esdebitazione arriva di diritto.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                  Cosa significa essere meritevoli?
+                </h3>
+                <p className="text-zinc-700 leading-relaxed">Che i debiti non siano stati contratti con colpa grave, malafede o frode. Non basta essere indebitati: il tribunale guarda come ci si è arrivati. La giurisprudenza recente nega il beneficio, per esempio, a chi ha omesso sistematicamente di versare le imposte pur avendo redditi.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                  La mia impresa è in difficoltà: da dove comincio?
+                </h3>
+                <p className="text-zinc-700 leading-relaxed">Dalla composizione negoziata, una trattativa riservata con i creditori assistita da un esperto indipendente, in cui l&apos;imprenditore mantiene la gestione. Dà accesso a misure protettive dalle azioni dei creditori e a benefici fiscali su interessi, sanzioni e rateazione dei debiti tributari.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                  La fideiussione firmata in banca si può contestare?
+                </h3>
+                <p className="text-zinc-700 leading-relaxed">In alcuni casi sì. Molti contratti ricalcano uno schema predisposto dall&apos;associazione bancaria che la giurisprudenza ha ritenuto in contrasto con la normativa antitrust. È una verifica da fare sul testo del contratto firmato, prima di pagare.</p>
+              </div>
+            </div>
           </div>
 
           {/* Le guide */}
