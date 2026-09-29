@@ -4,6 +4,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { news } from "@/lib/news";
 import { articoli } from "@/lib/articoli";
+import { approfondimenti } from "@/lib/approfondimenti";
+import { NEWS_IN_EVIDENZA, TEMI_DEBITI_CRISI } from "@/lib/debiti-e-crisi";
 import { SezioniSwitcher } from "@/components/sezioni-switcher";
 
 export const metadata: Metadata = {
@@ -52,7 +54,17 @@ const FILONI = [
 ];
 
 export default function DebitiECrisiPage() {
-  const ultime = news.filter((n) => n.categoria === "crisi-debiti").slice(0, 8);
+  // Selezione redazionale: le news restano in "generale", qui compaiono solo
+  // quelle scelte a mano (lib/debiti-e-crisi.ts) più quelle già marcate
+  // con la categoria dell'argomento.
+  const ultime = news
+    .filter((n) => n.categoria === "crisi-debiti" || NEWS_IN_EVIDENZA.includes(n.slug))
+    .slice(0, 8);
+
+  // Gli approfondimenti dell'argomento entrano da soli.
+  const approfondimentiTema = approfondimenti
+    .filter((a) => TEMI_DEBITI_CRISI.test(`${a.titolo} ${a.sommario}`))
+    .slice(0, 4);
   const guide = SLUG_GUIDE.map((s) => articoli.find((a) => a.slug === s)).filter(
     (a): a is NonNullable<typeof a> => Boolean(a),
   );
@@ -356,6 +368,32 @@ export default function DebitiECrisiPage() {
               </div>
             </div>
           </div>
+
+          {approfondimentiTema.length > 0 && (
+            <>
+              <h2 className="text-2xl font-bold tracking-tight mb-2 mt-12 font-[family-name:var(--font-heading)]">
+                Gli approfondimenti
+              </h2>
+              <p className="text-zinc-600 mb-6 max-w-3xl">
+                Quando una novità su crisi, riscossione o garanzie bancarie cambia qualcosa
+                di concreto, la trattiamo per esteso.
+              </p>
+              <div className="grid gap-4 md:grid-cols-2 mb-16">
+                {approfondimentiTema.map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={`/approfondimenti/${a.slug}`}
+                    className="block bg-white rounded-xl p-5 border border-zinc-200 hover:border-[var(--color-accent)] transition-colors"
+                  >
+                    <h3 className="font-semibold text-zinc-900 mb-2 font-[family-name:var(--font-heading)]">
+                      {a.titolo}
+                    </h3>
+                    <p className="text-sm text-zinc-600 leading-relaxed line-clamp-3">{a.sommario}</p>
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
 
           {/* Le guide */}
           <h2 className="text-2xl font-bold tracking-tight mb-2 font-[family-name:var(--font-heading)]">
