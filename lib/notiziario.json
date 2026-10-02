@@ -1,18 +1,18 @@
 {
-  "data": "2026-09-24",
-  "data_label": "settimana dal 23 al 24 settembre",
+  "data": "2026-09-30",
+  "data_label": "settimana dal 24 al 30 settembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 190,
+  "durata_sec": 175,
   "n_news": 8,
   "titoli": [
+    "Rottamazione-quinquies: il 30 settembre scade la seconda rata",
+    "Cambio d'uso in B&B: addio al bonus ristrutturazioni",
+    "Risanamento aziendale: un test misura se l'impresa può farcela",
+    "Concordato preventivo biennale 2026-2027: adesione entro il 2 novembre",
+    "Rottamazione-quinquies e fermo auto: i chiarimenti del Fisco",
+    "Iva al 10% sull'immobile ristrutturato, anche se di lusso",
     "Cpb 2026-2027: schede di sintesi nel cassetto fiscale",
-    "Pensioni: in arrivo +3 mesi sui requisiti nel biennio 2029-2030",
-    "Rateizzazione: piccoli residui di interessi non fanno decadere",
-    "Pensioni: requisiti in aumento di 3 mesi nel biennio 2029-2030",
-    "Cripto-attività: al via controlli mirati del Fisco con questionari",
-    "Superbonus: nei controlli fiscali si guardano anche i file digitali",
-    "Bonus colonnine domestiche: domande aperte dal 22 settembre",
-    "Carta Dedicata a te 2026-2027: istruzioni Inps e sconto del 15%"
+    "Pensioni: in arrivo +3 mesi sui requisiti nel biennio 2029-2030"
   ]
 }
