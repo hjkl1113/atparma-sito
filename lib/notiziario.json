@@ -1,18 +1,18 @@
 {
-  "data": "2026-09-30",
-  "data_label": "settimana dal 24 al 30 settembre",
+  "data": "2026-10-06",
+  "data_label": "settimana dal 4 al 6 ottobre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
   "durata_sec": 175,
   "n_news": 8,
   "titoli": [
-    "Rottamazione-quinquies: il 30 settembre scade la seconda rata",
-    "Cambio d'uso in B&B: addio al bonus ristrutturazioni",
-    "Risanamento aziendale: un test misura se l'impresa può farcela",
-    "Concordato preventivo biennale 2026-2027: adesione entro il 2 novembre",
-    "Rottamazione-quinquies e fermo auto: i chiarimenti del Fisco",
-    "Iva al 10% sull'immobile ristrutturato, anche se di lusso",
-    "Cpb 2026-2027: schede di sintesi nel cassetto fiscale",
-    "Pensioni: in arrivo +3 mesi sui requisiti nel biennio 2029-2030"
+    "Locazioni brevi: nuova banca dati unica per i controlli",
+    "Fisco al lavoro sul 2023: controlli su fatture e corrispettivi",
+    "Concordato preventivo biennale: decadenza e premialità a rischio",
+    "Transazione fiscale: i controlli del giudice per autorizzarla",
+    "Soci di SRL: niente contributi INPS sugli utili non distribuiti",
+    "Cartelle: notifica valida anche a familiare non convivente",
+    "Pompe di calore e caldaie: in arrivo nuovi incentivi energia",
+    "CPB 2026-2027: debiti fiscali sotto 5.000 euro per aderire"
   ]
 }
