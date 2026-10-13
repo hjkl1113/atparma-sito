@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
+import { collectionJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Blog — Guide fiscali",
@@ -17,6 +18,13 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(collectionJsonLd({
+        name: "Blog",
+        description:
+          "Guide e approfondimenti fiscali dello studio A.T. Consulting Parma.",
+        path: "/blog",
+        items: articoli.map((x) => ({ titolo: x.titolo, path: `/blog/${x.slug}` })),
+      }))} />
       <SiteHeader current="blog" />
 
       <main className="pt-32 pb-24">

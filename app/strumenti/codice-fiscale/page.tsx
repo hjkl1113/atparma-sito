@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Tool } from "./tool";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { webAppJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Calcolo codice fiscale online — gratuito",
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
 export default function CodiceFiscalePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(webAppJsonLd({
+        name: "Calcolo del codice fiscale",
+        description:
+          "Calcola il codice fiscale da nome, cognome, data e comune di nascita, e verifica un codice esistente.",
+        path: "/strumenti/codice-fiscale",
+      }))} />
       <SiteHeader current="strumenti" />
 
       <main className="pt-32 pb-24 bg-[var(--color-surface)] min-h-screen">

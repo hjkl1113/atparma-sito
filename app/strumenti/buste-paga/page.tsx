@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Tool } from "./tool";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { webAppJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Calcolo busta paga 2026 — da lordo a netto",
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
 export default function BustaPagaPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(webAppJsonLd({
+        name: "Calcolatore busta paga",
+        description:
+          "Converti la RAL nel netto mensile in busta paga, o il netto nel lordo, con IRPEF, contributi INPS, detrazioni e addizionali.",
+        path: "/strumenti/buste-paga",
+      }))} />
       <SiteHeader current="strumenti" />
 
       <main className="pt-32 pb-24 bg-[var(--color-surface)] min-h-screen">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Tool } from "./tool";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { webAppJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Calcolo IMU 2026 — prima e seconda casa",
@@ -21,6 +22,12 @@ export const metadata: Metadata = {
 export default function ImuPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(webAppJsonLd({
+        name: "Calcolatore IMU",
+        description:
+          "Calcola l'IMU dovuta su abitazione principale, seconda casa e pertinenze, con rendita catastale e aliquote comunali.",
+        path: "/strumenti/imu",
+      }))} />
       <SiteHeader current="strumenti" />
 
       <main className="pt-32 pb-24 bg-[var(--color-surface)] min-h-screen">

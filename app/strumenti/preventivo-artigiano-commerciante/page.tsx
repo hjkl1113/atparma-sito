@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PreventivoWizard } from "./wizard";
+import { webAppJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Preventivo P.IVA artigiano o commerciante",
@@ -20,6 +21,12 @@ export const metadata: Metadata = {
 export default function PreventivoArtigianoPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(webAppJsonLd({
+        name: "Preventivo apertura P.IVA artigiano o commerciante",
+        description:
+          "Stima in due minuti il costo di apertura di una Partita IVA da artigiano o commerciante, fra onorario dello studio e tributi dovuti.",
+        path: "/strumenti/preventivo-artigiano-commerciante",
+      }))} />
       <SiteHeader current="strumenti" />
 
       <main className="pt-32 pb-24 bg-[var(--color-surface)] min-h-screen">

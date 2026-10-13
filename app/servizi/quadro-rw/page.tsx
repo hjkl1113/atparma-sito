@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { serviceJsonLd, faqPageJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Quadro RW 2026: chi è obbligato e come fare",
@@ -88,6 +89,15 @@ const FAQS = [
 export default function QuadroRwPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(serviceJsonLd({
+        name: "Compilazione del quadro RW",
+        description:
+          "Compilazione del quadro RW per conti esteri, criptovalute, immobili e broker stranieri, a cura di dottori commercialisti.",
+        path: "/servizi/quadro-rw",
+        serviceType: "Dichiarazione dei redditi e monitoraggio fiscale",
+        prezzoDa: 98,
+      }))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(faqPageJsonLd(FAQS))} />
       <SiteHeader current="servizi" />
 
       <main className="pt-32 pb-24">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Calculator } from "./calculator";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { webAppJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Calcolatore forfettario 2026 — Conviene?",
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
 export default function CalcolatoreForfettarioPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(webAppJsonLd({
+        name: "Calcolatore regime forfettario",
+        description:
+          "Verifica se il regime forfettario conviene: imposta sostitutiva, contributi previdenziali e confronto con il regime ordinario.",
+        path: "/calcolatori/forfettario",
+      }))} />
       <SiteHeader current="strumenti" />
 
       <main className="pt-32 pb-24 bg-[var(--color-surface)] min-h-screen">

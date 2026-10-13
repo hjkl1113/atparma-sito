@@ -5,6 +5,7 @@ import { news } from "@/lib/news";
 import { NotiziarioPlayer } from "@/components/notiziario-player";
 import { AggiornamentiArchivio } from "@/components/aggiornamenti-archivio";
 import { SezioniSwitcher } from "@/components/sezioni-switcher";
+import { collectionJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Aggiornamenti fiscali",
@@ -25,6 +26,13 @@ export const metadata: Metadata = {
 export default function AggiornamentiFiscaliPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(collectionJsonLd({
+        name: "Aggiornamenti fiscali",
+        description:
+          "Novita fiscali commentate, aggiornate con le fonti normative di riferimento.",
+        path: "/aggiornamenti-fiscali",
+        items: news.map((x) => ({ titolo: x.titolo, path: `/aggiornamenti-fiscali/${x.slug}` })),
+      }))} />
       <SiteHeader current="aggiornamenti" />
 
       <main className="pt-32 pb-24">

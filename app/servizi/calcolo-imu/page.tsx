@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Stepper } from "@/components/stepper";
 import { InclusiEsclusiCards } from "@/components/inclusi-esclusi-cards";
 import { formatBreakdown, formatEur } from "@/app/lib/pricing-utils";
+import { serviceJsonLd, faqPageJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Calcolo IMU professionale online — €39",
@@ -100,6 +101,15 @@ const FAQS = [
 export default function CalcoloImuPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(serviceJsonLd({
+        name: "Calcolo IMU professionale",
+        description:
+          "Calcolo di acconto e saldo IMU a cura di dottori commercialisti, con modello F24 pronto e delega per l'addebito automatico.",
+        path: "/servizi/calcolo-imu",
+        serviceType: "Calcolo imposte locali",
+        prezzoDa: 39,
+      }))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(faqPageJsonLd(FAQS))} />
       <SiteHeader current="servizi" />
 
       <main className="pt-32 pb-24">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { RavvedimentoRwForm } from "./ravvedimento-form";
+import { serviceJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Ravvedimento quadro RW: cripto e conti esteri",
@@ -26,6 +27,14 @@ export const metadata: Metadata = {
 export default function RavvedimentoRwPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(serviceJsonLd({
+        name: "Ravvedimento operoso del quadro RW",
+        description:
+          "Regolarizzazione di cripto, conti esteri, immobili e broker non dichiarati negli anni precedenti, con calcolo di sanzioni ridotte e interessi.",
+        path: "/servizi/quadro-rw-ravvedimento",
+        serviceType: "Ravvedimento operoso",
+        prezzoDa: 499,
+      }))} />
       <SiteHeader current="servizi" />
 
       <main className="pt-32 pb-24">

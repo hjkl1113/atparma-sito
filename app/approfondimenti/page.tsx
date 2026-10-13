@@ -10,6 +10,7 @@ import {
 } from "@/lib/approfondimenti";
 import { SezioniSwitcher } from "@/components/sezioni-switcher";
 import { formatDataEstesa } from "@/lib/format-data";
+import { collectionJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Approfondimenti normativi",
@@ -30,6 +31,13 @@ export default function ApprofondimentiPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(collectionJsonLd({
+        name: "Approfondimenti normativi",
+        description:
+          "Circolari speciali e guide normative a cura dei dottori commercialisti dello studio.",
+        path: "/approfondimenti",
+        items: approfondimenti.map((x) => ({ titolo: x.titolo, path: `/approfondimenti/${x.slug}` })),
+      }))} />
       <SiteHeader current="approfondimenti" />
 
       <main className="pt-32 pb-24">

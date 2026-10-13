@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Tool } from "./tool";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { webAppJsonLd, jsonLdScript } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Scadenziario fiscale 2026 — IVA, IRPEF, INPS",
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
 export default function ScadenzePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(webAppJsonLd({
+        name: "Scadenziario fiscale",
+        description:
+          "Calendario delle scadenze fiscali filtrabile per profilo contributivo, con esportazione in formato iCal.",
+        path: "/strumenti/scadenze",
+      }))} />
       <SiteHeader current="strumenti" />
 
       <main className="pt-32 pb-24 bg-[var(--color-surface)] min-h-screen">
