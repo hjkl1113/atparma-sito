@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Commercialista online: come sceglierlo e perché conviene | A.T. Consulting Parma",
+  title: "Commercialista online: come sceglierlo",
   description: "Guida alla scelta del commercialista online: vantaggi, cosa verificare, differenze con lo studio tradizionale e quando conviene davvero.",
   alternates: {
     canonical: "/blog/commercialista-online",

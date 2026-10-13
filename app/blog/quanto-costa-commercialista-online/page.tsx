@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Quanto costa un commercialista online nel 2026? | A.T. Consulting Parma",
+  title: "Quanto costa un commercialista online nel 2026?",
   description:
-    "Guida ai prezzi reali di un commercialista online nel 2026: tariffe medie per Partita IVA, dichiarazioni, consulenza. Differenze tra studio tradizionale, piattaforme e dottore commercialista online vero.",
+    "Prezzi reali di un commercialista online nel 2026: tariffe per Partita IVA, dichiarazioni e consulenza. Studio tradizionale, piattaforme e professionista.",
   alternates: {
     canonical: "/blog/quanto-costa-commercialista-online",
   },

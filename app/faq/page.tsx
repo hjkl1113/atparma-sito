@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "FAQ — Domande frequenti | A.T. Consulting Parma",
+  title: "FAQ — Domande frequenti",
   description:
     "Risposte alle domande più frequenti su Partita IVA, 730, consulenza fiscale, scadenze e servizi di A.T. Consulting Parma. Commercialista online.",
   alternates: {

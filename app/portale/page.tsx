@@ -5,9 +5,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { PortaleSection } from "@/components/portale-section";
 
 export const metadata: Metadata = {
-  title: "Il portale clienti A.T. Consulting Parma — come funziona",
+  title: "Il portale clienti — come funziona",
   description:
-    "Spazio professionale online incluso in ogni servizio. Documenti, scadenzario, messaggi, archivio 10 anni. Registrazione gratuita, pagamento solo dopo la firma del mandato. Niente software da installare.",
+    "Spazio professionale online incluso in ogni servizio: documenti, scadenzario, messaggi, archivio 10 anni. Registrazione gratuita, nulla da installare.",
   alternates: {
     canonical: "/portale",
   },

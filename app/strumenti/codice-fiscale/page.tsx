@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Calcolo codice fiscale online — gratuito | A.T. Consulting Parma",
+  title: "Calcolo codice fiscale online — gratuito",
   description:
     "Calcola il tuo codice fiscale italiano in pochi secondi. Strumento gratuito con oltre 7.900 comuni italiani. Decodifica anche codici fiscali esistenti.",
   alternates: {

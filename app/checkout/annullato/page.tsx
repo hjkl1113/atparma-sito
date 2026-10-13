@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pagamento annullato — A.T. Consulting Parma",
+  title: "Pagamento annullato",
 };
 
 export default function AnnullatoPage() {

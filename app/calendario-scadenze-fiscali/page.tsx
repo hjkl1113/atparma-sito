@@ -4,9 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Calendario scadenze fiscali 2026: tutte le date | A.T. Consulting Parma",
+  title: "Calendario scadenze fiscali 2026: tutte le date",
   description:
-    "Calendario completo delle scadenze fiscali 2026 mese per mese: F24, IVA, IRPEF, IRES, contributi INPS, dichiarazioni dei redditi. Per forfettari, partite IVA semplificate, SRL e sostituti d'imposta.",
+    "Scadenze fiscali 2026 mese per mese: F24, IVA, IRPEF, IRES, contributi INPS e dichiarazioni. Per forfettari, partite IVA, SRL e sostituti d'imposta.",
   alternates: {
     canonical: "/calendario-scadenze-fiscali",
   },

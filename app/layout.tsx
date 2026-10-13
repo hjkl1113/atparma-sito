@@ -25,7 +25,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.atparma.com"),
-  title: "A.T. Consulting Parma — Commercialista online, consulenza fiscale e finanziaria",
+  title: {
+    // Il suffisso del brand è centralizzato qui: le pagine figlie indicano
+    // solo il proprio titolo e Next lo compone. Tenerlo corto (13 caratteri)
+    // lascia spazio utile prima del troncamento di Google, intorno ai 60.
+    default: "Commercialista online a Parma — A.T. Consulting",
+    template: "%s | A.T. Parma",
+  },
   description:
     "Studio commercialista a Parma. Commercialista online per 730, Partita IVA, consulenza fiscale, crisi di impresa e consulenza finanziaria. Dal 2005, da Parma a tutta Italia.",
   keywords: [
@@ -47,7 +53,13 @@ export const metadata: Metadata = {
     google: "tnet8EIZX4RXI4SWgdLc6OGSOQOV-0UrOgADZNYOYgg",
   },
   openGraph: {
-    title: "A.T. Consulting Parma — Commercialista online, consulenza fiscale e finanziaria",
+    title: {
+    // Il suffisso del brand è centralizzato qui: le pagine figlie indicano
+    // solo il proprio titolo e Next lo compone. Tenerlo corto (13 caratteri)
+    // lascia spazio utile prima del troncamento di Google, intorno ai 60.
+    default: "Commercialista online a Parma — A.T. Consulting",
+    template: "%s | A.T. Parma",
+  },
     description:
       "Studio commercialista a Parma. 730 online, apertura Partita IVA, consulenza fiscale e finanziaria per imprese e professionisti. Dal 2005, da Parma a tutta Italia.",
     url: "https://www.atparma.com",
@@ -65,7 +77,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "A.T. Consulting Parma — Commercialista online, consulenza fiscale e finanziaria",
+    title: {
+    // Il suffisso del brand è centralizzato qui: le pagine figlie indicano
+    // solo il proprio titolo e Next lo compone. Tenerlo corto (13 caratteri)
+    // lascia spazio utile prima del troncamento di Google, intorno ai 60.
+    default: "Commercialista online a Parma — A.T. Consulting",
+    template: "%s | A.T. Parma",
+  },
     description:
       "Studio commercialista a Parma. 730 online, Partita IVA, consulenza fiscale, crisi di impresa.",
     images: ["/images/parma-duomo-aerial.jpg"],

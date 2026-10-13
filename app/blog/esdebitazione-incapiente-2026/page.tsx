@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Esdebitazione del debitore incapiente 2026 | A.T. Parma",
+  title: "Esdebitazione del debitore incapiente 2026",
   description:
     "Esdebitazione del debitore incapiente (art. 283 CCII): cancellare i debiti a zero per la persona fisica meritevole senza patrimonio. Requisiti, OCC, procedura.",
   alternates: {

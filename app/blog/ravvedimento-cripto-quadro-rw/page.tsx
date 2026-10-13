@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Ravvedimento operoso cripto: sanare omissioni Bitcoin e exchange esteri | A.T. Consulting Parma",
+  title: "Ravvedimento cripto: sanare le omissioni",
   description:
-    "Hai cripto su Binance, Coinbase, MetaMask mai dichiarate? Il ravvedimento operoso riduce le sanzioni fino all'89%. Guida pratica con esempi numerici, scadenze, lettere di compliance AdE.",
+    "Hai cripto su Binance, Coinbase o MetaMask mai dichiarate? Il ravvedimento riduce le sanzioni fino all'89%. Esempi numerici, scadenze, lettere AdE.",
   alternates: {
     canonical: "/blog/ravvedimento-cripto-quadro-rw",
   },

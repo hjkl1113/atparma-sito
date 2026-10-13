@@ -7,7 +7,7 @@ import { AggiornamentiArchivio } from "@/components/aggiornamenti-archivio";
 import { SezioniSwitcher } from "@/components/sezioni-switcher";
 
 export const metadata: Metadata = {
-  title: "Aggiornamenti fiscali | A.T. Consulting Parma",
+  title: "Aggiornamenti fiscali",
   description:
     "News e aggiornamenti fiscali per privati, partite IVA e imprese. Scadenze, bonus, novità normative spiegate in modo chiaro dallo studio A.T. Consulting Parma.",
   alternates: {

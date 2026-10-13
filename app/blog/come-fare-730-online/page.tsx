@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Come fare il 730 online: guida completa 2026 | A.T. Consulting Parma",
+  title: "Come fare il 730 online: guida completa 2026",
   description: "Guida al modello 730 online nel 2026: chi deve presentarlo, scadenze, documenti necessari, detrazioni e quando conviene rivolgersi a un commercialista.",
   alternates: {
     canonical: "/blog/come-fare-730-online",

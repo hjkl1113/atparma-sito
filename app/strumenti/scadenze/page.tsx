@@ -4,9 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Scadenziario fiscale 2026 — calendario IVA, IRPEF, INPS | A.T. Consulting Parma",
+  title: "Scadenziario fiscale 2026 — IVA, IRPEF, INPS",
   description:
-    "Tutte le scadenze fiscali 2026 in un unico calendario. Filtra per profilo (forfettario, ordinario, società, dipendenti). Scarica in formato iCal per aggiungere al tuo calendario.",
+    "Tutte le scadenze fiscali 2026 in un calendario. Filtra per profilo — forfettario, ordinario, società, dipendenti — e scarica in formato iCal.",
   alternates: {
     canonical: "/strumenti/scadenze",
   },

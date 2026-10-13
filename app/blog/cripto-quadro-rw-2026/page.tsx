@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Cripto-attività in dichiarazione 2026: quadro RW per Bitcoin, exchange, wallet e DeFi | A.T. Consulting Parma",
+  title: "Cripto in dichiarazione 2026: il quadro RW",
   description:
-    "Guida completa alla dichiarazione delle cripto-attività nel 2026: chi è obbligato, niente soglia, imposta sostitutiva 0,2%, plusvalenze 26%, exchange esteri, wallet privati, NFT, stablecoin, DeFi, permute cripto-cripto.",
+    "Cripto-attività in dichiarazione 2026: chi è obbligato, imposta sostitutiva 0,2%, plusvalenze 26%, exchange esteri, wallet, NFT, stablecoin e DeFi.",
   alternates: {
     canonical: "/blog/cripto-quadro-rw-2026",
   },

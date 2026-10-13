@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Concordato minore 2026: guida alla procedura | A.T. Parma",
+  title: "Concordato minore 2026: guida alla procedura",
   description:
-    "Concordato minore 2026: procedura di sovraindebitamento per imprenditori minori e professionisti. Voto creditori, OCC, falcidia, cram-down fiscale. Artt. 74-83 CCII.",
+    "Concordato minore 2026: procedura di sovraindebitamento per imprenditori minori e professionisti. Voto dei creditori, OCC, falcidia, artt. 74-83 CCII.",
   alternates: {
     canonical: "/blog/concordato-minore-2026",
   },

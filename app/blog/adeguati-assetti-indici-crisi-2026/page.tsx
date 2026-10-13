@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Adeguati assetti e indici della crisi 2026 | A.T. Parma",
+  title: "Adeguati assetti e indici della crisi 2026",
   description:
-    "Adeguati assetti e indici della crisi 2026: obblighi ex art. 2086 c.c. e CCII, DSCR, segnali di allarme, doveri di sindaci e revisori, responsabilita amministratori.",
+    "Adeguati assetti 2026: obblighi ex art. 2086 c.c. e CCII, DSCR, segnali di allarme, doveri di sindaci e revisori, responsabilità degli amministratori.",
   alternates: {
     canonical: "/blog/adeguati-assetti-indici-crisi-2026",
   },

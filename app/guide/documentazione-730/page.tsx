@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GuidaActions } from "../print-actions";
 
 export const metadata: Metadata = {
-  title: "Checklist documenti 730 — Guida gratuita | A.T. Consulting Parma",
+  title: "Checklist documenti 730 — Guida gratuita",
   description:
     "Checklist completa dei documenti necessari per la dichiarazione 730. Scarica o stampa il PDF.",
   alternates: { canonical: "/guide/documentazione-730" },

@@ -53,7 +53,7 @@ export function buildMacroSezioneMetadata(sectionSlug: MacroSezioneSlug): Metada
   if (!section) return {};
 
   return {
-    title: `${section.title} — Servizi online | A.T. Consulting Parma`,
+    title: `${section.title} — Servizi online`,
     description: section.shortDescription,
     alternates: {
       canonical: `/servizi/${section.slug}`,

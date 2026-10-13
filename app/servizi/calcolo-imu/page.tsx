@@ -7,9 +7,9 @@ import { InclusiEsclusiCards } from "@/components/inclusi-esclusi-cards";
 import { formatBreakdown, formatEur } from "@/app/lib/pricing-utils";
 
 export const metadata: Metadata = {
-  title: "Calcolo IMU professionale online — €39 | A.T. Consulting Parma",
+  title: "Calcolo IMU professionale online — €39",
   description:
-    "Calcolo IMU acconto e saldo da dottori commercialisti, F24 pronto, opzione delega F24 con addebito automatico Entratel inclusa. Da €39 per il primo immobile, €69 per 2-5 immobili.",
+    "Calcolo IMU acconto e saldo da dottori commercialisti, con F24 pronto e delega Entratel inclusa. Da €39 per il primo immobile, €69 da 2 a 5 immobili.",
   alternates: {
     canonical: "/servizi/calcolo-imu",
   },

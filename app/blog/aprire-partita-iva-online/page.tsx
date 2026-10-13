@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Come aprire la Partita IVA online nel 2026 | A.T. Consulting Parma",
+  title: "Come aprire la Partita IVA online nel 2026",
   description: "Guida completa all'apertura della Partita IVA online nel 2026: costi, tempi, regime forfettario, codice ATECO e documenti necessari.",
   alternates: {
     canonical: "/blog/aprire-partita-iva-online",

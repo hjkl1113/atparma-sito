@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "730 precompilato: conviene farlo da soli? Guida 2026 | A.T. Consulting Parma",
+  title: "730 precompilato: conviene farlo da soli?",
   description:
-    "Il 730 precompilato sembra pronto, ma spesso non lo è. Detrazioni dimenticate, errori di calcolo, casi che non gestisce: quando affidarsi a un dottore commercialista conviene davvero.",
+    "Il 730 precompilato sembra pronto, ma spesso non lo è: detrazioni dimenticate, errori di calcolo, casi che non gestisce. Quando conviene il commercialista.",
   alternates: {
     canonical: "/blog/730-precompilato-conviene",
   },

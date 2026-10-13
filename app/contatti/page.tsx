@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Contatti — Richiedi una consulenza | A.T. Consulting Parma",
+  title: "Contatti — Richiedi una consulenza",
   description:
     "Contattaci per una consulenza fiscale, finanziaria o per la crisi di impresa. Commercialista online a Parma. Risposta entro 24 ore.",
   alternates: {

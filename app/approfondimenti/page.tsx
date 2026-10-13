@@ -12,7 +12,7 @@ import { SezioniSwitcher } from "@/components/sezioni-switcher";
 import { formatDataEstesa } from "@/lib/format-data";
 
 export const metadata: Metadata = {
-  title: "Approfondimenti normativi | A.T. Consulting Parma",
+  title: "Approfondimenti normativi",
   description:
     "Decreti, riforme e circolari spiegati per intero: cosa cambia, per chi e da quando. Approfondimenti a cura dei dottori commercialisti di A.T. Consulting Parma.",
   alternates: { canonical: "/approfondimenti" },

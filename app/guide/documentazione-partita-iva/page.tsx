@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GuidaActions } from "../print-actions";
 
 export const metadata: Metadata = {
-  title: "Checklist apertura Partita IVA — Guida gratuita | A.T. Consulting Parma",
+  title: "Checklist apertura Partita IVA — Guida gratuita",
   description:
     "Checklist completa dei documenti necessari per aprire la Partita IVA. Scarica o stampa il PDF.",
   alternates: { canonical: "/guide/documentazione-partita-iva" },

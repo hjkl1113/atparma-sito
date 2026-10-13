@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ImuCheckoutForm } from "./imu-checkout-form";
 
 export const metadata: Metadata = {
-  title: "Checkout — Calcolo IMU professionale | A.T. Consulting Parma",
+  title: "Checkout — Calcolo IMU professionale",
   description:
     "Acquista il calcolo IMU professionale online. Pagamento sicuro Stripe o PayPal, fattura elettronica entro 24h, F24 pronto in 3 giorni lavorativi.",
   alternates: {

@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Composizione negoziata 2026: guida crisi impresa | A.T. Parma",
+  title: "Composizione negoziata crisi d'impresa 2026",
   description:
     "Composizione negoziata della crisi 2026: come funziona, costi, esperto indipendente, misure protettive. Guida CCII aggiornata Correttivo-ter D.Lgs. 136/2024.",
   alternates: {

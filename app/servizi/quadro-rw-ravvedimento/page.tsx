@@ -4,9 +4,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { RavvedimentoRwForm } from "./ravvedimento-form";
 
 export const metadata: Metadata = {
-  title: "Ravvedimento operoso quadro RW: sana cripto e conti esteri non dichiarati | A.T. Consulting Parma",
+  title: "Ravvedimento quadro RW: cripto e conti esteri",
   description:
-    "Hai dimenticato di dichiarare cripto, conti Revolut/Wise, immobili o broker esteri negli anni passati? Il ravvedimento operoso riduce le sanzioni fino a 1/8. Preventivo personalizzato, partenza da €499.",
+    "Cripto, conti Revolut o Wise, immobili e broker esteri non dichiarati? Il ravvedimento riduce le sanzioni fino a 1/8. Preventivo su misura, da €499.",
   alternates: {
     canonical: "/servizi/quadro-rw-ravvedimento",
   },

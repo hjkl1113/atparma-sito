@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Sovraindebitamento 2026: come uscire dai debiti | A.T. Parma",
+  title: "Sovraindebitamento 2026: come uscire dai debiti",
   description:
     "Sovraindebitamento 2026: chi può accedere, esdebitazione incapiente (art. 283 CCII), procedure OCC. Guida aggiornata legge 3/2012 + Correttivo-ter.",
   alternates: {

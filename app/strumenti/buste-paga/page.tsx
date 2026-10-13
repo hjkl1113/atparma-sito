@@ -4,9 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Calcolo busta paga 2026 — da lordo a netto | A.T. Consulting Parma",
+  title: "Calcolo busta paga 2026 — da lordo a netto",
   description:
-    "Calcola il netto in busta paga dalla RAL (o il lordo dal netto). IRPEF 2026, contributi INPS, detrazione lavoro dipendente, addizionali, trattamento integrativo.",
+    "Calcola il netto in busta paga dalla RAL o il lordo dal netto: IRPEF 2026, contributi INPS, detrazioni, addizionali, trattamento integrativo.",
   alternates: {
     canonical: "/strumenti/buste-paga",
   },

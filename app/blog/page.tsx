@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { articoli } from "@/lib/articoli";
 
 export const metadata: Metadata = {
-  title: "Blog — Guide fiscali | A.T. Consulting Parma",
+  title: "Blog — Guide fiscali",
   description:
     "Guide fiscali, articoli e approfondimenti su dichiarazioni, Partita IVA e consulenza fiscale online. A cura di A.T. Consulting Parma.",
   alternates: {

@@ -4,9 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Quadro RW 2026: chi è obbligato e come dichiarare conti, cripto e immobili esteri | A.T. Consulting Parma",
+  title: "Quadro RW 2026: chi è obbligato e come fare",
   description:
-    "Guida al quadro RW 2026 per residenti in Italia con conti esteri, cripto, immobili o broker stranieri. Sanzioni 3-15% per omissioni. Servizi di compilazione da €98.",
+    "Guida al quadro RW 2026 per chi ha conti esteri, cripto, immobili o broker stranieri. Sanzioni 3-15% per le omissioni. Compilazione da €98.",
   alternates: {
     canonical: "/servizi/quadro-rw",
   },

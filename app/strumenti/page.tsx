@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Grid } from "./grid";
 
 export const metadata: Metadata = {
-  title: "Strumenti gratuiti per forfettari, P.IVA, commercialisti | A.T. Consulting Parma",
+  title: "Strumenti gratuiti per P.IVA e forfettari",
   description:
     "Calcolatori e strumenti gratuiti per privati, professionisti e commercialisti: forfettario, codice fiscale, busta paga, IMU, scadenze fiscali 2026.",
   alternates: {

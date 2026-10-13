@@ -9,9 +9,9 @@ import { NEWS_IN_EVIDENZA, TEMI_DEBITI_CRISI } from "@/lib/debiti-e-crisi";
 import { SezioniSwitcher } from "@/components/sezioni-switcher";
 
 export const metadata: Metadata = {
-  title: "Debiti e crisi: sovraindebitamento, cartelle, fideiussioni | A.T. Consulting Parma",
+  title: "Debiti e crisi: sovraindebitamento e cartelle",
   description:
-    "Uscire dai debiti: sovraindebitamento ed esdebitazione per i privati, composizione negoziata e concordato per le imprese, cartelle e riscossione, fideiussioni bancarie. Guide e novità aggiornate.",
+    "Uscire dai debiti: sovraindebitamento ed esdebitazione per i privati, composizione negoziata e concordato per le imprese, cartelle e fideiussioni.",
   alternates: { canonical: "/debiti-e-crisi" },
   openGraph: {
     title: "Debiti e crisi — A.T. Consulting Parma",

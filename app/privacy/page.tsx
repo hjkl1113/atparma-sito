@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — A.T. Consulting Parma",
+  title: "Privacy Policy",
   description: "Informativa sulla privacy e trattamento dei dati personali ai sensi del GDPR.",
   alternates: {
     canonical: "/privacy",

@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Calcolo IMU 2026 — abitazione principale, seconda casa | A.T. Consulting Parma",
+  title: "Calcolo IMU 2026 — prima e seconda casa",
   description:
     "Calcola l'IMU 2026: rendita catastale, categoria, quota e mesi di possesso, aliquota comunale. Esenzione abitazione principale. Acconto giugno, saldo dicembre.",
   alternates: {

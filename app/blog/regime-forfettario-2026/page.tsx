@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Regime forfettario 2026: guida completa | A.T. Consulting Parma",
+  title: "Regime forfettario 2026: guida completa",
   description:
-    "Guida aggiornata al regime forfettario 2026: requisiti, coefficienti di redditività, imposta sostitutiva 5% e 15%, contributi, cause di esclusione, esempi numerici. Quando conviene davvero.",
+    "Regime forfettario 2026: requisiti, coefficienti di redditività, imposta sostitutiva 5% e 15%, contributi, cause di esclusione. Quando conviene davvero.",
   alternates: {
     canonical: "/blog/regime-forfettario-2026",
   },

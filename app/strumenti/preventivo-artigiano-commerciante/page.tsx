@@ -4,9 +4,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { PreventivoWizard } from "./wizard";
 
 export const metadata: Metadata = {
-  title: "Preventivo apertura P.IVA artigiano o commerciante | A.T. Consulting Parma",
+  title: "Preventivo P.IVA artigiano o commerciante",
   description:
-    "Calcola in 2 minuti il preventivo indicativo per aprire P.IVA artigiano o commerciante in Italia nel 2026. Onorario studio + tributi e diritti pubblici (CCIAA, SIA, SCIA, USL). Stima trasparente, offerta puntuale via mandato.",
+    "Preventivo in 2 minuti per aprire P.IVA da artigiano o commerciante nel 2026: onorario dello studio più tributi e diritti (CCIAA, SCIA, INPS).",
   alternates: { canonical: "/strumenti/preventivo-artigiano-commerciante" },
   openGraph: {
     title: "Quanto costa aprire P.IVA artigiano o commerciante nel 2026",

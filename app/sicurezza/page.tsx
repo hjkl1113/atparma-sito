@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { TrustBadges } from "@/components/trust-badges";
 
 export const metadata: Metadata = {
-  title: "Sicurezza e riservatezza dei dati — A.T. Consulting Parma",
+  title: "Sicurezza e riservatezza dei dati",
   description:
     "Come proteggiamo i tuoi dati personali e fiscali: infrastruttura UE, cifratura AES-256, TLS 1.3, firma eIDAS, conservazione GDPR. A.T. Consulting Parma.",
   alternates: { canonical: "/sicurezza" },

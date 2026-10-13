@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Calcolatore forfettario 2026 — Conviene? | A.T. Consulting Parma",
+  title: "Calcolatore forfettario 2026 — Conviene?",
   description:
     "Calcolatore gratuito: confronta regime forfettario e ordinario 2026 in base ai tuoi ricavi, spese e cassa previdenziale. Scopri quale ti fa risparmiare di più.",
   alternates: {

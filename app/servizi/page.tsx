@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Servizi — Commercialista online Parma | A.T. Consulting Parma",
+  title: "Servizi — Commercialista online Parma",
   description:
     "Consulenza fiscale, 730 online, apertura Partita IVA, crisi di impresa e consulenza finanziaria. Commercialista online a Parma per imprese e professionisti.",
   alternates: {

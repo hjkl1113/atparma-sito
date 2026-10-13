@@ -5,9 +5,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Concordato semplificato 2026: liquidazione | A.T. Parma",
+  title: "Concordato semplificato 2026: liquidazione",
   description:
-    "Concordato semplificato per la liquidazione del patrimonio (art. 25-sexies CCII): sbocco della composizione negoziata, niente voto creditori, ruolo ausiliario, omologazione.",
+    "Concordato semplificato per la liquidazione (art. 25-sexies CCII): sbocco della composizione negoziata, niente voto dei creditori, omologazione.",
   alternates: {
     canonical: "/blog/concordato-semplificato-liquidazione-2026",
   },
