@@ -1,18 +1,18 @@
 {
-  "data": "2026-10-06",
-  "data_label": "settimana dal 4 al 6 ottobre",
+  "data": "2026-10-15",
+  "data_label": "settimana dal 13 al 15 ottobre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 175,
+  "durata_sec": 143,
   "n_news": 8,
   "titoli": [
-    "Locazioni brevi: nuova banca dati unica per i controlli",
-    "Fisco al lavoro sul 2023: controlli su fatture e corrispettivi",
-    "Concordato preventivo biennale: decadenza e premialità a rischio",
-    "Transazione fiscale: i controlli del giudice per autorizzarla",
-    "Soci di SRL: niente contributi INPS sugli utili non distribuiti",
-    "Cartelle: notifica valida anche a familiare non convivente",
-    "Pompe di calore e caldaie: in arrivo nuovi incentivi energia",
-    "CPB 2026-2027: debiti fiscali sotto 5.000 euro per aderire"
+    "Concordato preventivo biennale: integrativa valida senza sanzioni",
+    "Esdebitazione: imposta di registro solo in misura fissa",
+    "Previdenza complementare: online due nuovi simulatori",
+    "Dichiarazioni dei redditi: le scadenze di ottobre e novembre 2026",
+    "Concordato preventivo biennale 2026-2027: regole più rigide",
+    "Pensionati: dal 15 ottobre modifica aliquota Irpef online",
+    "Concordato minore: anche l'avvocato può accedere in continuità",
+    "Rottamazione-quinquies entrate locali: domande dal 16 ottobre"
   ]
 }
