@@ -1,18 +1,18 @@
 {
-  "data": "2026-10-15",
-  "data_label": "settimana dal 13 al 15 ottobre",
+  "data": "2026-10-23",
+  "data_label": "settimana dal 21 al 23 ottobre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 143,
+  "durata_sec": 141,
   "n_news": 8,
   "titoli": [
-    "Concordato preventivo biennale: integrativa valida senza sanzioni",
-    "Esdebitazione: imposta di registro solo in misura fissa",
-    "Previdenza complementare: online due nuovi simulatori",
-    "Dichiarazioni dei redditi: le scadenze di ottobre e novembre 2026",
-    "Concordato preventivo biennale 2026-2027: regole più rigide",
-    "Pensionati: dal 15 ottobre modifica aliquota Irpef online",
-    "Concordato minore: anche l'avvocato può accedere in continuità",
-    "Rottamazione-quinquies entrate locali: domande dal 16 ottobre"
+    "CPB 2026-2027: l'adesione senza requisiti è priva di effetti",
+    "Irpef agricola: ipotesi proroga al 2027 delle esenzioni",
+    "Contributi Gestione Separata INPS: da quando scatta la prescrizione",
+    "Sovraindebitamento: nuove istruzioni del Fisco sui controlli",
+    "Regime forfetario: il MEF apre una consultazione pubblica",
+    "Sovraindebitamento: chiarimenti su concordato minore e ristrutturazione",
+    "Fisco e POS: controlli incrociati più precisi dal 2026",
+    "Pensione d'invalidità e redditi autonomi 2025: comunicazione entro il 31 ottobre"
   ]
 }
