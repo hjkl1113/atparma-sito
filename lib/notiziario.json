@@ -1,18 +1,18 @@
 {
-  "data": "2026-10-23",
-  "data_label": "settimana dal 21 al 23 ottobre",
+  "data": "2026-10-27",
+  "data_label": "settimana dal 23 al 27 ottobre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 141,
+  "durata_sec": 140,
   "n_news": 8,
   "titoli": [
+    "Ravvedimento speciale: pagamento anche in 10 rate mensili",
+    "Iva detraibile sull'acquisto di abitazioni: cosa chiede il Fisco",
+    "Fatture 2023: in arrivo via PEC le lettere di compliance",
+    "Sovraindebitamento: le nuove istruzioni del Fisco nella circolare 9/E",
+    "Concordato preventivo biennale 2026-2027: adesione entro il 2.11",
+    "Ecobonus: dati non inviati all'Enea? La detrazione non si perde",
     "CPB 2026-2027: l'adesione senza requisiti è priva di effetti",
-    "Irpef agricola: ipotesi proroga al 2027 delle esenzioni",
-    "Contributi Gestione Separata INPS: da quando scatta la prescrizione",
-    "Sovraindebitamento: nuove istruzioni del Fisco sui controlli",
-    "Regime forfetario: il MEF apre una consultazione pubblica",
-    "Sovraindebitamento: chiarimenti su concordato minore e ristrutturazione",
-    "Fisco e POS: controlli incrociati più precisi dal 2026",
-    "Pensione d'invalidità e redditi autonomi 2025: comunicazione entro il 31 ottobre"
+    "Irpef agricola: ipotesi proroga al 2027 delle esenzioni"
   ]
 }
