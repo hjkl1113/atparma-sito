@@ -1,18 +1,18 @@
 {
-  "data": "2026-10-27",
-  "data_label": "settimana dal 23 al 27 ottobre",
+  "data": "2026-11-05",
+  "data_label": "settimana dal 4 al 5 novembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 140,
+  "durata_sec": 144,
   "n_news": 8,
   "titoli": [
-    "Ravvedimento speciale: pagamento anche in 10 rate mensili",
-    "Iva detraibile sull'acquisto di abitazioni: cosa chiede il Fisco",
-    "Fatture 2023: in arrivo via PEC le lettere di compliance",
-    "Sovraindebitamento: le nuove istruzioni del Fisco nella circolare 9/E",
-    "Concordato preventivo biennale 2026-2027: adesione entro il 2.11",
-    "Ecobonus: dati non inviati all'Enea? La detrazione non si perde",
-    "CPB 2026-2027: l'adesione senza requisiti è priva di effetti",
-    "Irpef agricola: ipotesi proroga al 2027 delle esenzioni"
+    "Assegnazione ai soci ed estromissione agevolata: le novità in arrivo",
+    "Bonus mobili confermato anche per il 2027: ecco cosa cambia",
+    "Lavoro notturno e festivo: la detassazione cambia casa nel nuovo Tuir",
+    "Caro energia: sconti in bolletta legati a investimenti green",
+    "Forfettario 2027: confermata la soglia di 35.000 euro",
+    "Cedolare secca al 21% in arrivo per le locazioni commerciali",
+    "Forfettari: soglia 85.000 euro e franchigia IVA non coincidono",
+    "Assunzioni agevolate di giovani: cosa succede con la riassunzione"
   ]
 }
