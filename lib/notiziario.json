@@ -1,18 +1,17 @@
 {
-  "data": "2026-11-05",
-  "data_label": "settimana dal 4 al 5 novembre",
+  "data": "2026-11-12",
+  "data_label": "settimana dal 9 al 12 novembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 144,
-  "n_news": 8,
+  "durata_sec": 122,
+  "n_news": 7,
   "titoli": [
-    "Assegnazione ai soci ed estromissione agevolata: le novità in arrivo",
-    "Bonus mobili confermato anche per il 2027: ecco cosa cambia",
-    "Lavoro notturno e festivo: la detassazione cambia casa nel nuovo Tuir",
-    "Caro energia: sconti in bolletta legati a investimenti green",
-    "Forfettario 2027: confermata la soglia di 35.000 euro",
-    "Cedolare secca al 21% in arrivo per le locazioni commerciali",
-    "Forfettari: soglia 85.000 euro e franchigia IVA non coincidono",
-    "Assunzioni agevolate di giovani: cosa succede con la riassunzione"
+    "Ravvedimento speciale 2020-2023: pronti i codici tributo",
+    "Agevolazioni auto per disabili: ok anche con mezzo cointestato",
+    "Pensioni rivalutate da gennaio 2027: aumento subito in cedolino",
+    "Stipendi pagati in contanti: sanzione fissa, niente diffida",
+    "Concordato minore: come vengono trattati i debiti fiscali",
+    "Under 30: tassa all'1% sugli aumenti di stipendio nel 2027",
+    "Ristrutturare i debiti: serve un piano, non solo più tempo"
   ]
 }
