@@ -1,18 +1,18 @@
 {
-  "data": "2026-11-18",
-  "data_label": "settimana dal 13 al 18 novembre",
+  "data": "2026-11-27",
+  "data_label": "settimana dal 25 al 27 novembre",
   "periodo": "settimanale",
   "file": "/notiziario/latest.m4a",
-  "durata_sec": 153,
+  "durata_sec": 142,
   "n_news": 8,
   "titoli": [
-    "Concordato preventivo biennale: errori correggibili con integrativa",
-    "Criptovalute: plusvalenze tassate al 26%, niente aliquota ridotta",
-    "Debitori incapienti: esdebitazione senza avvocato e auto salva",
-    "Ravvedimento speciale 2023: attenzione alla tenuta del concordato",
-    "Valore degli immobili: l'accertamento va sempre motivato",
-    "Credito al consumo: nuove regole europee in arrivo",
-    "Concordato minore: aperto anche ai professionisti con debiti",
-    "Taglio Irpef al 33% fino a 55.000 euro: chi ci guadagna davvero"
+    "Rottamazione: rate del 30 novembre pagabili fino al 7 dicembre",
+    "Dichiarazione dei redditi 2026 non inviata: in arrivo le lettere del Fisco",
+    "Iva, fatture a cavallo d'anno: detrazione solo dal ricevimento",
+    "Prima casa: agevolazione ok se l'immobile posseduto è inagibile",
+    "Cedolare secca anche se l'inquilino è un'impresa: sì della Cassazione",
+    "Cartelle esattoriali: il Covid non proroga i termini del Fisco",
+    "Codice della crisi: esdebitazione più semplice e auto salva",
+    "Incentivo \"ON\" a tasso zero: sportello chiuso dal 1° dicembre"
   ]
 }
